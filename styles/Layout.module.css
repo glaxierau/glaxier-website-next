@@ -1,0 +1,8 @@
+.main {
+  margin: 0;
+  width: 100vw;
+  max-width: 100%;
+  box-sizing: border-box;
+  font-family: "Poppins";
+  overflow-x: hidden;
+}

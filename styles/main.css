@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body,
+html {
+  margin: 0;
+  width: 100vw;
+  max-width: 100%;
+  box-sizing: border-box;
+  font-family: "Poppins";
+  overflow-x: hidden;
+}
+
+p {
+  font-size: 0.75rem;
+}
+
+/* nav links */
+
+.navlist a {
+  color: #90acd1;
+  font-size: 13px;
+}
+.navlist a:hover {
+  color: #be4938;
+  cursor: pointer;
+}
+.seperator {
+  border-color: #90acd1;
+}
+
+/* footer */
+
+.footer p,
+a {
+  @apply text-xs my-3 text-white font-thin;
+}
+input,
+input::placeholder {
+  font-size: 0.75rem;
+  color: #c7c7c7;
+  outline: none;
+}
