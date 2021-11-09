@@ -20,7 +20,7 @@ const About = () => {
             <ProjectSection />
             <div className="lg:py-20 py-10">
                 <Title title="Glaxier Team" lineWidth={220} />
-                <div className="flex flex-wrap lg:p-10 p-4 py-10 justify-center items-center">
+                <div className="flex flex-wrap p-4 py-10 lg:px-20 md:px-2 px-4 justify-around items-center">
                     <TeamBadge position="Digital Advertising Specialist" />
                     <TeamBadge position="Digital Advertising Specialist" />
                     <TeamBadge position="Digital Advertising Specialist" />
