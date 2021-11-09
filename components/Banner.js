@@ -3,7 +3,7 @@ import AppButton from './appButton'
 
 const Banner = () => {
     return (
-        <div className="overflow-x-hidden">
+        <div className="relative overflow-x-hidden">
             <div className="w-full bg-gray-600 h-screen">
                 <img src="/assets/img/home/meeting.png" className="w-screen h-screen object-cover" />
             </div>
