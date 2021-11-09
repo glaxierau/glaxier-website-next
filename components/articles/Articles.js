@@ -6,7 +6,7 @@ import ArticleCard from './ArticleCard'
 function Articles() {
     return (
         <>
-            <div className="relative lg:py-0 pt-10 h-full">
+            <div className="relative lg:py-0 pt-10 h-full" id="articles">
                 <Title title="Our Latest Articles" lineColor="#CFD7F1" lineWidth={600} />
                 <div className="pb-40" />
                 <div className="bg_artboard relative py-10">
