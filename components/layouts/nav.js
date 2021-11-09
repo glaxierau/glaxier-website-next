@@ -9,10 +9,12 @@ const Nav = () => {
         <>
             <nav className="fixed hidden lg:flex z-40 top-0 bg-white w-full h-20 px-28 justify-between ">
                 {/* logo section */}
-                <div className="w-40 h-20 flex items-center justify-start">
-                    {/* logo here... */}
-                    <Image src={"/assets/img/header/logo.png"} alt="logo" width="110" height="30" />
-                </div>
+                <Link href="/" >
+                    <div className="w-40 h-20 flex items-center justify-start cursor-pointer">
+                        {/* logo here... */}
+                        <Image src={"/assets/img/header/logo.png"} alt="logo" width="110" height="30" />
+                    </div>
+                </Link>
                 {/* navigation */}
                 <ul className="navlist flex w-3/5 justify-around items-center">
                     {/* <Link href="/about" >Home</Link> */}
