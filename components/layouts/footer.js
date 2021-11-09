@@ -10,11 +10,13 @@ const Footer = () => {
                         {/* logo */}
                         <img src="/assets/img/footer/logo.png" className="lg:mb-0 md:mb-0 mb-5" alt="logo" width="140px" />
                         {/* location  */}
-                        <FooterLink src="/assets/img/footer/location.svg" alt="location" width={true} content="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy" />
-                        {/* phone  */}
-                        <FooterLink src="/assets/img/footer/phone.svg" href="tel:+61424 555 959" alt="phone" content="+61424 555 959" />
-                        {/* email  */}
-                        <FooterLink src="/assets/img/footer/mail.svg" href="mailto:tan@glaxier.com.au" alt="mail" content="tan@glaxier.com.au" />
+                        <div className="my-6 mx-4" >
+                            <FooterLink src="/assets/img/footer/location.svg" alt="location" width={true} content="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy" />
+                            {/* phone  */}
+                            <FooterLink src="/assets/img/footer/phone.svg" href="tel:+61424 555 959" alt="phone" content="+61424 555 959" />
+                            {/* email  */}
+                            <FooterLink src="/assets/img/footer/mail.svg" href="mailto:tan@glaxier.com.au" alt="mail" content="tan@glaxier.com.au" />
+                        </div>
                     </div>
                     <div className="flex items-start justify-start  w-full h-full lg:py-6 md:py-6 py-9">
                         {/* quick links */}
