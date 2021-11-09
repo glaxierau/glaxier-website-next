@@ -18,7 +18,7 @@ const About = () => {
                 <Title title="Industry Experience" lineWidth={600} height={30} />
             </div>
             <ProjectSection />
-            <div className="py-20">
+            <div className="lg:py-20 py-10">
                 <Title title="Glaxier Team" lineWidth={220} />
                 <div className="flex flex-wrap lg:p-10 p-4 py-10 justify-center items-center">
                     <TeamBadge position="Digital Advertising Specialist" />
