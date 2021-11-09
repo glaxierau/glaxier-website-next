@@ -10,6 +10,7 @@ html {
   box-sizing: border-box;
   font-family: "Poppins";
   overflow-x: hidden;
+  scroll-behavior: smooth;
 }
 
 p {

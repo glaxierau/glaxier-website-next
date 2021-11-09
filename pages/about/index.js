@@ -5,7 +5,8 @@ import SectionTitle from '../../components/common/SectionTitle'
 import Title from '../../components/title'
 import TeamBadge from '../../components/icons/TeamBadge'
 import SectionHead from '../../components/common/Head'
-const About = () => {
+import AboutToggle from '../../components/about/AboutToggle'
+const About = ({ children }) => {
     return (
         <div>
             <SectionHead title="About" description="desc desc" />
@@ -18,6 +19,7 @@ const About = () => {
             </div>
             <div className="bg-white-dark py-20">
                 <Title title="Industry Experience" lineWidth={600} height={30} />
+                <AboutToggle />
             </div>
             <ProjectSection />
             <div className="lg:py-20 py-10">
