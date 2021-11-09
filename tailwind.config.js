@@ -29,7 +29,7 @@ module.exports = {
       },
       boxShadow: {
         around: '0px 2px 27px -6px rgba(0,0,0,0.59)',
-        sm: '0px 1px 9px -1px rgba(0,0,0,0.33)',
+        sm: '0px 3px 9px 0px rgba(0,0,0,0.28)',
       },
       height: {
         lg: '26rem',

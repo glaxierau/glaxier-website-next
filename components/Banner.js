@@ -16,7 +16,8 @@ const Banner = () => {
                 </div>
             </div>
             <div className="absolute bottom-0 w-screen">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1917.95 320.19"><title>glxShape</title><path d="M1.48,1046.88l1110.81-260.6,240.23,78.44L1602,720.54l317.44,202.85v159.34H1.48Z" transform="translate(-1.48 -720.54)" fill="#F9F9FF" /></svg>
+                <img src="/shape.svg" />
+                {/* <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1917.95 320.19"><title>glxShape</title><path d="M1.48,1046.88l1110.81-260.6,240.23,78.44L1602,720.54l317.44,202.85v159.34H1.48Z" transform="translate(-1.48 -720.54)" fill="#F9F9FF" /></svg> */}
             </div>
         </div>
     )
