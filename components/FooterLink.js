@@ -1,11 +1,11 @@
-
-const FooterLink = ({ src, alt, href, content, width }) => {
+import Link from 'next/link'
+const FooterLink = ({ src, alt, href = '/', content, width }) => {
     return (
-        <div className="flex items-center justify-start p-3 pt-6">
+        <div className="flex items-center justify-start">
             <img src={src} alt={alt} />
-            <a href={href}>
-                <p className="" className={`${width && 'w-4/5'} ml-5`}>{content}</p>
-            </a>
+            <Link href={href}>
+                <p className={`${width && 'w-4/5'} ml-5 cursor-pointer`}>{content}</p>
+            </Link>
         </div>
     )
 }
