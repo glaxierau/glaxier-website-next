@@ -16,7 +16,7 @@ function Articles() {
                         <ArticleCard />
                     </div>
                     <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2">
-                        <AppButton title="READ MORE" width={200} bgColor="bg-white" bgColorHover="hover:bg-red" txtColor="text-blue-dark" txtColorHover="hover:text-white" />
+                        <AppButton title="READ MORE" width={200} bgColor="bg-white" bgColorHover="hover:bg-red" txtColor="text-blue-dark" txtColorHover="hover:text-white" link="/blog" />
                     </div>
                 </div>
             </div>
