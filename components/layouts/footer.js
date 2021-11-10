@@ -1,5 +1,6 @@
 import React from 'react'
 import FooterLink from '../FooterLink'
+import Link from 'next/link'
 
 const Footer = () => {
     return (
@@ -23,10 +24,10 @@ const Footer = () => {
                         <div className="flex flex-col w-1/3">
                             <h4 className="text-base text-white">Quick links</h4>
                             <br />
-                            <a href="/#home">Home</a>
-                            <a href="/#about">About us</a>
-                            <a href="/#blog">Blog</a>
-                            <a href="/#contact">Contact us</a>
+                            <Link href="/">Home</Link>
+                            <Link href="/about">About us</Link>
+                            <Link href="/blog">Blog</Link>
+                            <Link href="/contact">Contact us</Link>
                         </div>
                         {/* services  */}
                         <div className="flex flex-col w-1/2">
