@@ -27,7 +27,7 @@ const About = () => {
                             Our Brand, Glaxier came from the word glacier. It’s a metaphor for an iceberg which may seem small above the water but is much biggest under water. Digital marketing effort may not be apparent but it is a crucial part of the succeess of many bussinesses no matter the size. In a way, our team act as the under-water part of a glacier for you business, laying groud work for the sucess everyone appreciate.
                         </p>
                     </div> <br />
-                    <AppButton title="VIEW MORE" width={200} bgColor="bg-blue" bgColorHover="hover:bg-red" txtColor="text-white" />
+                    <AppButton title="VIEW MORE" width={200} bgColor="bg-blue" bgColorHover="hover:bg-red" txtColor="text-white" link="/about" />
                 </div>
             </div>
             <style jsx>
