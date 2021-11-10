@@ -97,7 +97,7 @@ const Blog = () => {
                     <SectionTitle title="BLOG" description="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed" />
                 </div >
                 <div className="bg-white-dark -mt-6 pt-10 py-40">
-                    <Slider {...settings} className="mx-auto w-11/12 px-20">
+                    <Slider {...settings} className="mx-auto w-11/12 lg:px-20 md:px-10 px-4">
                         <ArticleCard />
                         <ArticleCard />
                         <ArticleCard />
