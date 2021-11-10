@@ -4,7 +4,7 @@ const Services = () => {
     return (
         <div className="flex lg:flex-row flex-col ">
             <div className="w-full relative">
-                <img src="/assets/img/images/services_meeting.jpg" className="lg:h-screen h-1/2 lg:object-cover object-cover" style={{ objectPosition: '100% 0px' }} alt="meeting" />
+                <img src="/assets/img/images/services_meeting.jpg" className="lg:h-screen h-96 object-cover" style={{ objectPosition: '100% 0px' }} alt="meeting" />
                 <img src="/assets/svg/shape.svg" alt="Shape for services" className="lg:hidden grid absolute bottom-0 w-screen " />
             </div>
             <div className="w-full h-screen bg-white-dark relative flex lg:justify-center justify-start items-center flex-col">
