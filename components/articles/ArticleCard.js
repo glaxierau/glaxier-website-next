@@ -3,7 +3,8 @@ import React from 'react'
 const ArticleCard = () => {
     return (
         <>
-            <div className="h-lg lg:w-lg w-80 bg-white shadow-sm lg:m-4 m-2">
+            <div className=" bg-white shadow-sm lg:m-6 m-2 cursor-pointer hover:shadow-around">
+                {/* <div className="h-lg lg:w-lg w-80 bg-white shadow-sm lg:m-4 m-2"> */}
                 {/* image  */}
                 <div className="article_image" style={{ backgroundImage: `url('/assets/img/images/article.jpg')` }} />
                 {/* meta */}
