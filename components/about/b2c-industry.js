@@ -1,6 +1,6 @@
 import React from 'react'
 import Slider from "react-slick";
-import useWindowSize, { mobileScreen, withSizeLessThan } from '../../hooks/useWindowSize';
+import { withSizeLessThan } from '../../hooks/useWindowSize';
 
 const B2cIndustry = () => {
     let sm = withSizeLessThan(700)
