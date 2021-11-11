@@ -9,7 +9,7 @@ import AboutToggle from '../../components/about/AboutToggle'
 const About = ({ children }) => {
     return (
         <div>
-            <SectionHead title="About" description="desc desc" />
+            <SectionHead title="About | Glaxier" description="desc desc" />
             <div className="py-2">
                 <img src="/shape.svg" alt="glaxier shape" />
                 <SectionTitle title="ABOUT" description="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed" />

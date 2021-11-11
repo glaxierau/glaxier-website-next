@@ -5,6 +5,7 @@ const SectionHead = ({ title, description, children }) => {
         <div>
             <Head>
                 <title>{title}</title>
+                <link rel="shortcut icon" href="/favicon.png" />
                 <meta name="viewport" content="initial-scale=1.0, width=device-width" />
                 <meta name="description" content={description} />
                 {children}

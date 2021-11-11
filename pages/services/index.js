@@ -1,13 +1,15 @@
 import React from 'react'
+import SectionHead from '../../components/common/Head'
 
 const Services = () => {
     return (
         <div className="flex lg:flex-row flex-col ">
+            <SectionHead title="Services | Glaxier" description="desc desc" />
             <div className="w-full relative">
-                <img src="/assets/img/images/services_meeting.jpg" className="lg:h-screen h-96 object-cover" style={{ objectPosition: '100% 0px' }} alt="meeting" />
+                <img src="/assets/img/images/services_meeting.jpg" className="lg:h-screen w-full h-96 object-cover" style={{ objectPosition: '100% 0px' }} alt="meeting" />
                 <img src="/assets/svg/shape.svg" alt="Shape for services" className="lg:hidden grid absolute bottom-0 w-screen " />
             </div>
-            <div className="w-full h-screen bg-white-dark relative flex lg:justify-center justify-start items-center flex-col">
+            <section className="w-full lg:h-screen h-auto bg-white-dark relative flex lg:justify-center justify-start items-center flex-col">
                 <img src="/assets/svg/services.svg" alt="Shape for services" className="hidden lg:grid absolute -left-32 h-screen" />
                 <section className="lg:px-20 md:px-10 px-5">
                     <div className="flex items-center justify-start ">
@@ -23,7 +25,7 @@ const Services = () => {
                     </div>
                     <p className="font-thin text-black-light py-10">orem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren.</p>
                 </section>
-            </div>
+            </section>
         </div>
     )
 }

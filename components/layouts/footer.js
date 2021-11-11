@@ -24,10 +24,10 @@ const Footer = () => {
                         <div className="flex flex-col w-1/3">
                             <h4 className="text-base text-white">Quick links</h4>
                             <br />
-                            <Link href="/">Home</Link>
-                            <Link href="/about">About us</Link>
-                            <Link href="/blog">Blog</Link>
-                            <Link href="/contact">Contact us</Link>
+                            <Link href="/"><a>Home</a></Link>
+                            <Link href="/about"><a>About us</a></Link>
+                            <Link href="/blog"><a>Blog</a></Link>
+                            <Link href="/contact"><a>Contact us</a></Link>
                         </div>
                         {/* services  */}
                         <div className="flex flex-col w-1/2">

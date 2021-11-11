@@ -18,7 +18,7 @@ const Blog = () => {
     return (
         <>
             <div>
-                <SectionHead title="Blog" />
+                <SectionHead title="Blog | Glaxier" />
                 <div className="py-2">
                     <img src="/shape.svg" alt="glaxier shape" />
                     <SectionTitle title="BLOG" description="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed" />
