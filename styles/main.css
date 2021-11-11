@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+*:focus {
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
 body,
 html {
   margin: 0;

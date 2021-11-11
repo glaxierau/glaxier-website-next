@@ -1,8 +1,8 @@
 export let blog_settings = {
     dots: true,
-    speed: 500,
+    speed: 300,
     arrows: false,
-    slidesToShow: 3,
+    slidesToShow: 2,
     slidesToScroll: 3,
     slidesPerRow: 2,
     infinite: false,
@@ -11,14 +11,14 @@ export let blog_settings = {
             breakpoint: 1200,
             settings: {
                 slidesToShow: 2,
-                slidesToScroll: 2,
+                slidesToScroll: 1,
             }
         },
         {
             breakpoint: 600,
             settings: {
                 slidesToShow: 1,
-                slidesToScroll: 2,
+                slidesToScroll: 1,
             }
         }
     ]
@@ -27,7 +27,7 @@ export let blog_settings = {
 
 export let about_settings = {
     dots: true,
-    speed: 500,
+    speed: 300,
     arrows: false,
     slidesToShow: 3,
     slidesToScroll: 3,
@@ -52,7 +52,7 @@ export let about_settings = {
 
 export let testimonial_settings = {
     dots: false,
-    speed: 500,
+    speed: 300,
     arrows: true,
     slidesToShow: 3,
     slidesToScroll: 3,
