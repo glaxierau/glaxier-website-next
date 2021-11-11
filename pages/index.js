@@ -11,8 +11,8 @@ export default function Home() {
   return (
     <div>
       <Head>
-        <title>Home</title>
-        <link rel="icon" href="/favicon.ico" />
+        <title>Home | Glaxier</title>
+        <link rel="shortcut icon" href="/favicon.png" />
       </Head>
       <Banner />
       <Service />

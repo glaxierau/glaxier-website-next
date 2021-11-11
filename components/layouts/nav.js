@@ -17,7 +17,6 @@ const Nav = () => {
                 </Link>
                 {/* navigation */}
                 <ul className="navlist flex w-3/5 justify-around items-center">
-                    {/* <Link href="/about" >Home</Link> */}
                     <Link href="/">Home</Link>
                     <Link href="/about">About us</Link>
                     <Link href="/services">Services</Link>
