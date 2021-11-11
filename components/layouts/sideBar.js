@@ -1,37 +1,17 @@
-import React, { useReducer, useState } from 'react'
-import Link from 'next/link'
+import React, { useState } from 'react'
 import LanguageSection from '../common/LanguageSection'
-import { setAllToFalse } from '../../hooks/setAllToFalse'
-import { setToTrue } from '../../hooks/setToTrue'
 import SearchBox from '../common/SearchBox'
+import NavList from '../common/NavList'
 
 const SideBar = ({ open, setNav }) => {
-    const [navs, updateNav] = useState([
+    const navs = [
         { type: "home", href: '/', name: 'Home', active: true },
         { type: "about", href: '/about', name: 'About Us', active: false },
         { type: "services", href: '/services', name: 'Services', active: false },
         { type: "blog", href: '/blog', name: 'Blog', active: false },
         { type: "contact", href: '/contact', name: 'Contact Us', active: false }
-    ])
+    ]
 
-
-    const onToggleNav = (nav) => {
-        setAllToFalse(navs, updateNav)
-        setToTrue(nav, navs, updateNav)
-        setNav(false)
-    }
-
-    const NavList = () => {
-        return (
-            <>
-                {navs.map(nav => (
-                    <Link key={nav.type} href={nav.href}>
-                        <p className={`text-${nav.active ? 'red' : 'purple'}  hover:text-red cursor-pointer font-extrabold text-3xl my-5`} onClick={() => onToggleNav(nav)}>{nav.name}</p>
-                    </Link>
-                ))}
-            </>
-        )
-    }
 
     return (
         <>
@@ -43,7 +23,7 @@ const SideBar = ({ open, setNav }) => {
                             <LanguageSection />
                             <br />
                             <br />
-                            <NavList />
+                            <NavList navs={navs} setNav={setNav} />
                             <div style={{ height: '1px' }} className="my-10 mx-auto w-full bg-purple" />
                             <SearchBox />
                         </div>
