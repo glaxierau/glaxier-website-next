@@ -10,7 +10,7 @@ const MobileNav = () => {
     return (
         <div>
             <nav className="fixed lg:hidden z-50 top-0 h-14 bg-white w-full flex items-center justify-between px-4">
-                <Link href="/"><img src="/assets/img/header/logo.png" width="100" alt="logo" /></Link>
+                <Link href="/"><img src="/assets/img/header/logo.png" width="100" alt="logo" className="cursor-pointer" /></Link>
                 <div className="flex items-center justify-center pt-2 pl-2">
                     <button className={`outline-none hamburger hamburger--slider-r ${isOpen && 'is-active'}`} type="button" onClick={() => toggleNav()} >
                         <span className="hamburger-box">
