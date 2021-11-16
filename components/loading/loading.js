@@ -6,8 +6,9 @@ const Loading = () => {
             <div className="loadingio-spinner-spinner-trh2ojn2wz"><div className="ldio-fbpffvwvkcs">
                 <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
             </div></div>
-            Under-Development
+            Under-Development...
             <style jsx>{`
+            
     @keyframes ldio-fbpffvwvkcs {
         0% { opacity: 1 }
         100% { opacity: 0 }

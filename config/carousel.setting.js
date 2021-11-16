@@ -2,8 +2,8 @@ export let blog_settings = {
     dots: true,
     speed: 300,
     arrows: false,
-    slidesToShow: 2,
-    slidesToScroll: 3,
+    slidesToShow: 3,
+    slidesToScroll: 1,
     slidesPerRow: 2,
     infinite: false,
     responsive: [
@@ -30,7 +30,7 @@ export let about_settings = {
     speed: 300,
     arrows: false,
     slidesToShow: 3,
-    slidesToScroll: 3,
+    slidesToScroll: 2,
     infinite: false,
     responsive: [
         {
