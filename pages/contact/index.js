@@ -1,12 +1,16 @@
 import React from 'react'
-import SectionHead from '../../components/common/Head'
-import Loading from '../../components/loading/loading'
+import Goals from './goals'
+import Industry from './industry-of-business'
+import Layout from './layout'
+
 
 const Contact = () => {
     return (
         <div>
-            <SectionHead title="Contact Us | Glaxier" />
-            <Loading />
+            <Layout>
+                <div className="h-20" />
+                <Goals />
+            </Layout>
         </div>
     )
 }

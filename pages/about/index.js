@@ -11,7 +11,6 @@ const About = ({ children }) => {
         <div>
             <SectionHead title="About Us | Glaxier" description="desc desc" />
             <div className="py-2">
-                <img src="/shape.svg" alt="glaxier shape" />
                 <SectionTitle title="ABOUT" description="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed" />
             </div >
             <div className="lg:mt-0 -mt-10">
