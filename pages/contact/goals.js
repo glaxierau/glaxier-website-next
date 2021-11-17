@@ -6,6 +6,7 @@ import Head from '../../components/common/Head'
 import { setAllToFalse } from '../../hooks/setAllToFalse'
 import { setToTrue } from '../../hooks/setToTrue'
 import { withSizeLessThan } from '../../hooks/useWindowSize'
+import { setToFalse } from '../../hooks/setToFalse'
 
 const Goals = () => {
     let [lists, setLists] = useState([
@@ -21,8 +22,11 @@ const Goals = () => {
     let sm = withSizeLessThan(600)
 
     const onChoosingaGoal = (list) => {
-        // setAllToFalse(lists, setLists)
-        setToTrue(list, lists, setLists)
+        if (list.active) {
+            setToFalse(list, lists, setLists)
+        } else {
+            setToTrue(list, lists, setLists)
+        }
     }
     return (
         <div className="h-auto">

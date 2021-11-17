@@ -35,7 +35,7 @@ const Revenue = () => {
                     <ThemeProvider theme={theme}>
                         <Box sx={{ width: sm ? 300 : 600 }}>
                             <Slider
-                                aria-label="Price"
+                                aria-label="price"
                                 defaultValue={50000}
                                 getAriaValueText={valuetext}
                                 valueLabelDisplay="auto"

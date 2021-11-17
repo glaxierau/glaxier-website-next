@@ -48,3 +48,21 @@ input::placeholder {
   color: #c7c7c7;
   outline: none;
 }
+
+/* Input style */
+
+.native_input input,
+textarea {
+  background-color: #f9f9ff;
+  color: #9fb0e4;
+  border-radius: 18px;
+  padding: 0.6rem;
+  padding-left: 10px;
+  border: 1.5px #9fb0e4 solid;
+  margin: 5px;
+}
+
+.native_input input,
+textarea::placeholder {
+  font-size: 12px;
+}
