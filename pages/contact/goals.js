@@ -21,7 +21,7 @@ const Goals = () => {
     let sm = withSizeLessThan(600)
 
     const onChoosingaGoal = (list) => {
-        setAllToFalse(lists, setLists)
+        // setAllToFalse(lists, setLists)
         setToTrue(list, lists, setLists)
     }
     return (

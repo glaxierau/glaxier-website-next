@@ -8,7 +8,7 @@ const SelectionBox = ({ icon, active, onClick, imgSize = 20, href, path }) => {
     const currentPath = router.pathname.split('/')[2]
     const expectedPath = path.split('/')[2]
     const [isHovered, setHover] = useState(false)
-    const img = `/assets/img/contact/icons/menu_icons/${icon}.png`
+    const img = `/assets/img/contact/icons/menu_icons/${icon}.svg`
     const basicClassName = `flex items-center justify-center lg:w-16 lg:h-16 md:w-16 md:h-16 w-10 h-10 rounded-full transition duration-200 ease-in-out`
     const extraClassName = active || isHovered || currentPath === expectedPath ? `bg-red` : `bg-purple`
     return (
