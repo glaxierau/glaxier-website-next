@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import AppButton from '../../components/appButton'
+import AppButton from '../../components/AppButton'
 import ContactTitle from '../../components/contact/Title'
 import { withSizeLessThan } from '../../hooks/useWindowSize'
 import { setToTrue } from '../../hooks/setToTrue'

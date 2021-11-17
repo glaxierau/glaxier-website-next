@@ -1,8 +1,8 @@
 import React from 'react'
-import Title from '../title'
+import Title from '../Title'
 import style from '../../styles/Service.module.css'
 import { mobileScreen } from '../../hooks/useWindowSize'
-import Particles from '../particles/particles'
+import Particles from '../particles/Particles'
 import Circle from '../particles/Circle'
 
 const Service = () => {

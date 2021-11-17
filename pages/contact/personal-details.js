@@ -1,4 +1,4 @@
-import AppButton from '../../components/appButton'
+import AppButton from '../../components/AppButton'
 import ContactTitle from '../../components/contact/Title'
 import Link from 'next/link'
 

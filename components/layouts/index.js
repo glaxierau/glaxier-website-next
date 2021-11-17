@@ -1,7 +1,7 @@
 import React from "react";
-import Nav from "./nav";
+import Nav from "./Nav";
 import style from '../../styles/Layout.module.css'
-import Footer from "./footer";
+import Footer from "./Footer";
 import StepsContact from '../contact/StepsContact'
 import { AnimatePresence, motion } from 'framer-motion'
 
