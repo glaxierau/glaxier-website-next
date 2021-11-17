@@ -3,9 +3,10 @@ import ContactTitle from '../../components/contact/Title'
 import Head from '../../components/common/Head'
 import Select from 'react-select'
 import AppButton from '../../components/appButton'
+import { withSizeLessThan } from '../../hooks/useWindowSize'
 
 const index = () => {
-
+    const sm = withSizeLessThan(420)
     const options = [
         { value: 'partnership', label: 'Partnership' },
         { value: 'corporation', label: 'Corporation' },
@@ -16,11 +17,11 @@ const index = () => {
             ...provided,
             backgroundColor: state.isFocused ? "#9FB0E4" : 'white',
             color: state.isFocused ? 'white' : '#9FB0E4',
-            padding: 20,
+            padding: 20
         }),
         control: () => ({
             display: 'flex',
-            width: 400,
+            width: sm ? 300 : 400,
             borderRadius: 100,
             padding: 4,
             border: '1px solid #9FB0E4',
@@ -39,7 +40,7 @@ const index = () => {
         <div>
             <Head title="Contact | Industry of Business" />
             <ContactTitle title="What's the industry of business?" />
-            <div className="mx-auto py-10" style={{ width: 400 }} >
+            <div className="mx-auto py-10 flex flex-col items-center justify-center" style={{ width: 400 }} >
                 <Select options={options} styles={customStyles} />
                 <div className="mx-auto w-56 py-10">
                     <AppButton title="Continue" width={200} bgColor="bg-blue-dark" bgColorHover="hover:bg-red" txtColor="text-white" link='/contact/expected-revenue' />

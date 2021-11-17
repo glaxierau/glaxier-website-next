@@ -5,12 +5,12 @@ const AppButton = ({ title, width, height, link, txtColor, txtColorHover, bgColo
         <>
             {customized ?
                 <Link href={`${link || ''}`}>
-                    <div className={`${bgColor} ${bgColorHover} ${txtColor} ${txtColorHover} cursor-pointer border rounded-full flex justify-center items-center m-2 `} style={{ width, height: height || 35 }}>
+                    <div className={`${bgColor} ${bgColorHover} ${txtColor} ${txtColorHover} cursor-pointer border rounded-full flex justify-center items-center m-2 transition duration-100 ease-in-out`} style={{ width, height: height || 35 }}>
                         <p style={{ fontSize: 12 }}>{title}</p>
                     </div>
                 </Link> :
                 <Link href={`${link || ''}`}>
-                    <div className={`${bgColor} ${bgColorHover} ${txtColor} ${txtColorHover} cursor-pointer rounded-full flex justify-center items-center m-2 `} style={{ width, height: height || 35 }}>
+                    <div className={`${bgColor} ${bgColorHover} ${txtColor} ${txtColorHover} cursor-pointer rounded-full flex justify-center items-center m-2 transition duration-100 ease-in-out`} style={{ width, height: height || 35 }}>
                         <p style={{ fontSize: 12 }}>{title}</p>
                     </div>
                 </Link>
