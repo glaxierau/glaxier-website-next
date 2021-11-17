@@ -2,7 +2,7 @@ import React from 'react'
 import ContactTitle from '../../components/contact/Title'
 import Box from '@mui/material/Box';
 import Slider from '@mui/material/Slider';
-import AppButton from '../../components/appButton';
+import AppButton from '../../components/AppButton';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { purple } from '@mui/material/colors'
 import { withSizeLessThan } from '../../hooks/useWindowSize';

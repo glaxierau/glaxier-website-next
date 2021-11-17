@@ -1,5 +1,5 @@
 import React from 'react'
-import Title from '../title'
+import Title from '../Title'
 import TestimonialBox from './TestimonialBox'
 import Slider from "react-slick";
 import { testimonial_settings } from '../../config/carousel.setting';

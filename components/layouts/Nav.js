@@ -1,7 +1,7 @@
 import React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import MobileNav from './mobileNav'
+import MobileNav from './MobileNav'
 import '../../styles/navigation.module.css'
 
 const Nav = () => {

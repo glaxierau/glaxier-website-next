@@ -1,7 +1,7 @@
 import React from 'react'
-import AppButton from '../appButton'
+import AppButton from '../AppButton'
 import CheckIcon from '../icons/CheckIcon'
-import Title from '../title'
+import Title from '../Title'
 import style from '../../styles/About.module.css'
 
 const About = () => {
