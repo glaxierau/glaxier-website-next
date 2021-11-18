@@ -1,6 +1,6 @@
 import React from 'react'
-import AppButton from '../appButton'
-import Title from '../title'
+import AppButton from '../AppButton'
+import Title from '../Title'
 import ArticleCard from './ArticleCard'
 
 function Articles() {

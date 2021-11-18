@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import AppButton from '../../components/appButton'
+import AppButton from '../../components/AppButton'
 import ContactTitle from '../../components/contact/Title'
 import { withSizeLessThan } from '../../hooks/useWindowSize'
 

@@ -1,5 +1,5 @@
 import React, { useReducer, useState } from 'react'
-import SideBar from './sideBar'
+import SideBar from './SideBar'
 import Link from 'next/link'
 
 const MobileNav = () => {

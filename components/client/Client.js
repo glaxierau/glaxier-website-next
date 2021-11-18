@@ -1,5 +1,5 @@
 import Badge from '../icons/Badge'
-import Title from '../title'
+import Title from '../Title'
 
 const Client = () => {
     return (
