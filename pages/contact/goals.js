@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import GoalBox from '../../components/contact/GoalBox'
 import ContactTitle from '../../components/contact/Title'
-import AppButton from '../../components/appButton'
+import AppButton from '../../components/AppButton'
 import Head from '../../components/common/Head'
 import { setAllToFalse } from '../../hooks/setAllToFalse'
 import { setToTrue } from '../../hooks/setToTrue'

@@ -2,7 +2,7 @@ import React from 'react'
 import SectionHead from '../../components/common/Head'
 import SectionTitle from '../../components/common/SectionTitle'
 import FooterLink from '../../components/FooterLink'
-import Loading from '../../components/loading/Loading'
+import Loading from '../../components/../Title/Loading'
 
 const Layout = ({ children }) => {
     return (

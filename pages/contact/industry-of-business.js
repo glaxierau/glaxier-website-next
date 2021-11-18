@@ -2,7 +2,7 @@ import React from 'react'
 import ContactTitle from '../../components/contact/Title'
 import Head from '../../components/common/Head'
 import Select from 'react-select'
-import AppButton from '../../components/appButton'
+import AppButton from '../../components/AppButton'
 import { withSizeLessThan } from '../../hooks/useWindowSize'
 
 const index = () => {

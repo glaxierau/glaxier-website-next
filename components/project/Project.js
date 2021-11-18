@@ -1,5 +1,5 @@
 import React from 'react'
-import AppButton from '../appButton'
+import AppButton from '../AppButton'
 
 const Project = () => {
     return (
