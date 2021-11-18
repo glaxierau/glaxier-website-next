@@ -1,5 +1,7 @@
+import { motion } from "framer-motion";
 import Head from "next/head";
 import About from "../components/about/About";
+import Animate from "../components/animation/Animate";
 import Articles from "../components/articles/Articles";
 import Banner from "../components/Banner";
 import Client from "../components/client/Client";

@@ -13,18 +13,18 @@ const Layout = ({ children }) => {
     exit: { opacity: 0, y: 0 },
   }
   return (
-    <div className={style.main, "lg:mt-20 mt-14"}>
-      <Nav />
-      <AnimatePresence>
+    <AnimatePresence exitBeforeEnter>
+      <div className={style.main, "lg:mt-20 mt-14"}>
+        <Nav />
         <motion.main variants={variants}
           initial="hidden"
           animate="enter"
           exit="exit"
           transition={{ type: 'linear' }}>{children}</motion.main>
-      </AnimatePresence>
-      <StepsContact />
-      <Footer />
-    </div>
+        <StepsContact />
+        <Footer />
+      </div>
+    </AnimatePresence>
   );
 };
 

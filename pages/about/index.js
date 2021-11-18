@@ -6,9 +6,11 @@ import Title from '../../components/Title'
 import TeamBadge from '../../components/icons/TeamBadge'
 import SectionHead from '../../components/common/Head'
 import AboutToggle from '../../components/about/AboutToggle'
+import Animate from '../../components/animation/Animate'
 const About = ({ children }) => {
     return (
         <div>
+            {/* <Animate> */}
             <SectionHead title="About Us | Glaxier" description="desc desc" />
             <div className="py-2">
                 <SectionTitle title="ABOUT" description="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed" />
@@ -30,6 +32,7 @@ const About = ({ children }) => {
                     <TeamBadge position="Digital Advertising Specialist" />
                 </div>
             </div>
+            {/* </Animate> */}
         </div>
     )
 }
