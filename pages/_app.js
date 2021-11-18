@@ -10,16 +10,18 @@ import Animate from '../components/animation/Animate';
 function MyApp({ Component, pageProps, router }) {
   return (
     <>
-      <Layout>
-        <motion.div
-          key={router.route}
-          initial={{ y: 5, opacity: 0.2 }}
-          animate={{ y: 0, opacity: 1 }}
-          exit={{ y: 0, opacity: 0 }}
-          transition={{ duration: 0.4, staggerChildren: 0.3 }}>
-          <Component {...pageProps} />
-        </motion.div>
-      </Layout>
+      <AnimatePresence key={router.route} exitBeforeEnter={true}>
+        <Layout>
+          <motion.div
+            key={router.route}
+            initial={{ y: 5, opacity: 0.8 }}
+            animate={{ y: 0, opacity: 1 }}
+            exit={{ y: 5, opacity: 0 }}
+            transition={{ duration: 0.4, staggerChildren: 0.3 }}>
+            <Component {...pageProps} />
+          </motion.div>
+        </Layout>
+      </AnimatePresence>
     </>
   )
 }
