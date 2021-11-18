@@ -4,6 +4,7 @@ import Link from 'next/link'
 import MobileNav from './MobileNav'
 import '../../styles/navigation.module.css'
 import DropDown from './DropDown'
+import { motion } from 'framer-motion'
 
 
 const Nav = () => {
@@ -15,7 +16,7 @@ const Nav = () => {
             uuid: 'services', label: 'Services',
             dropDown: [
                 { label: 'Graphic Design', to: '/' },
-                { label: 'Digital Advertising', to: '/' },
+                { label: 'Digital Advertising', to: '/services/digital-advertising' },
                 { label: 'Social Media Management', to: '/' },
                 { label: 'Website Development', to: '/' },
             ], to: '/services'
@@ -45,11 +46,12 @@ const Nav = () => {
         return (
             <>
                 <Link href={to} >
-                    <div id={uuid} className="flex items-center justify-center h-full cursor-pointer"
+                    <motion.div id={uuid} className="flex items-center justify-center h-full cursor-pointer"
                         onMouseEnter={() => { setdbTo(true), onGettingPosition() }}
-                        onMouseLeave={() => setdbTo(false)}>
+                        onMouseLeave={() => setdbTo(false)}
+                    >
                         <a id={uuid}>{label}</a>
-                    </div>
+                    </motion.div>
                 </Link>
                 <DropDown open={dropStatus && isdbOpen} onHover={() => setdbTo(true)} onLeave={() => setdbTo(false)} position={dbPosition} dropDownList={dropDownList} />
             </>
