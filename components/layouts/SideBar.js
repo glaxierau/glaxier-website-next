@@ -17,10 +17,12 @@ const SideBar = ({ open, setNav }) => {
     return (
         <>
             <motion.div className={` w-screen h-screen absolute top-14 left-0 z-0 bg-white`}
-                animate={{ height: open ? '100vh' : '0vh' }}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1, height: open ? '100vh' : '0vh' }}
                 transition={{ stiffness: 100, duration: 0.2, staggerChildren: 0.5, delayChildren: 0.4 }}>
                 <motion.div className="relative overflow-y-hidden"
-                    animate={{ y: open ? 0 : -2, opacity: open ? 1 : 0.8, height: open ? '100vh' : '0vh' }}
+                    initial={{ opacity: 0 }}
+                    animate={{ y: open ? 0 : -2, opacity: open ? 1 : 0, height: open ? '100vh' : '0vh' }}
                     transition={{ stiffness: 100, duration: 0.2, staggerChildren: 0.5, delayChildren: 0.4 }}>
                     <img src="/assets/svg/shape.svg" />
                     <div className="h-screen w-screen bg-white-dark py-2 px-5">
