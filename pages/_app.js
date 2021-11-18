@@ -10,7 +10,7 @@ import Animate from '../components/animation/Animate';
 function MyApp({ Component, pageProps, router }) {
   return (
     <>
-      <AnimatePresence key={router.route} exitBeforeEnter={true}>
+      <AnimatePresence key={router.route} exitBeforeEnter={true} initial={true}>
         <Layout>
           <motion.div
             key={router.route}
