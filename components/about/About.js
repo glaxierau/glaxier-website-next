@@ -7,7 +7,7 @@ import style from '../../styles/About.module.css'
 const About = () => {
     return (
         <>
-            <div className="lg:flex lg:flex-row flex-col lg:px-20 px-5 lg:pt-4 pt-10" id="about">
+            <div className="lg:flex lg:flex-row flex-col lg:px-20 px-5 lg:pt-4 pt-20" id="about">
                 <div className="lg:w-1/2 w-full  flex items-center justify-center">
                     <img src="/assets/img/home/aboutimg.png" width="500" alt="image" />
                 </div>
