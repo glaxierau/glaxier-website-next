@@ -1,7 +1,15 @@
 export default {
     navigation: [
-        { uuid: 'home', label: 'Home', dropDown: [], to: '/' },
-        { uuid: 'about', label: 'About', dropDown: [], to: '/about' },
+        { uuid: 'home', label: 'Home', to: '/', dropDown: [] },
+        {
+            uuid: 'about', label: 'About', to: '/about',
+            dropDown: [
+                { label: 'Who is glaxier?', to: '/about#whoweare' },
+                { label: 'Industry Experience', to: '/about/#industry-experience' },
+                { label: 'Our Project', to: '/about/#project' },
+                { label: 'Our Team', to: '/about/#team' },
+            ]
+        },
         {
             uuid: 'services', label: 'Services', to: '/services',
             dropDown: [

@@ -15,15 +15,15 @@ const About = ({ children }) => {
             <div className="py-2">
                 <SectionTitle title="ABOUT" description="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed" />
             </div >
-            <div className="lg:mt-0 -mt-10">
+            <div className="lg:mt-0 -mt-10" id="whoweare">
                 <AboutSection />
             </div>
-            <div className="bg-white-dark py-20">
+            <div className="bg-white-dark py-20" id="industry-experience">
                 <Title title="Industry Experience" lineWidth={600} height={30} />
                 <AboutToggle />
             </div>
             <ProjectSection />
-            <div className="lg:py-20 py-10">
+            <div className="lg:py-20 py-10" id="team">
                 <Title title="Glaxier Team" lineWidth={220} />
                 <div className="flex flex-wrap p-4 py-10 lg:px-20 md:px-0 px-4 justify-around items-center">
                     <TeamBadge position="Digital Advertising Specialist" />
