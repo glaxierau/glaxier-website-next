@@ -12,8 +12,8 @@ import NextNProgress from "nextjs-progressbar";
 function MyApp({ Component, pageProps, router }) {
   return (
     <>
+      <NextNProgress color="#9FB0E4" height={4} />
       <AnimatePresence key={router.route} exitBeforeEnter={true} initial={true}>
-        <NextNProgress color="#9FB0E4" height={4} />
         <Layout>
           <motion.div
             key={router.route}

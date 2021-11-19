@@ -42,7 +42,7 @@ const Service = () => {
                     <h3 className="lg:text-lg font-black text-base">We can do these awesome things</h3> <br />
                     <p className="lg:w-96 w-72 text-xs text-white font-thin leading-5">Our team has a collaborative and hollistic view of the digital landscape. Our services range from the fundamental assets such as a website, brochures, logo, to your outreach strategy to attract your perfect target customers.</p>
                 </div>
-                {shapeActive && <img src="/assets/svg/sharpeEdge.svg" alt="shape" className="absolute -bottom-20 left-0 w-full z-20" />}
+                {/* {shapeActive && <img src="/assets/svg/sharpeEdge.svg" alt="shape" className="absolute -bottom-20 left-0 w-full z-20" />} */}
             </div>
         </div>
     )

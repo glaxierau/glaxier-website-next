@@ -1,17 +1,12 @@
 export default {
     navigation: [
-        { uuid: 'home', label: 'Home', to: '/', dropDown: [] },
+        { uuid: 'home', type: 'home', label: 'Home', to: '/', active: false, dropDown: [] },
         {
-            uuid: 'about', label: 'About', to: '/about',
-            dropDown: [
-                { label: 'Who is glaxier?', to: '/about#whoweare' },
-                { label: 'Industry Experience', to: '/about/#industry-experience' },
-                { label: 'Our Project', to: '/about/#project' },
-                { label: 'Our Team', to: '/about/#team' },
-            ]
+            uuid: 'about', type: 'about', label: 'About', to: '/about', active: false,
+            dropDown: []
         },
         {
-            uuid: 'services', label: 'Services', to: '/services',
+            uuid: 'services', type: 'services', label: 'Services', to: '/services', active: false,
             dropDown: [
                 { label: 'Graphic Design', to: '/' },
                 { label: 'Digital Advertising', to: '/services/digital-advertising' },
@@ -20,7 +15,7 @@ export default {
             ]
         },
         {
-            uuid: 'blog', label: 'Blog', to: '/blog',
+            uuid: 'blog', type: 'blog', label: 'Blog', to: '/blog', active: false,
             dropDown: [
                 { label: 'Blog Category one', to: '/' },
                 { label: 'Blog Category two', to: '/' },
@@ -28,7 +23,7 @@ export default {
             ]
         },
         {
-            uuid: 'contact', label: 'Contact', to: '/contact',
+            uuid: 'contact', type: 'contact', label: 'Contact', to: '/contact', active: false,
             dropDown: [
                 { label: 'Email Us', to: 'emailto:tan@glaxier.com.au' },
                 { label: 'Give Us a Call', to: 'tel:012345678' },
