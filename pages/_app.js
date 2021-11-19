@@ -6,11 +6,14 @@ import "slick-carousel/slick/slick-theme.css";
 import Layout from '../components/layouts'
 import { AnimatePresence, motion } from 'framer-motion'
 import Animate from '../components/animation/Animate';
+import NextNProgress from "nextjs-progressbar";
+
 
 function MyApp({ Component, pageProps, router }) {
   return (
     <>
       <AnimatePresence key={router.route} exitBeforeEnter={true} initial={true}>
+        <NextNProgress color="#9FB0E4" height={4} />
         <Layout>
           <motion.div
             key={router.route}
