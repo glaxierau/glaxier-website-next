@@ -27,8 +27,6 @@ const DropDown = ({ open, onHover, onLeave, position, dropDownList, id }) => {
                     transition={{ duration: 0.2, staggerChildren: 0.3 }}
                     onMouseEnter={onHover}
                     onMouseLeave={onLeave}
-                // onPointerEnter={onHover}
-                // onPointerLeave={onLeave}
                 >
                     {dropDownList.map(list => <DropDownCard label={list.label} key={list.label} list={list} />)}
                 </motion.div>
