@@ -13,13 +13,13 @@ function MyApp({ Component, pageProps, router }) {
   return (
     <>
       <NextNProgress color="#9FB0E4" height={4} />
-      <AnimatePresence key={router.route} exitBeforeEnter={true} initial={true}>
+      <AnimatePresence key={router.route} exitBeforeEnter={true} initial={true} scroll={false}>
         <Layout>
           <motion.div
             key={router.route}
-            initial={{ y: 5, opacity: 0.8 }}
+            initial={{ y: 10, opacity: 0.8 }}
             animate={{ y: 0, opacity: 1 }}
-            exit={{ y: 5, opacity: 0 }}
+            exit={{ y: 10, opacity: 0 }}
             transition={{ duration: 0.4, staggerChildren: 0.3 }}>
             <Component {...pageProps} />
           </motion.div>
