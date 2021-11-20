@@ -13,7 +13,7 @@ const NavList = ({ navs, setNav }) => {
         return (
             <>
                 {newValue.length !== 0 &&
-                    <motion.div className="absolute top-2 right-0 h-5 w-48 grid place-items-center"
+                    <motion.div className="absolute top-0 right-0 h-10  w-10 grid place-items-center"
                         animate={{ rotate: open ? 180 : 0 }}
                         onClick={() => setOpen(!open)}>
                         <motion.svg xmlns="http://www.w3.org/2000/svg" width="20.24" height="10.781" viewBox="0 0 12.24 5.781">
