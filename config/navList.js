@@ -1,9 +1,16 @@
+import SVGIcon from "../components/icons/SVGIcon";
+
 export default {
     navigation: [
         { uuid: 'home', type: 'home', label: 'Home', to: '/', active: false, dropDown: [] },
         {
             uuid: 'about', type: 'about', label: 'About', to: '/about', active: false,
-            dropDown: []
+            dropDown: [
+                { label: 'Who is glaxier?', to: '/about#whoweare' },
+                { label: 'Industry Experience', to: '/about/#industry-experience' },
+                { label: 'Our Project', to: '/about/#project' },
+                { label: 'Our Team', to: '/about/#team' },
+            ]
         },
         {
             uuid: 'services', type: 'services', label: 'Services', to: '/services', active: false,
@@ -25,9 +32,9 @@ export default {
         {
             uuid: 'contact', type: 'contact', label: 'Contact', to: '/contact', active: false,
             dropDown: [
-                { label: 'Email Us', to: 'emailto:tan@glaxier.com.au' },
-                { label: 'Give Us a Call', to: 'tel:012345678' },
-                { label: 'Our Location', to: 'www.map.google.com' },
+                // { label: <SVGIcon src="/assets/svg/email.svg" label="Email Us" />, to: 'mailto:tan@glaxier.com.au' },
+                // { label: <SVGIcon src="/assets/svg/phone.svg" label="Call Us" />, to: 'tel:012345678' },
+                // { label: <SVGIcon src="/assets/svg/map.svg" label="Our Location" />, to: 'www.map.google.com' },
             ],
         },
     ]
