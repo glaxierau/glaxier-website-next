@@ -6,7 +6,7 @@ import Circle from '../particles/Circle'
 import { setToTrue } from '../../hooks/setToTrue'
 import { setAllToFalse } from '../../hooks/setAllToFalse'
 
-const Service = () => {
+const Service = ({ paddingBottom = false }) => {
     let sm = mobileScreen()
     let shapeActive = withSizeLessThan(500)
     let mobileView = withSizeLessThan(600)
@@ -24,7 +24,7 @@ const Service = () => {
         setToTrue(foundIndex[0], lists, setLists)
     }
     return (
-        <div className="bg-white-dark pt-10 ">
+        <div className={`bg-white-dark ${paddingBottom ? 'py-10' : 'pt-10'} `}>
             <div className="lg:px-44 px-4">
                 <h2 className="lg:text-3xl text-base font-extrabold lg:mb-5 mb-1">We are</h2>
                 <h1 className="lg:text-3xl text-base font-extrabold text-red mb-8">Digital Advertising Specialists.</h1>
@@ -35,14 +35,13 @@ const Service = () => {
                 <Particles />
                 <Circle style={sm ? { top: '8rem', left: '5%' } : { top: '5rem', left: '20%' }} title={lists[0].label} onClick={(e) => onSelecting(e)} active={lists[0].active} />
                 <Circle style={sm ? { top: '5rem', right: '5%' } : { top: '5rem', right: '13%' }} title={lists[1].label} onClick={(e) => onSelecting(e)} active={lists[1].active} />
-                <Circle style={sm ? { bottom: '10rem', left: '5%' } : { bottom: '2rem', left: '14%' }} title={lists[2].label} onClick={(e) => onSelecting(e)} active={lists[2].active} />
+                <Circle style={sm ? { bottom: '6rem', left: '5%' } : { bottom: '2rem', left: '14%' }} title={lists[2].label} onClick={(e) => onSelecting(e)} active={lists[2].active} />
                 <Circle style={sm ? { bottom: '8rem', right: '5%' } : { bottom: '2rem', right: '20%' }} title={lists[3].label} onClick={(e) => onSelecting(e)} active={lists[3].active} />
                 <div className="position top-0 left-1/2 z-10 flex items-center justify-center flex-col mt-6">
                     <Title title="Our Services" lineColor="#fff" lineWidth="210" /> <br />
                     <h3 className="lg:text-lg font-black text-base">We can do these awesome things</h3> <br />
-                    <p className="lg:w-96 w-72 text-xs text-white font-thin leading-5">Our team has a collaborative and hollistic view of the digital landscape. Our services range from the fundamental assets such as a website, brochures, logo, to your outreach strategy to attract your perfect target customers.</p>
+                    <p className="lg:w-96 w-72 text-white font-thin leading-5">Our team has a collaborative and hollistic view of the digital landscape. Our services range from the fundamental assets such as a website, brochures, logo, to your outreach strategy to attract your perfect target customers.</p>
                 </div>
-                {/* {shapeActive && <img src="/assets/svg/sharpeEdge.svg" alt="shape" className="absolute -bottom-20 left-0 w-full z-20" />} */}
             </div>
         </div>
     )

@@ -19,7 +19,12 @@ html {
 }
 
 p {
-  font-size: 0.75rem;
+  font-size: 0.9rem;
+}
+@media screen and (max-width: 720px) {
+  p {
+    font-size: 0.75rem;
+  }
 }
 
 /* nav links */

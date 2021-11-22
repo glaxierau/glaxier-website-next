@@ -15,10 +15,10 @@ export default {
         {
             uuid: 'services', type: 'services', label: 'Services', to: '/services', active: false,
             dropDown: [
-                { label: 'Graphic Design', to: '/' },
+                { label: 'Graphic Design', to: '/services' },
                 { label: 'Digital Advertising', to: '/services/digital-advertising' },
-                { label: 'Social Media Management', to: '/' },
-                { label: 'Website Development', to: '/' },
+                { label: 'Social Media Management', to: '/services' },
+                { label: 'Website Development', to: '/services' },
             ]
         },
         {

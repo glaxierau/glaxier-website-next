@@ -7,7 +7,7 @@ const Services = () => {
     return (
         <div>
             <SectionTitle title="Services" description="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed" />
-            <ServicesComponent />
+            <ServicesComponent paddingBottom={true} />
         </div>
     )
 }

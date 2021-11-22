@@ -21,7 +21,7 @@ const About = ({ withButton = false }) => {
                         <CheckIcon label="Hard-working" />
                     </div> <br /> <br />
                     <div className="mt-20 lg:w-4/5 w-full">
-                        <p className="text-black-light font-thin">
+                        <p className="text-black-light">
                             We are a team of young and passionate Digital Specialists. Our team has experience working in the big corporate world where we seasoned our skills. We are ready to tackle the world and help more businesses succeed digitally. We have a team of experienced digital advertisers, digital strategists, copywriters, graphic designers and developers who are excited to learn about your brand and help you grow.
                             <br /> <br />
                             Our Brand, Glaxier came from the word glacier. It’s a metaphor for an iceberg which may seem small above the water but is much biggest under water. Digital marketing effort may not be apparent but it is a crucial part of the succeess of many bussinesses no matter the size. In a way, our team act as the under-water part of a glacier for you business, laying groud work for the sucess everyone appreciate.
@@ -30,13 +30,6 @@ const About = ({ withButton = false }) => {
                     {withButton && <AppButton title="VIEW MORE" width={200} bgColor="bg-blue" bgColorHover="hover:bg-red" txtColor="text-white" link="/about" />}
                 </div>
             </div>
-            <style jsx>
-                {`
-                    p {
-                        font-size: 0.75rem;
-                    }
-                `}
-            </style>
         </>
     )
 }
