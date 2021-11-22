@@ -28,7 +28,7 @@ module.exports = {
         }
       },
       boxShadow: {
-        around: '0px 2px 27px -6px rgba(0,0,0,0.59)',
+        around: '0px 2px 10px -6px rgba(0,0,0,0.3)',
         sm: '0px 3px 9px 0px rgba(0,0,0,0.12)',
         drop: '2px 58px 18px 9px rgba(0,0,0,0.05)'
       },

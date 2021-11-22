@@ -4,6 +4,7 @@ import SectionTitle from '../../components/common/SectionTitle'
 import Slider from "react-slick";
 import ArticleCard from '../../components/articles/ArticleCard';
 import { blog_settings } from '../../config/carousel.setting';
+import articles from '../../config/articles'
 
 const pagination = (i) => {
     return (
@@ -12,6 +13,8 @@ const pagination = (i) => {
         </ul>
     )
 }
+
+console.log(articles[0])
 
 const Blog = () => {
 
@@ -24,22 +27,10 @@ const Blog = () => {
                 </div >
                 <div className="bg-white-dark -mt-6 pt-10 py-40">
                     <Slider {...blog_settings} className="mx-auto w-10/12" customPaging={pagination}>
-                        <ArticleCard />
-                        <ArticleCard />
-                        <ArticleCard />
-                        <ArticleCard />
-                        <ArticleCard />
-                        <ArticleCard />
-                        <ArticleCard />
-                        <ArticleCard />
-                        <ArticleCard />
-                        <ArticleCard />
+                        {articles.map(article => <ArticleCard key={article.id} id={article.id} img={article.img} title={article.title} date={article.date} category={article.category} />)}
                     </Slider>
                 </div>
             </div>
-            <style jsx>{`
-                
-            `}</style>
         </>
     )
 }
