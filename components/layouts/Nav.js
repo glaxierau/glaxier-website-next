@@ -22,7 +22,7 @@ const Nav = () => {
 
         }
         return (
-            <div className="flex items-center justify-center"
+            <div className="flex items-center justify-center h-full"
                 onMouseEnter={() => { setddTo(true), onGettingPosition() }}
                 onMouseLeave={() => setddTo(false)}>
                 <Link href={to} >
