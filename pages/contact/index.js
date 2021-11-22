@@ -1,6 +1,5 @@
 import React from 'react'
 import Goals from './goals'
-import Industry from './industry-of-business'
 import Layout from './layout'
 
 
