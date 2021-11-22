@@ -23,11 +23,7 @@ export default {
         },
         {
             uuid: 'blog', type: 'blog', label: 'Blog', to: '/blog', active: false,
-            dropDown: [
-                { label: 'Blog Category one', to: '/' },
-                { label: 'Blog Category two', to: '/' },
-                { label: 'Blog Category three', to: '/' }
-            ]
+            dropDown: []
         },
         {
             uuid: 'contact', type: 'contact', label: 'Contact', to: '/contact', active: false,

@@ -11,18 +11,19 @@ const Nav = () => {
 
     const [lists, setLists] = useState(nav.navigation)
 
-    const NavList = ({ to, label, uuid, dropDownList, index }) => {
+    const NavList = ({ to, label, uuid, dropDownList }) => {
         const [isddOpen, setddTo] = useState(false)
         const [ddPosition, setddPosition] = useState(0)
         let dropStatus = dropDownList.length === 0 ? false : true
 
         const onGettingPosition = () => {
             const position = document.getElementById(`${uuid}`).offsetLeft
+            // setddPosition(position)
             setddPosition(position - 70)
 
         }
         return (
-            <>
+            <div className="flex justify-center items-center">
                 <Link href={to} >
                     <motion.div id={uuid} className="relative flex items-center justify-center h-full cursor-pointer"
                         onMouseEnter={() => { setddTo(true), onGettingPosition() }}
@@ -31,14 +32,22 @@ const Nav = () => {
                         <a id={uuid}>{label}</a>
                     </motion.div>
                 </Link>
+                {dropDownList.length !== 0 &&
+                    <motion.div className="h-10 rounded-full w-10  grid place-items-center cursor-pointer"
+                        animate={{ rotate: isddOpen ? 180 : 0 }}
+                        onClick={() => { setddTo(!isddOpen), onGettingPosition() }}
+                    >
+                        <motion.svg xmlns="http://www.w3.org/2000/svg" width="10.24" height="5.781" viewBox="0 0 12.24 5.781">
+                            <path id="Icon_ionic-ios-arrow-down" d="M12.31,15.285l4.628-3.826a1,1,0,0,1,1.235,0,.642.642,0,0,1,0,1.024l-5.244,4.335a1.01,1.01,0,0,1-1.206.021l-5.28-4.353a.641.641,0,0,1,0-1.024,1,1,0,0,1,1.235,0Z" transform="translate(-6.188 -11.246)" fill="#90acd1" />
+                        </motion.svg>
+                    </motion.div>}
                 <DropDown open={dropStatus && isddOpen}
                     onHover={() => setddTo(true)}
                     onLeave={() => setddTo(false)}
                     position={ddPosition}
                     dropDownList={dropDownList}
                 />
-                {/* </div> */}
-            </>
+            </div>
         )
     }
 
