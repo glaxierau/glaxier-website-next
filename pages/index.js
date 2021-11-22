@@ -18,7 +18,7 @@ export default function Home() {
       </Head>
       <Banner />
       <Service />
-      <About />
+      <About withButton={true} />
       <Client />
       <Project />
       <Testimonial />

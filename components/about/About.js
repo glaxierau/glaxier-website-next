@@ -4,7 +4,7 @@ import CheckIcon from '../icons/CheckIcon'
 import Title from '../Title'
 import style from '../../styles/About.module.css'
 
-const About = () => {
+const About = ({ withButton = false }) => {
     return (
         <>
             <div className="lg:flex lg:flex-row flex-col lg:px-20 px-5 lg:pt-4 pt-20">
@@ -27,7 +27,7 @@ const About = () => {
                             Our Brand, Glaxier came from the word glacier. It’s a metaphor for an iceberg which may seem small above the water but is much biggest under water. Digital marketing effort may not be apparent but it is a crucial part of the succeess of many bussinesses no matter the size. In a way, our team act as the under-water part of a glacier for you business, laying groud work for the sucess everyone appreciate.
                         </p>
                     </div> <br />
-                    <AppButton title="VIEW MORE" width={200} bgColor="bg-blue" bgColorHover="hover:bg-red" txtColor="text-white" link="/about" />
+                    {withButton && <AppButton title="VIEW MORE" width={200} bgColor="bg-blue" bgColorHover="hover:bg-red" txtColor="text-white" link="/about" />}
                 </div>
             </div>
             <style jsx>

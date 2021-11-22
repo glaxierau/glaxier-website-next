@@ -1,15 +1,14 @@
 import React from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 
-const Animate = ({ children, key }) => {
+const Animate = ({ children, type = "open" }) => {
     return (
         <div>
             <motion.div
-                key={key.route}
-                initial={{ y: 5, opacity: 0.7 }}
-                animate={{ y: 0, opacity: 1 }}
-                exit={{ y: 5, opacity: 0 }}
-                transition={{ duration: 0.4 }}
+                initial={{ height: '0vh', opacity: 0 }}
+                animate={{ height: 'auto', opacity: 1 }}
+                exit={{ y: '0px', opacity: 0 }}
+                transition={{ duration: 0.6, type: 'spring' }}
             >
                 {children}
             </motion.div>
