@@ -23,7 +23,7 @@ const Nav = () => {
 
         }
         return (
-            <div className="flex justify-center items-center">
+            <div className="flex items-center justify-center">
                 <Link href={to} >
                     <motion.div id={uuid} className="relative flex items-center justify-center h-full cursor-pointer"
                         onMouseEnter={() => { setddTo(true), onGettingPosition() }}
@@ -33,7 +33,7 @@ const Nav = () => {
                     </motion.div>
                 </Link>
                 {dropDownList.length !== 0 &&
-                    <motion.div className="h-10 rounded-full w-10  grid place-items-center cursor-pointer"
+                    <motion.div className=" h-10 rounded-full w-10  grid place-items-center cursor-pointer"
                         animate={{ rotate: isddOpen ? 180 : 0 }}
                         onClick={() => { setddTo(!isddOpen), onGettingPosition() }}
                         onMouseEnter={() => setddTo(true)}
