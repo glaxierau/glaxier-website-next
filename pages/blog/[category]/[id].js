@@ -1,20 +1,15 @@
 import { useRouter } from 'next/dist/client/router'
 import React from 'react'
-import articles from '../../../config/articles'
 import { withSizeLessThan } from '../../../hooks/useWindowSize'
 
-const index = () => {
-    const router = useRouter().asPath
-    // const pathname = window.location.pathname
-    const chosenPath = router.split('/')[3]
-    const chosenID = chosenPath.split('-')[1]
-    const articleToShow = articles.filter(article => article.id === chosenID)
-    const article = articles[0]
+const SingleArticlePage = ({ articles }) => {
+    const router = useRouter()
+    const { id } = router.query
+    const article = articles.filter(article => article.id === parseInt(id))[0]
     const md = withSizeLessThan(1030)
     const brands = ["facebook", "linkedin", "instagram"]
-    // console.log(pathname)
     return (
-        <div>
+        <div className="h-auto">
             <img src="/assets/svg/shape.svg" className="w-full" />
             <div className="lg:px-32 md:px-24 px-4 pb-10  bg-white-dark">
                 <img src={article.img} width={md ? 400 : 600} className="lg:float-left md:float-none lg:block md:hidden hidden float-none mr-5 mb-5" />
@@ -29,9 +24,13 @@ const index = () => {
                     {article.content.map(content => <p key={content} style={{ color: '#707070' }} className="pb-8">{content}</p>)}
                 </div>
             </div>
-
         </div>
     )
 }
 
-export default index
+SingleArticlePage.getInitialProps = async () => {
+    const res = require('../../../config/articles')
+    return { articles: res.default }
+}
+
+export default SingleArticlePage

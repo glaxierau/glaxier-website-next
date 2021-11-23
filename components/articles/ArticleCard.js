@@ -2,10 +2,11 @@ import Link from 'next/link'
 
 const ArticleCard = ({ id, title, category, img, date }) => {
 
-    let href = `/blog/${category}/article-${id}`
+    let href = `/blog/[category]/[id]`
+    let asHref = `/blog/${category}/${id}`
     return (
         <>
-            <Link href={href}>
+            <Link href={href} as={asHref}>
                 <div className=" bg-white shadow-sm lg:m-6 m-2 cursor-pointer hover:shadow-around">
                     {/* <div className="h-lg lg:w-lg w-80 bg-white shadow-sm lg:m-4 m-2"> */}
                     {/* image  */}
