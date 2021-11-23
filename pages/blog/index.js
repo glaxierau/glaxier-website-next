@@ -4,7 +4,6 @@ import SectionTitle from '../../components/common/SectionTitle'
 import Slider from "react-slick";
 import ArticleCard from '../../components/articles/ArticleCard';
 import { blog_settings } from '../../config/carousel.setting';
-import articles from '../../config/articles'
 
 const pagination = (i) => {
     return (
@@ -14,9 +13,7 @@ const pagination = (i) => {
     )
 }
 
-console.log(articles[0])
-
-const Blog = () => {
+const Blog = ({ articles }) => {
 
     return (
         <>
@@ -35,4 +32,8 @@ const Blog = () => {
     )
 }
 
+Blog.getInitialProps = async () => {
+    const res = await require('../../config/articles')
+    return { articles: res.default }
+}
 export default Blog
