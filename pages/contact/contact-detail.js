@@ -10,7 +10,7 @@ const index = () => {
             <ContactTitle title="Leave Your Contact Detail" />
             <textarea cols={60} rows={10} placeholder="Message" style={{ width: sm ? 300 : 500 }} />
             <div className="mx-auto w-96 flex flex-col items-center justify-center py-9">
-                <AppButton title="Submit" width={200} bgColor="bg-blue-dark" bgColorHover="hover:bg-red" txtColor="text-white" link='/' />
+                <AppButton title="Submit" type="submit" width={200} bgColor="bg-blue-dark" bgColorHover="hover:bg-red" txtColor="text-white" link='/' disabled={true} />
             </div>
         </div>
     )
