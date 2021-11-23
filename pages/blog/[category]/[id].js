@@ -1,6 +1,7 @@
 import { useRouter } from 'next/dist/client/router'
 import React from 'react'
 import { withSizeLessThan } from '../../../hooks/useWindowSize'
+import SectionHead from '../../../components/common/Head'
 
 const SingleArticlePage = ({ articles }) => {
     const router = useRouter()
@@ -10,6 +11,7 @@ const SingleArticlePage = ({ articles }) => {
     const brands = ["facebook", "linkedin", "instagram"]
     return (
         <div className="h-auto">
+            <SectionHead title={`Blog | ${article.title} `} />
             <img src="/assets/svg/shape.svg" className="w-full" />
             <div className="lg:px-32 md:px-24 px-4 pb-10  bg-white-dark">
                 <img src={article.img} width={md ? 400 : 600} className="lg:float-left md:float-none lg:block md:hidden hidden float-none mr-5 mb-5" />
