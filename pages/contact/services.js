@@ -12,7 +12,7 @@ const Box = ({ content, active, onClick }) => {
     const color = active ? "bg-red text-white border-none" : "bg-white-dark text-black"
     return (
         <div className={`${basicStyle} ${color} ${boxHover}`} style={{ width: 250 }} onClick={onClick}>
-            <p className="text-center p-2">{content}</p>
+            <p className="text-center p-2" style={{ fontSize: '0.75rem', fontWeight: 'bolder' }}>{content}</p>
         </div>
     )
 }
