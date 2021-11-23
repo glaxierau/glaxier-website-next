@@ -4,6 +4,8 @@ import ContactTitle from '../../components/contact/Title'
 import { withSizeLessThan } from '../../hooks/useWindowSize'
 import { setToTrue } from '../../hooks/setToTrue'
 import { setToFalse } from '../../hooks/setToFalse'
+import SectionHead from '../../components/common/Head'
+
 
 
 const Box = ({ content, active, onClick }) => {
@@ -41,6 +43,7 @@ const index = () => {
     }
     return (
         <div className="">
+            <SectionHead title="Contact Us | Services" />
             <ContactTitle title="Services you need help with" />
             <div className="flex justify-center items-center  lg:flex-row md:flex-row flex-wrap flex-col mx-auto" style={{ width: sm ? 300 : 800 }}>
                 {

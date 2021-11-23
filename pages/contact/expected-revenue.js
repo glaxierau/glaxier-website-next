@@ -4,8 +4,9 @@ import Box from '@mui/material/Box';
 import Slider from '@mui/material/Slider';
 import AppButton from '../../components/AppButton';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { purple } from '@mui/material/colors'
 import { withSizeLessThan } from '../../hooks/useWindowSize';
+import SectionHead from '../../components/common/Head'
+
 
 
 function valuetext(value) {
@@ -25,6 +26,7 @@ const Revenue = () => {
     const sm = withSizeLessThan(720)
     return (
         <div>
+            <SectionHead title="Contact Us | Expected Revenue" />
             <ContactTitle title="What's your expected revenue from online channels?" />
             <div className="relative h-40 mx-auto" style={{ width: sm ? 300 : 600 }}>
                 <div className="absolute -left-5 top-0 flex flex-col z-0 justify-center items-center">
