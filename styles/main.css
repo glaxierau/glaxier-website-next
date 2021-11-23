@@ -73,6 +73,7 @@ textarea {
   padding-left: 10px;
   border: 1.5px #9fb0e4 solid;
   margin: 5px;
+  padding-left: 24px;
 }
 
 .native_input input,
