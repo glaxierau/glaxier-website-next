@@ -38,7 +38,7 @@ const index = () => {
 
     return (
         <div>
-            <Head title="Contact | Industry of Business" />
+            <Head title="Contact Us | Industry of Business" />
             <ContactTitle title="What's the industry of business?" />
             <div className="mx-auto py-10 flex flex-col items-center justify-center" style={{ width: 400 }} >
                 <Select options={options} styles={customStyles} />

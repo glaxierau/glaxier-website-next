@@ -30,7 +30,7 @@ const Goals = () => {
     }
     return (
         <div className="h-auto">
-            <Head title="Contact | Your Goals" />
+            <Head title="Contact Us | Your Goals" />
             <ContactTitle title="Share your goal with us" />
             <div className="flex justify-center flex-wrap m-auto" style={{ width: sm ? 340 : 600, flex: '1 1 160px' }}>
                 {lists.map(list => <GoalBox key={list.key} icon={list.icon} name={list.name} active={list.active} onClick={() => onChoosingaGoal(list)} />)}
