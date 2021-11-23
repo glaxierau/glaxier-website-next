@@ -13,7 +13,7 @@ function MyApp({ Component, pageProps, router }) {
   return (
     <>
       <NextNProgress color="#9FB0E4" height={4} />
-      <AnimatePresence key={router.route} exitBeforeEnter={true} initial={true} scroll={false}>
+      <AnimatePresence key={router.route} exitBeforeEnter={true} initial={true}>
         <Layout>
           <motion.div
             key={router.route}

@@ -5,9 +5,9 @@ const Animate = ({ children, type = "open" }) => {
     return (
         <div>
             <motion.div
-                initial={{ height: '0vh', opacity: 0 }}
-                animate={{ height: 'auto', opacity: 1 }}
-                exit={{ y: '0px', opacity: 0 }}
+                initial={{ x: -40, opacity: 0.5 }}
+                animate={{ x: 0, opacity: 1 }}
+                exit={{ x: -5, opacity: 0 }}
                 transition={{ duration: 0.6, type: 'spring' }}
             >
                 {children}
