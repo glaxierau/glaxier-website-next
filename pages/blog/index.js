@@ -31,8 +31,8 @@ const Blog = ({ articles }) => {
     )
 }
 
-Blog.getInitialProps = async () => {
+export const getServerSideProps = async () => {
     const res = await require('../../config/articles')
-    return { articles: res.default }
+    return { props: { articles: res.default } }
 }
 export default Blog
