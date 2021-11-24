@@ -23,13 +23,13 @@ const Service = ({ paddingBottom = false }) => {
     const onSelecting = (e) => {
         const innerText = e.target.innerText
         const foundIndex = lists.filter(list => list.label === innerText)[0]
+        setIndex(foundIndex)
         setAllToFalse(lists, setLists);
         setToTrue(foundIndex, lists, setLists)
-        setIndex(foundIndex)
     }
     useEffect(() => {
         setChanging(false)
-        return setTimeout(() => setChanging(true), 200)
+        return setTimeout(() => setChanging(true), 500)
     }, [currentIndex.label])
     return (
         <div className={`bg-white-dark ${paddingBottom ? 'py-10' : 'pt-10'} `}>
@@ -46,7 +46,7 @@ const Service = ({ paddingBottom = false }) => {
                 <Circle style={sm ? { bottom: '6rem', left: '5%' } : { bottom: '2rem', left: '14%' }} title={lists[2].label} onClick={(e) => onSelecting(e)} active={lists[2].active} />
                 <Circle style={sm ? { bottom: '8rem', right: '5%' } : { bottom: '2rem', right: '20%' }} title={lists[3].label} onClick={(e) => onSelecting(e)} active={lists[3].active} />
                 {changing &&
-                    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="position top-0 left-1/2 z-10 flex items-center justify-center flex-col mt-6">
+                    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.5 }} className="position top-0 left-1/2 z-10 flex items-center justify-center flex-col mt-6">
                         <Title title={currentIndex.label} lineColor="#fff" lineWidth="210" /> <br />
                         <h3 className="lg:text-lg font-black text-base">{currentIndex.subTitle}</h3> <br />
                         <p className="lg:w-96 w-72 text-white font-thin leading-5">{currentIndex.description}</p>
