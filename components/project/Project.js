@@ -23,6 +23,11 @@ const Project = () => {
                     z-index: 1;
                     margin-top: -5px;
                 }
+                @media screen and (max-width: 1025px) {
+                    .bg_image {
+                        height: 24rem;
+                    }
+                }
                 @media screen and (max-width: 1090px) {
                     .bg_image {
                         height: 12rem;

@@ -9,7 +9,7 @@ import Project from "../components/project/Project";
 import Service from "../components/service/Service";
 import Testimonial from "../components/testimonial/Testimonial";
 
-export default function Home() {
+export default function Home({ latestArticles }) {
   return (
     <div>
       <Head>
@@ -22,7 +22,15 @@ export default function Home() {
       <Client />
       <Project />
       <Testimonial />
-      <Articles />
+      <Articles latestArticles={latestArticles} />
     </div>
   );
+}
+
+Home.getInitialProps = async () => {
+  const res = require('../config/articles')
+  const latestArt = res.default.length
+  const lastThreeIndex = latestArt - 3
+  const latestArticles = res.default.splice(lastThreeIndex, latestArt)
+  return { latestArticles }
 }

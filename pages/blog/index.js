@@ -14,7 +14,6 @@ const pagination = (i) => {
 }
 
 const Blog = ({ articles }) => {
-
     return (
         <>
             <div>

@@ -10,8 +10,6 @@ const DropDown = ({ open, onHover, onLeave, position, dropDownList, id }) => {
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         transition={{ duration: 0.8 }}
-                        onPointerEnter={onHover}
-                        onPointerLeave={onLeave}
                     >
                         <p className="text-center" style={{ fontSize: '0.8rem' }}>{label}</p>
                     </motion.div>

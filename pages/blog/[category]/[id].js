@@ -6,7 +6,9 @@ import SectionHead from '../../../components/common/Head'
 const SingleArticlePage = ({ articles }) => {
     const router = useRouter()
     const { id } = router.query
-    const article = articles.filter(article => article.id === parseInt(id))[0]
+    const IntId = parseInt(id)
+    const article = articles.filter(article => article.id === IntId)[0]
+    console.log(article)
     const md = withSizeLessThan(1030)
     const brands = ["facebook", "linkedin", "instagram"]
     return (
@@ -31,7 +33,7 @@ const SingleArticlePage = ({ articles }) => {
 }
 
 SingleArticlePage.getInitialProps = async () => {
-    const res = require('../../../config/articles')
+    const res = await require('../../../config/articles')
     return { articles: res.default }
 }
 
