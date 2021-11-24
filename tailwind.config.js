@@ -31,7 +31,9 @@ module.exports = {
       boxShadow: {
         around: '0px 2px 10px -6px rgba(0,0,0,0.3)',
         sm: '0px 3px 9px 0px rgba(0,0,0,0.12)',
-        drop: '2px 58px 18px 9px rgba(0,0,0,0.05)'
+        'drop-inset': '0px 10px 5px -9px rgba(0,0,0,0.2) inset',
+        drop: '0px 10px 5px -9px rgba(0,0,0,0.2)'
+
       },
       height: {
         lg: '26rem',
