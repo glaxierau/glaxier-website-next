@@ -2,7 +2,6 @@ import React from 'react'
 import AppButton from '../AppButton'
 import Title from '../Title'
 import ArticleCard from './ArticleCard'
-import articles from '../../config/articles'
 
 const Articles = ({ latestArticles }) => {
     return (
