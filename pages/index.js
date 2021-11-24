@@ -29,8 +29,8 @@ export default function Home({ latestArticles }) {
 
 Home.getInitialProps = async () => {
   const res = require('../config/articles')
-  const latestArt = res.default.length
+  const latestArt = await res.default.length
   const lastThreeIndex = latestArt - 3
-  const latestArticles = res.default.splice(lastThreeIndex, latestArt)
+  const latestArticles = await res.default.splice(lastThreeIndex, latestArt)
   return { latestArticles }
 }

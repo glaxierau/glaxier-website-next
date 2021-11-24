@@ -33,7 +33,7 @@ const SingleArticlePage = ({ articles }) => {
 
 export const getServerSideProps = async () => {
     const res = require('../../../config/articles')
-    return { props: { articles: res.default } }
+    return { props: { articles: await res.default } }
 }
 
 export default SingleArticlePage
