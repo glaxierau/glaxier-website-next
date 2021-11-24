@@ -8,7 +8,6 @@ const SingleArticlePage = ({ articles }) => {
     const { id } = router.query
     const IntId = parseInt(id)
     const article = articles.filter(article => article.id === IntId)[0]
-    console.log(article)
     const md = withSizeLessThan(1030)
     const brands = ["facebook", "linkedin", "instagram"]
     return (
@@ -32,9 +31,9 @@ const SingleArticlePage = ({ articles }) => {
     )
 }
 
-SingleArticlePage.getInitialProps = async () => {
-    const res = await require('../../../config/articles')
-    return { articles: res.default }
+export const getServerSideProps = async () => {
+    const res = require('../../../config/articles')
+    return { props: { articles: res.default } }
 }
 
 export default SingleArticlePage
