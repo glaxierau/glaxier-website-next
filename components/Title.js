@@ -1,4 +1,3 @@
-import React from 'react'
 import CurvyLine from './line/CurvyLine'
 
 const Title = ({ title, lineColor = "#9FB0E483", lineWidth, height }) => {
