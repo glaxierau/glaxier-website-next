@@ -27,10 +27,10 @@ export default function Home({ latestArticles }) {
   );
 }
 
-Home.getInitialProps = async () => {
+export const getServerSideProps = async () => {
   const res = require('../config/articles')
   const latestArt = res.default.length
   const lastThreeIndex = latestArt - 3
   const latestArticles = res.default.splice(lastThreeIndex, latestArt)
-  return { latestArticles }
+  return { props: { latestArticles } }
 }
