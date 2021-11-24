@@ -4,8 +4,7 @@ import Title from '../Title'
 import ArticleCard from './ArticleCard'
 import articles from '../../config/articles'
 
-function Articles() {
-    const lists = articles.slice(0, 3)
+const Articles = ({ latestArticles }) => {
     return (
         <>
             <div className="relative lg:py-0 pt-10 h-full" id="articles">
@@ -13,7 +12,7 @@ function Articles() {
                 <div className="pb-40" />
                 <div className="bg_artboard relative py-10">
                     <div className="relative -top-32 flex items-center justify-around lg:flex-row md:flex-row flex-col w-full lg:px-14 px-2">
-                        {lists.map(article => <ArticleCard key={article.id} id={article.id} title={article.title} category={article.category} img={article.img} date={article.date} />)}
+                        {latestArticles.map(article => <ArticleCard key={article.id} id={`${article.id}`} img={article.img} title={article.title} date={article.date} category={article.category} />)}
                     </div>
                     <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2">
                         <AppButton title="READ MORE" width={200} bgColor="bg-white" bgColorHover="hover:bg-red" txtColor="text-blue-dark" txtColorHover="hover:text-white" link="/blog" />
@@ -38,7 +37,7 @@ function Articles() {
                 }
                 @media screen and (max-width: 720px) {
                     .bg_image {
-                        height: 1000px;
+                        height: 1000px
                     }
                 }
             `}

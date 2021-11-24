@@ -25,12 +25,8 @@ const Nav = () => {
             <div className="flex items-center justify-center h-full"
                 onMouseEnter={() => { setddTo(true), onGettingPosition() }}
                 onMouseLeave={() => setddTo(false)}>
-                <Link href={to} >
-                    <motion.div id={uuid} className="relative flex items-center justify-center h-full cursor-pointer"
-
-                    >
-                        <a id={uuid}>{label}</a>
-                    </motion.div>
+                <Link href={to} className="relative flex items-center justify-center h-full cursor-pointer">
+                    <a id={uuid}>{label}</a>
                 </Link>
                 {dropDownList.length !== 0 &&
                     <motion.div className=" h-10 rounded-full w-10  grid place-items-center cursor-pointer"
