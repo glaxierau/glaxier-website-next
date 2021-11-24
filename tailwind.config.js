@@ -1,3 +1,4 @@
+
 module.exports = {
   // mode: 'jit',
   purge: [],
@@ -40,6 +41,10 @@ module.exports = {
       },
       fontSize: {
         xs: '0.75rem',
+      },
+      fill: {
+        purple: '#9FB0E4',
+        red: '#BE4938'
       }
     },
   },
@@ -47,6 +52,7 @@ module.exports = {
     extend: {
       borderStyle: ['responsive', 'hover'],
       borderWidth: ['responsive', 'hover'],
+      fill: ['hover', 'focus'],
     },
   },
   plugins: [],
