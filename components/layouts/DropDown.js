@@ -1,19 +1,29 @@
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 
-const DropDown = ({ open, onHover, onLeave, position, dropDownList, id }) => {
+const DropDown = ({ open, onHover, onLeave, position, dropDownList, id, width = 200, ...otherProps }) => {
     const DropDownCard = ({ label, list }) => {
         return (
             <>
-                <Link href={list.to}>
-                    <motion.div id="dropdown" className="relative hover:bg-blue-dark text-blue-dark hover:text-white py-3 px-8 " style={{ width: 200 }}
+                {list.to ?
+                    <Link href={list.to}>
+                        <motion.div id="dropdown" className="relative hover:bg-blue-dark text-blue-dark hover:text-white py-3 px-8 " style={{ width: 200 }}
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            transition={{ duration: 0.8 }}
+                        >
+                            <p className="text-center" style={{ fontSize: '0.8rem' }}>{label}</p>
+                        </motion.div>
+                    </Link>
+                    :
+                    <motion.div id="dropdown" {...otherProps} className="relative hover:bg-blue-dark text-blue-dark hover:text-white py-3 px-8 flex items-center justify-center  " style={{ width }}
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         transition={{ duration: 0.8 }}
                     >
                         <p className="text-center" style={{ fontSize: '0.8rem' }}>{label}</p>
                     </motion.div>
-                </Link>
+                }
             </>
         )
     }
