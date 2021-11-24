@@ -30,7 +30,7 @@ const DropDown = ({ open, onHover, onLeave, position, dropDownList, id, width = 
     return (
         <>
             {open && dropDownList.length !== 0 &&
-                <motion.div id={id} className="absolute top-20 bg-white  cursor-pointer z-0 overflow-hidden" style={{ left: position }}
+                <motion.div id={id} className="absolute top-20 bg-white  cursor-pointer z-0 overflow-hidden shadow-drop" style={{ left: position }}
                     initial={{ height: '0vh' }}
                     animate={{ height: 'auto' }}
                     exit={{ height: '0vh' }}
