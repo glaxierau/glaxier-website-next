@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import LanguageSection from '../common/LanguageSection'
 import SearchBox from '../common/SearchBox'
 import NavList from '../common/NavList'
-import { AnimatePresence, motion } from 'framer-motion'
+import { motion } from 'framer-motion'
 import navigation from '../../config/navList'
 
 const SideBar = ({ open, setNav }) => {

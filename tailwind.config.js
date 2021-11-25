@@ -42,7 +42,8 @@ module.exports = {
         lg: '20rem',
       },
       fontSize: {
-        xs: '0.75rem',
+        xs: '0.9rem',
+        small: '1rem'
       },
       fill: {
         purple: '#9FB0E4',

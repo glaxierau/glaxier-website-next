@@ -20,7 +20,7 @@ const About = ({ withButton = false }) => {
                         <CheckIcon label="Futuristic" />
                         <CheckIcon label="Hard-working" />
                     </div> <br /> <br />
-                    <div className="mt-20 lg:w-4/5 w-full">
+                    <div className="mt-20 lg:w-4/5 w-full xl:px-0 lg:px-0 md:px-36 px-2">
                         <p className="text-black-light">
                             We are a team of young and passionate Digital Specialists. Our team has experience working in the big corporate world where we seasoned our skills. We are ready to tackle the world and help more businesses succeed digitally. We have a team of experienced digital advertisers, digital strategists, copywriters, graphic designers and developers who are excited to learn about your brand and help you grow.
                             <br /> <br />
