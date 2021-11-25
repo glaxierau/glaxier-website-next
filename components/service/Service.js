@@ -29,14 +29,14 @@ const Service = ({ paddingBottom = false }) => {
     }
     useEffect(() => {
         setChanging(false)
-        return setTimeout(() => setChanging(true), 500)
+        return setTimeout(() => setChanging(true), 300)
     }, [currentIndex.label])
     return (
         <div className={`bg-white-dark ${paddingBottom ? 'py-10' : 'pt-10'} `}>
-            <div className="lg:px-44 px-4">
-                <h2 className="lg:text-3xl text-base font-extrabold lg:mb-5 mb-1">We are</h2>
-                <h1 className="lg:text-3xl text-base font-extrabold text-red mb-8">Digital Advertising Specialists.</h1>
-                <p className="text-sm font-thin text-gray-500 xl:w-3/4 lg:3/4 w-full">We are a group of young digital specialists who are eager to deliver results for your business. In the age where everything is connected at a touch of a finger tip, there are no recipes to succeed in the digital world, only the best way for you. Our goal is to find that perfect recipe for you.</p>
+            <div className="lg:px-44 md:px-40 px-4">
+                <h2 className="lg:text-3xl md:text-3xl text-2xl font-extrabold lg:mb-5 mb-1">We are</h2>
+                <h1 className="lg:text-3xl md:text-3xl text-2xl font-extrabold text-red mb-8">Digital Advertising Specialists.</h1>
+                <p className="text-small font-thin text-gray-500 xl:w-3/4 lg:3/4 w-full">We are a group of young digital specialists who are eager to deliver results for your business. In the age where everything is connected at a touch of a finger tip, there are no recipes to succeed in the digital world, only the best way for you. Our goal is to find that perfect recipe for you.</p>
             </div>
             <div className="h-screen  mt-20  flex justify-center items-center relative text-center overflow-visible" style={{ width: '100%' }}>
                 <img onClick={() => { setIndex(defaultIndex), setAllToFalse(lists, setLists) }} src={`/assets/img/home/${mobileView ? 'smCircles' : 'lgCircles'}.png`} className={"circle_image absolute top-0 z-10 w-full lg:object-cover md:object-cover object-cover h-screen"} alt="circles" />
@@ -46,7 +46,7 @@ const Service = ({ paddingBottom = false }) => {
                 <Circle style={sm ? { bottom: '6rem', left: '5%' } : { bottom: '2rem', left: '14%' }} title={lists[2].label} onClick={(e) => onSelecting(e)} active={lists[2].active} />
                 <Circle style={sm ? { bottom: '8rem', right: '5%' } : { bottom: '2rem', right: '20%' }} title={lists[3].label} onClick={(e) => onSelecting(e)} active={lists[3].active} />
                 {changing &&
-                    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.5 }} className="position top-0 left-1/2 z-10 flex items-center justify-center flex-col mt-6">
+                    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.2 }} className="position top-0 left-1/2 z-10 flex items-center justify-center flex-col mt-6">
                         <Title title={currentIndex.label} lineColor="#fff" lineWidth="210" /> <br />
                         <h3 className="lg:text-lg font-black text-base">{currentIndex.subTitle}</h3> <br />
                         <p className="lg:w-96 w-72 text-white font-thin leading-5">{currentIndex.description}</p>

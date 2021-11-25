@@ -19,12 +19,16 @@ html {
 }
 
 p {
-  font-size: 0.9rem;
+  font-size: 1rem;
   font-weight: 100;
+  line-height: 1.7rem;
+}
+.blog p {
+  line-height: 2rem;
 }
 @media screen and (max-width: 720px) {
   p {
-    font-size: 0.75rem;
+    font-size: 0.9rem;
   }
 }
 

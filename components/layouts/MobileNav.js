@@ -1,4 +1,4 @@
-import React, { useReducer, useState } from 'react'
+import React, { useState } from 'react'
 import SideBar from './SideBar'
 import Link from 'next/link'
 
