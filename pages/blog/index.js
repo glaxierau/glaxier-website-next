@@ -4,6 +4,7 @@ import SectionTitle from '../../components/common/SectionTitle'
 import Slider from "react-slick";
 import ArticleCard from '../../components/articles/ArticleCard';
 import { blog_settings } from '../../config/carousel.setting';
+import absoluteUrl from 'next-absolute-url'
 
 const pagination = (i) => {
     return (
@@ -31,8 +32,9 @@ const Blog = ({ articles }) => {
     )
 }
 
-export const getServerSideProps = async () => {
-    const res = await require('../../config/articles')
-    return { props: { articles: res.default } }
+export const getServerSideProps = async ({ req, res }) => {
+    const { origin } = absoluteUrl(req)
+    const response = await fetch(`${origin}/api/blogs`).then(response => response.json())
+    return { props: { articles: response } }
 }
 export default Blog

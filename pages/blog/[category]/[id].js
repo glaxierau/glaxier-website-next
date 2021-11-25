@@ -2,6 +2,7 @@ import { useRouter } from 'next/dist/client/router'
 import React from 'react'
 import { withSizeLessThan } from '../../../hooks/useWindowSize'
 import SectionHead from '../../../components/common/Head'
+import absoluteUrl from 'next-absolute-url'
 
 const SingleArticlePage = ({ articles }) => {
     const router = useRouter()
@@ -31,9 +32,10 @@ const SingleArticlePage = ({ articles }) => {
     )
 }
 
-export const getServerSideProps = async () => {
-    const res = require('../../../config/articles')
-    return { props: { articles: await res.default } }
+SingleArticlePage.getInitialProps = async ({ req, res }) => {
+    const { origin } = absoluteUrl(req)
+    const response = await fetch(`${origin}/api/blogs`).then(response => response.json())
+    return { articles: response }
 }
 
 export default SingleArticlePage

@@ -8,6 +8,7 @@ import Client from "../components/client/Client";
 import Project from "../components/project/Project";
 import Service from "../components/service/Service";
 import Testimonial from "../components/testimonial/Testimonial";
+import absoluteUrl from 'next-absolute-url'
 
 export default function Home({ latestArticles }) {
   return (
@@ -27,10 +28,11 @@ export default function Home({ latestArticles }) {
   );
 }
 
-Home.getInitialProps = async () => {
-  const res = require('../config/articles')
-  const latestArt = await res.default.length
+Home.getInitialProps = async ({ req, res }) => {
+  const { origin } = absoluteUrl(req)
+  const response = await fetch(`${origin}/api/blogs`).then(res => res.json())
+  const latestArt = await response.length
   const lastThreeIndex = latestArt - 3
-  const latestArticles = await res.default.splice(lastThreeIndex, latestArt)
+  const latestArticles = await response.splice(lastThreeIndex, latestArt)
   return { latestArticles }
 }

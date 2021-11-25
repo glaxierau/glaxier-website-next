@@ -3,7 +3,7 @@ import { motion } from 'framer-motion'
 import DropDown from '../layouts/DropDown'
 import { mobileScreen } from '../../hooks/useWindowSize'
 
-function NavSVGIcon({ size = ['20', '20'], children, withDropDown = false, ...otherProps }) {
+function NavSVGIcon({ size = ['20', '20'], children, withDropDown = false, onPointerEnter, ...otherProps }) {
     let lang = [
         { label: 'EN' },
         { label: 'TH' },
@@ -19,12 +19,14 @@ function NavSVGIcon({ size = ['20', '20'], children, withDropDown = false, ...ot
     return (
         <div id="globeSVG"
             className="h-20 w-10 flex items-center justify-start"
-            onMouseEnter={() => { setOpen(true), getPosition() }}
+            onMouseEnter={() => getPosition()}
             onMouseLeave={() => setOpen(false)}
             onClick={() => { setOpen(!open), getPosition() }}
             {...otherProps}>
             <motion.svg xmlns="http://www.w3.org/2000/svg" className={`fill-purple ${lg && 'hover:fill-red'} cursor-pointer`} width={size[0]} height={size[1]} viewBox="0 0 29.257 29.25"
                 onClick={() => setOpen(!open)}
+                onMouseEnter={() => setOpen(true)}
+                onPointerEnter={onPointerEnter}
             >
                 {children}
             </motion.svg>
