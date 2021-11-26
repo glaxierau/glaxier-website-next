@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import B2bIndustry from './b2b-industry'
 import B2cIndustry from './b2c-industry'
 import NonProfit from './non-profit'
+import style from '../../styles/About.module.css'
 
 const Title = ({ title, active = false, onClick, id }) => {
     return (

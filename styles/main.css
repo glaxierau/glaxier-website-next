@@ -84,3 +84,18 @@ textarea {
 textarea::placeholder {
   font-size: 12px;
 }
+
+/* slider arrows */
+.slick-next {
+  background: url("/assets/svg/rightArrow.svg") center center no-repeat !important;
+}
+.slick-next::before {
+  display: none;
+}
+
+.slick-prev {
+  background: url("/assets/svg/leftArrow.svg") center center no-repeat !important;
+}
+.slick-prev::before {
+  display: none;
+}
