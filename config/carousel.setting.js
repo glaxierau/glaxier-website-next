@@ -25,6 +25,7 @@ export let blog_settings = {
 };
 
 
+
 export let about_settings = {
     dots: true,
     speed: 300,
@@ -53,7 +54,7 @@ export let about_settings = {
 export let testimonial_settings = {
     dots: false,
     speed: 300,
-    arrows: true,
+    arrows: false,
     slidesToShow: 3,
     slidesToScroll: 3,
     infinite: false,
@@ -61,6 +62,7 @@ export let testimonial_settings = {
         {
             breakpoint: 1200,
             settings: {
+                arrows: true,
                 slidesToShow: 2,
                 slidesToScroll: 2,
             }
@@ -68,6 +70,7 @@ export let testimonial_settings = {
         {
             breakpoint: 600,
             settings: {
+                arrows: true,
                 slidesToShow: 1,
                 slidesToScroll: 1,
             }
