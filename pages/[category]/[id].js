@@ -1,7 +1,7 @@
 import { useRouter } from 'next/dist/client/router'
 import React from 'react'
-import { withSizeLessThan } from '../../../hooks/useWindowSize'
-import SectionHead from '../../../components/common/Head'
+import { withSizeLessThan } from '../../hooks/useWindowSize'
+import SectionHead from '../../components/common/Head'
 import absoluteUrl from 'next-absolute-url'
 
 const SingleArticlePage = ({ articles }) => {

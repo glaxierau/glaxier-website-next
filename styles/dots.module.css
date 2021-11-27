@@ -1,0 +1,69 @@
+/* Dots */
+.slick-dotted.slick-slider {
+  margin-bottom: 30px;
+}
+
+.dots {
+  position: absolute;
+  bottom: -25px;
+  display: block;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  text-align: center;
+}
+.dots li {
+  position: relative;
+  display: inline-block;
+  margin: 0 5px;
+  padding: 0;
+  cursor: pointer;
+}
+.dots li button {
+  font-size: 20px;
+  line-height: 0;
+  display: block;
+  padding: 5px;
+  cursor: pointer;
+  color: transparent;
+  border: 0;
+  outline: none;
+  width: 10px;
+  height: 10px;
+  background-color: transparent;
+  border: #9fb0e4 solid 1px;
+  border-radius: 50px;
+}
+.dots li button:hover,
+.dots li button:focus {
+  outline: none;
+  background-color: #9fb0e4;
+  width: 11px;
+  height: 11px;
+}
+.dots li button:hover:before,
+.dots li button:focus:before {
+  opacity: 1;
+  background-color: #9fb0e4;
+}
+.dots li button:before {
+  font-family: "slick";
+  line-height: 20px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 8px;
+  height: 8px;
+  text-align: center;
+  opacity: 0.25;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.dots li.active button:before {
+  opacity: 1;
+  border-radius: 50px;
+  /* background-color: #9fb0e4; */
+  background-color: black;
+}

@@ -1,11 +1,9 @@
 import { motion } from 'framer-motion'
 import Link from 'next/link'
-import { useState } from 'react'
 
 const ArticleCard = ({ id, title, category, img, date }) => {
-    // let [isDragged, setIsDragged] = useState(false)
-    let href = `/blog/[category]/[id]`
-    let asHref = `/blog/${category}/${id}`
+    let href = `/[category]/[id]`
+    let asHref = `/${category}/${id}`
     return (
         <>
             <Link href={href} as={asHref}>
