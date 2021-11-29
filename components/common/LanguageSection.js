@@ -1,8 +1,6 @@
 import React from 'react'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
-import { getSpecificPart } from '../../hooks/getSpecificPart'
-import { toUpperCase } from '../../hooks/toUpperCase'
 
 const LanguageSection = () => {
     const router = useRouter()
