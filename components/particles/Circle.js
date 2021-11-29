@@ -23,7 +23,7 @@ const Circle = ({ active, title, onClick, ...otherProps }) => {
             initial="initial"
             animate="animate"
             exit="exit"
-            transition={{ duration: 4, delay: secondRandom(2), repeat: Infinity }}
+            transition={{ duration: 4, delay: secondRandom(4), repeat: Infinity }}
         >
             <div onClick={onClick} className={`lg:w-48 lg:h-48 w-28 h-28 rounded-full bg-white ${active && 'bg-red'}  bg-opacity-95 hover:bg-red flex items-center justify-center px-10 ${active ? 'shadow-none' : 'shadow-around'} hover:shadow-none ${active ? 'text-white' : 'text-red'} hover:text-white transition duration-200 ease-in-out`}>
                 <h2 className="lg:text-xl text-sm text-center font-bold">{title}</h2>
