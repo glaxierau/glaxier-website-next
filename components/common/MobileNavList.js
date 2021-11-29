@@ -3,7 +3,7 @@ import { useRouter } from 'next/dist/client/router'
 import Link from 'next/link'
 import { useState } from 'react'
 
-const NavList = ({ navs, setNav }) => {
+const MobileNavList = ({ navs, setNav }) => {
     const router = useRouter()
 
     let DropDown = (nav) => {
@@ -44,4 +44,4 @@ const NavList = ({ navs, setNav }) => {
     )
 }
 
-export default NavList
+export default MobileNavList

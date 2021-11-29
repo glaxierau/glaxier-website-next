@@ -1,7 +1,7 @@
-import React, { useState } from 'react'
+import React from 'react'
 import LanguageSection from '../common/LanguageSection'
 import SearchBox from '../common/SearchBox'
-import NavList from '../common/NavList'
+import MobileNavList from '../common/MobileNavList'
 import { motion } from 'framer-motion'
 import navigation from '../../config/navList'
 
@@ -13,16 +13,16 @@ const SideBar = ({ open, setNav }) => {
                 initial={{ opacity: 0, borderRadius: '0px 0px 40px 40px' }}
                 animate={{ opacity: 1, height: open ? 'auto' : '0vh' }}
                 transition={{ stiffness: 100, duration: 0.2, staggerChildren: 0.5, delayChildren: 0.4 }}>
-                <motion.div className=" overflow-y-scroll bg-white"
+                <motion.div className=" bg-white"
                     initial={{ opacity: 0 }}
                     animate={{ y: open ? 0 : -2, opacity: open ? 1 : 0, height: open ? '100vh' : '0vh' }}
                     transition={{ stiffness: 100, duration: 0.2, staggerChildren: 0.5, delayChildren: 0.4 }}>
                     <img src="/assets/svg/shape.svg" />
-                    <div className="w-screen bg-white-dark py-2 px-5">
+                    <div className="w-screen bg-white-dark h-auto py-2 px-5 overflow-y-scroll">
                         <LanguageSection />
                         <br />
                         <br />
-                        <NavList navs={navs} setNav={setNav} />
+                        <MobileNavList navs={navs} setNav={setNav} />
                         <div style={{ height: '1px' }} className="my-10 mx-auto w-full bg-purple" />
                         <SearchBox />
                     </div>
