@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { useRouter } from 'next/router'
+import { getSpecificPart } from '../../hooks/getSpecificPart'
 
 const DropDown = ({ open, onHover, onLeave, position, dropDownList, id, width = 200, ...otherProps }) => {
     const router = useRouter()
@@ -14,7 +15,7 @@ const DropDown = ({ open, onHover, onLeave, position, dropDownList, id, width = 
                             animate={{ opacity: 1 }}
                             transition={{ duration: 0.8 }}
                         >
-                            <p className="text-center" style={{ fontSize: '0.8rem' }}>{label || list}</p>
+                            <p className="text-center" style={{ fontSize: '0.8rem' }}>{label || getSpecificPart(list, 1)}</p>
                         </motion.div>
                     </Link>
                     :
@@ -24,7 +25,7 @@ const DropDown = ({ open, onHover, onLeave, position, dropDownList, id, width = 
                             animate={{ opacity: 1 }}
                             transition={{ duration: 0.8 }}
                         >
-                            <p className="text-center" style={{ fontSize: '0.8rem' }}>{label || list}</p>
+                            <p className="text-center" style={{ fontSize: '0.8rem' }}>{label || getSpecificPart(list, 1)}</p>
                         </motion.div>
                     </Link>
                 }
