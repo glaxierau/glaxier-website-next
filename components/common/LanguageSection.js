@@ -9,8 +9,8 @@ const LanguageSection = () => {
     return (
         <div className="flex">
             {lang.map(language => (
-                <Link href={router.asPath} locale={language}>
-                    <p key={language} className={`mr-4 text-base cursor-pointer font-light text-purple`}>{language}</p>
+                <Link key={language} href={router.asPath} locale={language}>
+                    <p className={`mr-4 text-base cursor-pointer font-light text-purple`}>{language}</p>
                 </Link>
             ))}
         </div>
