@@ -1,7 +1,6 @@
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { useRouter } from 'next/router'
-import { getSpecificPart } from '../../hooks/getSpecificPart'
 
 const DropDown = ({ open, onHover, onLeave, position, dropDownList, id, width = 200, ...otherProps }) => {
     const router = useRouter()
