@@ -2,13 +2,13 @@ import { useState } from 'react'
 import { motion } from 'framer-motion'
 import DropDown from '../layouts/DropDown'
 import { mobileScreen } from '../../hooks/useWindowSize'
+import { useRouter } from 'next/router'
+
 
 function NavSVGIcon({ size = ['20', '20'], children, withDropDown = false, onPointerEnter, ...otherProps }) {
-    let lang = [
-        { label: 'EN' },
-        { label: 'TH' },
-        { label: 'DE' },
-    ]
+
+    let router = useRouter()
+    let lang = router.locales
     const lg = !mobileScreen()
     const [open, setOpen] = useState(false)
     const [position, setPosition] = useState(0)

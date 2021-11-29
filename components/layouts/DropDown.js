@@ -1,7 +1,9 @@
 import Link from 'next/link'
 import { motion } from 'framer-motion'
+import { useRouter } from 'next/router'
 
 const DropDown = ({ open, onHover, onLeave, position, dropDownList, id, width = 200, ...otherProps }) => {
+    const router = useRouter()
     const DropDownCard = ({ label, list }) => {
         return (
             <>
@@ -12,17 +14,19 @@ const DropDown = ({ open, onHover, onLeave, position, dropDownList, id, width = 
                             animate={{ opacity: 1 }}
                             transition={{ duration: 0.8 }}
                         >
-                            <p className="text-center" style={{ fontSize: '0.8rem' }}>{label}</p>
+                            <p className="text-center" style={{ fontSize: '0.8rem' }}>{label || list}</p>
                         </motion.div>
                     </Link>
                     :
-                    <motion.div id="dropdown" {...otherProps} className="relative hover:bg-blue-dark text-blue-dark hover:text-white py-3 px-8 flex items-center justify-center  " style={{ width }}
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        transition={{ duration: 0.8 }}
-                    >
-                        <p className="text-center" style={{ fontSize: '0.8rem' }}>{label}</p>
-                    </motion.div>
+                    <Link href={router.asPath} locale={list}>
+                        <motion.div id="dropdown" {...otherProps} className="relative hover:bg-blue-dark text-blue-dark hover:text-white py-3 px-8 flex items-center justify-center  " style={{ width }}
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            transition={{ duration: 0.8 }}
+                        >
+                            <p className="text-center" style={{ fontSize: '0.8rem' }}>{label || list}</p>
+                        </motion.div>
+                    </Link>
                 }
             </>
         )
@@ -38,7 +42,7 @@ const DropDown = ({ open, onHover, onLeave, position, dropDownList, id, width = 
                     onMouseEnter={onHover}
                     onMouseLeave={onLeave}
                 >
-                    {dropDownList.map(list => <DropDownCard label={list.label} key={list.label} list={list} />)}
+                    {dropDownList.map(list => <DropDownCard value={list} label={list.label} key={list.label} list={list} />)}
                 </motion.div>
             }
         </>
