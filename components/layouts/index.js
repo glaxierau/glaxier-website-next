@@ -12,6 +12,7 @@ const Layout = ({ children }) => {
     enter: { opacity: 1, y: 0 },
     exit: { opacity: 0, y: 0 },
   }
+
   return (
     <div className={style.main, "lg:mt-20 mt-14"}>
       <Nav />

@@ -14,7 +14,6 @@ const Nav = () => {
     const lists = nav.navigation
     const [openSearch, setSearch] = useState(false)
 
-
     const NavList = ({ to, label, uuid, dropDownList }) => {
         const [isddOpen, setddTo] = useState(false)
         const [ddPosition, setddPosition] = useState(0)

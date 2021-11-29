@@ -1,21 +1,17 @@
-import React, { useState } from 'react'
-import { setAllToFalse } from '../../hooks/setAllToFalse'
-import { setToTrue } from '../../hooks/setToTrue'
+import React from 'react'
+import { useRouter } from 'next/router'
+import Link from 'next/link'
 
 const LanguageSection = () => {
-    const [languages, updateLanguages] = useState([
-        { type: 'ENG', active: true },
-        { type: 'TH', active: false }
-    ])
+    const router = useRouter()
+    const lang = router.locales
 
-    const onLanguageChange = (language) => {
-        setAllToFalse(languages, updateLanguages)
-        setToTrue(language, languages, updateLanguages)
-    }
     return (
         <div className="flex">
-            {languages.map(language => (
-                <p key={language.type} className={`mr-4 text-base cursor-pointer font-light text-${language.active ? 'red' : 'purple'}`} onClick={() => onLanguageChange(language)}>{language.type}</p>
+            {lang.map(language => (
+                <Link href={router.asPath} locale={language}>
+                    <p key={language} className={`mr-4 text-base cursor-pointer font-light text-purple`}>{language}</p>
+                </Link>
             ))}
         </div>
     )
