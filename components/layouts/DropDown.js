@@ -15,7 +15,7 @@ const DropDown = ({ open, onHover, onLeave, position, dropDownList, id, width = 
                             animate={{ opacity: 1 }}
                             transition={{ duration: 0.8 }}
                         >
-                            <p className="text-center" style={{ fontSize: '0.8rem' }}>{label || getSpecificPart(list, 1)}</p>
+                            <p className="text-center" style={{ fontSize: '0.8rem' }}>{label || list.toUpperCase()}</p>
                         </motion.div>
                     </Link>
                     :
@@ -25,7 +25,7 @@ const DropDown = ({ open, onHover, onLeave, position, dropDownList, id, width = 
                             animate={{ opacity: 1 }}
                             transition={{ duration: 0.8 }}
                         >
-                            <p className="text-center" style={{ fontSize: '0.8rem' }}>{label || getSpecificPart(list, 1)}</p>
+                            <p className="text-center" style={{ fontSize: '0.8rem' }}>{label || list.toUpperCase()}</p>
                         </motion.div>
                     </Link>
                 }
