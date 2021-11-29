@@ -13,6 +13,7 @@ const Service = ({ paddingBottom = false }) => {
     const [changing, setChanging] = useState(false)
     let sm = mobileScreen()
     let mobileView = withSizeLessThan(600)
+
     const [lists, setLists] = useState([
         { type: 1, label: "Graphic Design", subTitle: 'We can do these awesome things', description: 'A complete solution for digital-ready businesses. Generate sales/leads/engagement across Google, Facebook, Instagram, TikTok and More.', active: false },
         { type: 2, label: "Digital Advertising", subTitle: 'We can do these awesome things', description: 'A complete solution for digital-ready businesses. Generate sales/leads/engagement across Google, Facebook, Instagram, TikTok and More.', active: false },
