@@ -16,6 +16,7 @@ html {
   font-family: "Poppins";
   overflow-x: hidden;
   scroll-behavior: smooth;
+  scroll-padding: 90px;
 }
 
 p {

@@ -26,7 +26,7 @@ const StepsContact = () => {
     return (
         <>
             {path === 'contact' &&
-                <div className="bg-purple flex items-center justify-between my-20 lg:mx-40 md:mx-20 lg:flex hidden h-px">
+                <div className="bg-purple flex items-center justify-between my-20 lg:mx-40 md:mx-20 lg:flex h-px">
                     {lists.map(list => <SelectionBox key={list.key} icon={list.icon} active={list.active} imgSize={list.imgSize} href={list.href} onClick={() => onChoosingBox(list)} path={list.href} />)}
                 </div>
             }

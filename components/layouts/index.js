@@ -14,13 +14,15 @@ const Layout = ({ children }) => {
   }
 
   return (
-    <div className={style.main, "lg:mt-20 mt-14"}>
+    <div className={style.main, "relative"}>
       <Nav />
+      <div className="lg:h-20 h-14 bg-purple w-full" />
       <motion.main variants={variants}
         initial="hidden"
         animate="enter"
         exit="exit"
-        transition={{ type: 'linear' }}>{children}</motion.main>
+        transition={{ type: 'linear' }}
+      >{children}</motion.main>
       <StepsContact />
       <Footer />
     </div>
