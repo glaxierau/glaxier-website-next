@@ -5,7 +5,7 @@ const Title = ({ title, lineColor = "#9FB0E483", lineWidth, height }) => {
     return (
         <motion.div className="flex flex-col justify-center items-center">
             <CurvyLine color={lineColor} width={lineWidth} height={height} />
-            <h2 className="text-3xl font-extrabold">{title}</h2>
+            <h2 className="lg:text-3xl md:text-2xl text-2xl font-extrabold">{title}</h2>
         </motion.div>
     )
 }
