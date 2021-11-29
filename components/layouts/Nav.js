@@ -18,6 +18,14 @@ const Nav = () => {
     return (
         <>
             <nav className="fixed hidden lg:flex z-40 top-0 bg-white w-full h-20 px-28 justify-between">
+
+                <motion.div className={`absolute -z-10 top-20 left-1/2 transform -translate-x-1/2 bg-white px-5 flex items-center justify-center ${openSearch && 'shadow-drop'}`}
+                    style={{ width: '60vw', borderRadius: '0 0 30px 30px' }}
+                    animate={openSearch ? { display: 'flex', height: '10vh', y: -1, x: '-50%' } : { display: 'flex', height: '0vh', x: '-50%', y: -10 }}
+                >
+                    {openSearch && <SearchBox shadow={false} border onBlur={() => setSearch(false)} autoFocus={openSearch} />}
+                </motion.div>
+
                 {/* logo section */}
                 <Link href="/" >
                     <div className="w-40 h-20 flex items-center justify-start cursor-pointer">
@@ -27,7 +35,7 @@ const Nav = () => {
                 </Link>
                 {/* navigation */}
                 <div className="navlist flex w-3/5 justify-around items-center">
-                    {lists.map((list, index) => <NavList index={index} key={list.uuid} to={list.to} label={list.label} uuid={list.uuid} dropDownList={list.dropDown} />)}
+                    {lists.map((list, index) => <NavList index={index} key={list.uuid} to={list.to} label={list.label} uuid={list.uuid} dropDownList={list.dropDown} onMouseEnter={() => setSearch(false)} />)}
                     <span className="seperator border-l-2 h-5" />
                     <div className="flex w-20 justify-around items-center">
                         {/* languages */}
@@ -42,19 +50,14 @@ const Nav = () => {
                         </NavSVGIcon>
                     </div>
                 </div>
-                <motion.div className={`absolute -z-10 top-20 left-1/2 transform -translate-x-1/2 bg-white px-5 flex items-center justify-center ${openSearch && 'shadow-drop'}`}
-                    style={{ width: '60vw', borderRadius: '0 0 30px 30px' }}
-                    animate={openSearch ? { display: 'flex', height: '10vh', y: -1, x: '-50%' } : { display: 'flex', height: '0vh', x: '-50%', y: -10 }}
-                >
-                    {openSearch && <SearchBox shadow={false} border onBlur={() => setSearch(false)} autoFocus={openSearch} />}
-                </motion.div>
+
             </nav>
             <MobileNav />
         </>
     )
 }
 
-const NavList = ({ to, label, uuid, dropDownList }) => {
+const NavList = ({ to, label, uuid, dropDownList, onMouseEnter }) => {
     const [isddOpen, setddTo] = useState(false)
     const [ddPosition, setddPosition] = useState(0)
     let dropStatus = dropDownList.length === 0 ? false : true
@@ -66,7 +69,7 @@ const NavList = ({ to, label, uuid, dropDownList }) => {
 
     return (
         <div className="flex items-center justify-center h-full"
-            onMouseEnter={() => { setddTo(true), onGettingPosition() }}
+            onMouseEnter={() => { setddTo(true), onGettingPosition(), onMouseEnter() }}
             onMouseLeave={() => setddTo(false)}>
             <Link href={to} className="relative flex items-center justify-center h-full cursor-pointer">
                 <a id={uuid} style={{ fontSize: '0.9rem' }}>{label}</a>
