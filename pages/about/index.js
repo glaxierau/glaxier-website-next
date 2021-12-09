@@ -6,35 +6,62 @@ import Title from '../../components/Title'
 import TeamBadge from '../../components/icons/TeamBadge'
 import SectionHead from '../../components/common/Head'
 import AboutToggle from '../../components/about/AboutToggle'
-import Animate from '../../components/animation/Animate'
-const About = ({ children }) => {
+import { getData } from '../../hooks/getData'
+import { upperCaseText } from '../../hooks/tools'
+const About = ({ about, client, clientIndustry, ctaBreakSection, teamMember }) => {
+
     return (
         <div>
-            {/* <Animate> */}
-            <SectionHead title="About Us | Glaxier" description="desc desc" />
+            <SectionHead title="About Us | Glaxier" description={about.subTitle} />
             <div className="py-2">
-                <SectionTitle title="ABOUT" description="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed" />
+                <SectionTitle title={upperCaseText(about.headerSection.title)} description={about.headerSection.subtitle} />
             </div >
             <div className="lg:mt-0 -mt-10" id="whoweare">
-                <AboutSection />
+                <AboutSection dbAbout={about} />
             </div>
             <div className="bg-white-dark py-20" id="industry-experience">
                 <Title title="Industry Experience" lineWidth={600} height={30} />
-                <AboutToggle />
+                <AboutToggle clients={client} industry={clientIndustry} />
             </div>
-            <ProjectSection />
+            <ProjectSection {...ctaBreakSection} />
             <div className="lg:py-20 py-10" id="team">
-                <Title title="Glaxier Team" lineWidth={220} />
-                <div className="flex flex-wrap p-4 py-10 lg:px-20 md:px-0 px-4 justify-around items-center">
+                <Title title={about.teamSection.title} lineWidth={220} />
+                <div className="flex flex-wrap p-4 py-10 lg:px-20 md:px-10 px-4 mx-auto justify-around items-center w-3/4">
+                    {/* <TeamBadge position="Digital Advertising Specialist" />
                     <TeamBadge position="Digital Advertising Specialist" />
                     <TeamBadge position="Digital Advertising Specialist" />
-                    <TeamBadge position="Digital Advertising Specialist" />
-                    <TeamBadge position="Digital Advertising Specialist" />
+                    <TeamBadge position="Digital Advertising Specialist" /> */}
+                    {teamMember.map(member => <TeamBadge key={member._id} name={member.name} position={member.position} />)}
                 </div>
             </div>
-            {/* </Animate> */}
         </div>
     )
 }
 
 export default About
+
+export const getServerSideProps = async () => {
+    // ----------------QUERIES--------------
+    const aboutQuery = `*[_type == 'about'][0]`
+    const clientQuery = `*[_type == 'client']`
+    const clientIndustryQuery = `*[_type == 'clientIndustry']`
+    const ctaBreakSectionQuery = `*[_type == 'ctaBreakSection'][0]`
+    const teamMemberQuery = `*[ _type == 'teamMember']`
+
+    // --------------- CALLS ---------
+    const about = await getData(aboutQuery)
+    const client = await getData(clientQuery)
+    const clientIndustry = await getData(clientIndustryQuery)
+    const ctaBreakSection = await getData(ctaBreakSectionQuery)
+    const teamMember = await getData(teamMemberQuery)
+
+    return {
+        props: {
+            about,
+            client,
+            clientIndustry,
+            ctaBreakSection,
+            teamMember
+        }
+    }
+}

@@ -1,56 +1,45 @@
 import { AnimatePresence, motion } from 'framer-motion'
 import React, { useState } from 'react'
-import B2bIndustry from './b2b-industry'
-import B2cIndustry from './b2c-industry'
-import NonProfit from './non-profit'
+import Slider from "react-slick";
+import { about_settings, about_settings_industry } from '../../config/carousel.setting';
+import { getData, getDataInsideComp } from '../../hooks/getData'
+import IndustrySlides from './IndustrySlides';
 
-const Title = ({ title, active = false, onClick, id }) => {
+const Title = ({ title, onClick, id, myRef }) => {
     return (
-        <div className="about_toggle flex flex-col justify-center items-center" onClick={onClick} >
-            <h3 className="text-purple lg:mx-4 mx-4 m-1 cursor-pointer lg:text-base text-sm leading-none" id={id}>{title}</h3>
-            {active &&
-                <motion.div className="bg-red w-3/4 h-1"
-                    initial={{ width: 0 }}
-                    animate={{ width: 100 }}
-                    exit={{ width: 0 }} />}
+        <div className="about_toggle flex flex-col justify-center items-center " onClick={onClick} >
+            <h3 className="text-purple cursor-pointer text-center lg:text-sm text-sm leading-none" id={id}>{title}</h3>
+            <motion.div className="bg-red h-1 mt-2 "
+                animate={{ width: id === myRef ? 100 : 0 }} />
         </div>
     )
 }
 
-const AboutToggle = () => {
+const AboutToggle = ({ clients, industry }) => {
+
+    const [myRef, setMyRef] = useState('')
+    const [currentToShow, setToShow] = useState(clients)
+
     const [toggles, setToggles] = useState({
         one: true,
         two: false,
         three: false
     })
 
-    const onToggle = (e) => {
-        e.preventDefault()
-        let id = e.target.id
-        switch (id) {
-            case 'one':
-                return setToggles({ one: true, two: false, three: false });
-            case 'two':
-                return setToggles({ one: false, two: true, three: false });
-            case 'three':
-                return setToggles({ one: false, two: false, three: true });
-        }
+    const onToggle = async (ref) => {
+        const filteredClients = clients.filter(client => client.industry._ref === ref)
+        console.log(filteredClients)
+        setMyRef(ref)
+        setToShow(filteredClients)
     }
+
     return (
         <>
             <div className="about_toggle">
-                <div className="flex w-full items-center justify-center mt-10">
-                    <Title id="one" title="B2C Industry" active={toggles.one} onClick={e => onToggle(e)} />
-                    <Title id="two" title="B2B Industry" active={toggles.two} onClick={e => onToggle(e)} />
-                    <Title id="three" title="Non-Profit" active={toggles.three} onClick={e => onToggle(e)} />
-                </div>
-                <motion.div>
-                    <AnimatePresence exitBeforeEnter>
-                        {toggles.one && <B2cIndustry />}
-                        {toggles.two && <B2bIndustry />}
-                        {toggles.three && <NonProfit />}
-                    </AnimatePresence>
-                </motion.div>
+                <Slider {...about_settings_industry} arrows className="flex lg:w-3/5 md:w-3/4 w-3/4 h-14 mx-auto items-center justify-center mt-10 ">
+                    {industry.map(industry => <Title id={industry._id} key={industry._id} myRef={myRef} title={industry.industry} onClick={() => onToggle(industry._id)} />)}
+                </Slider>
+                {currentToShow !== [] && <IndustrySlides clients={currentToShow} />}
             </div>
         </>
     )

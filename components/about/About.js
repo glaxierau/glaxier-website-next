@@ -6,9 +6,8 @@ import Title from '../Title'
 import style from '../../styles/About.module.css'
 import { getData } from '../../hooks/getData'
 import Loading from '../loading/Loading'
-import BlockContent from '@sanity/block-content-to-react'
 
-const About = ({ withButton = false }) => {
+const About = ({ withButton = false, dbAbout }) => {
     const { about } = useSelector(state => state.about)
     const [aboutSection, setAboutSection] = useState(null)
     const [loading, setLoading] = useState(true)
@@ -17,7 +16,11 @@ const About = ({ withButton = false }) => {
             const query = `*[_id == '${about.aboutSection._ref}'][0]`
             const aboutSection = await getData(query)
             setAboutSection(aboutSection)
-            console.log(aboutSection)
+            return setLoading(false)
+        } else if (dbAbout) {
+            const query = `*[_id == '${dbAbout.aboutSection._ref}'][0]`
+            const aboutSection = await getData(query)
+            setAboutSection(aboutSection)
             return setLoading(false)
         }
     }, [about])
