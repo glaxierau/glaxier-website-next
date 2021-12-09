@@ -11,7 +11,7 @@ const TestimonialBox = ({ position, name, text }) => {
                 <path id="Icon_metro-quote" d="M8.355,23V36.364H22.4V23H15.378s0-6.681,7.024-6.681V9.64S8.355,9.64,8.355,23Zm35.118-6.681V9.64S29.425,9.64,29.425,23V36.364H43.472V23H36.449S36.449,16.321,43.472,16.321Z" transform="translate(-8.355 -9.64)" fill="#9fb0e4" />
             </svg>
             <br />
-            <motion.p animate={{ height: clicked && 300 }} className="text-black-light text-sm">{clicked ? text : shortenText(text)}{!clicked && <span className="text-purple cursor-pointer"><u>more</u></span>}</motion.p>
+            <motion.p animate={{ height: clicked && 300 }} className="text-black-light text-sm">{clicked ? text : shortenText(text)}{!clicked && <span className="text-purple cursor-pointer hover:text-red"><u> Read more</u></span>}</motion.p>
             <div className="flex items-center justify-start">
                 <Badge className="lg:mx-0 lg:mr-5 m-0" size="14" />
                 <p className="name font-sm">{name}</p>
