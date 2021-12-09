@@ -29,7 +29,8 @@ const Nav = () => {
                 <Link href="/" >
                     <div className="w-40 h-20 flex items-center justify-start cursor-pointer">
                         {/* logo here... */}
-                        <Image src={"/assets/svg/logo.svg"} alt="logo" width="110" height="50" />
+                        <Image src={"/assets/svg/logo.svg"} alt="logo" width="40" height="40" />
+                        <p className="text-gray-600 text-base ml-2" style={{ fontFamily: "Cutive Mono" }}>Glaxier</p>
                     </div>
                 </Link>
                 {/* navigation */}
