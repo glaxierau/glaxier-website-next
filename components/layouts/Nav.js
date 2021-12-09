@@ -14,7 +14,6 @@ const Nav = () => {
 
     const lists = nav.navigation
     const [openSearch, setSearch] = useState(false)
-    const [searchClicked, setClicked] = useState(false)
     return (
         <>
             <nav className="fixed hidden lg:flex z-40 top-0 bg-white w-full h-20 px-28 justify-between">
@@ -44,8 +43,9 @@ const Nav = () => {
                         </NavSVGIcon>
 
                         {/* search bar */}
-                        <NavSVGIcon onClick={() => { setClicked(true), setSearch(!openSearch) }}
-                            onPointerLeave={() => { !searchClicked && setSearch(false), setClicked(true) }}>
+                        <NavSVGIcon onClick={() => { setSearch(true) }}
+                        // onPointerLeave={() => { !searchClicked && setSearch(false), setClicked(true) }}
+                        >
                             <path d="M23.731,21.471H22.5l-.462-.386a10.212,10.212,0,0,0,2.385-6.557A9.962,9.962,0,1,0,14.5,24.557a10.31,10.31,0,0,0,6.538-2.391l.461.386v1.234L29.192,31.5,31.5,29.186Zm-9.231,0a6.943,6.943,0,1,1,6.923-6.943A6.9,6.9,0,0,1,14.5,21.471Z" transform="translate(-4.5 -4.5)" />
                         </NavSVGIcon>
                     </div>

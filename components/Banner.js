@@ -1,18 +1,18 @@
 import React from 'react'
 import AppButton from './AppButton'
 
-const Banner = () => {
+const Banner = ({ heroTitle, preTitle, button1, button2, link }) => {
     return (
         <div className="relative overflow-x-hidden">
             <div className="w-full bg-gray-600 h-screen">
                 <img src="/assets/img/home/meeting.png" className="w-screen h-screen object-cover" />
             </div>
             <div className="absolute lg:top-60 lg:left-40 md:top-1/2 top-2/3 left-1/2 transform lg:-translate-x-0 -translate-x-2/4 flex flex-col justify-center items-center text-white">
-                <h2 className="lg:text-2xl text-base font-bold">HEY! WE ARE</h2>
-                <h1 className="lg:text-7xl text-4xl mb-5" style={{ fontFamily: 'Cutive Mono' }}>Glaxier!</h1>
+                <h2 className="lg:text-2xl text-base font-bold">{preTitle}</h2>
+                <h1 className="lg:text-7xl text-4xl mb-5" style={{ fontFamily: 'Cutive Mono' }}>{heroTitle}</h1>
                 <div className="flex">
-                    <AppButton bgColor="bg-blue" bgColorHover="hover:bg-red" txtColor="text-white" title="GET IN TOUCH" width={200} />
-                    <AppButton bgColor="bg-white" bgColorHover="hover:bg-red" txtColor="text-blue" txtColorHover={"hover:text-white"} title="READ MORE" width={140} />
+                    <AppButton bgColor="bg-blue" bgColorHover="hover:bg-red" txtColor="text-white" title={button1.buttonText} width={200} link={button1.link} />
+                    <AppButton bgColor="bg-white" bgColorHover="hover:bg-red" txtColor="text-blue" txtColorHover={"hover:text-white"} title={button2.buttonText} width={140} link={button2.link} />
                 </div>
             </div>
             <div className="absolute bottom-0 w-screen">
