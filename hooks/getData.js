@@ -1,15 +1,16 @@
 import SanityClient from '@sanity/client'
 import axios from 'axios'
 
+export const client = SanityClient({
+    projectId: process.env.projectId,
+    dataset: 'production',
+    apiVersion: 'v1',
+    useCdn: true
+})
 
 export const getData = async (query) => {
     // ServerSideProps
-    const client = SanityClient({
-        projectId: process.env.projectId,
-        dataset: 'production',
-        apiVersion: 'v1',
-        useCdn: false
-    })
+
     const results = await client.fetch(query)
 
     return results ? results : { notFound: true }
@@ -28,3 +29,5 @@ export const getDataInsideComp = async (query, setData, setError, setLoading) =>
             setLoading ? setLoading(false) : ''
         })
 }
+
+

@@ -1,66 +1,55 @@
 import React, { useEffect, useState } from 'react'
-import Title from '../Title'
+import { motion } from 'framer-motion'
+import { useSelector, useDispatch } from 'react-redux'
 import { mobileScreen, withSizeLessThan } from '../../hooks/useWindowSize'
-import Particles from '../particles/Particles'
 import Circle from '../particles/Circle'
 import { setToTrue } from '../../hooks/setToTrue'
 import { setAllToFalse } from '../../hooks/setAllToFalse'
-import { motion } from 'framer-motion'
-import Loading from '../loading/Loading'
 import { getDataInsideComp } from '../../hooks/getData'
-import useSWR from 'swr'
-import axios from 'axios'
+import Title from '../Title'
+import Loading from '../loading/Loading'
+import Particles from '../particles/Particles'
 
-const Service = ({ paddingBottom = false, preTitle, title }) => {
+const Service = ({ paddingBottom = false }) => {
+    const { services, serviceMap } = useSelector(state => state.services)
+
 
     // ------------------ database variables -------------------
-    const [services, setServices] = useState([])
-    const [serviceMap, setserviceMap] = useState([])
     const [error, setError] = useState(undefined)
     const [loading, setLoading] = useState(true)
-    // const defaultServiceMap = { defaultDescription: serviceMap.defaultDescription[0].children[0].text, serviceSubtitle: serviceMap.defaultSubtitle, serviceTitle: serviceMap.defaultTitle }
 
     // ----------------------------- Variables ------------------------------
-    const defaultIndex = { type: 1, label: "Our Services", subTitle: 'We can do these awesome things', description: 'Our team has a collaborative and hollistic view of the digital landscape. Our services range from the fundamental assets such as a website, brochures, logo, to your outreach strategy to attract your perfect target customers.', active: false }
-    const [currentIndex, setIndex] = useState(serviceMap)
+    const [defaultServiceMap, setDefaultServiceMap] = useState({})
+    const [currentIndex, setIndex] = useState({})
     const [changing, setChanging] = useState(false)
-    const fetcher = async (url) => await axios.get(url).then(res => res.data)
-    // const { data, k } = useSWR(`${process.env.apiUrl}*[_type == 'serviceMap'][0]`, fetcher)
-    // console.log(data)
+
+
     // ------------ get data from database --------------
-    useEffect(async () => {
-        //--- Services -----
-        const query = `*[_type =='services'][0]`
-        await getDataInsideComp(query, setServices, setError);
-        //--- Service Map -----
-        const queryServiceMap = `*[_type == 'serviceMap'][0]`
-        await getDataInsideComp(queryServiceMap, setserviceMap, setError)
-        setLoading(false)
-    }, [])
-
-    const [lists, setLists] = useState(serviceMap)
-    console.log('lists', lists)
-
-
-
-
     useEffect(() => {
-        // ----- Current Index -------
-        // console.log(serviceMap.defaultTitle)
-        // setIndex({ _key: serviceMap._key, defaultDescription: serviceMap.defaultDescription[0].children[0].text, serviceSubtitle: serviceMap.defaultSubtitle, serviceTitle: serviceMap.defaultTitle })
-        // console.log(serviceMap.defaultDescription[0].children[0].text)
-        // setIndex({ _key: serviceMap._id, defaultDescription: serviceMap.defaultDescription[0].children[0].text, serviceSubtitle: serviceMap.defaultSubtitle, serviceTitle: serviceMap.defaultTitle })
-    }, [serviceMap.defaultDescription])
+        if (services && serviceMap) {
+            setDefaultServiceMap({ _key: serviceMap._key, serviceDescription: serviceMap.defaultDescription[0].children[0].text, serviceSubtitle: serviceMap.defaultSubtitle, serviceTitle: serviceMap.defaultTitle })
+            setIndex({ _key: serviceMap._key, serviceDescription: serviceMap.defaultDescription[0].children[0].text, serviceSubtitle: serviceMap.defaultSubtitle, serviceTitle: serviceMap.defaultTitle })
+            setLists(serviceMap.services)
+            return setLoading(false)
+        } else {
+            return setLoading(true)
+        }
+    }, [services])
+
+    const [lists, setLists] = useState([])
 
 
+    const onSelecting = (e) => {
+        const innerText = e.target.innerText
+        const foundIndex = lists.filter(list => list.serviceTitle === innerText)[0]
+        const newIndex = { _key: foundIndex._key, serviceDescription: foundIndex.serviceDescription[0].children[0].text, serviceSubtitle: foundIndex.serviceSubtitle, serviceTitle: foundIndex.serviceTitle }
+        console.log(newIndex)
+        setIndex(newIndex)
+        // setAllToFalse(lists, setLists);
+        // setToTrue(foundIndex, lists, setLists)
+    }
 
-    // const onSelecting = (e) => {
-    //     const innerText = e.target.innerText
-    //     const foundIndex = lists.filter(list => list.label === innerText)[0]
-    //     setIndex(foundIndex)
-    //     setAllToFalse(lists, setLists);
-    //     setToTrue(foundIndex, lists, setLists)
-    // }
+
     useEffect(() => {
         setChanging(false)
         return setTimeout(() => setChanging(true), 300)
@@ -69,9 +58,8 @@ const Service = ({ paddingBottom = false, preTitle, title }) => {
     // -------------------- Screen Responsiveness ---------------
     let sm = mobileScreen()
     let mobileView = withSizeLessThan(600)
+    // console.log(currentIndex)
 
-
-    // if (!loading && services.length !== 0 && serviceMap.length !== 0) {
     if (!loading) {
         return (
             <motion.div className={`bg-white-dark ${paddingBottom ? 'py-10' : 'pt-10'} `}
@@ -83,17 +71,18 @@ const Service = ({ paddingBottom = false, preTitle, title }) => {
                     <p className="text-small font-thin text-gray-500 xl:w-3/4 lg:3/4 w-full">{services.introductionSection.sectionDescription[0].children[0].text}</p>
                 </div>
                 <div className="h-screen  mt-20  flex justify-center items-center relative text-center overflow-visible" style={{ width: '100%' }}>
-                    <img onClick={() => { setIndex(defaultIndex), setAllToFalse(lists, setLists) }} src={`/assets/img/home/${mobileView ? 'smCircles' : 'lgCircles'}.png`} className={"circle_image absolute top-0 z-10 w-full lg:object-cover md:object-cover object-cover h-screen"} alt="circles" />
+                    {/* <img onClick={() => { setIndex(defaultServiceMap), setAllToFalse(lists, setLists) }} src={`/assets/img/home/${mobileView ? 'smCircles' : 'lgCircles'}.png`} className={"circle_image absolute top-0 z-10 w-full lg:object-cover md:object-cover object-cover h-screen"} alt="circles" /> */}
+                    <img onClick={() => { setIndex(defaultServiceMap), setAllToFalse(lists, setLists) }} src={`/assets/img/home/${mobileView ? 'smCircles' : 'lgCircles'}.png`} className={"circle_image absolute top-0 z-10 w-full lg:object-cover md:object-cover object-cover h-screen"} alt="circles" />
                     <Particles />
-                    {/* <Circle style={sm ? { top: '8rem', left: '5%' } : { top: '5rem', left: '20%' }} title={lists} onClick={(e) => onSelecting(e)} active={lists[0].active} />
-                    <Circle style={sm ? { top: '5rem', right: '5%' } : { top: '5rem', right: '13%' }} title={lists[1].label} onClick={(e) => onSelecting(e)} active={lists[1].active} />
-                    <Circle style={sm ? { bottom: '6rem', left: '5%' } : { bottom: '2rem', left: '14%' }} title={lists[2].label} onClick={(e) => onSelecting(e)} active={lists[2].active} />
-                    <Circle style={sm ? { bottom: '8rem', right: '5%' } : { bottom: '2rem', right: '20%' }} title={lists[3].label} onClick={(e) => onSelecting(e)} active={lists[3].active} /> */}
+                    <Circle style={sm ? { top: '8rem', left: '5%' } : { top: '5rem', left: '20%' }} title={serviceMap.services[0].serviceTitle} onClick={(e) => onSelecting(e)} />
+                    <Circle style={sm ? { top: '5rem', right: '5%' } : { top: '5rem', right: '13%' }} title={serviceMap.services[1].serviceTitle} onClick={(e) => onSelecting(e)} />
+                    <Circle style={sm ? { bottom: '6rem', left: '5%' } : { bottom: '2rem', left: '14%' }} title={serviceMap.services[2].serviceTitle} onClick={(e) => onSelecting(e)} />
+                    <Circle style={sm ? { bottom: '8rem', right: '5%' } : { bottom: '2rem', right: '20%' }} title={serviceMap.services[3].serviceTitle} onClick={(e) => onSelecting(e)} />
                     {changing && currentIndex &&
                         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.2 }} className="position top-0 left-1/2 z-10 flex items-center justify-center flex-col mt-6">
-                            <Title title={currentIndex.serviceMap.defaultTitle || 'loading'} lineColor="#fff" lineWidth="210" /> <br />
-                            <h3 className="lg:text-lg font-black text-base">{currentIndex.serviceMap.defaultSubtitle || 'loading'}</h3> <br />
-                            {/* <p className="lg:w-96 w-72 text-white font-thin leading-5">{currentIndex.serviceMap.defaultDescription[0].children[0].text || "loading"}</p> */}
+                            <Title title={currentIndex.serviceTitle} lineColor="#fff" lineWidth="210" /> <br />
+                            <h3 className="lg:text-lg font-black text-base">{currentIndex.serviceSubtitle || 'loading'}</h3> <br />
+                            <p className="lg:w-96 w-72 text-white font-thin leading-5">{currentIndex.serviceDescription || "loading"}</p>
                         </motion.div>
                     }
                 </div>

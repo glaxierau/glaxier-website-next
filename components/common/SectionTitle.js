@@ -1,6 +1,8 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
 
 const SectionTitle = ({ title = "title", description, children }) => {
+    const { services, serviceMap } = useSelector(state => state.services)
     return (
         <>
             <img src="/shape.svg" alt="glaxier shape" />

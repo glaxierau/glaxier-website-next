@@ -1,17 +1,22 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Service from '../../components/service/Service'
 import SectionTitle from '../../components/common/SectionTitle'
 import SectionHead from '../../components/common/Head'
 import { getData } from '../../hooks/getData'
+import { useDispatch } from 'react-redux'
 
 
 
-const Services = ({ header, serviceMap, introductionSection }) => {
+const Services = ({ header, serviceMap, services }) => {
+    const dispatch = useDispatch()
+    useEffect(() => {
+        dispatch({ type: 'GET_SERVICES', services, serviceMap })
+    }, [services, serviceMap])
     return (
         <div>
             <SectionHead title="Services | Glaxier" />
             <SectionTitle title={header.title} description={header.subtitle} />
-            <Service paddingBottom={true} {...serviceMap} {...introductionSection} />
+            <Service paddingBottom={true} />
         </div>
     )
 }
@@ -26,9 +31,10 @@ export const getServerSideProps = async () => {
 
     // ----------------- Data Fetching --------------------
     const serviceMap = await getData(serviceMapQuery)
-    const { headerSection, introductionSection } = await getData(serviceQuery)
+    const { headerSection } = await getData(serviceQuery)
+    const services = await getData(serviceQuery)
 
     return {
-        props: { header: headerSection, introductionSection, serviceMap }
+        props: { header: headerSection, serviceMap, services }
     }
 }
