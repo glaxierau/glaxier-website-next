@@ -29,7 +29,7 @@ const Nav = () => {
                 <Link href="/" >
                     <div className="w-40 h-20 flex items-center justify-start cursor-pointer">
                         {/* logo here... */}
-                        <Image src={"/assets/img/header/logo.png"} alt="logo" width="110" height="30" />
+                        <Image src={"/assets/svg/logo.svg"} alt="logo" width="110" height="50" />
                     </div>
                 </Link>
                 {/* navigation */}
