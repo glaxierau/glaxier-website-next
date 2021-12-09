@@ -9,15 +9,12 @@ import Service from "../components/service/Service";
 import Testimonial from "../components/testimonial/Testimonial";
 import { getData } from "../hooks/getData";
 
-export default function Home({ hero, services, serviceMap, aboutSection, about }) {
+export default function Home({ hero, services, serviceMap, about, clientSection, ctaBreakSection, testimonial }) {
   const dispatch = useDispatch()
   useEffect(() => {
     dispatch({ type: 'GET_SERVICES', serviceMap, services });
     dispatch({ type: 'GET_ABOUT', about })
   }, [services && serviceMap])
-
-  console.log(about)
-
   return (
     <div className="container-snap">
       <Head>
@@ -27,9 +24,9 @@ export default function Home({ hero, services, serviceMap, aboutSection, about }
       <Banner {...hero} />
       <Service />
       <About withButton={true} />
-      <Client />
-      <Project />
-      <Testimonial />
+      <Client {...clientSection} />
+      <Project {...ctaBreakSection} />
+      <Testimonial testimonials={testimonial} />
       {/* <Articles latestArticles={latestArticles} /> */}
     </div>
   );
@@ -38,22 +35,31 @@ export default function Home({ hero, services, serviceMap, aboutSection, about }
 
 export const getServerSideProps = async (ctx) => {
   // --------------------- Queries --------------------------
+  const clientSectionQuery = `*[_type =='home']{clientSection}[0]`
   const heroQuery = `*[_type =='home']{hero}[0]`
   const serviceQuery = `*[_type =='services'][0]`
   const serviceMapQuery = `*[_type == 'serviceMap'][0]`
   const aboutQuery = `*[_type == 'about'][0]`
+  const ctaBreakSectionQuery = `*[_type == 'ctaBreakSection'][0]`
+  const testimonialQuery = `*[ _type == 'testimonial']`
 
   // ----------------- Data Fetching --------------------
   const serviceMap = await getData(serviceMapQuery)
   const services = await getData(serviceQuery)
   const { hero } = await getData(heroQuery)
   const about = await getData(aboutQuery)
+  const { clientSection } = await getData(clientSectionQuery)
+  const ctaBreakSection = await getData(ctaBreakSectionQuery)
+  const testimonial = await getData(testimonialQuery)
   return {
     props: {
       hero,
       serviceMap,
       services,
       about,
+      clientSection,
+      ctaBreakSection,
+      testimonial
     }
   }
 }
