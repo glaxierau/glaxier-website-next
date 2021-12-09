@@ -67,3 +67,9 @@
   /* background-color: #9fb0e4; */
   background-color: black;
 }
+.dots li.active button {
+  opacity: 1;
+  border-radius: 50px;
+  /* background-color: #9fb0e4; */
+  background-color: black;
+}

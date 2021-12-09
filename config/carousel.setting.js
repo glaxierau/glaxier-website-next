@@ -50,6 +50,30 @@ export let about_settings = {
         }
     ]
 };
+export let about_settings_industry = {
+    dots: true,
+    speed: 300,
+    arrows: false,
+    slidesToShow: 4,
+    slidesToScroll: 2,
+    infinite: false,
+    responsive: [
+        {
+            breakpoint: 1200,
+            settings: {
+                slidesToShow: 4,
+                slidesToScroll: 2,
+            }
+        },
+        {
+            breakpoint: 600,
+            settings: {
+                slidesToShow: 3,
+                slidesToScroll: 1,
+            }
+        }
+    ]
+};
 
 export let testimonial_settings = {
     dots: false,

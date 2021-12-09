@@ -5,3 +5,12 @@ export const sanityImage = (image) => {
     const value = useNextSanityImage(client, image)
     return value
 }
+
+export const shortenText = (text, lenght = 160) => {
+    const trimedTxt = text.substr(0, lenght) + '...'
+    return trimedTxt
+}
+export const upperCaseText = (text) => {
+    const trimedTxt = text.toUpperCase()
+    return trimedTxt
+}
