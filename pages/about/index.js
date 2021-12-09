@@ -26,11 +26,7 @@ const About = ({ about, client, clientIndustry, ctaBreakSection, teamMember }) =
             <ProjectSection {...ctaBreakSection} />
             <div className="lg:py-20 py-10" id="team">
                 <Title title={about.teamSection.title} lineWidth={220} />
-                <div className="flex flex-wrap p-4 py-10 lg:px-20 md:px-10 px-4 mx-auto justify-around items-center w-3/4">
-                    {/* <TeamBadge position="Digital Advertising Specialist" />
-                    <TeamBadge position="Digital Advertising Specialist" />
-                    <TeamBadge position="Digital Advertising Specialist" />
-                    <TeamBadge position="Digital Advertising Specialist" /> */}
+                <div className="flex flex-wrap p-4 py-10 lg:px-5 md:px-2 px-4 mx-auto justify-around items-center w-4/5">
                     {teamMember.map(member => <TeamBadge key={member._id} name={member.name} position={member.position} />)}
                 </div>
             </div>
