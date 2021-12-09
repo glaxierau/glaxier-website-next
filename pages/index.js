@@ -6,8 +6,10 @@ import Banner from "../components/Banner";
 import Client from "../components/client/Client";
 import Project from "../components/project/Project";
 import Service from "../components/service/Service";
+import Articles from "../components/articles/Articles";
 import Testimonial from "../components/testimonial/Testimonial";
 import { getData } from "../hooks/getData";
+import articles from '../config/articles'
 
 export default function Home({ hero, services, serviceMap, about, clientSection, ctaBreakSection, testimonial }) {
   const dispatch = useDispatch()
@@ -27,7 +29,7 @@ export default function Home({ hero, services, serviceMap, about, clientSection,
       <Client {...clientSection} />
       <Project {...ctaBreakSection} />
       <Testimonial testimonials={testimonial} />
-      {/* <Articles latestArticles={latestArticles} /> */}
+      <Articles latestArticles={articles} />
     </div>
   );
 }

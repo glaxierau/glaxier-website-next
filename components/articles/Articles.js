@@ -5,6 +5,7 @@ import ArticleCard from './ArticleCard'
 import Loading from '../loading/Loading'
 
 const Articles = ({ latestArticles }) => {
+    latestArticles = latestArticles.slice(latestArticles.length - 3, latestArticles.length)
     return (
         <>
             {latestArticles ?
