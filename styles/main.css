@@ -33,6 +33,14 @@ p {
   }
 }
 
+/* scroll snap */
+.container-snap {
+  scroll-snap-type: y mandatory;
+}
+.child {
+  scroll-snap-align: start;
+}
+
 /* nav links */
 
 .navlist a {
