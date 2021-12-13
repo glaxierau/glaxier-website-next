@@ -1,5 +1,4 @@
 
-import { getData } from '../../../hooks/getData'
 import SanityClient from '@sanity/client'
 
 export const services = async (req, res) => {
@@ -11,7 +10,5 @@ export const services = async (req, res) => {
     })
     const query = `*[_type == 'services]`
     const results = await client.fetch(query)
-    // const results = await getData(query)
-    // res.send(result)
     res.status(200).json(results)
 }

@@ -51,7 +51,7 @@ export let about_settings = {
     ]
 };
 export let about_settings_industry = {
-    dots: true,
+    dots: false,
     speed: 300,
     arrows: false,
     slidesToShow: 4,

@@ -1,4 +1,5 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
 import AboutSection from '../../components/about/About'
 import ProjectSection from '../../components/project/Project'
 import SectionTitle from '../../components/common/SectionTitle'
@@ -8,8 +9,10 @@ import SectionHead from '../../components/common/Head'
 import AboutToggle from '../../components/about/AboutToggle'
 import { getData } from '../../hooks/getData'
 import { upperCaseText } from '../../hooks/tools'
-const About = ({ about, client, clientIndustry, ctaBreakSection, teamMember }) => {
 
+const About = () => {
+    const { data } = useSelector(state => state.data)
+    const { about, client, clientIndustry, ctaBreakSection, teamMember } = data
     return (
         <div>
             <SectionHead title="About Us | Glaxier" description={about.subTitle} />
@@ -36,28 +39,3 @@ const About = ({ about, client, clientIndustry, ctaBreakSection, teamMember }) =
 
 export default About
 
-export const getServerSideProps = async () => {
-    // ----------------QUERIES--------------
-    const aboutQuery = `*[_type == 'about'][0]`
-    const clientQuery = `*[_type == 'client']`
-    const clientIndustryQuery = `*[_type == 'clientIndustry']`
-    const ctaBreakSectionQuery = `*[_type == 'ctaBreakSection'][0]`
-    const teamMemberQuery = `*[ _type == 'teamMember']`
-
-    // --------------- CALLS ---------
-    const about = await getData(aboutQuery)
-    const client = await getData(clientQuery)
-    const clientIndustry = await getData(clientIndustryQuery)
-    const ctaBreakSection = await getData(ctaBreakSectionQuery)
-    const teamMember = await getData(teamMemberQuery)
-
-    return {
-        props: {
-            about,
-            client,
-            clientIndustry,
-            ctaBreakSection,
-            teamMember
-        }
-    }
-}

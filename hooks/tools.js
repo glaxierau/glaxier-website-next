@@ -3,6 +3,8 @@ import { client } from './getData'
 
 export const sanityImage = (image) => {
     const value = useNextSanityImage(client, image)
+    delete value.width
+    delete value.height
     return value
 }
 

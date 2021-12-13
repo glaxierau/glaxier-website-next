@@ -1,5 +1,8 @@
 
 module.exports = {
+    images: {
+        domain: ['cdn.sanity.io']
+    },
     i18n: {
         locales: ['en', 'th'],
         defaultLocale: 'en'
