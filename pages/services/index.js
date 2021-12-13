@@ -3,19 +3,17 @@ import Service from '../../components/service/Service'
 import SectionTitle from '../../components/common/SectionTitle'
 import SectionHead from '../../components/common/Head'
 import { getData } from '../../hooks/getData'
-import { useDispatch } from 'react-redux'
+import { useSelector } from 'react-redux'
 
 
 
-const Services = ({ header, serviceMap, services }) => {
-    const dispatch = useDispatch()
-    useEffect(() => {
-        dispatch({ type: 'GET_SERVICES', services, serviceMap })
-    }, [services, serviceMap])
+const Services = () => {
+    const { data } = useSelector(state => state.data)
+    const { services } = data
     return (
         <div>
             <SectionHead title="Services | Glaxier" />
-            <SectionTitle title={header.title} description={header.subtitle} />
+            <SectionTitle title={services.headerSection.title} description={services.headerSection.subtitle} />
             <Service paddingBottom={true} />
         </div>
     )

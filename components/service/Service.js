@@ -11,7 +11,8 @@ import Loading from '../loading/Loading'
 import Particles from '../particles/Particles'
 
 const Service = ({ paddingBottom = false }) => {
-    const { services, serviceMap } = useSelector(state => state.services)
+    const { data } = useSelector(state => state.data)
+    const { services, serviceMap } = data
 
 
     // ------------------ database variables -------------------
@@ -43,7 +44,6 @@ const Service = ({ paddingBottom = false }) => {
         const innerText = e.target.innerText
         const foundIndex = lists.filter(list => list.serviceTitle === innerText)[0]
         const newIndex = { _key: foundIndex._key, serviceDescription: foundIndex.serviceDescription[0].children[0].text, serviceSubtitle: foundIndex.serviceSubtitle, serviceTitle: foundIndex.serviceTitle }
-        console.log(newIndex)
         setIndex(newIndex)
         // setAllToFalse(lists, setLists);
         // setToTrue(foundIndex, lists, setLists)
@@ -58,7 +58,6 @@ const Service = ({ paddingBottom = false }) => {
     // -------------------- Screen Responsiveness ---------------
     let sm = mobileScreen()
     let mobileView = withSizeLessThan(600)
-    // console.log(currentIndex)
 
     if (!loading) {
         return (

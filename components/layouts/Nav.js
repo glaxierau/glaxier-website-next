@@ -16,8 +16,9 @@ const Nav = () => {
     const [openSearch, setSearch] = useState(false)
     return (
         <>
-            <nav className="fixed hidden lg:flex z-40 top-0 bg-white w-full h-20 px-28 justify-between">
-
+            <motion.nav
+                className="fixed hidden lg:flex z-40 top-0 bg-white w-full h-20 px-28 justify-between"
+            >
                 <motion.div className={`absolute -z-10 top-20 left-1/2 transform -translate-x-1/2 bg-white px-5 flex items-center justify-center ${openSearch && 'shadow-drop'}`}
                     style={{ width: '60vw', borderRadius: '0 0 30px 30px' }}
                     animate={openSearch ? { display: 'flex', height: '10vh', y: -1, x: '-50%' } : { display: 'flex', height: '0vh', x: '-50%', y: -10 }}
@@ -52,7 +53,7 @@ const Nav = () => {
                     </div>
                 </div>
 
-            </nav>
+            </motion.nav>
             <MobileNav />
         </>
     )
