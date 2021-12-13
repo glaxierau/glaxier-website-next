@@ -23,7 +23,7 @@ const About = ({ withButton = false, dbAbout }) => {
             setAboutSection(aboutSection)
             return setLoading(false)
         }
-    }, [about])
+    }, [about || dbAbout])
     if (!loading) {
         return (
             <>

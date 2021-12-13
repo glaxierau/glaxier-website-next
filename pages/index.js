@@ -25,7 +25,7 @@ export default function Home({ hero, services, serviceMap, about, clientSection,
       </Head>
       <Banner {...hero} />
       <Service />
-      <About withButton={true} />
+      <About withButton={true} dbAbout={about} />
       <Client {...clientSection} />
       <Project {...ctaBreakSection} />
       <Testimonial testimonials={testimonial} />

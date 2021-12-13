@@ -4,10 +4,11 @@ import '../styles/hamburgers.css'
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Layout from '../components/layouts'
-import { AnimatePresence, motion } from 'framer-motion'
-import NextNProgress from "nextjs-progressbar";
 import { Provider } from 'react-redux'
+import { createWrapper } from 'next-redux-wrapper'
+import { AnimatePresence, motion } from 'framer-motion'
 import store from '../redux/store'
+import NextNProgress from "nextjs-progressbar";
 
 
 function MyApp({ Component, pageProps, router }) {
@@ -31,5 +32,7 @@ function MyApp({ Component, pageProps, router }) {
     </>
   )
 }
+// const wrapper = createWrapper(store)
 
+// export default wrapper.withRedux(MyApp)
 export default MyApp
