@@ -6,11 +6,13 @@ import { client, getData, getDataInsideComp } from '../../hooks/getData'
 import IndustrySlides from './IndustrySlides';
 
 const Title = ({ title, onClick, id, myRef }) => {
+    let el = document.getElementById(`${id}`)
+    let width = el ? el.clientWidth : 10
     return (
         <div className="about_toggle flex flex-col justify-center items-center " onClick={onClick} >
-            <h3 className="text-purple cursor-pointer text-center lg:text-sm text-sm leading-none" id={id}>{title}</h3>
+            <h3 id={id} className="text-purple cursor-pointer text-center lg:text-sm text-sm leading-none" id={id}>{title}</h3>
             <motion.div className="bg-red h-1 mt-2 "
-                animate={{ width: id === myRef ? 100 : 0 }} />
+                animate={{ width: id === myRef ? width : 0 }} />
         </div>
     )
 }
@@ -21,11 +23,13 @@ const specificClient = (array, id) => {
 }
 
 const AboutToggle = ({ clients, industry }) => {
+    let defaultInd = { industry: 'All', _id: 'all' }
     const newClientRef = clients.map(cli => cli.industry._ref)
     let filteredIndustry = industry.filter(i => i._id === specificClient(newClientRef, i._id))
+    filteredIndustry.unshift(defaultInd)
     industry = filteredIndustry
 
-    const [myRef, setMyRef] = useState('')
+    const [myRef, setMyRef] = useState('all')
     const [currentToShow, setToShow] = useState(clients)
 
     const [toggles, setToggles] = useState({
@@ -34,11 +38,15 @@ const AboutToggle = ({ clients, industry }) => {
         three: false
     })
 
-    const onToggle = async (ref) => {
-        const filteredClients = clients.filter(client => client.industry._ref === ref)
-        console.log(filteredClients)
-        setMyRef(ref)
-        setToShow(filteredClients)
+    const onToggle = (ref) => {
+        if (ref === 'all') {
+            setMyRef(ref)
+            setToShow(clients)
+        } else {
+            const filteredClients = clients.filter(client => client.industry._ref === ref)
+            setMyRef(ref)
+            setToShow(filteredClients)
+        }
     }
 
     return (
