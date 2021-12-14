@@ -51,7 +51,7 @@ const index = () => {
                 }
             </div>
             <div className="mx-auto w-56 py-10">
-                <AppButton title="Continue" width={200} bgColor="bg-blue-dark" bgColorHover="hover:bg-red" txtColor="text-white" link='/contact/personal-details' />
+                <AppButton title="Continue" width={200} bgColor="bg-blue-dark" bgColorHover="hover:bg-red" txtColor="text-white" link='/contact/contact-detail' />
             </div>
         </div>
     )

@@ -2,7 +2,7 @@ import { AnimatePresence, motion } from 'framer-motion'
 import React, { useState } from 'react'
 import Slider from "react-slick";
 import { about_settings, about_settings_industry } from '../../config/carousel.setting';
-import { getData, getDataInsideComp } from '../../hooks/getData'
+import { client, getData, getDataInsideComp } from '../../hooks/getData'
 import IndustrySlides from './IndustrySlides';
 
 const Title = ({ title, onClick, id, myRef }) => {
@@ -15,7 +15,15 @@ const Title = ({ title, onClick, id, myRef }) => {
     )
 }
 
+const specificClient = (array, id) => {
+    const newArray = array.filter(i => i === id)[0]
+    return newArray
+}
+
 const AboutToggle = ({ clients, industry }) => {
+    const newClientRef = clients.map(cli => cli.industry._ref)
+    let filteredIndustry = industry.filter(i => i._id === specificClient(newClientRef, i._id))
+    industry = filteredIndustry
 
     const [myRef, setMyRef] = useState('')
     const [currentToShow, setToShow] = useState(clients)

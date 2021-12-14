@@ -16,10 +16,7 @@ const index = () => {
                 <input placeholder="Contact Number" type="tel" className="lg:w-96 md:w-80 w-80 pl-4" />
             </form>
             <div className="mx-auto w-96 flex flex-col items-center justify-center py-9">
-                <AppButton title="Continue" width={200} bgColor="bg-blue-dark" bgColorHover="hover:bg-red" txtColor="text-white" link='/contact/contact-detail' />
-                <Link href="/contact/contact-detail">
-                    <p className="cursor-pointer underline py-2 text-purple">SKIP</p>
-                </Link>
+                <AppButton title="Submit" type="submit" width={200} bgColor="bg-blue-dark" bgColorHover="hover:bg-red" txtColor="text-white" link='/' disabled={true} />
             </div>
         </div>
     )
