@@ -71,6 +71,13 @@ export let about_settings_industry = {
                 slidesToShow: 3,
                 slidesToScroll: 1,
             }
+        },
+        {
+            breakpoint: 500,
+            settings: {
+                slidesToShow: 2,
+                slidesToScroll: 1,
+            }
         }
     ]
 };
