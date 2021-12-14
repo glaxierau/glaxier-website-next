@@ -16,19 +16,14 @@ const Project = ({ ctaButton }) => {
                     `
                 .bg_image{
                     width: 100%;
-                    height: 22rem;
+                    height: auto;
                     object-fit: cover;
                     position: absolute;
                     top: 0;
                     z-index: 1;
                     margin-top: -5px;
                 }
-                @media screen and (max-width: 1025px) {
-                    .bg_image {
-                        height: 24rem;
-                    }
-                }
-                @media screen and (max-width: 1090px) {
+                @media screen and (max-width: 700px) {
                     .bg_image {
                         height: 12rem;
                     }

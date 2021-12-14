@@ -73,10 +73,10 @@ const Service = ({ paddingBottom = false }) => {
                     {/* <img onClick={() => { setIndex(defaultServiceMap), setAllToFalse(lists, setLists) }} src={`/assets/img/home/${mobileView ? 'smCircles' : 'lgCircles'}.png`} className={"circle_image absolute top-0 z-10 w-full lg:object-cover md:object-cover object-cover h-screen"} alt="circles" /> */}
                     <img onClick={() => { setIndex(defaultServiceMap), setAllToFalse(lists, setLists) }} src={`/assets/img/home/${mobileView ? 'smCircles' : 'lgCircles'}.png`} className={"circle_image absolute top-0 z-10 w-full lg:object-cover md:object-cover object-cover h-screen"} alt="circles" />
                     <Particles />
-                    <Circle style={sm ? { top: '8rem', left: '5%' } : { top: '5rem', left: '20%' }} title={serviceMap.services[0].serviceTitle} onClick={(e) => onSelecting(e)} />
-                    <Circle style={sm ? { top: '5rem', right: '5%' } : { top: '5rem', right: '13%' }} title={serviceMap.services[1].serviceTitle} onClick={(e) => onSelecting(e)} />
-                    <Circle style={sm ? { bottom: '6rem', left: '5%' } : { bottom: '2rem', left: '14%' }} title={serviceMap.services[2].serviceTitle} onClick={(e) => onSelecting(e)} />
-                    <Circle style={sm ? { bottom: '8rem', right: '5%' } : { bottom: '2rem', right: '20%' }} title={serviceMap.services[3].serviceTitle} onClick={(e) => onSelecting(e)} />
+                    <Circle style={sm ? { top: '5rem', left: '5%' } : { top: '5rem', left: '20%' }} title={serviceMap.services[0].serviceTitle} onClick={(e) => onSelecting(e)} />
+                    <Circle style={sm ? { top: '3rem', right: '5%' } : { top: '5rem', right: '13%' }} title={serviceMap.services[1].serviceTitle} onClick={(e) => onSelecting(e)} />
+                    <Circle style={sm ? { bottom: '4rem', left: '5%' } : { bottom: '2rem', left: '14%' }} title={serviceMap.services[2].serviceTitle} onClick={(e) => onSelecting(e)} />
+                    <Circle style={sm ? { bottom: '4rem', right: '5%' } : { bottom: '2rem', right: '20%' }} title={serviceMap.services[3].serviceTitle} onClick={(e) => onSelecting(e)} />
                     {changing && currentIndex &&
                         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.2 }} className="position top-0 left-1/2 z-10 flex items-center justify-center flex-col mt-6">
                             <Title title={currentIndex.serviceTitle} lineColor="#fff" lineWidth="210" /> <br />
