@@ -1,0 +1,364 @@
+{
+  "_createdAt": "2021-12-15T07:47:52Z",
+  "_id": "drafts.4919b511-6a02-47b1-92a3-e0b31f8c8a35",
+  "_rev": "72o71w-4jo-gal-ike-mazxiygkc",
+  "_type": "service",
+  "_updatedAt": "2021-12-15T08:05:41Z",
+  "pageInfo": {
+    "_type": "standardPageInfo",
+    "lang": {
+      "_ref": "107fa697-d70e-46bb-9d5a-5d8952bafd3a",
+      "_type": "reference"
+    },
+    "metadata": {
+      "_type": "metadata",
+      "hreflang": [
+        {
+          "_key": "65cd48b4ba97",
+          "languageCode": {
+            "_ref": "107fa697-d70e-46bb-9d5a-5d8952bafd3a",
+            "_type": "reference"
+          }
+        },
+        {
+          "_key": "3537af44a27b",
+          "languageCode": {
+            "_ref": "4233b41b-4e0e-459d-8dcf-1fabe4b521e4",
+            "_type": "reference"
+          },
+          "pathPrefix": "/th"
+        }
+      ],
+      "mataDescription": "The SEO services at Glaxier are designed to make it easy for you. Work towards ranking on the first page of Google for your target keywords today!",
+      "metaTitle": "SEO Services - Audit, Plan & Implement In One Place - Glaxier"
+    }
+  },
+  "pageName": "บริการ - SEO",
+  "slug": {
+    "_type": "slug",
+    "current": "seo"
+  },
+  "topSection": {
+    "paragraph1": [
+      {
+        "_key": "6a07947b4315",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "01d2c5329ac2",
+            "_type": "span",
+            "marks": [],
+            "text": "Search Engine Optimisation หรือการทำ SEO เป็นการผสมผสานกันระหว่างศิลป์การเขียนและการบริหารข้อมูลเชิงลึกเพื่อแข่งขันกับคู่แข่งในอุสากรรมเดียวกันและในขณะเดียวกันยังต้องเป็นมิตรกับอัลกอริทึมของ Google ด้วยเช่นกัน"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "71a0ec4a8d9e",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "9f5f4b0b9774",
+            "_type": "span",
+            "marks": [],
+            "text": ""
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "422b614f0569",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "744cec77763c",
+            "_type": "span",
+            "marks": [],
+            "text": "เป้าหมายของ Google คือการแสดงผลการค้นหาที่ตรงกับความต้องการของผู้บริโภคหรือผู้ใช้บริการที่ใกล้เคียงกับความต้องการในระยะเวลารวดเร็วที่สุด เป้าหมายของเราคือการทำเว็ปไซต์ให้เป็นมิตรกับ Google และยังคงรูปแบบและเนื้อหาที่น่าสนใจสำหรับกลุ่มผู้ค้นหา "
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      }
+    ],
+    "paragraph2": [
+      {
+        "_key": "807010fd2c5c",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "55151a1228d6",
+            "_type": "span",
+            "marks": [],
+            "text": "There are many approaches to SEO. One is to focus on giving value to the customers and giving them the information they're looking for. This aligns with Google's objective and will work for years to come. "
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "7ce47308abb2",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "3372be6f79bf",
+            "_type": "span",
+            "marks": [],
+            "text": " What you don't want to do is to fall for the shortcuts, or what the industry is known as \"Black hat SEO\" that focuses on out-smarting the algorithm. Google releases updates to crack down on these people multiple times a year. The last thing you want is for all the work you've done to crumble down when Google catches you. "
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "9da29085ddba",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "0f7e36742c70",
+            "_type": "span",
+            "marks": [],
+            "text": ""
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "9952e42a16df",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "ffe9d0e0928d",
+            "_type": "span",
+            "marks": [],
+            "text": "SEO services we provide"
+          }
+        ],
+        "markDefs": [],
+        "style": "h2"
+      },
+      {
+        "_key": "a862549f5f7a",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "470dc355c5a7",
+            "_type": "span",
+            "marks": [],
+            "text": "We focus on making the process easy for you and providing the highest value to your investment. To help your marketing team or yourself as much as possible, we provide one-stop service, Audit, Plan and Execute. To not bore you with all the information you might not know what to do with, we rely on our team of "
+          },
+          {
+            "_key": "947ad6f12695",
+            "_type": "span",
+            "marks": [
+              "0cfeaea64870"
+            ],
+            "text": "website developers"
+          },
+          {
+            "_key": "d5643ebdcb2d",
+            "_type": "span",
+            "marks": [],
+            "text": " to execute the changes necessary and optimise your website for you. "
+          }
+        ],
+        "markDefs": [
+          {
+            "_key": "0cfeaea64870",
+            "_type": "link",
+            "href": "https://glaxier.com.au/services/website-development"
+          }
+        ],
+        "style": "normal"
+      },
+      {
+        "_key": "11cafab9849d",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "682c3edbd553",
+            "_type": "span",
+            "marks": [],
+            "text": "What about content you say?"
+          }
+        ],
+        "markDefs": [],
+        "style": "h3"
+      },
+      {
+        "_key": "f7b109f7029e",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "4496fad910df",
+            "_type": "span",
+            "marks": [],
+            "text": "Good question! We know the importance of useful and unique content. We have a team of "
+          },
+          {
+            "_key": "c442740dcdff",
+            "_type": "span",
+            "marks": [
+              "32a1ed1feec9"
+            ],
+            "text": "content writers"
+          },
+          {
+            "_key": "bb1234803a27",
+            "_type": "span",
+            "marks": [],
+            "text": " that can help you research and produce quality content, you can also reuse the content for social media profiles and other platforms (recommended). "
+          }
+        ],
+        "markDefs": [
+          {
+            "_key": "32a1ed1feec9",
+            "_type": "link",
+            "href": "https://glaxier.com.au/services/content-writing"
+          }
+        ],
+        "style": "normal"
+      },
+      {
+        "_key": "c52d4e593521",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "1e4bf047a09d",
+            "_type": "span",
+            "marks": [],
+            "text": ""
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "3b9e47dce2ca",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "c07fe16152f4",
+            "_type": "span",
+            "marks": [],
+            "text": "If you don't know where to start or wanted to see how we can help you, let's start by "
+          },
+          {
+            "_key": "4601fa335921",
+            "_type": "span",
+            "marks": [
+              "e71ab0955cec"
+            ],
+            "text": "sharing your goals with us"
+          },
+          {
+            "_key": "8b5079ef4231",
+            "_type": "span",
+            "marks": [],
+            "text": " today!"
+          }
+        ],
+        "markDefs": [
+          {
+            "_key": "e71ab0955cec",
+            "_type": "link",
+            "href": "https://glaxier.com.au/contact"
+          }
+        ],
+        "style": "normal"
+      }
+    ],
+    "serviceImage": {
+      "_type": "singleImage",
+      "image": {
+        "_type": "image",
+        "alt": "search console photo showing clicks, impressions, average position and ctr",
+        "asset": {
+          "_ref": "image-8c6e4a612e99b2084e616be0cab61d19b350eee3-1920x1281-jpg",
+          "_type": "reference"
+        },
+        "crop": {
+          "_type": "sanity.imageCrop",
+          "bottom": 0,
+          "left": 0,
+          "right": 0,
+          "top": 0
+        },
+        "hotspot": {
+          "_type": "sanity.imageHotspot",
+          "height": 0.756735388919297,
+          "width": 0.5326278659611994,
+          "x": 0.3121693121693122,
+          "y": 0.5
+        },
+        "title": "google search console."
+      }
+    },
+    "steps": [
+      {
+        "_key": "a98b1260b566",
+        "description": "Audit - Know where you are and what you need",
+        "icon": {
+          "_type": "singleImage",
+          "image": {
+            "_type": "image",
+            "asset": {
+              "_ref": "image-1bbf7d0bbce693ed73832f3be35598a743e71688-475x475-svg",
+              "_type": "reference"
+            }
+          }
+        },
+        "title": "Step 1"
+      },
+      {
+        "_key": "9425430741ba",
+        "description": "Define your target keywords and the competitors",
+        "icon": {
+          "_type": "singleImage",
+          "image": {
+            "_type": "image",
+            "asset": {
+              "_ref": "image-d798681e2687e4413d318ead3337eec62456696a-25x25-svg",
+              "_type": "reference"
+            }
+          }
+        },
+        "title": "Step 2"
+      },
+      {
+        "_key": "538dfaa58601",
+        "description": "Create a plan of attack",
+        "icon": {
+          "_type": "singleImage",
+          "image": {
+            "_type": "image",
+            "asset": {
+              "_ref": "image-b06701375701c28ad2a891276f56d583891e38ec-595x842-svg",
+              "_type": "reference"
+            }
+          }
+        },
+        "title": "Step 3"
+      },
+      {
+        "_key": "6b5dd64d71e6",
+        "description": "Execute your SEO plan",
+        "icon": {
+          "_type": "singleImage",
+          "image": {
+            "_type": "image",
+            "asset": {
+              "_ref": "image-ac8dcdd0597faf4f038c13463e2de880a1eb5e20-50x50-svg",
+              "_type": "reference"
+            }
+          }
+        },
+        "title": "Step 4"
+      }
+    ],
+    "title": "Search Engine Optimisation (SEO)"
+  }
+}

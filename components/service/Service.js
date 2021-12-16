@@ -78,7 +78,7 @@ const Service = ({ paddingBottom = false }) => {
                     <Circle style={sm ? { bottom: '4rem', left: '5%' } : { bottom: '2rem', left: '14%' }} title={serviceMap.services[2].serviceTitle} onClick={(e) => onSelecting(e)} />
                     <Circle style={sm ? { bottom: '4rem', right: '5%' } : { bottom: '2rem', right: '20%' }} title={serviceMap.services[3].serviceTitle} onClick={(e) => onSelecting(e)} />
                     {changing && currentIndex &&
-                        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.2 }} className="position top-0 left-1/2 z-10 flex items-center justify-center flex-col mt-6">
+                        <motion.div initial={{ scale: 0 }} animate={{ scale: 1 }} exit={{ scale: 0 }} transition={{ duration: 0.2 }} className="position top-0 left-1/2 z-10 flex items-center justify-center flex-col mt-6">
                             <Title title={currentIndex.serviceTitle} lineColor="#fff" lineWidth="210" /> <br />
                             <h3 className="lg:text-lg font-black text-base">{currentIndex.serviceSubtitle || 'loading'}</h3> <br />
                             <p className="lg:w-96 w-72 text-white font-thin leading-5">{currentIndex.serviceDescription || "loading"}</p>
