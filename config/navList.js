@@ -15,10 +15,12 @@ export default {
         {
             uuid: 'services', type: 'services', label: 'Services', to: '/services', active: false,
             dropDown: [
-                { label: 'Graphic Design', to: '/services' },
+                { label: 'Graphic Design', to: '/services/graphic-design' },
+                { label: 'SEO', to: '/services/seo' },
+                { label: 'Content Writing', to: '/services/content-writing' },
                 { label: 'Digital Advertising', to: '/services/digital-advertising' },
-                { label: 'Social Media Management', to: '/services' },
-                { label: 'Website Development', to: '/services' },
+                { label: 'Website Development', to: 'services/website-development' },
+                { label: 'Influencer Marketing', to: 'services/influencer-marketing' },
             ]
         },
         {

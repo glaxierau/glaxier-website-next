@@ -41,7 +41,7 @@ const index = ({ service }) => {
 
 const Step = ({ title, desc }) => {
     return (
-        <section className="flex items-center justify-center m-2 w-1/3 ">
+        <section className="flex items-center justify-center m-2 ">
             <span className="bg-purple rounded-full" style={{ width: 30, height: 30 }} />
             <div className="lg:w-96 md:w-28 w-full ml-2 flex flex-col items-left justify-start ">
                 <p className="text-purple">{title}</p>
