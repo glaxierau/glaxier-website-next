@@ -1,0 +1,16 @@
+.body h2 {
+  @apply text-2xl text-red leading-loose font-semibold;
+}
+.body h3 {
+  @apply text-xl text-purple leading-loose font-bold;
+}
+.body a {
+  @apply text-base text-blue font-medium;
+}
+.body p {
+  @apply text-base text-black-light leading-normal py-1 font-extralight;
+}
+
+.body span {
+  @apply text-gray-600;
+}

@@ -4,8 +4,8 @@ module.exports = {
         domain: ['cdn.sanity.io']
     },
     i18n: {
-        locales: ['en', 'th'],
-        defaultLocale: 'en'
+        locales: ['en-au', 'th-th'],
+        defaultLocale: 'en-au'
     },
     env: {
         apiUrl: 'https://a49e7mel.api.sanity.io/v1/data/query/production?query=',
