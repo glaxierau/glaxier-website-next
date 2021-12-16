@@ -19,8 +19,8 @@ export default {
                 { label: 'SEO', to: '/services/seo' },
                 { label: 'Content Writing', to: '/services/content-writing' },
                 { label: 'Digital Advertising', to: '/services/digital-advertising' },
-                { label: 'Website Development', to: 'services/website-development' },
-                { label: 'Influencer Marketing', to: 'services/influencer-marketing' },
+                { label: 'Website Development', to: '/services/website-development' },
+                { label: 'Influencer Marketing', to: '/services/influencer-marketing' },
             ]
         },
         {
