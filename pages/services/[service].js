@@ -17,7 +17,8 @@ const index = ({ service }) => {
             <div className="flex lg:flex-row flex-col ">
                 <SectionHead title={pageInfo.metadata.metaTitle} description={pageInfo.metadata.metaTitle} />
                 <div className="w-full relative">
-                    {image && <Img {...image} layout='fill' className="lg:h-screen w-full h-96 object-cover -pl-40" alt="meeting" />}
+                    <Img {...image} layout='fill' className="lg:h-screen w-full h-96 object-cover" alt="meeting" />
+                    {/* <img {...image} className="lg:h-screen w-full h-96 object-cover" style={{ objectPosition: '100% 0px' }} alt="meeting" /> */}
                     <img src="/assets/svg/shape.svg" alt="Shape for services" className="lg:hidden grid absolute bottom-0 w-screen " />
                 </div>
                 <section className="w-full lg:h-screen h-auto bg-white-dark relative flex lg:justify-center justify-start items-center flex-col">
@@ -41,9 +42,9 @@ const index = ({ service }) => {
 
 const Step = ({ title, desc }) => {
     return (
-        <section className="flex items-center justify-center m-2 ">
+        <section className="flex items-center justify-center m-2 w-full ">
             <span className="bg-purple rounded-full" style={{ width: 30, height: 30 }} />
-            <div className="lg:w-96 md:w-28 w-full ml-2 flex flex-col items-left justify-start ">
+            <div className=" w-full ml-2 flex flex-col items-left justify-start ">
                 <p className="text-purple">{title}</p>
                 <p className="font-thin text-sm text-black-light">{desc}</p>
             </div>
