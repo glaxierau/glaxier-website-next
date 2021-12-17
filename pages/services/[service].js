@@ -17,8 +17,8 @@ const index = ({ service }) => {
             <div className="flex lg:flex-row flex-col ">
                 <SectionHead title={pageInfo.metadata.metaTitle} description={pageInfo.metadata.metaTitle} />
                 <div className="w-full relative">
-                    <Img {...image} layout='fill' className="lg:h-screen w-full h-96 object-cover" alt="meeting" />
-                    {/* <img {...image} className="lg:h-screen w-full h-96 object-cover" style={{ objectPosition: '100% 0px' }} alt="meeting" /> */}
+                    {/* <Img {...image} layout='fill' className="lg:h-screen w-full h-96 object-cover" alt="meeting" /> */}
+                    <img {...image} className="lg:h-screen w-full h-96 object-cover" style={{ objectPosition: '100% 0px' }} alt="meeting" />
                     <img src="/assets/svg/shape.svg" alt="Shape for services" className="lg:hidden grid absolute bottom-0 w-screen " />
                 </div>
                 <section className="w-full lg:h-screen h-auto bg-white-dark relative flex lg:justify-center justify-start items-center flex-col">
