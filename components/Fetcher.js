@@ -33,7 +33,7 @@ const Fetcher = ({ setStatus }) => {
                         className="h-80 w-80">
                         <img src="/assets/svg/logo.svg" alt="logo" />
                     </motion.div>
-                    <h2 className="text-center text-3xl font-thin text-purple" style={{ fontFamily: "Cutive Mono" }}>Welcome to Glaxier!</h2>
+                    <h2 className="text-center lg:text-3xl text-xl font-thin text-purple" style={{ fontFamily: "Cutive Mono" }}>Welcome to Glaxier!</h2>
                 </motion.div>
                 : ''}
         </>
