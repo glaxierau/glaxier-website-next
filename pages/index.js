@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
-import Head from "next/head";
+import Head from "../components/common/Head";
 import About from "../components/about/About";
 import Banner from "../components/Banner";
 import Client from "../components/client/Client";
@@ -13,14 +13,12 @@ import articles from '../config/articles'
 
 export default function Home() {
   const { data } = useSelector(state => state.data)
-  const { hero, clientSection, ctaBreakSection, testimonial, client } = data
+  const { home, hero, clientSection, ctaBreakSection, testimonial, client } = data
+  console.log(data)
   if (data !== null) {
     return (
       <div className="container-snap">
-        <Head>
-          <title>Home | Glaxier</title>
-          <link rel="shortcut icon" href="/favicon.png" />
-        </Head>
+        <Head title="Home | Glaxier" metaTitle={home.pageInfo.metadata.metaTitle} description={home.pageInfo.metadata.mataDescription} />
         <Banner {...hero} />
         <Service />
         <About withButton={true} />
