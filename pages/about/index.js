@@ -9,6 +9,7 @@ import SectionHead from '../../components/common/Head'
 import AboutToggle from '../../components/about/AboutToggle'
 import { getData } from '../../hooks/getData'
 import { upperCaseText } from '../../hooks/tools'
+import SlideIn from '../../components/animation/SlideIn'
 
 const About = () => {
     const { data } = useSelector(state => state.data)
@@ -29,9 +30,9 @@ const About = () => {
             <ProjectSection {...ctaBreakSection} />
             <div className="lg:py-20 py-10" id="team">
                 <Title title={about.teamSection.title} lineWidth={220} />
-                <div className="flex flex-wrap p-4 py-10 lg:px-5 md:px-2 px-4 mx-auto justify-around items-center w-4/5">
-                    {teamMember.map(member => <TeamBadge key={member._id} name={member.name} position={member.position} />)}
-                </div>
+                <SlideIn y={2} className="flex flex-wrap p-4 py-10 lg:px-5 md:px-2 px-4 mx-auto justify-around items-center w-4/5">
+                    {teamMember.map((member, index) => <TeamBadge key={member._id} name={member.name} position={member.position} index={index} />)}
+                </SlideIn>
             </div>
         </div>
     )

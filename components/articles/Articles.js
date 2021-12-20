@@ -3,6 +3,7 @@ import AppButton from '../AppButton'
 import Title from '../Title'
 import ArticleCard from './ArticleCard'
 import Loading from '../loading/Loading'
+import SlideIn from '../animation/SlideIn'
 
 const Articles = ({ latestArticles }) => {
     latestArticles = latestArticles.slice(latestArticles.length - 3, latestArticles.length)

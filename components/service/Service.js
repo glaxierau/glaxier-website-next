@@ -9,6 +9,7 @@ import { getDataInsideComp } from '../../hooks/getData'
 import Title from '../Title'
 import Loading from '../loading/Loading'
 import Particles from '../particles/Particles'
+import SlideIn from '../animation/SlideIn'
 
 const Service = ({ paddingBottom = false }) => {
     const { data } = useSelector(state => state.data)
@@ -64,11 +65,13 @@ const Service = ({ paddingBottom = false }) => {
             <motion.div className={`bg-white-dark ${paddingBottom ? 'py-10' : 'pt-10'} `}
                 initial={{ y: 20, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}>
-                <div className="lg:px-44 md:px-40 px-4">
-                    <h2 className="lg:text-3xl md:text-3xl text-2xl font-extrabold lg:mb-5 mb-1">{services.introductionSection.preTitle}</h2>
-                    <h1 className="lg:text-3xl md:text-3xl text-2xl font-extrabold text-red mb-8">{services.introductionSection.title}</h1>
-                    <p className="text-small font-thin text-gray-500 xl:w-3/4 lg:3/4 w-full">{services.introductionSection.sectionDescription[0].children[0].text}</p>
-                </div>
+                <SlideIn>
+                    <div className="lg:px-44 md:px-40 px-4">
+                        <h2 className="lg:text-3xl md:text-3xl text-2xl font-extrabold lg:mb-5 mb-1">{services.introductionSection.preTitle}</h2>
+                        <h1 className="lg:text-3xl md:text-3xl text-2xl font-extrabold text-red mb-8">{services.introductionSection.title}</h1>
+                        <p className="text-small font-thin text-gray-500 xl:w-3/4 lg:3/4 w-full">{services.introductionSection.sectionDescription[0].children[0].text}</p>
+                    </div>
+                </SlideIn>
                 <div className="h-screen  mt-20  flex justify-center items-center relative text-center overflow-visible" style={{ width: '100%' }}>
                     {/* <img onClick={() => { setIndex(defaultServiceMap), setAllToFalse(lists, setLists) }} src={`/assets/img/home/${mobileView ? 'smCircles' : 'lgCircles'}.png`} className={"circle_image absolute top-0 z-10 w-full lg:object-cover md:object-cover object-cover h-screen"} alt="circles" /> */}
                     <img onClick={() => { setIndex(defaultServiceMap), setAllToFalse(lists, setLists) }} src={`/assets/img/home/${mobileView ? 'smCircles' : 'lgCircles'}.png`} className={"circle_image absolute top-0 z-10 w-full lg:object-cover md:object-cover object-cover h-screen"} alt="circles" />
