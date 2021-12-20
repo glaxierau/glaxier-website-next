@@ -23,10 +23,10 @@ export default {
                 { label: 'Influencer Marketing', to: '/services/influencer-marketing' },
             ]
         },
-        {
-            uuid: 'blog', type: 'blog', label: 'Blog', to: '/blog', active: false,
-            dropDown: []
-        },
+        // {
+        //     uuid: 'blog', type: 'blog', label: 'Blog', to: '/blog', active: false,
+        //     dropDown: []
+        // },
         {
             uuid: 'contact', type: 'contact', label: 'Contact', to: '/contact', active: false,
             dropDown: [
