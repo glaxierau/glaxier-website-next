@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import SectionHead from '../../components/common/Head'
 import { getData } from '../../hooks/getData'
 import BlockContent from '../../components/BlockContent/BlockContent'
@@ -6,22 +6,29 @@ import Img from 'next/image'
 import style from '../../styles/Services.module.css'
 import service from '../../config/doc.json'
 import { capitalizeFirstLetter, sanityImage } from '../../hooks/tools'
+import SlideIn from '../../components/animation/SlideIn'
+import { motion } from 'framer-motion'
+import { useRouter } from 'next/dist/client/router'
 
 const index = ({ service }) => {
+    const router = useRouter()
+    const [changing, setChaging] = useState(false)
     const { topSection, pageInfo, notFound } = service
     if (notFound) {
         return (<p className="my-12">Page does not exist....</p>)
-    } else {
+    }
+    else {
+
         let image = sanityImage(topSection.serviceImage.image)
         return (
             <div className="flex lg:flex-row flex-col ">
-                <SectionHead title={pageInfo.metadata.metaTitle} description={pageInfo.metadata.metaTitle} />
+                <SectionHead title={pageInfo.metadata.metaTitle} description={pageInfo.metadata.mataDescription} />
                 <div className="w-full relative">
                     {/* <Img {...image} layout='fill' className="lg:h-screen w-full h-96 object-cover" alt="meeting" /> */}
-                    <img {...image} className="lg:h-screen w-full h-96 object-cover" style={{ objectPosition: '100% 0px' }} alt="meeting" />
+                    <motion.img initial={{ x: -5 }} animate={{ x: 0 }} transition={{ duration: 0.3 }} {...image} className="lg:h-screen w-full h-96 object-cover" style={{ objectPosition: '100% 0px' }} alt="meeting" />
                     <img src="/assets/svg/shape.svg" alt="Shape for services" className="lg:hidden grid absolute bottom-0 w-screen " />
                 </div>
-                <section className="w-full lg:h-screen h-auto bg-white-dark relative flex lg:justify-center justify-start items-center flex-col">
+                <motion.section initial={{ x: 30 }} animate={{ x: 0 }} transition={{ duration: 0.5 }} className="w-full lg:h-screen h-auto bg-white-dark relative flex lg:justify-center justify-start items-center flex-col">
                     <img src="/assets/svg/services.svg" alt="Shape for services" className="hidden lg:grid absolute -left-32 h-screen" />
                     <section className="lg:px-20 md:px-10 px-5 py-10 overflow-y-scroll">
                         <div className="flex items-center justify-start mb-6 ">
@@ -34,7 +41,7 @@ const index = ({ service }) => {
                         </div>
                         <BlockContent blocks={topSection.paragraph2} />
                     </section>
-                </section>
+                </motion.section>
             </div>
         )
     }

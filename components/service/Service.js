@@ -10,6 +10,7 @@ import Title from '../Title'
 import Loading from '../loading/Loading'
 import Particles from '../particles/Particles'
 import SlideIn from '../animation/SlideIn'
+import AppButton from '../AppButton'
 
 const Service = ({ paddingBottom = false }) => {
     const { data } = useSelector(state => state.data)
@@ -84,7 +85,10 @@ const Service = ({ paddingBottom = false }) => {
                         <motion.div initial={{ scale: 0 }} animate={{ scale: 1 }} exit={{ scale: 0 }} transition={{ duration: 0.2 }} className="position top-0 left-1/2 z-10 flex items-center justify-center flex-col mt-6">
                             <Title title={currentIndex.serviceTitle} lineColor="#fff" lineWidth="210" /> <br />
                             <h3 className="lg:text-lg font-black text-base">{currentIndex.serviceSubtitle || 'loading'}</h3> <br />
-                            <p className="lg:w-96 w-72 text-white font-thin leading-5">{currentIndex.serviceDescription || "loading"}</p>
+                            <p className="lg:w-96 w-72 text-white font-thin leading-5 text-sm">{currentIndex.serviceDescription || "loading"}</p>
+                            <br />
+                            <AppButton customized title="Read More" width={200} bgColor="bg-purple" bgColorHover="hover:bg-white" txtColor="text-white" txtColorHover="hover:text-purple" link="/" />
+
                         </motion.div>
                     }
                 </div>

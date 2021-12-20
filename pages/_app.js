@@ -15,7 +15,7 @@ import "slick-carousel/slick/slick-theme.css";
 
 
 const tagManagerArgs = {
-  id: "GTM-KQ2H7JL"
+  id: "GTM-WQQ7C6C"
 }
 
 function MyApp({ Component, pageProps, router }) {

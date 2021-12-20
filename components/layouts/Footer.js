@@ -50,9 +50,9 @@ const Footer = () => {
                         </div>
                         {/* brand icons  */}
                         <div className="flex w-full lg:justify-end md:justify-end justify-center my-5">
-                            <a href=""><img src="/assets/img/footer/facebook.svg" className="px-5" alt="facebook" /></a>
-                            <a href=""><img src="/assets/img/footer/linkedin.svg" className="px-5" alt="linkedin" /></a>
-                            <a href=""><img src="/assets/img/footer/instagram.svg" className="pl-4" alt="instagram" /></a>
+                            <a href="https://www.facebook.com/GlaxierAgency" target="_blank"><img src="/assets/img/footer/facebook.svg" className="px-5" alt="facebook" /></a>
+                            <a href="https://www.instagram.com/glaxier_official/" target="_blank"><img src="/assets/img/footer/linkedin.svg" className="px-5" alt="linkedin" /></a>
+                            <a href="https://au.linkedin.com/company/glaxier" target="_blank"><img src="/assets/img/footer/instagram.svg" className="pl-4" alt="instagram" /></a>
                         </div>
 
                     </div>
