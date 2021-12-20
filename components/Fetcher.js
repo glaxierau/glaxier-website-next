@@ -3,8 +3,10 @@ import axios from 'axios'
 import { useDispatch, useSelector } from 'react-redux'
 import Head from './common/Head'
 import { motion } from 'framer-motion'
+import { useRouter } from 'next/router'
 
-const Fetcher = ({ setStatus }) => {
+const Fetcher = ({ setStatus, toFetch }) => {
+    // console.log(toFetch)
     const { data } = useSelector(state => state.data)
     const dispatch = useDispatch()
 

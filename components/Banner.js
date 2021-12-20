@@ -5,9 +5,9 @@ import { useSelector } from 'react-redux'
 import { sanityImage } from '../hooks/tools'
 import { motion } from 'framer-motion'
 
-const Banner = () => {
+const Banner = (props) => {
     const { data } = useSelector(state => state.data)
-    const { heroTitle, preTitle, button1, button2, image } = data.hero
+    const { heroTitle, preTitle, button1, button2, image } = props || data
     return (
         <>
             <div className="relative overflow-x-hidden h-screen">

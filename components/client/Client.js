@@ -1,9 +1,12 @@
+import { useSelector } from 'react-redux'
 import Slider from 'react-slick'
 import { client_settings } from '../../config/carousel.setting'
 import Badge from '../icons/Badge'
 import Title from '../Title'
 
-const Client = ({ clientTitle, clientDescription, clients }) => {
+const Client = ({ clientTitle, clientDescription, client }) => {
+    // const { data } = useSelector(state => state.data)
+    // const { client } = data
     return (
         <div className="bg-white-dark mt-2 py-40">
             <div className="relative flex flex-col items-center justify-center">
@@ -11,8 +14,8 @@ const Client = ({ clientTitle, clientDescription, clients }) => {
                 <p className="lg:w-2/6 w-full xl:px-0 lg:px-0 md:px-36 px-5 text-black-light">{clientDescription[0].children[0].text}</p>
 
             </div>
-            <Slider {...client_settings} className="lg:w-3/5 w-10/12 mx-auto mt-14" >
-                {clients.map(client => <Badge key={client._key} />)}
+            <Slider {...client_settings} className="lg:w-3/5  w-10/12 mx-auto mt-14 py-2" >
+                {client.map(client => <Badge key={client._id} image={client.logo.image} />)}
             </Slider>
         </div>
     )
