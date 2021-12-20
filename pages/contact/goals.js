@@ -36,7 +36,7 @@ const Goals = () => {
                 {lists.map(list => <GoalBox key={list.key} icon={list.icon} name={list.name} active={list.active} onClick={() => onChoosingaGoal(list)} />)}
             </div>
             <div className="mx-auto w-96 flex items-center justify-center py-9">
-                <AppButton title="Continue" width={200} bgColor="bg-blue-dark" bgColorHover="hover:bg-red" txtColor="text-white" link='/contact/industry-of-business' />
+                <AppButton title="Continue" width={200} bgColor="bg-blue-dark" bgColorHover="hover:bg-red" txtColor="text-white" link='/contact/contact-details' />
             </div>
         </div>
     )

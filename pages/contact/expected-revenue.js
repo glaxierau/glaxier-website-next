@@ -10,7 +10,7 @@ import SectionHead from '../../components/common/Head'
 
 
 function valuetext(value) {
-    return `${value}$`;
+    return <p className="bg-red">{value}</p>
 }
 
 const theme = createTheme({
@@ -30,7 +30,7 @@ const Revenue = () => {
             <ContactTitle title="What's your expected revenue from online channels?" />
             <div className="relative h-40 mx-auto" style={{ width: sm ? 300 : 600 }}>
                 <div className="absolute -left-5 top-0 flex flex-col z-0 justify-center items-center">
-                    <p className="text-red font-bold py-3">50,0000</p>
+                    <p className="text-red font-bold py-3">50,000</p>
                     <img src="/assets/img/contact/icons/blue_icons/expected_revenue.svg" alt="revenue" width={40} />
                 </div>
                 <div className="absolute bottom-0 left-1/2 transform -translate-x-2/4 flex items-center justify-center mx-auto">
@@ -38,12 +38,12 @@ const Revenue = () => {
                         <Box sx={{ width: sm ? 300 : 600 }}>
                             <Slider
                                 aria-label="price"
-                                defaultValue={50000}
+                                defaultValue={500000}
                                 getAriaValueText={valuetext}
                                 valueLabelDisplay="auto"
                                 step={1000000}
                                 marks
-                                min={50000}
+                                min={500000}
                                 max={10000000}
                                 color="primary"
                             />
