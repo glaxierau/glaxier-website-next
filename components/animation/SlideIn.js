@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { motion, useAnimation } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 
-const SlideIn = ({ style, children, y = 50, delay = 0.2, ...otherProps }) => {
+const SlideIn = ({ style, children, y = 50, delay = 0.1, ...otherProps }) => {
     const controls = useAnimation()
     const { ref, inView } = useInView({ threshold: 0.2 })
 
