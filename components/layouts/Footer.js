@@ -12,7 +12,7 @@ const Footer = () => {
                         <img src="/assets/img/footer/logo.png" className="lg:mb-0 md:mb-0 mb-5" alt="logo" width="140px" />
                         {/* location  */}
                         <div className="my-6 mx-4" >
-                            <FooterLink src="/assets/img/footer/location.svg" alt="location" width={true} content="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy" />
+                            <FooterLink src="/assets/img/footer/location.svg" alt="location" href="https://goo.gl/maps/CsG48GVUC6eXEDk37" width={true} content="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy" />
                             {/* phone  */}
                             <FooterLink src="/assets/img/footer/phone.svg" href="tel:+61424 555 959" alt="phone" content="+61424 555 959" />
                             {/* email  */}
@@ -24,10 +24,10 @@ const Footer = () => {
                         <div className="flex flex-col w-1/3">
                             <h4 className="text-base text-white">Quick links</h4>
                             <br />
-                            <Link href="/"><a>Home</a></Link>
-                            <Link href="/about"><a>About us</a></Link>
-                            <Link href="/blog"><a>Blog</a></Link>
-                            <Link href="/contact"><a>Contact us</a></Link>
+                            <Link href="/">Home</Link>
+                            <Link href="/about">About us</Link>
+                            <Link href="/blog">Blog</Link>
+                            <Link href="/contact">Contact us</Link>
                         </div>
                         {/* services  */}
                         <div className="flex flex-col w-1/2">

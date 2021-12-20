@@ -25,7 +25,7 @@ export default function Home() {
         <Client {...clientSection} client={client} />
         <Project {...ctaBreakSection} />
         <Testimonial testimonials={testimonial} />
-        <Articles latestArticles={articles} />
+        {/* <Articles latestArticles={articles} /> */}
       </div>
     );
   }
