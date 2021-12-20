@@ -1,8 +1,9 @@
 
 import { getData } from '../../../hooks/getData'
 
-export default async function getServerSideProps(req, res) {
+export default async function handler(req, res) {
 
+    // console.log('query is', res)
     // -------------------  QUERIES -------------------------
     const clientSectionQuery = `*[_type =='home']{clientSection}[0]`
     const heroQuery = `*[_type =='home']{hero}[0]`
@@ -29,6 +30,10 @@ export default async function getServerSideProps(req, res) {
     const testimonial = await getData(testimonialQuery)
     const teamMember = await getData(teamMemberQuery)
     const client = await getData(clientQuery)
+
+    // console.log('current params:', res)
+
+
     res.status(200).json(
         {
             services,
