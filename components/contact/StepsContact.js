@@ -11,11 +11,11 @@ const StepsContact = () => {
 
     const [lists, setLists] = useState([
         { key: 0, type: 'Trophy', icon: 'trophy', active: false, imgSize: 20, href: '/contact/goals' },
+        { key: 6, type: 'Person', icon: 'person', active: false, imgSize: 28, href: '/contact/contact-details' },
         { key: 1, type: 'Bag', icon: 'bag', active: false, imgSize: 30, href: '/contact/industry-of-business' },
         { key: 2, type: 'Money', icon: 'money', active: false, imgSize: 30, href: '/contact/expected-revenue' },
         { key: 3, type: 'Idea', icon: 'idea', active: false, imgSize: 30, href: '/contact/services' },
-        { key: 5, type: 'Hands', icon: 'hands', active: false, imgSize: 30, href: '/contact/contact-detail' },
-        { key: 6, type: 'Person', icon: 'person', active: false, imgSize: 28, href: '/contact/personal-details' }
+        { key: 5, type: 'Hands', icon: 'hands', active: false, imgSize: 30, href: '/contact/additional-information' }
     ])
 
 
