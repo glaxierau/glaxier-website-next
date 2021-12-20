@@ -4,6 +4,8 @@ import AppButton from '../AppButton'
 import CheckIcon from '../icons/CheckIcon'
 import Title from '../Title'
 import style from '../../styles/About.module.css'
+import ScaleIn from '../animation/ScaleIn'
+import SlideIn from '../animation/SlideIn'
 
 const About = ({ withButton = false }) => {
     const { data } = useSelector(state => state.data)
@@ -11,10 +13,10 @@ const About = ({ withButton = false }) => {
     return (
         <>
             <div className="lg:flex lg:flex-row flex-col lg:px-20 px-5 lg:pt-4 pt-20">
-                <div className="lg:w-1/2 w-full  flex items-center justify-center">
+                <SlideIn className="lg:w-1/2 w-full h-auto flex items-center justify-center">
                     <img src="/assets/img/home/aboutimg.png" width="500" alt="image" />
-                </div>
-                <div className="lg:w-1/2 w-full lg:mt-0 mt-20 flex flex-col items-center justify-center lg:py-20 py-5">
+                </SlideIn>
+                <SlideIn delay={0.1} className="lg:w-1/2 w-full lg:mt-0 mt-20 flex flex-col items-center justify-center lg:py-20 py-5">
                     <Title title={aboutSection.sectionTitle} lineColor="#CFD7F1" lineWidth="210" /> <br /> <br />
                     <div className={` ${style.list_container} relative flex justify-between`}>
                         <div className={`${style.line} bg-red-dark`} />
@@ -24,7 +26,7 @@ const About = ({ withButton = false }) => {
                         <p className="text-black-light">{aboutSection.aboutDescription[0].children[0].text}</p>
                     </div> <br />
                     {withButton && <AppButton title={aboutSection.ctaButton.buttonText} width={200} bgColor="bg-blue" bgColorHover="hover:bg-red" txtColor="text-white" link={aboutSection.ctaButton.link} />}
-                </div>
+                </SlideIn>
             </div>
         </>
     )

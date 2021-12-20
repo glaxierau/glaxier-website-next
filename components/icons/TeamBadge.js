@@ -1,6 +1,7 @@
+import { motion } from 'framer-motion'
 import React from 'react'
 
-const TeamBadge = ({ name = "Name", position = "position", img }) => {
+const TeamBadge = ({ name = "Name", position = "position", img, index }) => {
     let defaultImage = "https://avataaars.io/?avatarStyle=Transparent&topType=ShortHairTheCaesarSidePart&accessoriesType=Blank&hairColor=Black&facialHairType=Blank&clotheType=Hoodie&clotheColor=Heather&eyeType=Wink&eyebrowType=Default&mouthType=Default&skinColor=Light"
     return (
         <div className="lg:w-44 lg:h-44 md:w-44 md:h-44 w-36 h-36 relative rounded-full flex items-center justify-center overflow-hidden shadow-sm lg:m-2 m-1">
