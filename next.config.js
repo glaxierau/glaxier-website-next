@@ -1,5 +1,6 @@
 
 module.exports = {
+    // basePath: 'https://glaxier.com.au' || 'http://localhost:3000/',
     images: {
         domain: ['cdn.sanity.io']
     },
