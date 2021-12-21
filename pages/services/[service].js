@@ -11,7 +11,6 @@ import { motion } from 'framer-motion'
 import { useRouter } from 'next/dist/client/router'
 
 const index = ({ service }) => {
-    const router = useRouter()
     const [changing, setChaging] = useState(false)
     const { topSection, pageInfo, notFound } = service
     if (notFound) {
@@ -20,9 +19,10 @@ const index = ({ service }) => {
     else {
 
         let image = sanityImage(topSection.serviceImage.image)
+        console.log(pageInfo.metadata.mataDescription)
         return (
             <div className="flex lg:flex-row flex-col ">
-                <SectionHead title={pageInfo.metadata.metaTitle} metaTitle={pageInfo.metadata.metaTitle} description={pageInfo.metadata.mataDescription} />
+                <SectionHead title={pageInfo.metadata.metaTitle} description={pageInfo.metadata.mataDescription} />
                 <div className="w-full relative">
                     {/* <Img {...image} layout='fill' className="lg:h-screen w-full h-96 object-cover" alt="meeting" /> */}
                     <motion.img initial={{ x: -5 }} animate={{ x: 0 }} transition={{ duration: 0.3 }} {...image} className="lg:h-screen w-full h-96 object-cover" style={{ objectPosition: '100% 0px' }} alt="meeting" />

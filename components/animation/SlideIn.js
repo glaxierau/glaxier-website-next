@@ -21,7 +21,7 @@ const SlideIn = ({ style, children, y = 50, delay = 0.1, ...otherProps }) => {
         visible: {
             opacity: 1,
             y: 0,
-            transition: { duration: 1, type: 'spring', stiffness: '60', staggerChildren: 0.5, delay: 0.0 + delay }
+            transition: { duration: 1, type: 'spring', stiffness: '60', staggerChildren: 0.5, delay }
         },
 
     }

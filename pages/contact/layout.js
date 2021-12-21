@@ -7,7 +7,7 @@ import Loading from '../../components/loading/Loading'
 const Layout = ({ metadata, children }) => {
     return (
         <div>
-            <SectionHead title="Contact Us | Glaxier" metaTitle={metadata.metaTitle} description={metadata.mataDescription} />
+            <SectionHead title={metadata.metaTitle} description={metadata.mataDescription} />
             <SectionTitle title="CONTACT">
                 <FooterLink src="/assets/img/contact/common/location.png" imgWidth={20} href="/" content="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy" fontSize="lg:text-base text-sm" />
                 <br />

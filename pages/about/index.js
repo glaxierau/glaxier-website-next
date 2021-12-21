@@ -16,7 +16,7 @@ const About = () => {
     const { about, client, clientIndustry, ctaBreakSection, teamMember } = data
     return (
         <div>
-            <SectionHead title="About Us | Glaxier" metaTitle={about.pageInfo.metadata.metaTitle} description={about.pageInfo.metadata.mataDescription} />
+            <SectionHead title={about.pageInfo.metadata.metaTitle} description={about.pageInfo.metadata.mataDescription} />
             <div className="py-2">
                 <SectionTitle title={upperCaseText(about.headerSection.title)} description={about.headerSection.subtitle} />
             </div >
