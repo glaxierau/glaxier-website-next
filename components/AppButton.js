@@ -6,12 +6,12 @@ const AppButton = ({ title, width, height, link, txtColor, txtColorHover, bgColo
         <>
             {customized ?
                 <Link href={`${link || ''}`} >
-                    <motion.button whileHover={{ scale: 1.1 }} type={type} disabled={disabled} className={`${bgColor} ${bgColorHover} ${txtColor} ${txtColorHover} cursor-pointer border rounded-full flex justify-center items-center m-2 transition duration-100 ease-in-out`} style={{ width, height: height || 35, fontSize: 12 }}>{title}</motion.button>
+                    <motion.button whileHover={{ scale: 1.01, transition: { type: 'spring' } }} type={type} disabled={disabled} className={`${bgColor} ${bgColorHover} ${txtColor} ${txtColorHover} cursor-pointer border rounded-full flex justify-center items-center m-2 transition duration-100 ease-in-out`} style={{ width, height: height || 35, fontSize: 12 }}>{title}</motion.button>
                 </Link>
                 :
                 <>
                     <Link href={`${link || ''}`}>
-                        <motion.button whileHover={{ scale: 1.1 }} type={type} disabled={disabled} placeholder={title} className={`${bgColor} ${bgColorHover} ${txtColor} ${txtColorHover} cursor-pointer rounded-full flex justify-center items-center m-2 transition duration-100 ease-in-out`} style={{ width, height: height || 35, fontSize: 12 }}>{title}</motion.button>
+                        <motion.button whileHover={{ scale: 1.01, transition: { type: 'spring' } }} type={type} disabled={disabled} placeholder={title} className={`${bgColor} ${bgColorHover} ${txtColor} ${txtColorHover} cursor-pointer rounded-full flex justify-center items-center m-2 transition duration-100 ease-in-out`} style={{ width, height: height || 35, fontSize: 12 }}>{title}</motion.button>
                     </Link>
                 </>
             }

@@ -16,7 +16,7 @@ const About = ({ withButton = false }) => {
                 <SlideIn className="lg:w-1/2 w-full h-auto flex items-center justify-center">
                     <img src="/assets/img/home/aboutimg.png" width="500" alt="image" />
                 </SlideIn>
-                <SlideIn delay={0.1} className="lg:w-1/2 w-full lg:mt-0 mt-20 flex flex-col items-center justify-center lg:py-20 py-5">
+                <SlideIn delay={0.3} className="lg:w-1/2 w-full lg:mt-0 mt-20 flex flex-col items-center justify-center lg:py-20 py-5">
                     <Title title={aboutSection.sectionTitle} lineColor="#CFD7F1" lineWidth="210" /> <br /> <br />
                     <div className={` ${style.list_container} relative flex justify-between`}>
                         <div className={`${style.line} bg-red-dark`} />
