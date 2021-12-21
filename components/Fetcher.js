@@ -5,8 +5,7 @@ import Head from './common/Head'
 import { motion } from 'framer-motion'
 import { useRouter } from 'next/router'
 
-const Fetcher = ({ setStatus, toFetch }) => {
-    // console.log(toFetch)
+const Fetcher = ({ setStatus }) => {
     const { data } = useSelector(state => state.data)
     const dispatch = useDispatch()
 
@@ -27,7 +26,7 @@ const Fetcher = ({ setStatus, toFetch }) => {
     }, [])
     return (
         <>
-            <Head title="Glaxier Website" />
+            {/* <Head title="Glaxier Website" /> */}
             {!data ?
                 <motion.div className="-mt-20 h-screen w-screen flex flex-col items-center justify-center">
                     <motion.div initial={{ opacity: 0 }} animate={{ opacity: [0, 1, 0] }}
