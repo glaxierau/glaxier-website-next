@@ -12,7 +12,7 @@ const SectionHead = ({ title, description, children }) => {
             <meta name="description" content={description} />
             <meta property="og:title" content={title} />
             <meta property="og:description" content={description} />
-            <meta property="og:image" content="/favicon.svg" />
+            <meta property="og:image" content="/assets/favicon.svg" />
             {children}
         </Head>
     )
