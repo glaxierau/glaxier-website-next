@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router'
 import Head from 'next/head'
-import favicon from '../../public/assets/favicon.png'
+// import favicon from '../../public/assets/favicon.png'
 
 const SectionHead = ({ title, description, children }) => {
     const router = useRouter()
@@ -14,7 +14,7 @@ const SectionHead = ({ title, description, children }) => {
             <meta name="description" content={description} />
             <meta property="og:title" content={title} />
             <meta property="og:description" content={description} />
-            <meta property="og:image" content={favicon} />
+            {/* <meta property="og:image" content={favicon} /> */}
             {children}
         </Head>
     )
