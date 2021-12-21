@@ -14,7 +14,6 @@ const SectionHead = ({ title, description, children }) => {
             <link rel="canonical" href={url} />
             <meta name="title" content={title} />
             <meta name="description" content={description} />
-            <meta name="twitter:title" property="og:title" itemprop="name" content={title}></meta>
             <meta property="og:title" content={title} />
             <meta property="og:description" content={description} />
             {/* <meta property="og:image" content={favicon} /> */}
