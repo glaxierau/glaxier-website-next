@@ -14,11 +14,10 @@ import articles from '../config/articles'
 export default function Home() {
   const { data } = useSelector(state => state.data)
   const { home, hero, clientSection, ctaBreakSection, testimonial, client } = data
-  console.log(data)
   if (data !== null) {
     return (
       <div className="container-snap">
-        <Head title="Home | Glaxier" metaTitle={home.pageInfo.metadata.metaTitle} description={home.pageInfo.metadata.mataDescription} />
+        <Head title={home.pageInfo.metadata.metaTitle} description={home.pageInfo.metadata.mataDescription} />
         <Banner {...hero} />
         <Service />
         <About withButton={true} />
