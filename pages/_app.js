@@ -14,16 +14,10 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 
-const tagManagerArgs = {
-  id: "GTM-WQQ7C6C"
-}
 
 function MyApp({ Component, pageProps, router }) {
   const [isReady, setStatus] = useState(false)
 
-  useEffect(() => {
-    // TagManager.initialize(tagManagerArgs)
-  }, [])
   return (
     <>
       <Provider store={store}>
