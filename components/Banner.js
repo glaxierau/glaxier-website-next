@@ -1,6 +1,7 @@
 import React from 'react'
 import AppButton from './AppButton'
 import Img from 'next/image'
+import Head from '../components/common/Head'
 import { useSelector } from 'react-redux'
 import { sanityImage } from '../hooks/tools'
 import { motion } from 'framer-motion'

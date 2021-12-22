@@ -11,7 +11,7 @@ const Footer = () => {
                         <img src="/assets/img/footer/logo.png" className="lg:mb-0 md:mb-0 mb-5" alt="logo" width="140px" />
                         {/* location  */}
                         <div className="my-6 mx-4" >
-                            <FooterLink src="/assets/img/footer/location.svg" alt="location" width={true} content="6 Motorway Rd. Prawet Bangkok 10250" />
+                            <FooterLink src="/assets/img/footer/location.svg" alt="location" href="https://goo.gl/maps/CsG48GVUC6eXEDk37" width={true} content="6 Motorway road, Prawet Bangkok 10250" />
                             {/* phone  */}
                             <FooterLink src="/assets/img/footer/phone.svg" href="tel:+61424555959" alt="phone" content="+61 424 555 959" />
                             {/* email  */}
@@ -25,7 +25,7 @@ const Footer = () => {
                             <br />
                             <Link href="/">Home</Link>
                             <Link href="/about">About us</Link>
-                            <Link href="/blog">Blog</Link>
+                            {/* <Link href="/blog">Blog</Link> */}
                             <Link href="/contact">Contact us</Link>
                         </div>
                         {/* services  */}
@@ -52,8 +52,8 @@ const Footer = () => {
                         {/* brand icons  */}
                         <div className="flex w-full lg:justify-end md:justify-end justify-center my-5">
                             <a href="https://www.facebook.com/GlaxierAgency" target="_blank"><img src="/assets/img/footer/facebook.svg" className="px-5" alt="facebook" /></a>
-                            <a href="https://www.instagram.com/glaxier_official/" target="_blank"><img src="/assets/img/footer/linkedin.svg" className="px-5" alt="linkedin" /></a>
-                            <a href="https://au.linkedin.com/company/glaxier" target="_blank"><img src="/assets/img/footer/instagram.svg" className="pl-4" alt="instagram" /></a>
+                            <a href="https://au.linkedin.com/company/glaxier" target="_blank"><img src="/assets/img/footer/linkedin.svg" className="px-5" alt="linkedin" /></a>
+                            <a href="https://www.instagram.com/glaxier_official/" target="_blank"><img src="/assets/img/footer/instagram.svg" className="pl-4" alt="instagram" /></a>
                         </div>
 
                     </div>

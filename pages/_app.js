@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react';
 import Layout from '../components/layouts'
-import { Provider } from 'react-redux'
+import { Provider, useSelector } from 'react-redux'
 import { createWrapper } from 'next-redux-wrapper'
 import { AnimatePresence, motion } from 'framer-motion'
 import store from '../redux/store'
 import NextNProgress from "nextjs-progressbar";
 import Fetcher from '../components/Fetcher';
-import TagManager from "react-gtm-module"
+import Head from "next/head"
 import 'tailwindcss/tailwind.css'
 import '../styles/main.css'
 import '../styles/hamburgers.css'
@@ -14,18 +14,14 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 
-const tagManagerArgs = {
-  id: "GTM-WQQ7C6C"
-}
 
 function MyApp({ Component, pageProps, router }) {
   const [isReady, setStatus] = useState(false)
-
-  useEffect(() => {
-    // TagManager.initialize(tagManagerArgs)
-  }, [])
   return (
     <>
+      <Head>
+        <title>Glaxier Website</title>
+      </Head>
       <Provider store={store}>
         {!isReady ? <Fetcher status={isReady} setStatus={setStatus} toFetch={router.pathname} /> :
           <>
