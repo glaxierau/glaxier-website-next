@@ -12,7 +12,7 @@ const Services = () => {
     const { services } = data
     return (
         <div>
-            <SectionHead title="Services | Glaxier" />
+            <SectionHead title={services.pageInfo.metadata.metaTitle} description={services.pageInfo.metadata.mataDescription} />
             <SectionTitle title={services.headerSection.title} description={services.headerSection.subtitle} />
             <Service paddingBottom={true} />
         </div>

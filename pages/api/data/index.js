@@ -16,6 +16,8 @@ export default async function handler(req, res) {
     const clientQuery = `*[_type == 'client']`
     const clientIndustryQuery = `*[_type == 'clientIndustry']`
     const teamMemberQuery = `*[ _type == 'teamMember']`
+    const homeQuery = `*[_type =='home'][0]`
+    const contactQuery = `*[_type =='contact'][0]`
 
 
     // ----------------- Data Fetching --------------------
@@ -30,12 +32,16 @@ export default async function handler(req, res) {
     const testimonial = await getData(testimonialQuery)
     const teamMember = await getData(teamMemberQuery)
     const client = await getData(clientQuery)
+    const home = await getData(homeQuery)
+    const contact = await getData(contactQuery)
 
     // console.log('current params:', res)
 
 
     res.status(200).json(
         {
+            home,
+            contact,
             services,
             serviceMap,
             about,

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import GoalBox from '../../components/contact/GoalBox'
 import ContactTitle from '../../components/contact/Title'
 import AppButton from '../../components/AppButton'
@@ -7,8 +7,11 @@ import { setAllToFalse } from '../../hooks/setAllToFalse'
 import { setToTrue } from '../../hooks/setToTrue'
 import { withSizeLessThan } from '../../hooks/useWindowSize'
 import { setToFalse } from '../../hooks/setToFalse'
+import { useRouter } from 'next/router'
 
 const Goals = () => {
+    const router = useRouter()
+    const [withHead, setWithHead] = useState(false)
     let [lists, setLists] = useState([
         { key: 0, icon: 'growth', type: 'Growth', name: 'Growth', active: false },
         { key: 1, icon: 'branding', type: 'Branding', name: 'Branding', active: false },
@@ -28,9 +31,13 @@ const Goals = () => {
             setToTrue(list, lists, setLists)
         }
     }
+
+    useEffect(() => {
+        router.asPath === "/contact/goals" ? setWithHead(true) : setWithHead(false)
+    }, [router.asPath])
     return (
         <div className="h-auto">
-            <Head title="Contact Us | Your Goals" />
+            {withHead && <Head title="Contact Us | Your Goals" description="Share with us your goals" />}
             <ContactTitle title="Share your goal with us" />
             <div className="flex justify-center flex-wrap m-auto" style={{ width: sm ? 340 : 600, flex: '1 1 160px' }}>
                 {lists.map(list => <GoalBox key={list.key} icon={list.icon} name={list.name} active={list.active} onClick={() => onChoosingaGoal(list)} />)}
