@@ -6,7 +6,6 @@ import { AnimatePresence, motion } from 'framer-motion'
 import store from '../redux/store'
 import NextNProgress from "nextjs-progressbar";
 import Fetcher from '../components/Fetcher';
-import Head from "next/head"
 import 'tailwindcss/tailwind.css'
 import '../styles/main.css'
 import '../styles/hamburgers.css'
@@ -19,11 +18,8 @@ function MyApp({ Component, pageProps, router }) {
   const [isReady, setStatus] = useState(false)
   return (
     <>
-      <Head>
-        <title>Glaxier Website</title>
-      </Head>
       <Provider store={store}>
-        {!isReady ? <Fetcher status={isReady} setStatus={setStatus} toFetch={router.pathname} /> :
+        {!isReady ? <Fetcher status={isReady} setStatus={setStatus} /> :
           <>
             <NextNProgress color="#9FB0E4" height={4} options={{ showSpinner: false }} />
             <AnimatePresence key={router.route} exitBeforeEnter={true} initial={true}>
