@@ -8,7 +8,6 @@ import { useRouter } from 'next/router'
 const Fetcher = ({ setStatus }) => {
     const { data } = useSelector(state => state.data)
     const dispatch = useDispatch()
-
     useEffect(async () => {
         if (data) {
             console.log('Data already exists...')
