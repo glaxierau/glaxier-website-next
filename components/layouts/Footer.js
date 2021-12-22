@@ -1,4 +1,3 @@
-import React from 'react'
 import FooterLink from '../FooterLink'
 import Link from 'next/link'
 
@@ -14,7 +13,7 @@ const Footer = () => {
                         <div className="my-6 mx-4" >
                             <FooterLink src="/assets/img/footer/location.svg" alt="location" href="https://goo.gl/maps/CsG48GVUC6eXEDk37" width={true} content="6 Motorway road, Prawet Bangkok 10250" />
                             {/* phone  */}
-                            <FooterLink src="/assets/img/footer/phone.svg" href="tel:+61424 555 959" alt="phone" content="+61424 555 959" />
+                            <FooterLink src="/assets/img/footer/phone.svg" href="tel:+61424555959" alt="phone" content="+61 424 555 959" />
                             {/* email  */}
                             <FooterLink src="/assets/img/footer/mail.svg" href="mailto:tan@glaxier.com.au" alt="mail" content="tan@glaxier.com.au" />
                         </div>
@@ -26,23 +25,25 @@ const Footer = () => {
                             <br />
                             <Link href="/">Home</Link>
                             <Link href="/about">About us</Link>
-                            <Link href="/blog">Blog</Link>
+                            {/* <Link href="/blog">Blog</Link> */}
                             <Link href="/contact">Contact us</Link>
                         </div>
                         {/* services  */}
                         <div className="flex flex-col w-1/2">
                             <h4 className="text-base text-white">Services</h4>
                             <br />
-                            <a href="">Digital Advertising</a>
-                            <a href="">Social Media Management</a>
-                            <a href="">Graphic Design</a>
-                            <a href="">Website Development</a>
+                            <Link href="/services/digital-advertising">Digital Advertising</Link>
+                            <Link href="/services/seo">SEO</Link>
+                            <Link href="/services/website-development">Website Development</Link>
+                            <Link href="/services/influencer-marketing">Influencer Marketing</Link>
+                            <Link href="/services/content-writing">Content Writing</Link>
+                            <Link href="/services/graphic-design">Graphic Design</Link>
                         </div>
                     </div>
                     <div className="w-full h-full pt-5">
                         {/* follow us  */}
                         <h4 className="text-base text-white">Follow us</h4>
-                        <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor.</p>
+                        <p>Join our community to keep up to date with the latest digital strategy that will help you grow you business.</p>
                         {/* input  */}
                         <div className="flex items-center justify-between w-full bg-white rounded-full p-6 h-12 mt-5">
                             <input type="text" placeholder="Enter your email" className="w-11/12" />

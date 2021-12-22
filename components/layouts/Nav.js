@@ -10,6 +10,43 @@ import NavSVGIcon from '../icons/NavSVGIcon'
 import SearchBox from '../common/SearchBox'
 
 
+const NavList = ({ to, label, uuid, dropDownList, onMouseEnter }) => {
+    const [isddOpen, setddTo] = useState(false)
+    const [ddPosition, setddPosition] = useState(0)
+    let dropStatus = dropDownList.length === 0 ? false : true
+
+    const onGettingPosition = () => {
+        const position = document.getElementById(`${uuid}`).offsetLeft
+        setddPosition(position - 70)
+    }
+
+    return (
+        <div className="flex items-center justify-center h-full"
+            onMouseEnter={() => { setddTo(true), onGettingPosition(), onMouseEnter() }}
+            onMouseLeave={() => setddTo(false)}>
+            <Link href={to} className="relative flex items-center justify-center h-full cursor-pointer">
+                <a id={uuid} style={{ fontSize: '0.9rem' }}>{label}</a>
+            </Link>
+            {dropDownList.length !== 0 &&
+                <motion.div className=" h-10 rounded-full w-10  grid place-items-center cursor-pointer"
+                    animate={{ rotate: isddOpen ? 180 : 0 }}
+                    onClick={() => { setddTo(!isddOpen), onGettingPosition() }}
+
+                >
+                    <motion.svg xmlns="http://www.w3.org/2000/svg" width="10.24" height="5.781" viewBox="0 0 12.24 5.781">
+                        <path id="Icon_ionic-ios-arrow-down" d="M12.31,15.285l4.628-3.826a1,1,0,0,1,1.235,0,.642.642,0,0,1,0,1.024l-5.244,4.335a1.01,1.01,0,0,1-1.206.021l-5.28-4.353a.641.641,0,0,1,0-1.024,1,1,0,0,1,1.235,0Z" transform="translate(-6.188 -11.246)" fill="#90acd1" />
+                    </motion.svg>
+                </motion.div>}
+            <DropDown open={dropStatus && isddOpen}
+                onHover={() => setddTo(true)}
+                onLeave={() => setddTo(false)}
+                position={ddPosition}
+                dropDownList={dropDownList}
+            />
+        </div>
+    )
+}
+
 const Nav = () => {
 
     const lists = nav.navigation
@@ -59,40 +96,4 @@ const Nav = () => {
     )
 }
 
-const NavList = ({ to, label, uuid, dropDownList, onMouseEnter }) => {
-    const [isddOpen, setddTo] = useState(false)
-    const [ddPosition, setddPosition] = useState(0)
-    let dropStatus = dropDownList.length === 0 ? false : true
-
-    const onGettingPosition = () => {
-        const position = document.getElementById(`${uuid}`).offsetLeft
-        setddPosition(position - 70)
-    }
-
-    return (
-        <div className="flex items-center justify-center h-full"
-            onMouseEnter={() => { setddTo(true), onGettingPosition(), onMouseEnter() }}
-            onMouseLeave={() => setddTo(false)}>
-            <Link href={to} className="relative flex items-center justify-center h-full cursor-pointer">
-                <a id={uuid} style={{ fontSize: '0.9rem' }}>{label}</a>
-            </Link>
-            {dropDownList.length !== 0 &&
-                <motion.div className=" h-10 rounded-full w-10  grid place-items-center cursor-pointer"
-                    animate={{ rotate: isddOpen ? 180 : 0 }}
-                    onClick={() => { setddTo(!isddOpen), onGettingPosition() }}
-
-                >
-                    <motion.svg xmlns="http://www.w3.org/2000/svg" width="10.24" height="5.781" viewBox="0 0 12.24 5.781">
-                        <path id="Icon_ionic-ios-arrow-down" d="M12.31,15.285l4.628-3.826a1,1,0,0,1,1.235,0,.642.642,0,0,1,0,1.024l-5.244,4.335a1.01,1.01,0,0,1-1.206.021l-5.28-4.353a.641.641,0,0,1,0-1.024,1,1,0,0,1,1.235,0Z" transform="translate(-6.188 -11.246)" fill="#90acd1" />
-                    </motion.svg>
-                </motion.div>}
-            <DropDown open={dropStatus && isddOpen}
-                onHover={() => setddTo(true)}
-                onLeave={() => setddTo(false)}
-                position={ddPosition}
-                dropDownList={dropDownList}
-            />
-        </div>
-    )
-}
 export default Nav
