@@ -10,22 +10,23 @@ import SlideIn from '../../components/animation/SlideIn'
 import { motion } from 'framer-motion'
 import { useRouter } from 'next/dist/client/router'
 
-const index = ({ service }) => {
+const index = (props) => {
     const [changing, setChaging] = useState(false)
-    const { topSection, pageInfo, notFound } = service
+    const { topSection, pageInfo, notFound } = props
+    console.log(topSection)
     if (notFound) {
         return (<p className="my-12">Page does not exist....</p>)
     }
     else {
-
         let image = sanityImage(topSection.serviceImage.image)
-        console.log(pageInfo.metadata.mataDescription)
+        delete image.blurDataURL
+        delete image.loader
         return (
             <div className="flex lg:flex-row flex-col ">
                 <SectionHead title={pageInfo.metadata.metaTitle} description={pageInfo.metadata.mataDescription} />
                 <div className="w-full relative">
                     {/* <Img {...image} layout='fill' className="lg:h-screen w-full h-96 object-cover" alt="meeting" /> */}
-                    <motion.img initial={{ x: -5 }} animate={{ x: 0 }} transition={{ duration: 0.3 }} {...image} className="lg:h-screen w-full h-96 object-cover" style={{ objectPosition: '100% 0px' }} alt="meeting" />
+                    <motion.img initial={{ x: -5 }} animate={{ x: 0 }} transition={{ duration: 0.3 }} {...image} className="lg:h-screen w-full h-96 object-cover" style={{ objectPosition: ' 40% 0px' }} alt="meeting" />
                     <img src="/assets/svg/shape.svg" alt="Shape for services" className="lg:hidden grid absolute bottom-0 w-screen " />
                 </div>
                 <motion.section initial={{ x: 30 }} animate={{ x: 0 }} transition={{ duration: 0.5 }} className="w-full lg:h-screen h-auto bg-white-dark relative flex lg:justify-center justify-start items-center flex-col">
@@ -64,17 +65,9 @@ export default index
 export const getServerSideProps = async (ctx) => {
     let query = ctx.params.service
     let currentLanguage = ctx.locale
-    // query = query.split("-").map(t => capitalizeFirstLetter(t)).join(" ")
-
-    const langQuery = `*[ _type == 'languageOption']`
-    let lang = await getData(langQuery)
-    lang = lang.filter(lang => lang.language === currentLanguage)[0]
-
-    const serviceQuery = `*[ slug.current == '${query}' && pageInfo.lang._ref == '${lang._id}' ][0]`
-    const service = await getData(serviceQuery)
+    let lang = await getData(`*[ _type == 'languageOption' && language == '${currentLanguage}'][0]`)
+    const service = await getData(`*[ slug == '${query}' && pageInfo.lang._ref == '${lang._id}' ][0]`)
     return {
-        props: {
-            service
-        }
+        props: service
     }
 }

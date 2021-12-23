@@ -7,14 +7,13 @@ import { useSelector } from 'react-redux'
 
 
 
-const Services = () => {
-    const { data } = useSelector(state => state.data)
-    const { services } = data
+const Services = (props) => {
+    const { pageInfo, headerSection } = props
     return (
         <div>
-            <SectionHead title={services.pageInfo.metadata.metaTitle} description={services.pageInfo.metadata.mataDescription} />
-            <SectionTitle title={services.headerSection.title} description={services.headerSection.subtitle} />
-            <Service paddingBottom={true} />
+            <SectionHead title={pageInfo.metadata.metaTitle} description={pageInfo.metadata.mataDescription} />
+            <SectionTitle title={headerSection.title} description={headerSection.subtitle} />
+            <Service paddingBottom={true} {...props.serviceSection} {...props.introductionSection} />
         </div>
     )
 }
@@ -23,16 +22,15 @@ const Services = () => {
 export default Services
 
 export const getServerSideProps = async () => {
-    // --------------------- Queries --------------------------
-    const serviceQuery = `*[_type =='services'][0]`
-    const serviceMapQuery = `*[_type == 'serviceMap'][0]`
-
     // ----------------- Data Fetching --------------------
-    const serviceMap = await getData(serviceMapQuery)
-    const { headerSection } = await getData(serviceQuery)
-    const services = await getData(serviceQuery)
+    const services = await getData(`
+    *[_type == 'services' && pageInfo.lang._ref == '107fa697-d70e-46bb-9d5a-5d8952bafd3a'][0]{
+        ...,
+        serviceSection->
+      }
+    `)
 
     return {
-        props: { header: headerSection, serviceMap, services }
+        props: services
     }
 }

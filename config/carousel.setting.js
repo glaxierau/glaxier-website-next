@@ -116,9 +116,9 @@ export let client_settings = {
 export let testimonial_settings = {
     dots: false,
     speed: 300,
-    arrows: false,
+    arrows: true,
     slidesToShow: 3,
-    slidesToScroll: 3,
+    slidesToScroll: 2,
     infinite: false,
     responsive: [
         {

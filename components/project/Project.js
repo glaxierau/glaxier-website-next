@@ -1,7 +1,9 @@
+import { useSelector } from 'react-redux'
 import SlideIn from '../animation/SlideIn'
 import AppButton from '../AppButton'
 
-const Project = ({ ctaButton }) => {
+const Project = (props) => {
+    const { ctaButton } = props
     return (
         <>
             <div id="project" className="relative flex flex-col items-center justify-center -mt-3 lg:h-96 h-60 overflow-hidden">

@@ -10,8 +10,7 @@ const CarouselCard = ({ company, text, logo }) => {
                 </div>
                 <p className="ml-4 font-bold">{company}</p>
             </div>
-            <p className="text-black-light py-4" style={{ fontSize: '0.68rem', lineHeight: '1rem' }}>We’ve worked on a number of travel insurance brands. The industry is extremely competitive which makes it challenging to stay on top of competitiors in the market, but also rewarding to see that we deliver results.</p>
-            {/* <p className="text-black-light py-4" style={{ fontSize: '0.68rem', lineHeight: '1rem' }}>{text && text}</p> */}
+            <p className="text-black-light py-4" style={{ fontSize: '0.68rem', lineHeight: '1rem' }}>{text}</p>
         </div>
     )
 }

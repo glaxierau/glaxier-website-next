@@ -6,13 +6,13 @@ import CarouselCard from './CarouselCard';
 import style from '../../styles/dots.module.css'
 
 
-const IndustrySlides = ({ clients }) => {
+const IndustrySlides = ({ contents }) => {
     return (
         <div className="lg:p-20 md:p-20 p-2 ">
             <Slider {...about_settings} dotsClass={style.dots} className="flex items-center justify-center">
-                {clients.length > 0 && clients.map(client => (
-                    <Animate key={client._id}>
-                        <CarouselCard company={client.company} logo={client.logo.image} />
+                {contents.map(c => (
+                    <Animate key={c._id}>
+                        <CarouselCard company={c.content.company} text={c.content.description || 'to be added...'} logo={c.logo.image} />
                     </Animate>
                 ))}
             </Slider>
