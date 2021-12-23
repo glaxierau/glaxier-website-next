@@ -13,8 +13,8 @@ const Testimonial = ({ testimonials }) => {
                 <Title title="Testimonials" lineColor="#9FB0E483" lineWidth={180} />
                 <div className="lg:mb-24 mb-10" />
                 <SlideIn className="w-full lg:px-28 md:px-20 px-10">
-                    <Slider {...testimonial_settings} autoplay={true}>
-                        {testimonials.map(e => <TestimonialBox key={e._id} position={e.position} name={e.name} text={e.testimonial[0].children[0].text} />)}
+                    <Slider {...testimonial_settings}>
+                        {testimonials.map(e => e.content.map(content => <TestimonialBox key={content._key} position={content.position} name={content.name} text={content.testimonial[0].children[0].text} />))}
                     </Slider>
                 </SlideIn>
             </SlideIn>

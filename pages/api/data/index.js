@@ -3,7 +3,6 @@ import { getData } from '../../../hooks/getData'
 
 export default async function handler(req, res) {
 
-    // console.log('query is', res)
     // -------------------  QUERIES -------------------------
     const clientSectionQuery = `*[_type =='home']{clientSection}[0]`
     const heroQuery = `*[_type =='home']{hero}[0]`
@@ -35,25 +34,51 @@ export default async function handler(req, res) {
     const home = await getData(homeQuery)
     const contact = await getData(contactQuery)
 
-    // console.log('current params:', res)
+    const type = req.query.type
+    console.log('type is: ', type)
+    switch (type) {
+        case '':
+            return (
+                res.status(200).json(
+                    {
+                        home,
+                        hero,
+                        services,
+                        serviceMap,
+                        aboutSection,
+                        client,
+                        clientIndustry,
+                        clientSection,
+                        ctaBreakSection,
+                        testimonial,
+                    }
+                ));
+        case 'about':
+            return (
+                res.status(200).json({ contact, about, aboutSection, client, clientIndustry, ctaBreakSection, teamMember }));
+        default:
+            return {
+                notFound: true
+            }
+    }
 
 
-    res.status(200).json(
-        {
-            home,
-            contact,
-            services,
-            serviceMap,
-            about,
-            hero,
-            clientSection,
-            ctaBreakSection,
-            testimonial,
-            aboutSection,
-            clientIndustry,
-            teamMember,
-            client
-        }
-    )
+    // res.status(200).json(
+    //     {
+    //         home,
+    //         contact,
+    //         services,
+    //         serviceMap,
+    //         about,
+    //         hero,
+    //         clientSection,
+    //         ctaBreakSection,
+    //         testimonial,
+    //         aboutSection,
+    //         clientIndustry,
+    //         teamMember,
+    //         client
+    //     }
+    // )
 }
 

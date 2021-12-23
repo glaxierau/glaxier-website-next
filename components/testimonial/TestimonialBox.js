@@ -14,7 +14,7 @@ const TestimonialBox = ({ position, name, text }) => {
             <motion.p className="text-black-light text-sm">{clicked ? text : shortenText(text)}{!clicked && <span className="text-purple ml-2 cursor-pointer hover:text-red"><u>Read more</u></span>}</motion.p>
             <div className="flex items-center justify-start mt-5">
                 <Badge className="lg:mx-0 lg:mr-5 m-0" size="12" />
-                <p className="name font-sm ml-2">{name}</p>
+                <p className="name font-sm ml-2 text-gray-500">{name}</p>
             </div>
         </motion.div>
     )

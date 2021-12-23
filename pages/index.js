@@ -1,5 +1,3 @@
-import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux'
 import Head from "../components/common/Head";
 import About from "../components/about/About";
 import Banner from "../components/Banner";
@@ -11,40 +9,39 @@ import Testimonial from "../components/testimonial/Testimonial";
 import { getData } from "../hooks/getData";
 import articles from '../config/articles'
 
-export default function Home() {
-  const { data } = useSelector(state => state.data)
-  const { home, hero, clientSection, ctaBreakSection, testimonial, client } = data
-  if (data !== null) {
-    return (
-      <div className="container-snap">
-        <Head title={home.pageInfo.metadata.metaTitle} description={home.pageInfo.metadata.mataDescription} />
-        <Banner {...hero} />
-        <Service />
-        <About withButton={true} />
-        <Client {...clientSection} client={client} />
-        <Project {...ctaBreakSection} />
-        <Testimonial testimonials={testimonial} />
-        {/* <Articles latestArticles={articles} /> */}
-      </div>
-    );
-  }
+export default function Home(props) {
+  return (
+    <div className="container-snap">
+      <Head title={props.pageInfo.metadata.metaTitle} description={props.pageInfo.metadata.mataDescription} />
+      <Banner {...props} />
+      <Service {...props.serviceSection} {...props.introductionSection} />
+      <About withButton={true} {...props.aboutSection} />
+      <Client {...props} />
+      <Project {...props.ctaBreakSection} />
+      <Testimonial testimonials={props.testimonialSection.testimonials} />
+      {/* <Articles latestArticles={articles} /> */}
+    </div>
+  );
 }
 
 export const getServerSideProps = async (req, res) => {
-  // console.log(req.locales)
-
-  const languageQuery = `pageInfo.lang == ''`
-
-  const clientSectionQuery = `*[_type =='home']{clientSection}[0]`
-  const heroQuery = `*[_type =='home']{hero}[0]`
-  const ctaBreakSectionQuery = `*[_type == 'ctaBreakSection'][0]`
-  const testimonialQuery = `*[ _type == 'testimonial']`
 
   // ----------------- Data Fetching --------------------
-  const { hero } = await getData(heroQuery)
-  const { clientSection } = await getData(clientSectionQuery)
-  const ctaBreakSection = await getData(ctaBreakSectionQuery)
-  const testimonial = await getData(testimonialQuery)
+  let lang = req.locale
+  let language = await getData(`*[_type == 'languageOption' && language == '${lang}']{_id}[0]`)
+  language = language._id
 
-  return { props: { hero, clientSection, ctaBreakSection, testimonial } }
+  const data = await getData(
+    `*[_type =='home' && pageInfo.lang._ref == "${language}"][0]{
+      ..., 
+      aboutSection->,
+      clientSection{...,clients[]-> }, 
+      ctaBreakSection->,
+      pageInfo{lang->,...},
+      serviceSection->,
+      testimonialSection{...,testimonials[]->}}`)
+
+  return {
+    props: data
+  }
 }

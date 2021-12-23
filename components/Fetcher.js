@@ -4,40 +4,31 @@ import { useDispatch, useSelector } from 'react-redux'
 import Head from './common/Head'
 import { motion } from 'framer-motion'
 import { useRouter } from 'next/router'
+import setData from '../hooks/setData'
 
-const Fetcher = ({ setStatus }) => {
-    const { data } = useSelector(state => state.data)
+const Fetcher = () => {
     const dispatch = useDispatch()
+    const router = useRouter()
+    const { data } = useSelector(state => state.data)
+    const tofetch = router.route.split('/')[1]
     useEffect(async () => {
-        if (data) {
-            console.log('Data already exists...')
-            setStatus(true)
-        }
-        else {
-            setStatus(false)
-            await axios.get(`/api/data`)
-                .then(res => {
-                    console.log('Getting Data...')
-                    dispatch({ type: 'GET_DATA', data: res.data })
-                    res.data && setStatus(true)
-                })
-        }
-    }, [])
-    return (
-        <>
-            {/* <Head title="Glaxier Website" /> */}
-            {!data ?
-                <motion.div className="-mt-20 h-screen w-screen flex flex-col items-center justify-center">
-                    <motion.div initial={{ opacity: 0 }} animate={{ opacity: [0, 1, 0] }}
-                        transition={{ repeat: 'Infinity', duration: 2, type: 'spring' }}
-                        className="h-80 w-80">
-                        <img src="/assets/svg/logo.svg" alt="logo" />
-                    </motion.div>
-                    <h2 className="text-center lg:text-3xl text-xl font-thin text-purple" style={{ fontFamily: "Cutive Mono" }}>Welcome to Glaxier!</h2>
-                </motion.div>
-                : ''}
-        </>
-    )
+        await axios.get(`/api/data`, { params: { type: tofetch } })
+            .then(res => {
+                const response = res.data
+                if (data === null) {
+                    console.log('Data is empty, adding them now...')
+                    dispatch({ type: 'GET_DATA', data: response })
+                    console.log('Data Added!')
+                } else {
+                    console.log('Updating...')
+                    dispatch({ type: 'GET_DATA', data: { ...data, response } })
+                    console.log('Data Updated!')
+                }
+            })
+
+    }, [router.asPath])
+    return null
 }
 
 export default Fetcher
+

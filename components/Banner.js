@@ -8,7 +8,7 @@ import { motion } from 'framer-motion'
 
 const Banner = (props) => {
     const { data } = useSelector(state => state.data)
-    const { heroTitle, preTitle, button1, button2, image } = props || data
+    const { heroTitle, preTitle, button1, button2, image } = props.hero || data
     return (
         <>
             <div className="relative overflow-x-hidden h-screen">
