@@ -15,42 +15,6 @@
   font-size: 18px;
 }
 
-@font-face {
-  font-family: "Poppins";
-  src: url("/fonts/Poppins/Poppins-Regular.ttf");
-  font-style: normal;
-  font-weight: 100;
-  font-display: swap;
-}
-@font-face {
-  font-family: "Poppins sb";
-  src: url("/fonts/Poppins/Poppins-SemiBold.ttf");
-  font-style: normal;
-  font-weight: 200;
-  font-display: swap;
-}
-@font-face {
-  font-family: "Poppins b";
-  src: url("/fonts/Poppins/Poppins-Bold.ttf");
-  font-style: normal;
-  font-weight: 300;
-  font-display: swap;
-}
-@font-face {
-  font-family: "Kanit";
-  src: url("/fonts/Kanit/Kanit-Light.ttf");
-  font-style: normal;
-  font-weight: 100;
-  font-display: swap;
-}
-@font-face {
-  font-family: "Cutive Mono";
-  src: url("/fonts/Cutive_Mono/CutiveMono-Regular.ttf");
-  font-style: medium;
-  font-weight: 100;
-  font-display: swap;
-}
-
 body,
 html {
   margin: 0;
