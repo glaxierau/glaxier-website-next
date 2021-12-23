@@ -7,13 +7,56 @@
   -webkit-tap-highlight-color: transparent;
 }
 
+.en-au {
+  font-family: "Poppins";
+}
+.th-th {
+  font-family: "Kanit";
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url("/fonts/Poppins/Poppins-Light.ttf");
+  font-style: normal;
+  font-weight: 200;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Poppins";
+  src: url("/fonts/Poppins/Poppins-SemiBold.ttf");
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Kanit";
+  src: url("/fonts/Kanit/Kanit-Light.ttf");
+  font-style: medium;
+  font-weight: 100;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Kanit";
+  src: url("/fonts/Kanit/Kanit-Light.ttf");
+  font-style: medium;
+  font-weight: 100;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Cutive Mono";
+  src: url("/fonts/Cutive_Mono/CutiveMono-Regular.ttf");
+  font-style: medium;
+  font-weight: 100;
+  font-display: swap;
+}
+
 body,
 html {
   margin: 0;
+  font-family: "Poppins";
   width: 100vw;
   max-width: 100%;
   box-sizing: border-box;
-  font-family: "Poppins";
   overflow-x: hidden;
   scroll-behavior: smooth;
   scroll-padding: 90px;

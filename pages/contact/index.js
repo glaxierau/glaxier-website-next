@@ -1,11 +1,9 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import Goals from './goals'
 import Layout from '../../components/contact/layout'
 import { getData } from '../../hooks/getData'
-import setData from '../../hooks/setData'
 
 const Contact = (props) => {
-    console.log(props)
     if (props) {
         return (
             <Layout metadata={props.pageInfo.metadata} {...props}>
@@ -23,7 +21,7 @@ export const getServerSideProps = async (req, res) => {
     language = language._id
 
     const data = await getData(
-        `*[ _type == 'contact' && pageInfo.lang._ref == '107fa697-d70e-46bb-9d5a-5d8952bafd3a'][0]{
+        `*[ _type == 'contact' && pageInfo.lang._ref == '${language}'][0]{
             ...,
             "interactiveForm":*[ _type == 'interactiveForm'][1]
             }`)
