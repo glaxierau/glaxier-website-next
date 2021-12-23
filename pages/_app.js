@@ -28,7 +28,7 @@ function MyApp({ Component, pageProps, router }) {
                 animate={{ y: 0, opacity: 1 }}
                 exit={{ y: 2, opacity: 0 }}
                 transition={{ duration: 0.4, staggerChildren: 0.3 }}
-                className="scroll-smooth xl:snap-y lg:snap-y snap-none  snap-mandatory h-screen w-screen overflow-scroll">
+              >
                 <Component {...pageProps} />
               </motion.div>
             </Layout>

@@ -10,7 +10,7 @@ import { useSelector } from 'react-redux'
 const Services = (props) => {
     const { pageInfo, headerSection } = props
     return (
-        <div>
+        <div className="scroll-smooth xl:snap-y lg:snap-y snap-none snap-mandatory xl:h-screen lg:h-screen h-auto w-screen overflow-y-scroll">
             <SectionHead title={pageInfo.metadata.metaTitle} description={pageInfo.metadata.mataDescription} />
             <SectionTitle title={headerSection.title} description={headerSection.subtitle} />
             <Service paddingBottom={true} {...props.serviceSection} {...props.introductionSection} />
