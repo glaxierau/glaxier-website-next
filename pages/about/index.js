@@ -14,7 +14,7 @@ import SlideIn from '../../components/animation/SlideIn'
 const About = (props) => {
     const { pageInfo, headerSection, ctaBreakSection, teamSection } = props
     return (
-        <div>
+        <div className="scroll-smooth xl:snap-y lg:snap-y snap-none snap-mandatory xl:h-screen lg:h-screen h-auto w-screen overflow-y-scroll">
             <SectionHead title={pageInfo.metadata.metaTitle} description={pageInfo.metadata.mataDescription} />
             <div className="py-2 snap-start">
                 <SectionTitle title={upperCaseText(headerSection.title)} description={headerSection.subtitle} />
