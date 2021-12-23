@@ -32,7 +32,7 @@ const Service = (props) => {
     let sm = mobileScreen()
     let mobileView = withSizeLessThan(600)
     return (
-        <motion.div className={`bg-white-dark ${paddingBottom ? 'py-10' : 'pt-10'} `}
+        <motion.div className={`bg-white-dark snap-start ${paddingBottom ? 'py-10' : 'pt-10'} `}
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}>
             <SlideIn>
@@ -43,7 +43,7 @@ const Service = (props) => {
                 </div>
             </SlideIn>
 
-            <div className="h-screen  mt-20  flex justify-center items-center relative text-center overflow-visible" style={{ width: '100%' }}>
+            <div className="h-screen snap-end mt-20 flex justify-center items-center relative text-center overflow-visible" style={{ width: '100%' }}>
                 <img onClick={() => { setIndex(defaultServiceMap) }} src={`/assets/img/home/${mobileView ? 'smCircles' : 'lgCircles'}.png`} className={"circle_image absolute top-0 z-10 w-full lg:object-cover md:object-cover object-cover h-screen"} alt="circles" />
                 <Particles />
                 <Circle
