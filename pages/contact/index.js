@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import Goals from './goals'
 import Layout from './layout'
 import { getData } from '../../hooks/getData'
+import setData from '../../hooks/setData'
 
 const Contact = (props) => {
     if (props) {
