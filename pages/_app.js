@@ -15,7 +15,6 @@ import "slick-carousel/slick/slick-theme.css";
 
 
 function MyApp({ Component, pageProps, router }) {
-  // console.log(router)
   return (
     <>
       <Provider store={store}>

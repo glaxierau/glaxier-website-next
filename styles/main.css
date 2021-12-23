@@ -12,18 +12,26 @@
 }
 .th-th {
   font-family: "Kanit";
+  font-size: 18px;
 }
 
 @font-face {
   font-family: "Poppins";
-  src: url("/fonts/Poppins/Poppins-Light.ttf");
+  src: url("/fonts/Poppins/Poppins-Regular.ttf");
+  font-style: normal;
+  font-weight: 100;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Poppins sb";
+  src: url("/fonts/Poppins/Poppins-SemiBold.ttf");
   font-style: normal;
   font-weight: 200;
   font-display: swap;
 }
 @font-face {
-  font-family: "Poppins";
-  src: url("/fonts/Poppins/Poppins-SemiBold.ttf");
+  font-family: "Poppins b";
+  src: url("/fonts/Poppins/Poppins-Bold.ttf");
   font-style: normal;
   font-weight: 300;
   font-display: swap;
@@ -31,14 +39,7 @@
 @font-face {
   font-family: "Kanit";
   src: url("/fonts/Kanit/Kanit-Light.ttf");
-  font-style: medium;
-  font-weight: 100;
-  font-display: swap;
-}
-@font-face {
-  font-family: "Kanit";
-  src: url("/fonts/Kanit/Kanit-Light.ttf");
-  font-style: medium;
+  font-style: normal;
   font-weight: 100;
   font-display: swap;
 }
@@ -53,13 +54,17 @@
 body,
 html {
   margin: 0;
-  font-family: "Poppins";
+  /* font-family: "Poppins"; */
   width: 100vw;
   max-width: 100%;
   box-sizing: border-box;
   overflow-x: hidden;
   scroll-behavior: smooth;
-  scroll-padding: 90px;
+  scroll-padding: 50px;
+}
+
+.th-th p {
+  font-size: 18px;
 }
 
 p {
