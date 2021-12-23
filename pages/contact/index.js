@@ -1,10 +1,11 @@
 import React, { useEffect } from 'react'
 import Goals from './goals'
-import Layout from './layout'
+import Layout from '../../components/contact/layout'
 import { getData } from '../../hooks/getData'
 import setData from '../../hooks/setData'
 
 const Contact = (props) => {
+    console.log(props)
     if (props) {
         return (
             <Layout metadata={props.pageInfo.metadata} {...props}>

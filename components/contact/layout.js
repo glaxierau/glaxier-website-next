@@ -1,10 +1,11 @@
 import React from 'react'
-import SectionHead from '../../components/common/Head'
-import SectionTitle from '../../components/common/SectionTitle'
-import FooterLink from '../../components/FooterLink'
-import Loading from '../../components/loading/Loading'
+import SectionHead from '../common/Head'
+import SectionTitle from '../common/SectionTitle'
+import FooterLink from '../FooterLink'
+import Loading from '../loading/Loading'
 
 const Layout = ({ metadata, children, heroSection }) => {
+    console.log(metadata)
     return (
         <div>
             <SectionHead title={metadata.metaTitle} description={metadata.mataDescription} />
