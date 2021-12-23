@@ -10,11 +10,23 @@ class MyDocument extends Document {
         return (
             <Html>
                 <Head>
-                    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
-                    <link href="https://fonts.googleapis.com/css2?family=Cutive+Mono&display=swap" rel="stylesheet" />
-                    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
+                    {/* ------ FONT ------- */}
+
+                    {/* <link rel="preload" href="/fonts/Poppins/Poppins-Regular.ttf" as="font" crossOrigin="" />
+                    <link rel="preload" href="/fonts/Poppins/Poppins-Bold.ttf" as="font" crossOrigin="" />
+                    <link rel="preload" href="/fonts/Roboto/Poppins-Regular.ttf" as="font" crossOrigin="" />
+                    <link rel="preload" href="/fonts/Roboto/Poppins-Bold.ttf" as="font" crossOrigin="" />
+                    <link rel="preload" href="/fonts/Cutive_Mono/CutiveMono-Regular.ttf" as="font" crossOrigin="" />
+                    <link rel="preload" href="/fonts/Kanit/Kanit-Regular.ttf" as="font" crossOrigin="" />
+                    <link rel="preload" href="/fonts/Kanit/Kanit-ExtraBold.ttf" as="font" crossOrigin="" />
+                    <link rel="preload" href="/fonts/Kanit/Kanit-Bold.ttf" as="font" crossOrigin="" /> */}
+                    {/* ------------- */}
+                    {/* <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" /> */}
+                    {/* <link href="https://fonts.googleapis.com/css2?family=Cutive+Mono&display=swap" rel="stylesheet" /> */}
+                    {/* <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" /> */}
                     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
                     <link rel="shortcut icon" href="/favicon.png" />
+
                     <script dangerouslySetInnerHTML={{
                         __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
                         new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
