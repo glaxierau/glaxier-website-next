@@ -8,8 +8,13 @@ import { setToTrue } from '../../hooks/setToTrue'
 import { withSizeLessThan } from '../../hooks/useWindowSize'
 import { setToFalse } from '../../hooks/setToFalse'
 import { useRouter } from 'next/router'
+import { sanityImage } from '../../hooks/tools'
+import { getServerSideProps } from '.'
+import { getData } from '../../hooks/getData'
+import { useSelector } from 'react-redux'
 
-const Goals = () => {
+const Goals = ({ goalSection }) => {
+    const { goals, question } = goalSection
     const router = useRouter()
     const [withHead, setWithHead] = useState(false)
     let [lists, setLists] = useState([
@@ -25,11 +30,11 @@ const Goals = () => {
     let sm = withSizeLessThan(600)
 
     const onChoosingaGoal = (list) => {
-        if (list.active) {
-            setToFalse(list, lists, setLists)
-        } else {
-            setToTrue(list, lists, setLists)
-        }
+        // if (list.active) {
+        //     setToFalse(list, lists, setLists)
+        // } else {
+        //     setToTrue(list, lists, setLists)
+        // }
     }
 
     useEffect(() => {
@@ -37,10 +42,10 @@ const Goals = () => {
     }, [router.asPath])
     return (
         <div className="h-auto">
-            {withHead && <Head title="Contact Us | Your Goals" description="Share with us your goals" />}
-            <ContactTitle title="Share your goal with us" />
+            {withHead && <Head title="Contact Us | Your Goals" description={question} />}
+            <ContactTitle title={question} />
             <div className="flex justify-center flex-wrap m-auto" style={{ width: sm ? 340 : 600, flex: '1 1 160px' }}>
-                {lists.map(list => <GoalBox key={list.key} icon={list.icon} name={list.name} active={list.active} onClick={() => onChoosingaGoal(list)} />)}
+                {goals.map(list => <GoalBox key={list._key} icon={sanityImage(list.icon.image)} name={list.text} onClick={() => onChoosingaGoal(list.text)} />)}
             </div>
             <div className="mx-auto w-96 flex items-center justify-center py-9">
                 <AppButton title="Continue" width={200} bgColor="bg-blue-dark" bgColorHover="hover:bg-red" txtColor="text-white" link='/contact/contact-details' />
@@ -48,5 +53,8 @@ const Goals = () => {
         </div>
     )
 }
-
 export default Goals
+
+
+
+

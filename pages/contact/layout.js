@@ -4,16 +4,16 @@ import SectionTitle from '../../components/common/SectionTitle'
 import FooterLink from '../../components/FooterLink'
 import Loading from '../../components/loading/Loading'
 
-const Layout = ({ metadata, children }) => {
+const Layout = ({ metadata, children, heroSection }) => {
     return (
         <div>
             <SectionHead title={metadata.metaTitle} description={metadata.mataDescription} />
-            <SectionTitle title="CONTACT">
-                <FooterLink src="/assets/img/contact/common/location.png" imgWidth={20} href="/" content="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy" fontSize="lg:text-base text-sm" />
+            <SectionTitle title={heroSection.title}>
+                <FooterLink src="/assets/img/contact/common/location.png" imgWidth={20} href="https://goo.gl/maps/CsG48GVUC6eXEDk37" content="6 Motorway road, Prawet Bangkok 10250" fontSize="lg:text-base text-sm" color={"text-gray-500"} />
                 <br />
-                <FooterLink src="/assets/img/contact/common/phone.png" imgWidth={15} href="tel:+61424-555-959" content="+61424 555 959" fontSize="text-base text-sm" />
+                <FooterLink src="/assets/img/contact/common/phone.png" imgWidth={15} href={`tel:${heroSection.phone}`} content={heroSection.phone} fontSize="text-base text-sm" color={"text-gray-500"} />
                 <br />
-                <FooterLink src="/assets/img/contact/common/mail.png" imgWidth={20} href="mailto:tan@glaxier.com.au" content="tan@glaxier.com.au" fontSize="text-base text-sm" />
+                <FooterLink src="/assets/img/contact/common/mail.png" imgWidth={20} href={`mailto:${heroSection.email}`} content={heroSection.email} fontSize="text-base text-sm" color={"text-gray-500"} />
             </SectionTitle>
             <main>{children}</main>
             {/* <Loading /> */}
