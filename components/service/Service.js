@@ -43,7 +43,7 @@ const Service = (props) => {
                 </div>
             </SlideIn>
 
-            <div className="h-screen snap-end mt-20 flex justify-center items-center relative text-center overflow-visible" style={{ width: '100%' }}>
+            <div className="h-screen snap-start mt-20 flex justify-center items-center relative text-center overflow-visible" style={{ width: '100%' }}>
                 <img onClick={() => { setIndex(defaultServiceMap) }} src={`/assets/img/home/${mobileView ? 'smCircles' : 'lgCircles'}.png`} className={"circle_image absolute top-0 z-10 w-full lg:object-cover md:object-cover object-cover h-screen"} alt="circles" />
                 <Particles />
                 <Circle
