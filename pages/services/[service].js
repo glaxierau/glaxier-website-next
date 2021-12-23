@@ -38,7 +38,7 @@ const index = (props) => {
                         </div>
                         <BlockContent blocks={topSection.paragraph1} />
                         <div className="flex flex-row flex-wrap mx-auto w-full my-10">
-                            {topSection.steps.map(step => <Step key={step.title} title={step.title} desc={step.description} />)}
+                            {topSection.steps.map(step => <Step key={step.title} title={step.title} desc={step.description} icon={sanityImage(step.icon.image)} image={step.icon.image} />)}
                         </div>
                         <BlockContent blocks={topSection.paragraph2} />
                     </section>
@@ -48,13 +48,16 @@ const index = (props) => {
     }
 }
 
-const Step = ({ title, desc }) => {
+const Step = ({ title, desc, icon, image }) => {
+    console.log(image)
     return (
-        <section className="flex items-center justify-center m-2 w-full ">
-            <span className="bg-purple rounded-full" style={{ width: 30, height: 30 }} />
-            <div className=" w-full ml-2 flex flex-col items-left justify-start ">
+        <section className="flex items-start justify-center m-2 w-full ">
+            <div className="bg-purple rounded-full overflow-hidden flex justify-center items-center" style={{ width: 30, height: 30 }}>
+                <Img {...icon} width={15} height={15} className='text-white' placeholder="empty" />
+            </div>
+            <div className=" w-full ml-4 flex flex-col items-left justify-start ">
                 <p className="text-purple">{title}</p>
-                <p className="font-thin text-sm text-black-light">{desc}</p>
+                <p className="font-thin text-sm text-black-light pt-1 pb-2">{desc}</p>
             </div>
         </section>
     )
