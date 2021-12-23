@@ -11,7 +11,7 @@ import articles from '../config/articles'
 
 export default function Home(props) {
   return (
-    <div className="container-snap">
+    <div>
       <Head title={props.pageInfo.metadata.metaTitle} description={props.pageInfo.metadata.mataDescription} />
       <Banner {...props} />
       <Service {...props.serviceSection} {...props.introductionSection} />
