@@ -7,7 +7,7 @@ import { motion } from 'framer-motion'
 
 const Footer = () => {
     const [open, setOpen] = useState(false)
-    const [hide, setHide] = useState(true)
+    const [hide, setHide] = useState(false)
 
 
     const onOpening = () => {

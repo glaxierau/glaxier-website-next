@@ -4,11 +4,12 @@ import { about_settings } from '../../config/carousel.setting';
 import Animate from '../animation/Animate';
 import CarouselCard from './CarouselCard';
 import style from '../../styles/dots.module.css'
+import SlideIn from '../animation/SlideIn';
 
 
 const IndustrySlides = ({ contents }) => {
     return (
-        <div className="lg:p-20 md:p-20 p-2 ">
+        <SlideIn className=" lg:p-20 md:p-20 p-2 ">
             <Slider {...about_settings} dotsClass={style.dots} className="flex items-center justify-center">
                 {contents.map(c => (
                     <Animate key={c._id}>
@@ -16,7 +17,7 @@ const IndustrySlides = ({ contents }) => {
                     </Animate>
                 ))}
             </Slider>
-        </div>
+        </SlideIn>
     )
 }
 

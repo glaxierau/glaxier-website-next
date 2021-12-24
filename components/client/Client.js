@@ -9,7 +9,7 @@ const Client = (props) => {
     const { clientSection } = props
     if (props)
         return (
-            <div className="snap-center bg-white-dark mt-2 py-40">
+            <div className="snap-center xl:h-screen lg:h-screen h-auto flex flex-col bg-white-dark mt-2 py-40">
                 <SlideIn>
                     <div className="relative flex flex-col items-center justify-center">
                         <Title title={clientSection.clientTitle} lineColor="#CFD7F1" lineWidth="180" /> <br /> <br />

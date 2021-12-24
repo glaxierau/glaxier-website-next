@@ -24,7 +24,7 @@ html {
   box-sizing: border-box;
   overflow-x: hidden;
   scroll-behavior: smooth;
-  scroll-padding: 40px;
+  scroll-padding: 5rem;
 }
 
 .th-th p {

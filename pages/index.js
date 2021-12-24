@@ -11,7 +11,7 @@ import articles from '../config/articles'
 
 export default function Home(props) {
   return (
-    <div className="scroll-smooth xl:snap-y lg:snap-y snap-none snap-mandatory xl:h-screen lg:h-screen h-auto w-screen overflow-y-scroll">
+    <div className="scroll-smooth xl:snap-y lg:snap-y snap-none snap-mandatory xl:h-cscreen lg:h-cscreen h-auto w-screen xl:overflow-y-scroll lg:overflow-y-scroll overflow-hidden">
       <Head title={props.pageInfo.metadata.metaTitle} description={props.pageInfo.metadata.mataDescription} />
       <Banner {...props} />
       <Service {...props.serviceSection} {...props.introductionSection} />
