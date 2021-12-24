@@ -9,7 +9,7 @@ import SlideIn from '../animation/SlideIn';
 const Testimonial = ({ testimonials }) => {
     return (
         <>
-            <div className="snap-start relative flex flex-col items-center justify-center lg:py-32 py-5">
+            <div className="xl:h-cscreen lg:h-cscreen snap-center relative flex flex-col items-center justify-center lg:py-32 py-5">
                 <Title title="Testimonials" lineColor="#9FB0E483" lineWidth={180} />
                 <div className="lg:mb-24 mb-10" />
                 <SlideIn className="w-full lg:px-28 md:px-20 px-10">

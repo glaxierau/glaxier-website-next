@@ -5,7 +5,7 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx}",
   ],
   mode: 'jit',
-  purge: ['./pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
+  // purge: ['./pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
@@ -40,6 +40,7 @@ module.exports = {
       },
       height: {
         lg: '26rem',
+        cscreen: '90vh'
       },
       width: {
         lg: '20rem',
@@ -53,13 +54,23 @@ module.exports = {
         red: '#BE4938'
       }
     },
+    animation: {
+      fadeIn: "fadeIn 2s ease-in forwards"
+    },
+    keyframes: {
+      fadeIn: {
+        "0%": { opacity: 0, transform: 'translateY(10px)' },
+        "100%": { opacity: 1, transform: 'translateY(0px)' },
+      }
+    }
   },
   variants: {
     extend: {
       borderStyle: ['responsive', 'hover'],
       borderWidth: ['responsive', 'hover'],
       fill: ['hover', 'focus'],
-      borderBottom: ['focus']
+      borderBottom: ['focus'],
+      animation: ["motion-safe"]
     },
   },
   plugins: [],

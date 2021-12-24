@@ -3,7 +3,7 @@ import AppButton from './AppButton'
 import Img from 'next/image'
 import Head from '../components/common/Head'
 import { useSelector } from 'react-redux'
-import { sanityImage } from '../hooks/tools'
+import { sanityImage, upperCaseText } from '../hooks/tools'
 import { motion } from 'framer-motion'
 
 const Banner = (props) => {
@@ -11,15 +11,15 @@ const Banner = (props) => {
     const { heroTitle, preTitle, button1, button2, image } = props.hero || data
     return (
         <>
-            <div className="relative snap-start overflow-x-hidden h-screen">
+            <div className="relative snap-center overflow-x-hidden h-cscreen">
                 <Img {...sanityImage(image.image)} placeholder="blur" className="object-cover bg-no-repeat" layout='fill' />
                 <motion.div className="absolute lg:top-60 lg:left-40 md:top-1/3 top-1/3 left-1/2 transform lg:-translate-x-0 -translate-x-2/4 flex flex-col justify-center items-center text-white"
                     initial={{ opacity: 0, }}
                     animate={{ opacity: 1 }}
                     transition={{ stiffness: 200 }}
                 >
-                    <h2 className="lg:text-2xl text-base font-bold">{preTitle}</h2>
-                    <h1 className="lg:text-7xl text-4xl mb-5" style={{ fontFamily: 'Cutive Mono' }}>{heroTitle}</h1>
+                    <h2 className="lg:text-3xl text-base font-bold">{upperCaseText(preTitle)}</h2>
+                    <h1 className="lg:text-8xl text-4xl mb-5" style={{ fontFamily: 'Cutive Mono' }}>{heroTitle}</h1>
                     <div className="flex">
                         <AppButton bgColor="bg-blue" bgColorHover="hover:bg-red" txtColor="text-white" title={button1.buttonText} width={200} link={button1.link} />
                         <AppButton bgColor="bg-white" bgColorHover="hover:bg-red" txtColor="text-blue" txtColorHover={"hover:text-white"} title={button2.buttonText} width={140} link={button2.link} />

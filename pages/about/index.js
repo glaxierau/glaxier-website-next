@@ -14,7 +14,7 @@ import SlideIn from '../../components/animation/SlideIn'
 const About = (props) => {
     const { pageInfo, headerSection, ctaBreakSection, teamSection } = props
     return (
-        <div className="scroll-smooth xl:snap-y lg:snap-y snap-none snap-mandatory xl:h-screen lg:h-screen h-auto w-screen overflow-y-scroll">
+        <div className="scroll-smooth xl:snap-y lg:snap-y snap-none snap-mandatory xl:h-cscreen lg:h-cscreen h-auto w-screen xl:overflow-y-scroll lg:overflow-y-scroll overflow-hidden">
             <SectionHead title={pageInfo.metadata.metaTitle} description={pageInfo.metadata.mataDescription} />
             <div className="py-2 snap-start">
                 <SectionTitle title={upperCaseText(headerSection.title)} description={headerSection.subtitle} />
@@ -22,14 +22,14 @@ const About = (props) => {
             <div className="lg:mt-0 -mt-10" id="whoweare">
                 <AboutSection {...props.aboutSection} />
             </div>
-            <div className="bg-white-dark py-20 snap-start" id="industry-experience">
+            <div className="bg-white-dark py-20 h-cscreen snap-center" id="industry-experience">
                 <Title title="Industry Experience" lineWidth={600} height={30} />
                 <AboutToggle {...props} />
             </div>
             <ProjectSection {...ctaBreakSection} />
-            <div className="lg:py-20 py-10 snap-end" id="team">
+            <div className="lg:py-20 py-10 snap-center h-cscreen flex flex-col justify-center items-center" id="team">
                 <Title title={teamSection.title} lineWidth={220} />
-                <div y={5} className="flex flex-wrap p-4 py-10 lg:px-5 md:px-2 px-4 mx-auto justify-around items-center w-4/5">
+                <div y={5} className="flex flex-wrap p-4 py-20 lg:px-5 md:px-2 px-4 mx-auto justify-around items-center w-4/5">
                     {teamSection.teamMembers.map(({ _id, content, image }) => <TeamBadge key={_id} name={content.name} position={content.position} image={image} />)}
                 </div>
             </div>
