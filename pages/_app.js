@@ -1,11 +1,8 @@
-import { useState } from 'react';
 import Layout from '../components/layouts'
 import { Provider } from 'react-redux'
-// import { createWrapper } from 'next-redux-wrapper'
 import { AnimatePresence, motion } from 'framer-motion'
 import store from '../redux/store'
 import NextNProgress from "nextjs-progressbar";
-import Fetcher from '../components/Fetcher';
 import 'tailwindcss/tailwind.css'
 import '../styles/main.css'
 import '../styles/hamburgers.css'

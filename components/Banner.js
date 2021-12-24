@@ -13,7 +13,7 @@ const Banner = (props) => {
         <>
             <div className="relative snap-center overflow-x-hidden h-cscreen">
                 <Img {...sanityImage(image.image)} placeholder="blur" className="object-cover bg-no-repeat" layout='fill' />
-                <motion.div className="absolute lg:top-60 lg:left-40 md:top-1/3 top-1/3 left-1/2 transform lg:-translate-x-0 -translate-x-2/4 flex flex-col justify-center items-center text-white"
+                <motion.div className="absolute lg:top-44 lg:left-40 md:top-1/3 top-1/3 left-1/2 transform lg:-translate-x-0 -translate-x-2/4 flex flex-col justify-center items-center text-white"
                     initial={{ opacity: 0, }}
                     animate={{ opacity: 1 }}
                     transition={{ stiffness: 200 }}

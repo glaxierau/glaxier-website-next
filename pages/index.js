@@ -9,7 +9,7 @@ import Testimonial from "../components/testimonial/Testimonial";
 import { getData } from "../hooks/getData";
 import articles from '../config/articles'
 
-export default function Home(props) {
+export default function Home({ props }) {
   return (
     <div className="scroll-smooth xl:snap-y lg:snap-y snap-none snap-mandatory xl:h-cscreen lg:h-cscreen h-auto w-screen xl:overflow-y-scroll lg:overflow-y-scroll overflow-hidden">
       <Head title={props.pageInfo.metadata.metaTitle} description={props.pageInfo.metadata.mataDescription} />
@@ -24,14 +24,14 @@ export default function Home(props) {
   );
 }
 
-export const getServerSideProps = async (req, res) => {
+Home.getInitialProps = async (req, res) => {
 
   // ----------------- Data Fetching --------------------
   let lang = req.locale
   let language = await getData(`*[_type == 'languageOption' && language == '${lang}']{_id}[0]`)
   language = language._id
 
-  const data = await getData(
+  const props = await getData(
     `*[_type =='home' && pageInfo.lang._ref == "${language}"][0]{
       ..., 
       aboutSection->,
@@ -41,7 +41,5 @@ export const getServerSideProps = async (req, res) => {
       serviceSection->,
       testimonialSection{...,testimonials[]->}}`)
 
-  return {
-    props: data
-  }
+  return { props }
 }
