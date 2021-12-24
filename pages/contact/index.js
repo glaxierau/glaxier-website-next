@@ -3,7 +3,7 @@ import Goals from './goals'
 import Layout from '../../components/contact/layout'
 import { getData } from '../../hooks/getData'
 
-const Contact = ({ props }) => {
+const Contact = (props) => {
     if (props) {
         return (
             <Layout metadata={props.pageInfo.metadata} {...props}>
@@ -14,7 +14,7 @@ const Contact = ({ props }) => {
     }
 }
 
-Contact.getInitialProps = async (req, res) => {
+export const getStaticProps = async (req, res) => {
 
     let lang = req.locale
     let language = await getData(`*[_type == 'languageOption' && language == '${lang}']{_id}[0]`)

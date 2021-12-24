@@ -41,7 +41,7 @@ const Goals = (props) => {
         </>
     )
 }
-export const getServerSideProps = async () => {
+export const getStaticProps = async () => {
     const data = await getData(`*[ _type == 'interactiveForm'][1]{goalSection}`)
     return {
         props: data

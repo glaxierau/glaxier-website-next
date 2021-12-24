@@ -8,7 +8,7 @@ import { motion } from 'framer-motion'
 
 const Layout = ({ children }) => {
   const variants = {
-    hidden: { opacity: 0, y: 10 },
+    hidden: { opacity: 0, y: 0 },
     enter: { opacity: 1, y: 0 },
     exit: { opacity: 0, y: 0 },
   }

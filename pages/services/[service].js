@@ -10,7 +10,7 @@ import SlideIn from '../../components/animation/SlideIn'
 import { motion } from 'framer-motion'
 import { useRouter } from 'next/dist/client/router'
 
-const SingleService = ({ props }) => {
+const SingleService = (props) => {
     const [changing, setChaging] = useState(false)
     const { topSection, pageInfo, notFound } = props
     console.log(topSection)
@@ -33,8 +33,8 @@ const SingleService = ({ props }) => {
                     <img src="/assets/svg/services.svg" alt="Shape for services" className="hidden lg:grid absolute -left-32 h-screen" />
                     <section className="lg:px-20 md:px-10 px-5 py-10 overflow-y-scroll">
                         <div className="flex items-center justify-start mb-6 ">
-                            <div className="bg-red h-10 w-20" />
-                            <h2 className="text-2xl text-red ml-5">{topSection.title}</h2>
+                            {/* <div className="bg-red h-10 w-20" /> */}
+                            <h2 className="text-2xl font-bold text-red ml-0">{topSection.title}</h2>
                         </div>
                         <BlockContent blocks={topSection.paragraph1} />
                         <div className="flex flex-row flex-wrap mx-auto w-full my-10">
@@ -65,8 +65,8 @@ const Step = ({ title, desc, icon, image }) => {
 export default SingleService
 
 
-SingleService.getInitialProps = async (ctx) => {
-    let query = ctx.query.service
+export const getStaticProps = async (ctx) => {
+    let query = ctx.params.service
     let currentLanguage = ctx.locale
     let lang = await getData(`*[ _type == 'languageOption' && language == '${currentLanguage}'][0]`)
     const props = await getData(`*[ slug == '${query}' && pageInfo.lang._ref == '${lang._id}' ][0]`)

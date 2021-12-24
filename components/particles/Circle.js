@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import React from 'react'
 import { getRandom, secondRandom } from "../../hooks/randNum"
+import SlideIn from '../animation/SlideIn'
 
 
 const Circle = ({ active, title, onClick, ...otherProps }) => {
