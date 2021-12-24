@@ -1,17 +1,13 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { motion } from 'framer-motion'
-import { useSelector, useDispatch } from 'react-redux'
 import { mobileScreen, withSizeLessThan } from '../../hooks/useWindowSize'
 import Circle from '../particles/Circle'
-import { setToTrue } from '../../hooks/setToTrue'
-import { setAllToFalse } from '../../hooks/setAllToFalse'
-import { getDataInsideComp } from '../../hooks/getData'
 import Title from '../Title'
-import Loading from '../loading/Loading'
 import Particles from '../particles/Particles'
 import SlideIn from '../animation/SlideIn'
 import AppButton from '../AppButton'
 import BlockContent from '../BlockContent/BlockContent'
+import Img from 'next/image'
 
 const Service = (props) => {
 
@@ -43,7 +39,7 @@ const Service = (props) => {
             </SlideIn>
 
             <div className="h-screen mt-20 flex justify-center items-center relative text-center" style={{ width: '100%' }}>
-                <img onClick={() => { setIndex(defaultServiceMap) }} src={`/assets/img/home/${mobileView ? 'smCircles' : 'lgCircles'}.png`} className={"circle_image absolute top-0 z-10 w-full lg:object-cover md:object-cover object-cover h-screen"} alt="circles" />
+                <Img onClick={() => { setIndex(defaultServiceMap) }} src={`/assets/img/home/${mobileView ? 'smCircles' : 'lgCircles'}.png`} layout='fill' objectFit='cover' className={"circle_image absolute top-0 z-10 w-full lg:object-cover md:object-cover object-cover h-screen"} alt="circles" />
                 <Particles />
                 <Circle
                     style={sm ? { top: '5rem', left: '5%' } : { top: '5rem', left: '20%' }}
