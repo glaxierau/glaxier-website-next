@@ -72,3 +72,18 @@ export const getStaticProps = async (ctx) => {
     const props = await getData(`*[ slug == '${query}' && pageInfo.lang._ref == '${lang._id}' ][0]`)
     return { props }
 }
+
+export const getStaticPaths = async () => {
+    let slugs = await getData(`*[_type == 'service']{slug}`)
+    const paths = slugs.map(slug => {
+        return {
+            params: { service: slug.slug }
+        }
+    })
+    console.log(paths)
+
+    return {
+        paths,
+        fallback: false
+    }
+}
