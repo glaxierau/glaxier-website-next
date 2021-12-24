@@ -7,7 +7,7 @@ import { useSelector } from 'react-redux'
 
 
 
-const Services = ({ props }) => {
+const Services = (props) => {
     const { pageInfo, headerSection } = props
     return (
         <div className="scroll-smooth xl:snap-y lg:snap-y snap-none snap-mandatory xl:h-cscreen lg:h-cscreen h-auto w-screen xl:overflow-y-scroll lg:overflow-y-scroll overflow-hidden">
@@ -21,7 +21,7 @@ const Services = ({ props }) => {
 
 export default Services
 
-Services.getInitialProps = async () => {
+export const getStaticProps = async () => {
     // ----------------- Data Fetching --------------------
     const props = await getData(`
     *[_type == 'services' && pageInfo.lang._ref == '107fa697-d70e-46bb-9d5a-5d8952bafd3a'][0]{
