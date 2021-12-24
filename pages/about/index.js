@@ -11,7 +11,7 @@ import { getData } from '../../hooks/getData'
 import { upperCaseText } from '../../hooks/tools'
 import SlideIn from '../../components/animation/SlideIn'
 
-const About = (props) => {
+const About = ({ props }) => {
     const { pageInfo, headerSection, ctaBreakSection, teamSection } = props
     return (
         <div className="scroll-smooth xl:snap-y lg:snap-y snap-none snap-mandatory xl:h-cscreen lg:h-cscreen h-auto w-screen xl:overflow-y-scroll lg:overflow-y-scroll overflow-hidden">
@@ -37,14 +37,14 @@ const About = (props) => {
     )
 }
 
-export const getServerSideProps = async (req, res) => {
+About.getInitialProps = async (req, res) => {
 
     // ----------------- Data Fetching --------------------
     let lang = req.locale
     let language = await getData(`*[_type == 'languageOption' && language == '${lang}']{_id}[0]`)
     language = language._id
 
-    const data = await getData(
+    const props = await getData(
         `*[_type == 'about' && pageInfo.lang._ref == '${language}'][0]{
             ...,
             aboutSection->,
@@ -53,9 +53,7 @@ export const getServerSideProps = async (req, res) => {
             teamSection{...,teamMembers[]->{...,content[0]}}
           }`)
 
-    return {
-        props: data
-    }
+    return { props }
 }
 
 export default About

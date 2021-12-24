@@ -7,11 +7,12 @@ import { motion } from 'framer-motion'
 
 const Footer = () => {
     const [open, setOpen] = useState(false)
-    const [hide, setHide] = useState(false)
+    const [hide, setHide] = useState(true)
 
 
     const onOpening = () => {
         setOpen(true)
+        setHide(true)
     }
 
     if (open) {
@@ -84,13 +85,15 @@ const Footer = () => {
             </>
         )
     } else {
-        return <div className='sm:hidden fixed left-1/2 transform -translate-x-2/4 bottom-0 z-50 w-40 h-10 bg-transparent text-purple hover:bg-red hover:text-white transition-all cursor-pointer grid place-items-center rounded-t-full'
-            onClick={() => onOpening()}
-            onMouseEnter={() => setHide(false)}
-            onMouseLeave={() => setHide(true)}>
-            <img src="/assets/svg/upArrow.svg" width={20} height={20} />
-            {!hide && <p style={{ fontSize: '0.5rem' }}>Open Footer</p>}
-        </div>
+        return (
+            <div className='lg:flex md:flex sm:hidden px-2 fixed bottom-0 h-5 left-1/2 transform -translate-x-1/2 bg-transparent  text-purple hover:bg-red hover:text-white cursor-pointer flex flex-col justify-center items-center  rounded-t-full animate-fadeIn'
+                onClick={() => onOpening()}
+                onMouseEnter={() => setHide(false)}
+                onMouseLeave={() => setHide(true)}>
+                {hide && <img src="/assets/svg/upArrow.svg" />}
+                {!hide && <p style={{ fontSize: '0.5rem' }}>Footer</p>}
+            </div>
+        )
     }
 }
 

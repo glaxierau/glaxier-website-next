@@ -10,7 +10,7 @@ import SlideIn from '../../components/animation/SlideIn'
 import { motion } from 'framer-motion'
 import { useRouter } from 'next/dist/client/router'
 
-const index = (props) => {
+const SingleService = ({ props }) => {
     const [changing, setChaging] = useState(false)
     const { topSection, pageInfo, notFound } = props
     console.log(topSection)
@@ -62,15 +62,13 @@ const Step = ({ title, desc, icon, image }) => {
         </section>
     )
 }
-export default index
+export default SingleService
 
 
-export const getServerSideProps = async (ctx) => {
-    let query = ctx.params.service
+SingleService.getInitialProps = async (ctx) => {
+    let query = ctx.query.service
     let currentLanguage = ctx.locale
     let lang = await getData(`*[ _type == 'languageOption' && language == '${currentLanguage}'][0]`)
-    const service = await getData(`*[ slug == '${query}' && pageInfo.lang._ref == '${lang._id}' ][0]`)
-    return {
-        props: service
-    }
+    const props = await getData(`*[ slug == '${query}' && pageInfo.lang._ref == '${lang._id}' ][0]`)
+    return { props }
 }
