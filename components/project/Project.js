@@ -6,10 +6,9 @@ import { sanityImage } from '../../hooks/tools'
 
 const Project = (props) => {
     const { ctaButton, image } = props
-    console.log(props)
     return (
         <>
-            <div id="project" className="snap-center relative flex flex-col items-center justify-center -mt-3 lg:h-96 h-60 overflow-hidden">
+            <div id="project" className="relative flex flex-col items-center justify-center -mt-3 lg:h-96 h-60 overflow-hidden">
                 <Img {...sanityImage(image.image)} layout='fill' objectFit='cover' className="bg_image" alt="bg-image" />
                 <SlideIn className="z-10 flex flex-col items-center justify-center">
                     <h3 className="lg:text-2xl text-xl text-white font-bold lg:mb-12 mb-2">Let’s talk about “OUR” project.</h3>
