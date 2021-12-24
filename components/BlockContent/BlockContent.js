@@ -34,7 +34,7 @@ function BlockContent(props) {
                 });
 
                 if (style === 'normal') {
-                    return <p className={`text-base ${normalColor} leading-relaxed py-1 font-extralight`}>{props.children}</p>
+                    return <p className={`lg:text-base ${normalColor} leading-relaxed py-1 font-extralight`}>{props.children}</p>
                 }
                 if (style === 'h1') {
                     return <h1 className="text-3xl text-black-light leading-normal py-1 font-extralight">{props.children}</h1>

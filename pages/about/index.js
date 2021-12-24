@@ -26,8 +26,10 @@ const About = (props) => {
                 <Title title="Industry Experience" lineWidth={600} height={30} />
                 <AboutToggle {...props} />
             </div>
-            <ProjectSection {...ctaBreakSection} />
-            <div className="lg:py-20 py-10 h-cscreen flex flex-col justify-center items-center" id="team">
+            <div className='h-auto'>
+                <ProjectSection {...ctaBreakSection} />
+            </div>
+            <div className="lg:py-20 py-10 h-auto flex flex-col justify-center items-center" id="team">
                 <Title title={teamSection.title} lineWidth={220} />
                 <div y={5} className="flex flex-wrap p-4 py-20 lg:px-5 md:px-2 px-4 mx-auto justify-around items-center w-4/5">
                     {teamSection.teamMembers.map(({ _id, content, image }) => <TeamBadge key={_id} name={content.name} position={content.position} image={image} />)}
