@@ -5,6 +5,7 @@ import Title from '../Title'
 import style from '../../styles/About.module.css'
 import SlideIn from '../animation/SlideIn'
 import BlockContent from '../BlockContent/BlockContent'
+import Img from 'next/image'
 
 const About = (props) => {
     const { withButton = false } = props
@@ -12,7 +13,7 @@ const About = (props) => {
         <>
             <div className="xl:h-screen lg:h-cscreen h-auto lg:flex lg:flex-row flex-col lg:px-14 px-5 lg:pt-0 pt-10 my-20">
                 <SlideIn className="lg:w-1/2 md:w-full w-full h-auto flex items-center justify-center">
-                    <img src="/assets/img/home/aboutimg.png" width="550" alt="image" />
+                    <Img src="/assets/img/home/aboutimg.png" width={550} height={550} alt="image" />
                 </SlideIn>
                 <SlideIn delay={0.3} className="lg:w-1/2 w-full lg:mx-20 md:mx-10 mx-0 lg:mt-0 mt-20 flex flex-col items-center justify-center lg:py-20 py-5">
                     <Title title={props.sectionTitle} lineColor="#CFD7F1" lineWidth="210" /> <br /> <br />

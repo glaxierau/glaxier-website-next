@@ -1,19 +1,13 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import SectionHead from '../../components/common/Head'
 import { getData } from '../../hooks/getData'
 import BlockContent from '../../components/BlockContent/BlockContent'
 import Img from 'next/image'
-import style from '../../styles/Services.module.css'
-import service from '../../config/doc.json'
-import { capitalizeFirstLetter, sanityImage } from '../../hooks/tools'
-import SlideIn from '../../components/animation/SlideIn'
+import { sanityImage } from '../../hooks/tools'
 import { motion } from 'framer-motion'
-import { useRouter } from 'next/dist/client/router'
 
 const SingleService = (props) => {
-    const [changing, setChaging] = useState(false)
     const { topSection, pageInfo, notFound } = props
-    console.log(topSection)
     if (notFound) {
         return (<p className="my-12">Page does not exist....</p>)
     }
