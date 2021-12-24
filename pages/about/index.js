@@ -11,7 +11,7 @@ import { getData } from '../../hooks/getData'
 import { upperCaseText } from '../../hooks/tools'
 import SlideIn from '../../components/animation/SlideIn'
 
-const About = ({ props }) => {
+const About = (props) => {
     const { pageInfo, headerSection, ctaBreakSection, teamSection } = props
     return (
         <div className="scroll-smooth xl:snap-y lg:snap-y snap-none snap-mandatory xl:h-cscreen lg:h-cscreen h-auto w-screen xl:overflow-y-scroll lg:overflow-y-scroll overflow-hidden">
@@ -37,7 +37,7 @@ const About = ({ props }) => {
     )
 }
 
-About.getInitialProps = async (req, res) => {
+export const getStaticProps = async (req, res) => {
 
     // ----------------- Data Fetching --------------------
     let lang = req.locale

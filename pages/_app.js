@@ -19,15 +19,15 @@ function MyApp({ Component, pageProps, router }) {
         <AnimatePresence key={router.route} exitBeforeEnter={true} initial={true}>
           <section className={router.locale}>
             <Layout>
-              <motion.div
+              <motion.ul
                 key={router.route}
-                initial={{ y: 2, opacity: 0.8 }}
+                initial={{ y: 0, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
-                exit={{ y: 2, opacity: 0 }}
+                exit={{ y: 0, opacity: 0 }}
                 transition={{ duration: 0.4, staggerChildren: 0.3 }}
               >
                 <Component {...pageProps} />
-              </motion.div>
+              </motion.ul>
             </Layout>
           </section>
         </AnimatePresence>
