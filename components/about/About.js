@@ -1,5 +1,4 @@
 import React from 'react'
-import { useSelector } from 'react-redux'
 import AppButton from '../AppButton'
 import CheckIcon from '../icons/CheckIcon'
 import Title from '../Title'
@@ -11,9 +10,9 @@ const About = (props) => {
     const { withButton = false } = props
     return (
         <>
-            <div className="snap-center xl:h-screen lg:h-screen h-auto lg:flex lg:flex-row flex-col lg:px-14 px-10 lg:pt-0 pt-10 my-20">
+            <div className="xl:h-screen lg:h-cscreen h-auto lg:flex lg:flex-row flex-col lg:px-14 px-10 lg:pt-0 pt-10 my-20">
                 <SlideIn className="lg:w-1/2 md:w-full w-full h-auto flex items-center justify-center">
-                    <img src="/assets/img/home/aboutimg.png" width="520" alt="image" />
+                    <img src="/assets/img/home/aboutimg.png" width="550" alt="image" />
                 </SlideIn>
                 <SlideIn delay={0.3} className="lg:w-1/2 w-full lg:mx-20 mx-0 lg:mt-0 mt-20 flex flex-col items-center justify-center lg:py-20 py-5">
                     <Title title={props.sectionTitle} lineColor="#CFD7F1" lineWidth="210" /> <br /> <br />
@@ -21,7 +20,7 @@ const About = (props) => {
                         <div className={`${style.line} bg-red-dark`} />
                         {props.checks.map((label) => <CheckIcon key={label} label={label} />)}
                     </div> <br /> <br />
-                    <div className="mt-20 w-full xl:px-0 lg:px-5 md:px-36 px-2">
+                    <div className="mt-20 w-full xl:px-0 lg:px-5 md:px-36 px-20">
                         <BlockContent blocks={props.aboutDescription} />
                         {/* <p className="text-black-light">{aboutSection.aboutDescription[0].children[0].text}</p> */}
                     </div> <br />
