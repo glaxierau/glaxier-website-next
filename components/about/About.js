@@ -6,6 +6,7 @@ import style from '../../styles/About.module.css'
 import SlideIn from '../animation/SlideIn'
 import BlockContent from '../BlockContent/BlockContent'
 import Img from 'next/image'
+import { motion } from 'framer-motion'
 
 const About = (props) => {
     const { withButton = false } = props
@@ -15,7 +16,7 @@ const About = (props) => {
                 <SlideIn className="lg:w-1/2 md:w-full w-full h-auto flex items-center justify-center">
                     <Img src="/assets/img/home/aboutimg.png" priority width={550} height={550} alt="image" />
                 </SlideIn>
-                <SlideIn delay={0.3} className="lg:w-1/2 w-full lg:mx-20 md:mx-10 mx-0 lg:mt-0 mt-20 flex flex-col items-center justify-center lg:py-20 py-5">
+                <SlideIn delay={0.2} className="lg:w-1/2 w-full lg:mx-20 md:mx-10 mx-0 lg:mt-0 mt-20 flex flex-col items-center justify-center lg:py-20 py-5">
                     <Title title={props.sectionTitle} lineColor="#CFD7F1" lineWidth="210" /> <br /> <br />
                     <div className={` ${style.list_container} relative flex justify-between`}>
                         <div className={`${style.line} bg-red-dark`} />
