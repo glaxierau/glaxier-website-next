@@ -17,6 +17,7 @@ const Contact = (props) => {
 export const getStaticProps = async (req, res) => {
 
     let lang = req.locale
+    console.log(lang)
     let language = await getData(`*[_type == 'languageOption' && language == '${lang}']{_id}[0]`)
     language = language._id
 

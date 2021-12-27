@@ -4,13 +4,14 @@ import Head from '../../components/common/Head'
 import Select from 'react-select'
 import AppButton from '../../components/AppButton'
 import { withSizeLessThan } from '../../hooks/useWindowSize'
+import { getData } from '../../hooks/getData'
 
-const index = () => {
+const index = ({ industrySection }) => {
     const sm = withSizeLessThan(420)
     const options = [
-        { value: 'partnership', label: 'Partnership' },
-        { value: 'corporation', label: 'Corporation' },
-        { value: 'nonprofit', label: 'Nonprofit Organization' }
+        { id: 0, value: 'partnership', label: 'Partnership' },
+        { id: 1, value: 'corporation', label: 'Corporation' },
+        { id: 2, value: 'nonprofit', label: 'Nonprofit Organization' }
     ]
     const customStyles = {
         option: (provided, state) => ({
@@ -39,9 +40,9 @@ const index = () => {
     return (
         <div>
             <Head title="Contact Us | Industry of Business" />
-            <ContactTitle title="What's the industry of business?" />
+            <ContactTitle title={industrySection.question} />
             <div className="mx-auto py-10 flex flex-col items-center justify-center" style={{ width: 400 }} >
-                <Select options={options} styles={customStyles} />
+                <Select options={industrySection.selectOptions} styles={customStyles} />
                 <div className="mx-auto w-56 py-10">
                     <AppButton title="Continue" width={200} bgColor="bg-blue-dark" bgColorHover="hover:bg-red" txtColor="text-white" link='/contact/expected-revenue' />
                 </div>
@@ -49,6 +50,25 @@ const index = () => {
 
         </div>
     )
+}
+
+export const getStaticProps = async (ctx) => {
+    const locale = ctx.locale
+    let index = 1
+    if (locale == 'en-au') {
+        index = 1
+    } else {
+        index = 0
+    }
+    const props = await getData(`*[_type == 'interactiveForm'][${index}]{industrySection{
+        ...,
+        selectOptions[]->{
+          "value": industry,
+          "label": industry,
+        }
+        }}
+        `)
+    return { props }
 }
 
 export default index
