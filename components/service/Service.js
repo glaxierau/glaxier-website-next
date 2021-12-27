@@ -74,14 +74,13 @@ const Service = (props) => {
                         {currentIndex.serviceSubtitle || 'loading'}
                     </h3>
                     <br />
-                    <div className="lg:w-96 w-72  font-thin leading-5 text-sm">
+                    <div className="lg:w-96 w-72 font-thin leading-5 text-sm mb-4">
                         <BlockContent blocks={currentIndex.serviceDescription} normalColor="text-white text-sm" />
                     </div>
-                    <br />
                     <AppButton
                         customized
                         title="Read More"
-                        width={200}
+                        width={100}
                         bgColor="bg-purple"
                         bgColorHover="hover:bg-white"
                         txtColor="text-white"
