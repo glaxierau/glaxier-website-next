@@ -32,9 +32,9 @@ const index = ({ industrySection }) => {
             const opacity = state.isDisabled ? 0.5 : 1;
             const transition = 'opacity 300ms';
             const color = '#9FB0E4'
-
             return { ...provided, opacity, transition, color };
-        }
+        },
+
     }
 
     return (

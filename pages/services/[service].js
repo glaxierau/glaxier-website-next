@@ -24,7 +24,7 @@ const SingleService = (props) => {
                     <img src="/assets/svg/shape.svg" alt="Shape for services" className="lg:hidden grid absolute bottom-0 w-screen " />
                 </div>
                 <motion.section initial={{ x: 30 }} animate={{ x: 0 }} transition={{ duration: 0.5 }} className="w-full lg:h-screen h-auto bg-white-dark relative flex lg:justify-center justify-start items-center flex-col">
-                    <img src="/assets/svg/services.svg" alt="Shape for services" className="hidden lg:grid absolute -left-32 h-screen" />
+                    <img src="/assets/svg/services.svg" alt="Shape for services" className="hidden lg:flex absolute h-screen -left-28" />
                     <section className="lg:px-20 md:px-10 px-5 py-10 overflow-y-scroll">
                         <div className="flex items-center justify-start mb-6 ">
                             {/* <div className="bg-red h-10 w-20" /> */}
@@ -43,11 +43,10 @@ const SingleService = (props) => {
 }
 
 const Step = ({ title, desc, icon, image }) => {
-    console.log(image)
     return (
         <section className="flex items-start justify-center m-2 w-full ">
-            <div className="bg-purple rounded-full overflow-hidden flex justify-center items-center" style={{ width: 30, height: 30 }}>
-                <Img {...icon} width={15} height={15} className='text-white' placeholder="empty" />
+            <div className="bg-purple rounded-full overflow-hidden flex justify-center items-center p-3">
+                <Img {...icon} width={25} height={25} placeholder="empty" className='invert' />
             </div>
             <div className=" w-full ml-4 flex flex-col items-left justify-start ">
                 <p className="text-purple">{title}</p>
