@@ -27,7 +27,6 @@ const Service = (props) => {
     // -------------------- Screen Responsiveness ---------------
     let sm = mobileScreen()
     let mobileView = withSizeLessThan(600)
-
     return (
         <motion.div className={`bg-white-dark ${paddingBottom ? 'py-10' : 'pt-10'} `}
             initial={{ y: 20, opacity: 0 }}
@@ -60,9 +59,7 @@ const Service = (props) => {
                     onClick={(e) => onSelecting(e)} />
 
                 <motion.div
-                    initial={{ scale: 0 }} animate={{ scale: 1 }} exit={{ scale: 0 }}
-                    transition={{ duration: 0.2 }}
-                    className="position top-0 left-1/2 z-10 flex items-center justify-center flex-col mt-6"
+                    className="position top-0 left-1/2 z-10 flex items-center justify-center flex-col mt-6 lg:scale-100 scale-95"
                 >
                     <Title
                         title={currentIndex.serviceTitle}
@@ -70,7 +67,7 @@ const Service = (props) => {
                         lineWidth="210"
                     />
                     <br />
-                    <h3 className="lg:text-lg font-black text-base">
+                    <h3 className="lg:text-lg font-black text-base lg:w-96 w-72">
                         {currentIndex.serviceSubtitle || 'loading'}
                     </h3>
                     <br />
@@ -84,7 +81,7 @@ const Service = (props) => {
                         bgColor="bg-purple"
                         bgColorHover="hover:bg-white"
                         txtColor="text-white"
-                        txtColorHover="hover:text-purple" link="/"
+                        txtColorHover="hover:text-purple" link="/services/graphic-design"
                     />
                 </motion.div>
 
