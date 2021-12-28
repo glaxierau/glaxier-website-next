@@ -1,6 +1,7 @@
 import SanityBlockContent from '@sanity/block-content-to-react'
 import React from 'react'
 import style from '../../styles/Services.module.css'
+import { shortenText } from '../../hooks/tools'
 
 
 function BlockContent(props) {
@@ -8,6 +9,7 @@ function BlockContent(props) {
     const {
         normalColor = 'text-black-light',
         custom = [{ type: 'normal', className: 'text-white' }],
+        shortenChar = false,
         ...otherProps
     } = props
 
