@@ -32,10 +32,10 @@ const SingleArticlePage = ({ articles }) => {
     )
 }
 
-SingleArticlePage.getInitialProps = async ({ req, res }) => {
-    const { origin } = absoluteUrl(req)
-    const response = await fetch(`${origin}/api/blogs`).then(response => response.json())
-    return { articles: response }
-}
+// const getStaticProps = async ({ req, res }) => {
+//     const { origin } = absoluteUrl(req)
+//     const response = await fetch(`${origin}/api/blogs`).then(response => response.json())
+//     return { articles: response }
+// }
 
 export default SingleArticlePage

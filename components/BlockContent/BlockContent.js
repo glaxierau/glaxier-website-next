@@ -40,7 +40,7 @@ function BlockContent(props) {
                     return <h1 className="text-3xl text-black-light leading-normal py-1 font-extralight">{props.children}</h1>
                 }
                 if (style === 'h2') {
-                    return <h2 className="text-2xl text-purple leading-[1] font-semibold">{props.children}</h2>
+                    return <h2 className="text-2xl text-purple leading-[3] font-semibold">{props.children}</h2>
                 }
                 if (style === 'h3') {
                     return <h3 className="text-xl text-red leading-[3] font-bold">{props.children}</h3>
