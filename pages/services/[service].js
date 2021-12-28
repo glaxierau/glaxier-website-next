@@ -73,8 +73,6 @@ export const getStaticPaths = async () => {
             params: { service: slug.slug }
         }
     })
-    console.log(paths)
-
     return {
         paths,
         fallback: false
