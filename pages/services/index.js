@@ -21,14 +21,14 @@ const Services = (props) => {
 
 export default Services
 
-export const getStaticProps = async () => {
+export const getStaticProps = async (req, res) => {
     // ----------------- Data Fetching --------------------
+    const lang = req.locale
     const props = await getData(`
-    *[_type == 'services' && pageInfo.lang._ref == '107fa697-d70e-46bb-9d5a-5d8952bafd3a'][0]{
+    *[_type == 'services' && pageInfo.lang->language == '${lang}'][0]{
         ...,
         serviceSection->
       }
     `)
-
     return { props }
 }

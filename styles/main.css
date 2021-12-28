@@ -12,6 +12,9 @@
 }
 .th-th {
   font-family: "Kanit";
+  /* font-size: 18px; */
+}
+.th-th p {
   font-size: 18px;
 }
 
