@@ -13,13 +13,13 @@ const Banner = (props) => {
         <>
             <div className="relative overflow-x-hidden h-cscreen">
                 <Img {...sanityImage(image.image)} placeholder="blur" className="object-cover bg-no-repeat" layout='fill' />
-                <motion.div className="absolute lg:top-44 lg:left-40 md:top-1/3 top-1/3 left-1/2 transform lg:-translate-x-0 -translate-x-2/4 flex flex-col justify-center items-center text-white"
+                <motion.div className="absolute lg:top-44 lg:left-40 md:top-1/3 top-1/3 left-1/2 transform lg:-translate-x-0 -translate-x-2/4 flex flex-col justify-center items-center text-white text-center"
                     initial={{ opacity: 0, }}
                     animate={{ opacity: 1 }}
                     transition={{ stiffness: 200 }}
                 >
-                    <h2 className="lg:text-3xl text-base font-bold">{upperCaseText(preTitle)}</h2>
-                    <h1 className="lg:text-8xl text-4xl mb-5" style={{ fontFamily: 'Cutive Mono' }}>{heroTitle}</h1>
+                    <h2 className="lg:text-3xl text-2xl font-bold">{upperCaseText(preTitle)}</h2>
+                    <h1 className="lg:text-8xl text-6xl mb-5" style={{ fontFamily: 'Cutive Mono' }}>{heroTitle}</h1>
                     <div className="flex">
                         <AppButton bgColor="bg-blue" bgColorHover="hover:bg-red" txtColor="text-white" title={button1.buttonText} width={200} link={button1.link} />
                         <AppButton bgColor="bg-white" bgColorHover="hover:bg-red" txtColor="text-blue" txtColorHover={"hover:text-white"} title={button2.buttonText} width={140} link={button2.link} />
