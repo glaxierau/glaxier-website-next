@@ -32,9 +32,9 @@ const Blog = ({ articles }) => {
     )
 }
 
-export const getServerSideProps = async ({ req, res }) => {
-    const { origin } = absoluteUrl(req)
-    const response = await fetch(`${origin}/api/blogs`).then(response => response.json())
-    return { props: { articles: response } }
-}
+// export const getStaticProps = async ({ req, res }) => {
+//     const { origin } = absoluteUrl(req)
+//     const response = await fetch(`${origin}/api/blogs`).then(response => response.json())
+//     return { props: { articles: response } }
+// }
 export default Blog

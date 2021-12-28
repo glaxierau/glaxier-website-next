@@ -6,7 +6,6 @@ const SectionHead = ({ title, description, children }) => {
     const origin = typeof window !== 'undefined' && window.location.origin ? window.location.origin : '';
     const url = origin + router.asPath
     const languages = router.locales
-    console.log(languages)
     return (
         <Head>
             <title>{title}</title>
