@@ -1,15 +1,16 @@
-import React, { useState } from 'react'
+import React from 'react'
 import SectionHead from '../../components/common/Head'
 import { getData } from '../../hooks/getData'
 import BlockContent from '../../components/BlockContent/BlockContent'
 import Img from 'next/image'
 import { sanityImage } from '../../hooks/tools'
 import { motion } from 'framer-motion'
+import Cumstom404 from '../404'
 
 const SingleService = (props) => {
     const { topSection, pageInfo, notFound } = props
     if (notFound) {
-        return (<p className="my-12">Page does not exist....</p>)
+        return <Cumstom404 />
     }
     else {
         let image = sanityImage(topSection.serviceImage.image)
@@ -58,23 +59,27 @@ const Step = ({ title, desc, icon, image }) => {
 export default SingleService
 
 
-export const getStaticProps = async (ctx) => {
-    let query = ctx.params.service
-    let currentLanguage = ctx.locale
-    let lang = await getData(`*[ _type == 'languageOption' && language == '${currentLanguage}'][0]`)
-    const props = await getData(`*[ slug == '${query}' && pageInfo.lang._ref == '${lang._id}' ][0]`)
-    return { props }
-}
-
-export const getStaticPaths = async () => {
-    let slugs = await getData(`*[_type == 'service']{slug}`)
-    const paths = slugs.map(slug => {
+export const getStaticPaths = async (ctx) => {
+    let currentLanguage = ctx.defaultLocale
+    let slugs = await getData(`*[_type == 'service' && pageInfo.lang->language == '${currentLanguage}' ]{slug}`)
+    let paths = slugs.map(slug => {
         return {
             params: { service: slug.slug }
         }
     })
     return {
         paths,
-        fallback: false
+        fallback: 'blocking'
     }
 }
+
+export const getStaticProps = async (ctx) => {
+    let query = ctx.params.service
+    let currentLanguage = ctx.locale
+    let props = null
+    try {
+        props = await getData(`*[ slug == '${query}' && pageInfo.lang->language == '${currentLanguage}' ][0]`)
+    } catch (err) { console.log(err) }
+    return { props }
+}
+

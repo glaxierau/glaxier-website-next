@@ -12,8 +12,8 @@ class MyDocument extends Document {
                 <Head>
                     {/* ------ FONT ------- */}
                     {/* <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" /> */}
-                    <link href="https://fonts.googleapis.com/css?family=Montserrat:200,400,700" rel="stylesheet" />
-                    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600&display=swap" rel="stylesheet"></link>
+                    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;500;600;700;800&display=swap" rel="stylesheet"></link>
+                    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@100;200;300;400;600&display=swap" rel="stylesheet"></link>
                     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet"></link>
                     <link href="https://fonts.googleapis.com/css2?family=Cutive+Mono&display=swap" rel="stylesheet" />
                     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />

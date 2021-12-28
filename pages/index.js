@@ -28,11 +28,8 @@ export const getStaticProps = async (req, res) => {
 
   // ----------------- Data Fetching --------------------
   let lang = req.locale
-  let language = await getData(`*[_type == 'languageOption' && language == '${lang}']{_id}[0]`)
-  language = language._id
-
   const props = await getData(
-    `*[_type =='home' && pageInfo.lang._ref == "${language}"][0]{
+    `*[_type =='home' && pageInfo.lang->language == '${lang}'][0]{
       ..., 
       aboutSection->,
       clientSection{...,clients[]-> }, 
