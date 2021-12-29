@@ -60,9 +60,9 @@ const Footer = () => {
                     </div>
                 </div>
                 {/* footer meta  */}
-                <div className="flex items-center justify-between py-4 border-t">
-                    <p>Privacy Policy | Terms of Use</p>
-                    <p>Copyright © All rights reserved | Glaxier</p>
+                <div className="flex items-center justify-between py-8 border-t">
+                    <span className='lg:text-sm md:text-sm text-xss text-white'>Privacy Policy | Terms of Use</span>
+                    <span className='lg:text-sm md:text-sm text-xss text-white'>Copyright © All rights reserved | Glaxier</span>
                 </div>
             </div>
         </>
