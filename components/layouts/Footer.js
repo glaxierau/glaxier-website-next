@@ -1,7 +1,9 @@
 import FooterLink from '../FooterLink'
 import Link from 'next/link'
+import NewsletterSubscribe from './NewsletterSubscribe'
 
 const Footer = () => {
+
     return (
         <>
             <div className="footer static w-screen bg-red rounded-t-lg lg:px-24 md:px-5 px-2">
@@ -48,17 +50,13 @@ const Footer = () => {
                         <h4 className="text-base text-white">Follow us</h4>
                         <p>Join our community to keep up to date with the latest digital strategy that will help you grow you business.</p>
                         {/* input  */}
-                        <div className="flex items-center justify-between w-full bg-white rounded-full p-6 h-12 mt-5">
-                            <input type="text" placeholder="Enter your email" className="w-11/12" />
-                            <img className="cursor-pointer" src="/assets/img/footer/arrow.svg" alt="right arrow" />
-                        </div>
+                        <NewsletterSubscribe />
                         {/* brand icons  */}
                         <div className="flex w-full lg:justify-end md:justify-end justify-center my-5">
                             <a href="https://www.facebook.com/GlaxierAgency" target="_blank"><img src="/assets/img/footer/facebook.svg" className="px-5" alt="facebook" /></a>
                             <a href="https://au.linkedin.com/company/glaxier" target="_blank"><img src="/assets/img/footer/linkedin.svg" className="px-5" alt="linkedin" /></a>
                             <a href="https://www.instagram.com/glaxier_official/" target="_blank"><img src="/assets/img/footer/instagram.svg" className="pl-4" alt="instagram" /></a>
                         </div>
-
                     </div>
                 </div>
                 {/* footer meta  */}
