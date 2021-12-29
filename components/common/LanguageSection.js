@@ -4,12 +4,13 @@ import Link from 'next/link'
 
 const LanguageSection = () => {
     const router = useRouter()
-    const lang = router.locales
+    const langs = router.locales
+    const clang = router.locale
     return (
         <div className="flex">
-            {lang.map(language => (
+            {langs.map(language => (
                 <Link key={language} href={router.asPath} locale={language}>
-                    <p className={`mr-4 text-base cursor-pointer font-light text-purple hover:text-red`}>{language.split('-')[0].toUpperCase()}</p>
+                    <p className={`mr-4 text-base cursor-pointer font-light ${language === clang ? 'text-red' : 'text-purple'} hover:text-red `}>{language.split('-')[0].toUpperCase()}</p>
                 </Link>
             ))}
         </div>

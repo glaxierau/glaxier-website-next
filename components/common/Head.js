@@ -10,7 +10,7 @@ const SectionHead = ({ title, description, children }) => {
         <Head>
             <title>{title}</title>
             <link rel="shortcut icon" href="/favicon.svg" />
-            {languages.map(lang => <link key={lang} rel="alternate" hrefLang={lang} />)}
+            {languages.map(lang => <link key={lang} rel="alternate" hrefLang={lang} href={origin + '/' + lang} />)}
             <meta name="viewport" content="initial-scale=1.0, width=device-width" />
             <link rel="canonical" href={url} />
             <meta name="title" content={title} />
