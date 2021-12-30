@@ -1,14 +1,13 @@
 import Link from 'next/link'
-const FooterLink = ({ src, alt, href = '/', content, width, fontSize, imgWidth, color }) => {
+import Img from 'next/image'
+const FooterLink = ({ src, alt, href = '/', content, width, fontSize, color }) => {
     return (
-        <div className="cursor-pointer">
-            <a href={href} target="_blank">
-                <div className="flex items-center justify-start">
-                    <img src={src} alt={alt} width={imgWidth && imgWidth} />
-                    <p className={`${width && 'w-4/5'} ml-5 cursor-pointer ${fontSize} ${color} `}>{content}</p>
-                </div>
-            </a>
-        </div>
+        <a href={href} target="_blank" className="cursor-pointer hover:scale-50 hover:shadow-around">
+            <div className="flex items-center justify-start">
+                <Img src={src} alt={alt} layout='intrinsic' width={24} height={24} />
+                <p className={`${width && 'w-4/5'} ml-5 cursor-pointer ${fontSize} ${color} `}>{content}</p>
+            </div>
+        </a>
     )
 }
 

@@ -1,13 +1,13 @@
 import React from 'react'
-import { useSelector } from 'react-redux'
+import Img from 'next/image'
 
 const SectionTitle = ({ title = "title", description, children }) => {
     return (
-        <div className=''>
-            <img src="/shape.svg" alt="glaxier shape" />
-            <div className={`w-screen flex lg:flex-row flex-col  items-center justify-around bg-white-dark -mt-2 pb-16 px-10 pr-20`}>
-                {title && <h2 className="lg:text-8xl text-5xl text-purple font-extrabold lg:w-1/2 w-full text-center pb-8">{title}</h2>}
-                {description && <h1 className="lg:text-3xl text-base lg:w-1/2 w-full lg:text-left md:text-center text-left px-4 text-black-light">{description}</h1>}
+        <div>
+            <Img src="/shape.svg" alt="glaxier shape" width={100} height={16} layout="responsive" />
+            <div className={`w-screen flex lg:flex-row flex-col -mt-1 items-center justify-around bg-white-dark lg:px-10 md:px-20 px-4 lg:pt-1 md:pt-1 lg:pb-20 md:pb-8 pb-8 pt-8`}>
+                {title && <h2 className="lg:text-8xl md:text-6xl text-5xl text-purple font-extrabold lg:w-1/2 w-full lg:text-center md:text-center text-left lg:pb-0 pb-8 capitalize">{title}</h2>}
+                {description && <h1 className="lg:text-3xl text-2xl lg:w-1/2 w-full lg:text-left md:text-center text-left lg:px-4 px-0 text-black-light">{description}</h1>}
                 {children && <div className="lg:px-14 md:px-5 px-0">{children}</div>}
             </div>
         </div>

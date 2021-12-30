@@ -12,11 +12,11 @@ const Banner = (props) => {
     return (
         <>
             <div className="relative overflow-x-hidden h-cscreen">
-                <Img {...sanityImage(image.image)} placeholder="blur" className="object-cover bg-no-repeat" layout='fill' />
-                <motion.div className="absolute lg:top-44 lg:left-40 md:top-1/3 top-1/3 left-1/2 transform lg:-translate-x-0 -translate-x-2/4 flex flex-col justify-center items-center text-white text-center"
+                <Img {...sanityImage(image.image)} quality={80} placeholder="blur" className="object-cover bg-no-repeat" layout='fill' />
+                <motion.div className="absolute lg:top-40 lg:left-40 md:top-1/3 top-1/3 left-1/2 transform lg:-translate-x-0 -translate-x-2/4 flex flex-col justify-center items-center text-white text-center"
                     initial={{ opacity: 0, }}
                     animate={{ opacity: 1 }}
-                    transition={{ stiffness: 200 }}
+                    transition={{ stiffness: 50 }}
                 >
                     <h2 className="lg:text-3xl text-2xl font-bold">{upperCaseText(preTitle)}</h2>
                     <h1 className="lg:text-8xl text-6xl mb-5" style={{ fontFamily: 'Cutive Mono' }}>{heroTitle}</h1>
@@ -25,15 +25,12 @@ const Banner = (props) => {
                         <AppButton bgColor="bg-white" bgColorHover="hover:bg-red" txtColor="text-blue" txtColorHover={"hover:text-white"} title={button2.buttonText} width={140} link={button2.link} />
                     </div>
                 </motion.div>
-                <img src="/shape.svg" className="w-screen absolute bottom-0" />
+                <div className='absolute bottom-0 w-screen'>
+                    <Img src="/shape.svg" alt="hero shape" layout='responsive' width={100} height={16} className="" />
+                </div>
+                <div className='bg-white-dark absolute bottom-0 w-screen h-2 ' />
             </div>
-            <style jsx>{`
-        .bgImage{
-            height: 500px
-        }
-    `}
 
-            </style>
         </>
     )
 }
