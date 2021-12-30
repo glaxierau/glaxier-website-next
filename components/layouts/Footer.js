@@ -1,6 +1,7 @@
 import FooterLink from '../FooterLink'
 import Link from 'next/link'
 import NewsletterSubscribe from './NewsletterSubscribe'
+import Img from 'next/image'
 
 const Footer = () => {
 
@@ -11,7 +12,7 @@ const Footer = () => {
                     <div className="w-full h-full">
                         {/* logo */}
                         <div className="flex justify-start items-center">
-                            <img src="/assets/svg/footer_logo.svg" className="lg:mb-0 md:mb-0 mb-5" alt="logo" width="45px" />
+                            <Img src="/assets/svg/footer_logo.svg" className="lg:mb-0 md:mb-0 mb-5" alt="logo" width="45px" height="45px" />
                             <p className=" ml-2" style={{ fontFamily: "Cutive Mono", fontSize: 18, }}>Glaxier</p>
                         </div>
                         {/* location  */}
@@ -53,9 +54,9 @@ const Footer = () => {
                         <NewsletterSubscribe />
                         {/* brand icons  */}
                         <div className="flex w-full lg:justify-end md:justify-end justify-center my-5">
-                            <a href="https://www.facebook.com/GlaxierAgency" target="_blank"><img src="/assets/img/footer/facebook.svg" className="px-5" alt="facebook" /></a>
-                            <a href="https://au.linkedin.com/company/glaxier" target="_blank"><img src="/assets/img/footer/linkedin.svg" className="px-5" alt="linkedin" /></a>
-                            <a href="https://www.instagram.com/glaxier_official/" target="_blank"><img src="/assets/img/footer/instagram.svg" className="pl-4" alt="instagram" /></a>
+                            <a href="https://www.facebook.com/GlaxierAgency" target="_blank" className='px-3'><Img src="/assets/img/footer/facebook.svg" alt="facebook" width="35px" height="35px" /></a>
+                            <a href="https://au.linkedin.com/company/glaxier" target="_blank" className='px-3'><Img src="/assets/img/footer/linkedin.svg" alt="linkedin" width="35px" height="35px" /></a>
+                            <a href="https://www.instagram.com/glaxier_official/" target="_blank" className='px-3'><Img src="/assets/img/footer/instagram.svg" alt="instagram" width="35px" height="35px" /></a>
                         </div>
                     </div>
                 </div>
