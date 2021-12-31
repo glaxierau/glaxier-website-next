@@ -14,7 +14,6 @@ const index = ({ personalDetailSection }) => {
     const _form = form[index]
 
     const ontoNextPage = () => {
-        console.log(_form)
         pushDataLayerForm('Contact Us', type, _form.firstName, _form.lastName, _form.email, _form.phoneNumber)
     }
 
