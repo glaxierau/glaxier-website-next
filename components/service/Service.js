@@ -33,8 +33,8 @@ const Service = (props) => {
             animate={{ y: 0, opacity: 1 }}>
             <div className="lg:px-44 md:px-40 px-4">
                 <h2 className="lg:text-3xl md:text-3xl text-2xl font-extrabold lg:mb-5 mb-1">{props.preTitle}</h2>
-                <SlideIn delay={0.1} y={sm ? 5 : 20}><h1 className="lg:text-3xl md:text-3xl text-2xl font-extrabold text-red mb-8">{props.title}</h1></SlideIn>
-                <SlideIn delay={0.2} y={sm ? 5 : 20} className="lg:w-2/3 md:1/2 w-full"><BlockContent blocks={props.sectionDescription} /></SlideIn>
+                <SlideIn delay={0.1}><h1 className="lg:text-3xl md:text-3xl text-2xl font-extrabold text-red mb-8">{props.title}</h1></SlideIn>
+                <SlideIn delay={0.2} className="lg:w-2/3 md:1/2 w-full"><BlockContent blocks={props.sectionDescription} /></SlideIn>
             </div>
 
             <div className="h-screen mt-20 flex justify-center items-center relative text-center" style={{ width: '100%' }}>

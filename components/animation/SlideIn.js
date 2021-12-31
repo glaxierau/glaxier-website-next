@@ -19,11 +19,11 @@ const SlideIn = ({ style, children, y = 50, delay = 0, ...otherProps }) => {
     }, [controls, inView])
 
     const animationVariants = {
-        hidden: { opacity: 0, y: y },
+        hidden: { opacity: 0, y: sm ? 5 : y },
         visible: {
             opacity: 1,
             y: 0,
-            transition: { duration: sm ? 0.2 : 0.6, type: 'spring', stiffness: sm ? 100 : 70, staggerChildren: 0.2, delayChildren: 0.2, delay }
+            transition: { duration: sm ? 0.2 : 0.5, type: 'spring', stiffness: sm ? 100 : 70, staggerChildren: 0.2, delayChildren: 0.2, delay }
         },
 
     }
