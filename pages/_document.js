@@ -24,7 +24,7 @@ class MyDocument extends Document {
                         new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
                         j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                         'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-                        })(window,document,'script','dataLayer','GTM-MBLP5PB');`}} />
+                        })(window,document,'script','dataLayer','GTM-WQQ7C6C');`}} />
                 </Head>
 
                 <body>
@@ -32,7 +32,7 @@ class MyDocument extends Document {
                     <NextScript />
                     <noscript
                         dangerouslySetInnerHTML={{
-                            __html: `<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MBLP5PB"
+                            __html: `<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WQQ7C6C"
                             height="0" width="0" style="display:none;visibility:hidden"></iframe>`,
                         }}
                     />

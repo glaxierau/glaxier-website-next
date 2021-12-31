@@ -1,7 +1,6 @@
 import React from 'react'
 import { useNextSanityImage } from 'next-sanity-image'
 import { client } from './getData'
-import BlockContent from '@sanity/block-content-to-react'
 import { sanitize } from '../utils/miscellanous'
 
 export const sanityImage = (image, customSize = true) => {
@@ -51,3 +50,14 @@ export const getMessage = (message) => {
     const formattedMessage = result?.[1]?.trim() ?? null;
     return formattedMessage ? sanitize(formattedMessage) : null;
 }
+
+export const filterArray = (array, match) => {
+    const newArray = array.filter(v => v === match)[0]
+    return newArray
+}
+export const booleanArray = (array, match) => {
+    const newArray = array.filter(v => v === match)
+    console.log(newArray)
+    return newArray
+}
+

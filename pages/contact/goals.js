@@ -7,15 +7,25 @@ import Head from '../../components/common/Head'
 import { withSizeLessThan } from '../../hooks/useWindowSize'
 import { sanityImage } from '../../hooks/tools'
 import { getData } from '../../hooks/getData'
+import { pushDataLayer } from '../../helper/pushDataLayer'
+import { useDispatch, useSelector } from 'react-redux'
+import { updateForm } from '../../hooks/form'
 
 const Goals = (props) => {
+    const type = 'Goal'
     const { withHead = true } = props
     const { goals, question } = props.goalSection
+    const dispatch = useDispatch()
+    const { form } = useSelector(state => state.contactForm)
+    const index = form.findIndex(i => i.type === type)
     let sm = withSizeLessThan(600)
-    const [selectedGoal, setSelectedGoal] = useState('none')
 
     const onChoosingaGoal = (list) => {
-        setSelectedGoal(list)
+        form[index].value = list
+        updateForm(form, dispatch)
+    }
+    const ontoNextPage = () => {
+        pushDataLayer('Contact Us', type, form[index].value)
     }
     return (
         <>
@@ -23,10 +33,10 @@ const Goals = (props) => {
                 {withHead && <Head title="Contact Us | Your Goals" description={question} />}
                 <ContactTitle title={question} />
                 <div className="flex justify-center flex-wrap m-auto" style={{ width: sm ? 340 : 600, flex: '1 1 160px' }}>
-                    {goals.map(list => <GoalBox key={list._key} icon={sanityImage(list.icon.image)} name={list.text} currentSelection={selectedGoal} onClick={() => onChoosingaGoal(list.text)} active={selectedGoal === list.text ? true : false} />)}
+                    {goals.map(list => <GoalBox key={list._key} icon={sanityImage(list.icon.image)} name={list.text} currentSelection={form[index].value} onClick={() => onChoosingaGoal(list.text)} active={form[index].value === list.text ? true : false} />)}
                 </div>
                 <div className="mx-auto w-96 flex items-center justify-center py-9">
-                    <AppButton title="Continue" width={200} bgColor="bg-blue-dark" bgColorHover="hover:bg-red" txtColor="text-white" link='/contact/contact-details' />
+                    <AppButton title="Continue" width={200} bgColor="bg-blue-dark" bgColorHover="hover:bg-red" txtColor="text-white" link='/contact/contact-details' clicked={() => ontoNextPage()} />
                 </div>
             </div>
         </>
