@@ -29,7 +29,7 @@ const Goals = (props) => {
     }
     return (
         <>
-            <div className="h-auto">
+            <div className="h-full">
                 {withHead && <Head title="Contact Us | Your Goals" description={question} />}
                 <ContactTitle title={question} />
                 <div className="flex justify-center flex-wrap m-auto" style={{ width: sm ? 340 : 600, flex: '1 1 160px' }}>
