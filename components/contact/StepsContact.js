@@ -6,7 +6,8 @@ import SelectionBox from './SelectionBox'
 
 const StepsContact = ({ show }) => {
     const router = useRouter()
-    const path = router.pathname.split('/')[1]
+    const origin = router.pathname.split('/')[1]
+    const pathname = router.pathname.split('/')[2]
 
     const [lists, setLists] = useState([
         { key: 0, type: 'Trophy', icon: 'trophy', active: false, imgSize: 20, href: '/contact/goals' },
@@ -22,9 +23,10 @@ const StepsContact = ({ show }) => {
         setAllToFalse(lists, setLists)
         setToTrue(list, lists, setLists)
     }
+
     return (
         <>
-            {path === 'contact' && show &&
+            {origin === 'contact' && pathname && show &&
                 <div className="bg-purple flex items-center justify-between lg:my-20 md:my-10 my-10 lg:mx-40 md:mx-36 mx-10 lg:flex h-px">
                     {lists.map(list => <SelectionBox key={list.key} icon={list.icon} active={list.active} imgSize={list.imgSize} href={list.href} onClick={() => onChoosingBox(list)} path={list.href} />)}
                 </div>
