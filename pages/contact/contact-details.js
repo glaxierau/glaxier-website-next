@@ -48,42 +48,44 @@ const index = ({ personalDetailSection }) => {
         const onSubmittingForm = async (e) => {
             e.preventDefault()
             pushDataLayer()
-            if (checkbox) {
-                try {
-                    await axios.put('/api/audiences/add', {
-                        fName: _form.firstName,
-                        lName: _form.lastName,
-                        email: _form.email,
-                        phone: _form.phoneNumber,
-                        goal: getSpecificForm(form, 'Goal').value
-                    }).then(res => {
-                        console.log(res)
-                        if (res.status === 200) {
-                            router.push('/contact/industry-of-business')
-                        } else {
-                            alert('Error Occurred')
-                        }
-                    })
-                } catch (err) { console.log('something here: ', err) }
+            const content = {
+                fName: _form.firstName,
+                lName: _form.lastName,
+                email: _form.email,
+                phone: _form.phoneNumber,
+                goal: getSpecificForm(form, 'Goal').value,
+                status: 'subscribed'
             }
 
-            // if (checkbox) {
-            //     onValidated({
-            //         MERGE1: _form.firstName,
-            //         MERGE2: _form.lastName,
-            //         MERGE0: _form.email,
-            //         MERGE4: _form.phoneNumber
-            //     });
-            // }
-        }
+            // check subscription permissions
+            if(!checkbox){
+                content.status = 'unsubscribed'
+            }
 
-        const onPushingToNextPage = () => {
+            try {
+                const response = await axios.put('/api/audiences/add', content)
+                const resStatus = response.data.status
+                if (resStatus !== 200) throw JSON.parse(response.data.response.text).title
+                if (resStatus === 200) router.push('/contact/industry-of-business')
+            } catch (err) { 
+                alert(err)
+                console.log('something here: ', err) 
+            }
         }
 
         return (
             <>
                 <form className="native_input flex flex-col justify-center items-center" onSubmit={(e) => onSubmittingForm(e)} >
-                    <input placeholder={personalDetailSection.firstNamePlaceholder} defaultValue={form[index].firstName} type="text" name="MERGE1" id="MERGE1" className="lg:w-96 md:w-80 w-80 pl-4" onChange={e => onGettingInput(e)} required />
+                    <input 
+                        placeholder={personalDetailSection.firstNamePlaceholder}
+                        defaultValue={form[index].firstName}
+                        type="text" 
+                        name="MERGE1" 
+                        id="MERGE1"
+                        className="lg:w-96 md:w-80 w-80 pl-4"
+                        onChange={e => onGettingInput(e)} 
+                        required 
+                    />
                     <input placeholder={personalDetailSection.lastNamePlaceholder} defaultValue={form[index].lastName} type="text" name="MERGE2" id="MERGE2" className="lg:w-96 md:w-80 w-80 pl-4" onChange={e => onGettingInput(e)} required />
                     <input placeholder={personalDetailSection.emailPlaceholder} defaultValue={form[index].email} type="email" name="MERGE0" id="MERGE0" className="lg:w-96 md:w-80 w-80 pl-4" onChange={e => onGettingInput(e)} required />
                     <input placeholder={personalDetailSection.numberPlaceholder} defaultValue={form[index].phoneNumber} type="tel" name="MERGE4" id="MERGE4" className="lg:w-96 md:w-80 w-80 pl-4" onChange={e => onGettingInput(e)} required />
