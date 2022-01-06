@@ -43,7 +43,7 @@ const index = ({ personalDetailSection }) => {
         }
     }
 
-    const Form = ({ status, message, onValidated }) => {
+    const Form = () => {
 
         const onSubmittingForm = async (e) => {
             e.preventDefault()

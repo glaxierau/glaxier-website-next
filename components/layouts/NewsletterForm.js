@@ -10,18 +10,18 @@ const NewsletterForm = ({ status, message, onValidated }) => {
     const [openAlert, setAlert] = useState(false)
     const [error, setError] = useState(null)
 
-    // const getMessage = (message) => {
-    //     if (!message) {
-    //         return null;
-    //     }
-    //     const result = message?.split('-') ?? null;
-    //     if ("0" !== result?.[0]?.trim()) {
-    //         return sanitize(message);
-    //     }
-    //     const formattedMessage = result?.[1]?.trim() ?? null;
-    //     return formattedMessage ? sanitize(formattedMessage) : null;
+    const getMessage = (message) => {
+        if (!message) {
+            return null;
+        }
+        const result = message?.split('-') ?? null;
+        if ("0" !== result?.[0]?.trim()) {
+            return sanitize(message);
+        }
+        const formattedMessage = result?.[1]?.trim() ?? null;
+        return formattedMessage ? sanitize(formattedMessage) : null;
 
-    // }
+    }
 
     const handleInputKeyEvent = (e) => {
         setError(null);
@@ -41,11 +41,12 @@ const NewsletterForm = ({ status, message, onValidated }) => {
         const isFormValidated = onValidated({ EMAIL: email })
         return email && email.indexOf('@') > -1 && isFormValidated
     }
+
     return (
         <>
             <div className={`relative flex items-center justify-between w-full bg-white rounded-full p-6 h-12 mt-5 transition-opacity ${status === 'error' && !sm ? 'outline outline-yellow-400 shadow-md' : 'outline-none'}`}>
                 <input type="email" name='email' value={email} placeholder="Enter your email"
-                    className="w-11/12 text-gray-500 placeholder:text-base text-base "
+                    className="w-11/12 text-gray-500 placeholder:text-base text-base"
                     onChange={e => setEmail(e.target.value)}
                     onKeyUp={e => handleInputKeyEvent(e)}
                     onBlur={() => { setError(null), setAlert(false) }} />
@@ -63,10 +64,10 @@ const NewsletterForm = ({ status, message, onValidated }) => {
                         </>
                     }
                 </button>
-                <InputAlert isOpen={openAlert} message={message} error={error} status={status} />
             </div>
 
             <div className="min-h-42px text-center text-sm rounded-full mt-2">
+                {status === "error" && <div style={{ color: "white", fontSize: '0.8rem' }} dangerouslySetInnerHTML={{ __html: getMessage(message) }} />}
                 {'success' === status && 'error' !== status && !error && (
                     <div className="text-green-500 font-bold pt-2" dangerouslySetInnerHTML={{ __html: message }} />
                 )}
