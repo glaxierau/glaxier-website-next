@@ -10,7 +10,7 @@ export default function Cumstom500() {
                     <h1 className='text-purple'>Oops!</h1>
                     <h2>500 - Internal Server Error</h2>
                 </div>
-                <Link href="/">Go TO Homepage</Link>
+                <Link href="/">Go To Homepage</Link>
             </div>
         </div>
     )

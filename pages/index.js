@@ -24,10 +24,9 @@ export default function Home(props) {
   );
 }
 
-export const getStaticProps = async (req, res) => {
-
+export async function getStaticProps(context) {
   // ----------------- Data Fetching --------------------
-  let lang = req.locale
+  const lang = context.locale
   const props = await getData(
     `*[_type =='home' && pageInfo.lang->language == '${lang}'][0]{
       ..., 
