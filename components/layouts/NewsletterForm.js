@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import Img from 'next/image'
 import { sanitize } from '../../utils/miscellanous'
-import InputAlert from '../common/InputAlert'
 import { withSizeLessThan } from '../../hooks/useWindowSize'
 
 const NewsletterForm = ({ status, message, onValidated }) => {

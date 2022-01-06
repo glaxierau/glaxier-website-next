@@ -7,8 +7,6 @@ import ContactTitle from '../../components/contact/Title'
 import { pushDataLayer } from '../../helper/pushDataLayer'
 import { getData } from '../../hooks/getData'
 import { withSizeLessThan } from '../../hooks/useWindowSize'
-import { mailchimpClient } from '../../utils/mailchimp'
-import mailchimp from "@mailchimp/mailchimp_marketing";
 import axios from 'axios'
 
 
@@ -27,37 +25,27 @@ const index = ({ additonalInfoSection }) => {
 
     const onSubmit = async () => {
         pushDataLayer('Contact Us', 'Additional Information', form[index].value)
-        try {
-            axios.put('/api/audiences/add', {
-                fName: getSpecificForm(form, 'Contact Detail').firstName,
-                lName: getSpecificForm(form, 'Contact Detail').lastName,
-                email: getSpecificForm(form, 'Contact Detail').email,
-                phone: getSpecificForm(form, 'Contact Detail').phoneNumber,
-                goal: getSpecificForm(form, 'Goal').value,
-                ai: getSpecificForm(form, 'Additional Information').value,
-                services: getSpecificForm(form, 'Services').services.join(', '),
-                iob: getSpecificForm(form, 'Industry of Business').value,
-                revenue: getSpecificForm(form, 'Expected Revenue').revenue,
-            }).then(res => {
-                if (res.status === 200) {
-                    alert('Submitted');
-                    router.push('/')
-                } else {
-                    alert('An Error Occurred')
-                }
-            })
-        } catch (err) {
-            console.log(err)
+        const content = {
+            email: getSpecificForm(form, 'Contact Detail').email,
+            ai: getSpecificForm(form, 'Additional Information').value,
+            services: getSpecificForm(form, 'Services').services.join(', '),
+            iob: getSpecificForm(form, 'Industry of Business').value,
+            revenue: getSpecificForm(form, 'Expected Revenue').revenue,
         }
 
-    }
+        try {
+            const response = await axios.patch('/api/audiences/update', content)
+            const resStatus = response.data.status
+            if (resStatus === 'subscribed' || resStatus === 'unsubscribed') { alert('Submitted successfully!'), router.push('/') }
+            else throw JSON.parse(response.data.response.text).title
+        } catch (err) { throw err }
 
+    }
 
     const onGettingInfo = (e) => {
         form[index].value = e.target.value
         dispatch({ type: 'GET_CONTACT_FORM', form })
     }
-
 
     return (
         <div className="flex flex-col items-center justify-center">
