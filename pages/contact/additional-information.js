@@ -1,5 +1,4 @@
 import { useRouter } from 'next/router'
-import { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { useSelector } from 'react-redux'
 import AppButton from '../../components/AppButton'
@@ -8,19 +7,51 @@ import ContactTitle from '../../components/contact/Title'
 import { pushDataLayer } from '../../helper/pushDataLayer'
 import { getData } from '../../hooks/getData'
 import { withSizeLessThan } from '../../hooks/useWindowSize'
+import { mailchimpClient } from '../../utils/mailchimp'
+import mailchimp from "@mailchimp/mailchimp_marketing";
+import axios from 'axios'
+
 
 const index = ({ additonalInfoSection }) => {
     const type = 'Additional Information'
     const dispatch = useDispatch()
-    const router = useRouter
+    const router = useRouter()
     const { form } = useSelector(s => s.contactForm)
     const index = form.findIndex(i => i.type === type)
     let sm = withSizeLessThan(700)
 
-    const onSubmit = () => {
-        alert('Submitted')
-        pushDataLayer('Contact Us', 'Additional Information', form[index].value)
+    const getSpecificForm = (array, type) => {
+        const value = array.filter(v => v.type === type)[0]
+        return value
     }
+
+    const onSubmit = async () => {
+        pushDataLayer('Contact Us', 'Additional Information', form[index].value)
+        try {
+            axios.put('/api/audiences/add', {
+                fName: getSpecificForm(form, 'Contact Detail').firstName,
+                lName: getSpecificForm(form, 'Contact Detail').lastName,
+                email: getSpecificForm(form, 'Contact Detail').email,
+                phone: getSpecificForm(form, 'Contact Detail').phoneNumber,
+                goal: getSpecificForm(form, 'Goal').value,
+                ai: getSpecificForm(form, 'Additional Information').value,
+                services: getSpecificForm(form, 'Services').services.join(', '),
+                iob: getSpecificForm(form, 'Industry of Business').value,
+                revenue: getSpecificForm(form, 'Expected Revenue').revenue,
+            }).then(res => {
+                if (res.status === 200) {
+                    alert('Submitted');
+                    router.push('/')
+                } else {
+                    alert('An Error Occurred')
+                }
+            })
+        } catch (err) {
+            console.log(err)
+        }
+
+    }
+
 
     const onGettingInfo = (e) => {
         form[index].value = e.target.value
@@ -35,7 +66,7 @@ const index = ({ additonalInfoSection }) => {
             <textarea value={form[index].value || ''} cols={60} rows={10} placeholder={additonalInfoSection.placeholder} style={{ width: sm ? 300 : 500 }}
                 onChange={(e) => onGettingInfo(e)} />
             <div className="mx-auto w-96 flex flex-col items-center justify-center py-9">
-                <AppButton title="Submit" type="submit" link="/" width={200} bgColor="bg-blue-dark" bgColorHover="hover:bg-red" txtColor="text-white" clicked={() => onSubmit()} />
+                <AppButton title="Submit" type="submit" width={200} bgColor="bg-blue-dark" bgColorHover="hover:bg-red" txtColor="text-white" clicked={() => onSubmit()} />
             </div>
         </div>
     )

@@ -85,7 +85,7 @@ a {
 }
 input,
 input::placeholder {
-  font-size: 0.75rem;
+  font-size: 0.8rem;
   color: #c7c7c7;
   outline: none;
 }
@@ -96,17 +96,22 @@ input::placeholder {
 textarea {
   background-color: #f9f9ff;
   color: #9fb0e4;
-  border-radius: 18px;
+  border-radius: 20px;
   padding: 0.6rem;
   padding-left: 10px;
   border: 1.5px #9fb0e4 solid;
   margin: 5px;
   padding-left: 24px;
+  transition: border ease 50ms;
+}
+.native_input input:focus,
+textarea:focus {
+  border: 2px #9fb0e4 solid;
 }
 
 .native_input input,
 textarea::placeholder {
-  font-size: 12px;
+  font-size: 0.9rem;
 }
 
 /* slider arrows */
