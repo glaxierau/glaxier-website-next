@@ -58,33 +58,32 @@ const index = ({ personalDetailSection }) => {
             }
 
             // check subscription permissions
-            if(!checkbox){
+            if (!checkbox) {
                 content.status = 'unsubscribed'
             }
 
             try {
                 const response = await axios.put('/api/audiences/add', content)
                 const resStatus = response.data.status
-                if (resStatus !== 200) throw JSON.parse(response.data.response.text).title
-                if (resStatus === 200) router.push('/contact/industry-of-business')
-            } catch (err) { 
+                if (resStatus === 'subscribed' || resStatus === 'unsubscribed') router.push('/contact/industry-of-business')
+                else throw JSON.parse(response.data.response.text).title
+            } catch (err) {
                 alert(err)
-                console.log('something here: ', err) 
             }
         }
 
         return (
             <>
                 <form className="native_input flex flex-col justify-center items-center" onSubmit={(e) => onSubmittingForm(e)} >
-                    <input 
+                    <input
                         placeholder={personalDetailSection.firstNamePlaceholder}
                         defaultValue={form[index].firstName}
-                        type="text" 
-                        name="MERGE1" 
+                        type="text"
+                        name="MERGE1"
                         id="MERGE1"
                         className="lg:w-96 md:w-80 w-80 pl-4"
-                        onChange={e => onGettingInput(e)} 
-                        required 
+                        onChange={e => onGettingInput(e)}
+                        required
                     />
                     <input placeholder={personalDetailSection.lastNamePlaceholder} defaultValue={form[index].lastName} type="text" name="MERGE2" id="MERGE2" className="lg:w-96 md:w-80 w-80 pl-4" onChange={e => onGettingInput(e)} required />
                     <input placeholder={personalDetailSection.emailPlaceholder} defaultValue={form[index].email} type="email" name="MERGE0" id="MERGE0" className="lg:w-96 md:w-80 w-80 pl-4" onChange={e => onGettingInput(e)} required />
@@ -107,19 +106,7 @@ const index = ({ personalDetailSection }) => {
         <div className="flex flex-col items-center justify-center">
             <SectionHead title="Contact Us | Contact Details" />
             <ContactTitle title={personalDetailSection.question} />
-            <MailchimpSubscribe
-                url={postUrl}
-                render={(props) => {
-                    const { status, subscribe, message } = props
-                    return (
-                        <Form
-                            status={status}
-                            message={message}
-                            onValidated={formData => subscribe(formData)}
-                        />
-                    )
-                }}
-            />
+            <Form />
         </div>
     )
 }

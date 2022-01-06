@@ -3,8 +3,8 @@ import NewsletterForm from './NewsletterForm';
 
 const NewsletterSubscribe = () => {
 
-    const id = process.env.NEXT_APP_MAILCHIMP_ID
-    const u = process.env.NEXT_APP_MAILCHIMP_U
+    const id = process.env.NEXT_PUBLIC_MAILCHIMP_LIST_ID
+    const u = process.env.NEXT_PUBLIC_MAILCHIMP_U
     const MAILCHIMP_URL = `https://glaxier.us2.list-manage.com/subscribe/post?u=${u}&amp;id=${id}`
 
     return (
