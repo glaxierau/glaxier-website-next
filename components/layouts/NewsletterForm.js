@@ -10,18 +10,18 @@ const NewsletterForm = ({ status, message, onValidated }) => {
     const [openAlert, setAlert] = useState(false)
     const [error, setError] = useState(null)
 
-    const getMessage = (message) => {
-        if (!message) {
-            return null;
-        }
-        const result = message?.split('-') ?? null;
-        if ("0" !== result?.[0]?.trim()) {
-            return sanitize(message);
-        }
-        const formattedMessage = result?.[1]?.trim() ?? null;
-        return formattedMessage ? sanitize(formattedMessage) : null;
+    // const getMessage = (message) => {
+    //     if (!message) {
+    //         return null;
+    //     }
+    //     const result = message?.split('-') ?? null;
+    //     if ("0" !== result?.[0]?.trim()) {
+    //         return sanitize(message);
+    //     }
+    //     const formattedMessage = result?.[1]?.trim() ?? null;
+    //     return formattedMessage ? sanitize(formattedMessage) : null;
 
-    }
+    // }
 
     const handleInputKeyEvent = (e) => {
         setError(null);
