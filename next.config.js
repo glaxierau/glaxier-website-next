@@ -8,15 +8,14 @@ module.exports = {
         locales: ['en-au', 'th-th'],
         defaultLocale: 'en-au'
     },
-    env: {
-        apiUrl: 'https://a49e7mel.api.sanity.io/v1/data/query/production?query=',
-        projectId: 'a49e7mel',
-        NEXT_PUBLIC_MAILCHIMP_URL: 'https://glaxier.us2.list-manage.com/subscribe/post?u=a33ada6b85c9db0b51cd85c91&amp;id=3eccfab32a',
-        NEXT_APP_MAILCHIMP_U: 'a33ada6b85c9db0b51cd85c91',
-        NEXT_APP_MAILCHIMP_ID: '3eccfab32a',
-        NEXT_APP_POST_URL: 'https://glaxier.us2.list-manage.com/subscribe/post?u=a33ada6b85c9db0b51cd85c91&id=3eccfab32a'
-
-    },
+    // env: {
+    //     // apiUrl: 'https://a49e7mel.api.sanity.io/v1/data/query/production?query=',
+    //     // projectId: 'a49e7mel',
+    //     // NEXT_PUBLIC_MAILCHIMP_URL: 'https://glaxier.us2.list-manage.com/subscribe/post?u=a33ada6b85c9db0b51cd85c91&amp;id=3eccfab32a',
+    //     NEXT_APP_MAILCHIMP_U: 'a33ada6b85c9db0b51cd85c91',
+    //     NEXT_APP_MAILCHIMP_ID: '3eccfab32a',
+    //     // NEXT_APP_POST_URL: 'https://glaxier.us2.list-manage.com/subscribe/post?u=a33ada6b85c9db0b51cd85c91&id=3eccfab32a'
+    // },
     async rewrites() {
         return [
             {
