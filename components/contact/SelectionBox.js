@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/dist/client/router'
-import { withSizeLessThan } from '../../hooks/useWindowSize'
+import { useSizeLessThan } from '../../hooks/useWindowSize'
 import Img from 'next/image'
 
 
@@ -20,7 +20,7 @@ const SelectionBox = ({ icon, active, onClick, imgSize = 28, href, path }) => {
                 onMouseLeave={() => setHover(false)}
             >
                 <div className={`${basicClassName} ${extraClassName}`} onClick={onClick}>
-                    {!withSizeLessThan(767) && <Img src={img} width={imgSize} height={imgSize} objectFit='contain' />}
+                    {!useSizeLessThan(767) && <Img src={img} width={imgSize} height={imgSize} objectFit='contain' />}
                 </div>
             </div>
         </Link>

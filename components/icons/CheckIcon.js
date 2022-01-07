@@ -1,8 +1,8 @@
 import React from 'react'
-import { mobileScreen } from '../../hooks/useWindowSize'
+import { useMobileScreen } from '../../hooks/useWindowSize'
 
 function CheckIcon({ label }) {
-    let sm = mobileScreen()
+    let sm = useMobileScreen
     return (
         <div className="flex flex-col items-center justify-between lg:h-24 h-20">
             <div className="bg-red-dark lg:h-12 lg:w-12 h-8 w-8 flex items-center justify-center rounded-full">

@@ -4,7 +4,7 @@ import ContactTitle from '../../components/contact/Title'
 import AppButton from '../../components/AppButton'
 import Head from '../../components/common/Head'
 
-import { withSizeLessThan } from '../../hooks/useWindowSize'
+import { useSizeLessThan } from '../../hooks/useWindowSize'
 import { sanityImage } from '../../hooks/tools'
 import { getData } from '../../hooks/getData'
 import { pushDataLayer } from '../../helper/pushDataLayer'
@@ -18,7 +18,7 @@ const Goals = (props) => {
     const dispatch = useDispatch()
     const { form } = useSelector(state => state.contactForm)
     const index = form.findIndex(i => i.type === type)
-    let sm = withSizeLessThan(600)
+    let sm = useSizeLessThan(600)
 
     const onChoosingaGoal = (list) => {
         form[index].value = list

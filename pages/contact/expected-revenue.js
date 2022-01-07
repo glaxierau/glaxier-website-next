@@ -4,7 +4,7 @@ import Box from '@mui/material/Box'
 import Slider from '@mui/material/Slider'
 import AppButton from '../../components/AppButton'
 import { createTheme, ThemeProvider } from '@mui/material/styles'
-import useWindowSize, { withSizeLessThan } from '../../hooks/useWindowSize'
+import useWindowSize, { useSizeLessThan } from '../../hooks/useWindowSize'
 import SectionHead from '../../components/common/Head'
 import { getData } from '../../hooks/getData'
 import { numberWithCommas } from '../../hooks/tools'
@@ -21,7 +21,7 @@ const Revenue = ({ revenueSection }) => {
     const { form } = useSelector((state) => state.contactForm)
     const index = form.findIndex((i) => i.type === type)
     const { minimum, maximum } = revenueSection
-    const sm = withSizeLessThan(700)
+    const sm = useSizeLessThan(700)
     const screenWidth = useWindowSize().width
 
 

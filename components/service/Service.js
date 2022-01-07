@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { motion } from 'framer-motion'
-import { mobileScreen, withSizeLessThan } from '../../hooks/useWindowSize'
+import { useMobileScreen, useSizeLessThan } from '../../hooks/useWindowSize'
 import Circle from '../particles/Circle'
 import Title from '../Title'
 import Particles from '../particles/Particles'
@@ -25,8 +25,8 @@ const Service = (props) => {
 
 
     // -------------------- Screen Responsiveness ---------------
-    let sm = mobileScreen()
-    let mobileView = withSizeLessThan(600)
+    let sm = useMobileScreen
+    let mobileView = useSizeLessThan(600)
     return (
         <motion.div className={`bg-white-dark ${paddingBottom ? 'py-10' : 'pt-10'} `}
             initial={{ y: 20, opacity: 0 }}

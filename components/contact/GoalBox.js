@@ -1,9 +1,9 @@
 import React from 'react'
-import { withSizeLessThan } from '../../hooks/useWindowSize'
+import { useSizeLessThan } from '../../hooks/useWindowSize'
 import Img from 'next/image'
 
 const GoalBox = ({ icon, name, onClick, currentSelection }) => {
-    let sm = withSizeLessThan(600)
+    let sm = useSizeLessThan(600)
     let basicClassName = `lg:w-32 lg:h-32 md:w-32 md:h-32 w-24 h-24 flex flex-col items-center justify-center cursor-pointer m-2 rounded-lg transition duration-100 ease-in-out hover:bg-red hover:text-white hover:border-none`
     const activeClass = 'bg-red text-white border-none'
     const inactiveClass = 'bg-white-dark border border-purple'
