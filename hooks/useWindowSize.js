@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 
-const useWindowSize = () => {
+function useWindowSize() {
     const [windowSize, setWindowSize] = useState({
         width: undefined
     })
@@ -17,9 +17,9 @@ const useWindowSize = () => {
     return windowSize
 }
 
-export const mobileScreen = () => {
+export function useMobileScreen() {
     const [isSmall, setIsSmall] = useState(false)
-    const screenSize = useWindowSize()
+    const screenSize = useWindowSize
     useEffect(() => {
         function handleResize() {
             if (screenSize.width > 1028) {
@@ -33,19 +33,19 @@ export const mobileScreen = () => {
     return isSmall
 }
 
-export const withSizeLessThan = (size) => {
+export const useSizeLessThan = (size) => {
     const [desireSize, setDSize] = useState(false)
-    let screenSize = useWindowSize()
+    let screenSize = useWindowSize().width
     useEffect(() => {
         function handleResize() {
-            if (screenSize.width < size) {
+            if (screenSize < size) {
                 setDSize(true)
             } else {
                 setDSize(false)
             }
         }
         handleResize()
-    }, [screenSize.width])
+    }, [screenSize])
     return desireSize
 }
 

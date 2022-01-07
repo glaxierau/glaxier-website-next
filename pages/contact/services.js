@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import AppButton from '../../components/AppButton'
 import ContactTitle from '../../components/contact/Title'
-import { withSizeLessThan } from '../../hooks/useWindowSize'
+import { useSizeLessThan } from '../../hooks/useWindowSize'
 import SectionHead from '../../components/common/Head'
 import { getData } from '../../hooks/getData'
 import { pushDataLayer } from '../../helper/pushDataLayer'
@@ -26,7 +26,7 @@ const Services = ({ serviceSection }) => {
     const dispatch = useDispatch()
     const { form } = useSelector(s => s.contactForm)
     const index = form.findIndex(i => i.type === type)
-    const sm = withSizeLessThan(900)
+    const sm = useSizeLessThan(900)
 
     const onSelectingBox = (selected) => {
         let _index = form[index].services?.indexOf(selected)

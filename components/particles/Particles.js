@@ -1,8 +1,8 @@
 import SmCircle from './SmCircle'
-import { mobileScreen } from '../../hooks/useWindowSize'
+import { useMobileScreen } from '../../hooks/useWindowSize'
 
 const Particles = () => {
-    let sm = mobileScreen()
+    let sm = useMobileScreen
     return (
         <div>
             <SmCircle size={sm ? 10 : 25} style={sm ? { top: '32rem', left: '8%' } : { top: '5rem', left: '20%' }} />

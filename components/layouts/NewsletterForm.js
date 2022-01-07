@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
 import Img from 'next/image'
 import { sanitize } from '../../utils/miscellanous'
-import { withSizeLessThan } from '../../hooks/useWindowSize'
+import { useSizeLessThan } from '../../hooks/useWindowSize'
 
 const NewsletterForm = ({ status, message, onValidated }) => {
-    const sm = withSizeLessThan(600)
+    const sm = useSizeLessThan(600)
     const [email, setEmail] = useState('')
     const [openAlert, setAlert] = useState(false)
     const [error, setError] = useState(null)

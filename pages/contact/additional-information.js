@@ -6,7 +6,7 @@ import SectionHead from '../../components/common/Head'
 import ContactTitle from '../../components/contact/Title'
 import { pushDataLayer } from '../../helper/pushDataLayer'
 import { getData } from '../../hooks/getData'
-import { withSizeLessThan } from '../../hooks/useWindowSize'
+import { useSizeLessThan } from '../../hooks/useWindowSize'
 import axios from 'axios'
 
 function AI({ additonalInfoSection }) {
@@ -15,7 +15,7 @@ function AI({ additonalInfoSection }) {
     const router = useRouter()
     const { form } = useSelector((s) => s.contactForm)
     const index = form.findIndex((i) => i.type === type)
-    let sm = withSizeLessThan(700)
+    let sm = useSizeLessThan(700)
 
     const getSpecificForm = (array, type) => {
         const value = array.filter((v) => v.type === type)[0]
