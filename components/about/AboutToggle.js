@@ -11,11 +11,11 @@ const Title = ({ title, onClick, id, myRef }) => {
         let el = document.getElementById(`${id}`)
         let clWidth = el ? el.clientWidth : 0
         return setWidth(clWidth)
-    }, [])
+    }, [id])
     return (
         <>
             <div className="about_toggle flex flex-col justify-center items-center " onClick={onClick} >
-                <h3 id={id} className="text-purple cursor-pointer text-center lg:text-sm text-sm leading-none" id={id}>{title}</h3>
+                <h3 id={id} className="text-purple cursor-pointer text-center lg:text-sm text-sm leading-none">{title}</h3>
                 <motion.div className="bg-red h-1 mt-2 "
                     animate={{ width: id === myRef ? width : 0 }} />
             </div>

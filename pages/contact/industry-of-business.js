@@ -9,7 +9,7 @@ import { pushDataLayer } from '../../helper/pushDataLayer'
 import { useDispatch, useSelector } from 'react-redux'
 import { updateForm } from '../../hooks/form'
 
-const index = ({ industrySection }) => {
+const IB = ({ industrySection }) => {
     const type = 'Industry of Business'
     const dispatch = useDispatch()
     const { form } = useSelector(state => state.contactForm)
@@ -83,4 +83,4 @@ export const getStaticProps = async (ctx) => {
     return { props }
 }
 
-export default index
+export default IB

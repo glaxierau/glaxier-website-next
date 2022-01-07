@@ -21,7 +21,7 @@ const Box = ({ content, onClick, activeList }) => {
 }
 
 
-const index = ({ serviceSection }) => {
+const Services = ({ serviceSection }) => {
     const type = 'Services'
     const dispatch = useDispatch()
     const { form } = useSelector(s => s.contactForm)
@@ -73,4 +73,4 @@ export const getStaticProps = async (ctx) => {
     return { props }
 }
 
-export default index
+export default Services

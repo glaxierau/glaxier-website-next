@@ -8,7 +8,7 @@ const DropDown = ({ open, onHover, onLeave, position, dropDownList, id, width = 
         return (
             <>
                 {list.to ?
-                    <Link href={list.to}>
+                    <Link href={list.to} passHref>
                         <motion.div id="dropdown" className="relative hover:bg-blue-dark text-blue-dark hover:text-white py-3 px-8 " style={{ width: 200 }}
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
@@ -18,7 +18,7 @@ const DropDown = ({ open, onHover, onLeave, position, dropDownList, id, width = 
                         </motion.div>
                     </Link>
                     :
-                    <Link href={router.asPath} locale={list}>
+                    <Link href={router.asPath} locale={list} passHref>
                         <motion.div id="dropdown" {...otherProps} className="relative hover:bg-blue-dark text-blue-dark hover:text-white py-3 px-8 flex items-center justify-center  " style={{ width }}
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
