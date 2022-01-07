@@ -3,7 +3,7 @@ import { useNextSanityImage } from 'next-sanity-image'
 import { client } from './getData'
 import { sanitize } from '../utils/miscellanous'
 
-export const sanityImage = (image, customSize = true) => {
+export function useSanityImage(image, customSize = true) {
     const value = useNextSanityImage(client, image)
     if (customSize) {
         delete value.width

@@ -14,7 +14,6 @@ const Layout = ({ children }) => {
     exit: { opacity: 0, y: 0 },
   }
 
-  console.log(useSizeLessThan(500))
 
 
   return (

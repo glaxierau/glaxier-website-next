@@ -3,7 +3,7 @@ import AppButton from './AppButton'
 import Img from 'next/image'
 import Head from '../components/common/Head'
 import { useSelector } from 'react-redux'
-import { sanityImage, upperCaseText } from '../hooks/tools'
+import { useSanityImage, upperCaseText } from '../hooks/tools'
 import { motion } from 'framer-motion'
 
 const Banner = (props) => {
@@ -12,7 +12,7 @@ const Banner = (props) => {
     return (
         <>
             <div className="relative overflow-x-hidden h-cscreen">
-                <Img {...sanityImage(image.image)} quality={80} placeholder="blur" className="object-cover bg-no-repeat" layout='fill' />
+                <Img {...useSanityImage(image.image)} quality={80} placeholder="blur" className="object-cover bg-no-repeat" layout='fill' />
                 <motion.div className="absolute lg:top-40 lg:left-40 md:top-1/3 top-1/3 left-1/2 transform lg:-translate-x-0 -translate-x-2/4 flex flex-col justify-center items-center text-white text-center"
                     initial={{ opacity: 0, }}
                     animate={{ opacity: 1 }}
@@ -26,7 +26,7 @@ const Banner = (props) => {
                     </div>
                 </motion.div>
                 <div className='absolute bottom-0 w-screen'>
-                    <Img src="/shape.svg" alt="hero shape" layout='responsive' width={100} height={16} className="" />
+                    <Img src="/shape.svg" priority alt="hero shape" layout='responsive' width={100} height={16} />
                 </div>
                 <div className='bg-white-dark absolute bottom-0 w-screen h-2 ' />
             </div>
