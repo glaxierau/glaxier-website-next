@@ -12,7 +12,7 @@ const MobileNav = () => {
         <div>
             <nav className="fixed z-50 lg:hidden top-0 h-14 bg-white w-full flex items-center justify-between px-4">
                 {/* <Link href="/"><img src="/assets/img/header/logo.png" width="100" alt="logo" className="cursor-pointer" /></Link> */}
-                <Link href="/" >
+                <Link href="/" passHref>
                     {/* logo here... */}
                     <div className=" w-28 h-20  flex items-center justify-center cursor-pointer">
                         <Image src={"/assets/svg/logo.svg"} alt="logo" width="40" height="40" />

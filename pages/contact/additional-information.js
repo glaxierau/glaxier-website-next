@@ -9,7 +9,7 @@ import { getData } from '../../hooks/getData'
 import { withSizeLessThan } from '../../hooks/useWindowSize'
 import axios from 'axios'
 
-function index({ additonalInfoSection }) {
+function AI({ additonalInfoSection }) {
     const type = 'Additional Information'
     const dispatch = useDispatch()
     const router = useRouter()
@@ -75,7 +75,7 @@ function index({ additonalInfoSection }) {
     )
 }
 
-export default index
+export default AI
 
 export const getStaticProps = async (ctx) => {
     const locale = ctx.locale

@@ -54,9 +54,9 @@ const Footer = () => {
                         <NewsletterSubscribe />
                         {/* brand icons  */}
                         <div className="flex w-full lg:justify-end md:justify-end justify-center my-5">
-                            <a href="https://www.facebook.com/GlaxierAgency" target="_blank" className='px-3'><Img src="/assets/img/footer/facebook.svg" alt="facebook" width="35px" height="35px" /></a>
-                            <a href="https://au.linkedin.com/company/glaxier" target="_blank" className='px-3'><Img src="/assets/img/footer/linkedin.svg" alt="linkedin" width="35px" height="35px" /></a>
-                            <a href="https://www.instagram.com/glaxier_official/" target="_blank" className='px-3'><Img src="/assets/img/footer/instagram.svg" alt="instagram" width="35px" height="35px" /></a>
+                            <a href="https://www.facebook.com/GlaxierAgency" target="_blank" rel="noreferrer" className='px-3'><Img src="/assets/img/footer/facebook.svg" alt="facebook" width="35px" height="35px" /></a>
+                            <a href="https://au.linkedin.com/company/glaxier" target="_blank" rel="noreferrer" className='px-3'><Img src="/assets/img/footer/linkedin.svg" alt="linkedin" width="35px" height="35px" /></a>
+                            <a href="https://www.instagram.com/glaxier_official/" target="_blank" rel="noreferrer" className='px-3'><Img src="/assets/img/footer/instagram.svg" alt="instagram" width="35px" height="35px" /></a>
                         </div>
                     </div>
                 </div>

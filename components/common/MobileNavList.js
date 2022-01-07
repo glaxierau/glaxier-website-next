@@ -34,7 +34,7 @@ const MobileNavList = ({ navs, setNav }) => {
         <>
             {navs.map(nav => (
                 <div key={nav.type} className="relative bg-white-dark">
-                    <Link href={nav.to}>
+                    <Link href={nav.to} passHref>
                         <p className={`text-${router.asPath === nav.to ? 'red' : 'purple'}  hover:text-red cursor-pointer font-extrabold text-3xl my-5 bg-white-dark`} onClick={() => setNav(false)}>{nav.label}</p>
                     </Link>
                     <DropDown nav={nav} />

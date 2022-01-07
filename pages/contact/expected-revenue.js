@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import ContactTitle from '../../components/contact/Title'
 import Box from '@mui/material/Box'
 import Slider from '@mui/material/Slider'
 import AppButton from '../../components/AppButton'
 import { createTheme, ThemeProvider } from '@mui/material/styles'
-import { withSizeLessThan } from '../../hooks/useWindowSize'
+import useWindowSize, { withSizeLessThan } from '../../hooks/useWindowSize'
 import SectionHead from '../../components/common/Head'
 import { getData } from '../../hooks/getData'
 import { numberWithCommas } from '../../hooks/tools'
@@ -12,18 +12,8 @@ import SlideIn from '../../components/animation/SlideIn'
 import { pushDataLayer } from '../../helper/pushDataLayer'
 import { useSelector, useDispatch } from 'react-redux'
 import { updateForm } from '../../hooks/form'
+import Img from 'next/image'
 
-function valuetext(value) {
-    return <p className="bg-red">{numberWithCommas(value)}</p>
-}
-
-const theme = createTheme({
-    palette: {
-        primary: {
-            main: '#9FB0E4',
-        },
-    },
-})
 
 const Revenue = ({ revenueSection }) => {
     const type = 'Expected Revenue'
@@ -31,7 +21,9 @@ const Revenue = ({ revenueSection }) => {
     const { form } = useSelector((state) => state.contactForm)
     const index = form.findIndex((i) => i.type === type)
     const { minimum, maximum } = revenueSection
-    const sm = withSizeLessThan(720)
+    const sm = withSizeLessThan(700)
+    const screenWidth = useWindowSize().width
+
 
     const onGettingPrice = (e) => {
         form[index].revenue = e.target.value
@@ -41,6 +33,8 @@ const Revenue = ({ revenueSection }) => {
     const ontoNextPage = () => {
         pushDataLayer('Contact Us', 'Expected Revenue', form[index].revenue)
     }
+
+    // console.log(useWindowSize().width)
     return (
         <div>
             <SectionHead title="Contact Us | Expected Revenue" />
@@ -53,26 +47,22 @@ const Revenue = ({ revenueSection }) => {
                 </SlideIn>
             )}
             <div
-                className="relative h-40 mx-auto mt-5"
-                style={{ width: sm ? 300 : 600 }}
+                className="relative mx-auto mt-5 h-40 w-auto"
+                style={{ width: sm ? screenWidth - 120 : 600 }}
             >
-                <div className="absolute -left-5 top-0 flex flex-col z-0 justify-center items-center">
-                    <p
-                        className={`${
-                            !form[index].revenue ? 'text-red' : 'text-gray-500'
-                        } font-bold py-3`}
-                    >
-                        {numberWithCommas(minimum)}
-                    </p>
-                    <img
-                        src="/assets/img/contact/icons/blue_icons/expected_revenue.svg"
-                        alt="revenue"
-                        width={40}
+                <div className='flex justify-between' >
+                    <Icon colorChange={form[index].revenue}
+                        value={minimum}
+                        className="absolute top-0 lg:-left-[0.9rem] md:-left-[0.9rem] -left-[2rem]"
+                    />
+                    <Icon colorChange={form[index].revenue}
+                        value={maximum}
+                        className="absolute top-0 lg:-right-[2rem] md:-right-[0.9rem] -right-[2.5rem]"
                     />
                 </div>
-                <div className="absolute bottom-0 left-1/2 transform -translate-x-2/4 flex items-center justify-center mx-auto">
+                <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 flex items-center justify-center mx-auto">
                     <ThemeProvider theme={theme}>
-                        <Box sx={{ width: sm ? 300 : 600 }}>
+                        <Box sx={{ width: sm ? screenWidth - 120 : 550 }}>
                             <Slider
                                 aria-label="price"
                                 value={form[index].revenue || minimum}
@@ -87,20 +77,6 @@ const Revenue = ({ revenueSection }) => {
                         </Box>
                     </ThemeProvider>
                 </div>
-                <div className="absolute -right-5 top-0 z-0 flex flex-col justify-center items-center">
-                    <p
-                        className={`${
-                            !form[index].revenue ? 'text-red' : 'text-gray-500'
-                        } font-bold py-3`}
-                    >
-                        {numberWithCommas(maximum)}
-                    </p>
-                    <img
-                        src="/assets/img/contact/icons/blue_icons/expected_revenue.svg"
-                        alt="revenue"
-                        width={40}
-                    />
-                </div>
             </div>
             <div className="mx-auto w-56 py-10">
                 <AppButton
@@ -113,6 +89,37 @@ const Revenue = ({ revenueSection }) => {
                     clicked={() => ontoNextPage()}
                 />
             </div>
+        </div>
+    )
+}
+
+function valuetext(value) {
+    return <p className="bg-red">{numberWithCommas(value)}</p>
+}
+
+const theme = createTheme({
+    palette: {
+        primary: {
+            main: '#9FB0E4',
+        },
+    },
+})
+
+const Icon = ({ colorChange, value, className }) => {
+    return (
+        <div className={`flex flex-col z-0 justify-center items-center, ${className}`}>
+            <p
+                className={`${!colorChange ? 'text-red' : 'text-gray-500'
+                    } font-bold py-3`}
+            >
+                {numberWithCommas(value)}
+            </p>
+            <Img
+                src="/assets/img/contact/icons/blue_icons/expected_revenue.svg"
+                alt="revenue"
+                width={60}
+                height={60}
+            />
         </div>
     )
 }

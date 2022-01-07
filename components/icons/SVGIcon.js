@@ -1,11 +1,11 @@
 import { motion } from 'framer-motion'
 import React from 'react'
+import Img from 'next/image'
 
-function SVGIcon({ src, label }) {
+function SVGIcon({ src }) {
     return (
         <motion.div className="flex items-center justify-start h-full">
-            <img src={src} className="" alt="email" />
-            {/* <a className="ml-6">{label}</a> */}
+            <Img src={src} alt="email" width={40} height={40} objectFit="contain" />
         </motion.div>
     )
 }

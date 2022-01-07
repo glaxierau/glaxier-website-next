@@ -30,7 +30,7 @@ function NavSVGIcon({ size = ['20', '20'], children, withDropDown = false, onPoi
             >
                 {children}
             </motion.svg>
-            {withDropDown && <DropDown dropDownList={lang} position={0} open={open} width={20} position={position} onLeave={() => setOpen(false)} />}
+            {withDropDown && <DropDown dropDownList={lang} open={open} width={20} position={position} onLeave={() => setOpen(false)} />}
         </div>
     )
 }

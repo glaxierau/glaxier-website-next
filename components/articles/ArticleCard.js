@@ -6,7 +6,7 @@ const ArticleCard = ({ id, title, category, img, date }) => {
     let asHref = `/${category}/${id}`
     return (
         <>
-            <Link href={href} as={asHref}>
+            <Link href={href} as={asHref} passHref>
                 <motion.div whileHover={{ scale: 1 }} initial={{ scale: 0.98 }} className=" bg-white shadow-around lg:m-6 m-2 cursor-pointer">
                     {/* image  */}
                     <div className="article_image" style={{ backgroundImage: `url(${img})` }} />

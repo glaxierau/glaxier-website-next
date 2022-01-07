@@ -64,7 +64,7 @@ const Nav = () => {
                 </motion.div>
 
                 {/* logo section */}
-                <Link href="/" >
+                <Link href="/" passHref>
                     <div className="w-40 h-20 flex items-center justify-start cursor-pointer">
                         {/* logo here... */}
                         <Image src={"/assets/svg/logo.svg"} alt="logo" width="40" height="40" />

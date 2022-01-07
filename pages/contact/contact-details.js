@@ -12,12 +12,11 @@ import { useRouter } from 'next/router'
 import axios from 'axios'
 import { getSpecificForm } from '../../hooks/form'
 
-function index({ personalDetailSection }) {
+function CD({ personalDetailSection }) {
     const type = 'Contact Detail'
     const { form } = useSelector((s) => s.contactForm)
     const index = form.findIndex((i) => i.type === type)
     const _form = form[index]
-    const postUrl = process.env.NEXT_APP_POST_URL
     const [checkbox, setCheck] = useState(true)
     const router = useRouter()
     const label =
@@ -181,4 +180,4 @@ export const getStaticProps = async (ctx) => {
     return { props }
 }
 
-export default index
+export default CD

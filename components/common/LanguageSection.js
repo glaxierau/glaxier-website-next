@@ -9,7 +9,7 @@ const LanguageSection = () => {
     return (
         <div className="flex">
             {langs.map(language => (
-                <Link key={language} href={router.asPath} locale={language}>
+                <Link key={language} href={router.asPath} locale={language} passHref>
                     <p className={`mr-4 text-base cursor-pointer font-light ${language === clang ? 'text-red' : 'text-purple'} hover:text-red `}>{language.split('-')[0].toUpperCase()}</p>
                 </Link>
             ))}
