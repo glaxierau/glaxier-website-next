@@ -5,7 +5,7 @@ import AppButton from '../../components/AppButton'
 import Head from '../../components/common/Head'
 
 import { useSizeLessThan } from '../../hooks/useWindowSize'
-import { sanityImage } from '../../hooks/tools'
+import { useSanityImage } from '../../hooks/tools'
 import { getData } from '../../hooks/getData'
 import { pushDataLayer } from '../../helper/pushDataLayer'
 import { useDispatch, useSelector } from 'react-redux'
@@ -33,7 +33,7 @@ const Goals = (props) => {
                 {withHead && <Head title="Contact Us | Your Goals" description={question} />}
                 <ContactTitle title={question} />
                 <div className="flex justify-center flex-wrap m-auto" style={{ width: sm ? 340 : 600, flex: '1 1 160px' }}>
-                    {goals.map(list => <GoalBox key={list._key} icon={sanityImage(list.icon.image)} name={list.text} currentSelection={form[index].value} onClick={() => onChoosingaGoal(list.text)} active={form[index].value === list.text ? true : false} />)}
+                    {goals.map(list => <GoalBox key={list._key} icon={useSanityImage(list.icon.image)} name={list.text} currentSelection={form[index].value} onClick={() => onChoosingaGoal(list.text)} active={form[index].value === list.text ? true : false} />)}
                 </div>
                 <div className="mx-auto w-96 flex items-center justify-center py-9">
                     <AppButton title="Continue" width={200} bgColor="bg-blue-dark" bgColorHover="hover:bg-red" txtColor="text-white" link='/contact/contact-details' clicked={() => ontoNextPage()} />
