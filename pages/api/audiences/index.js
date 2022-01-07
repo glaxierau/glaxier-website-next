@@ -14,16 +14,13 @@ export default async function handler(req, res) {
         "PHONE": phone,
         "GOAL": goal,
     }
-    if (req.method === 'PUT') {
-        try {
-            const response = await client.lists.addListMember(`${process.env.NEXT_APP_MAILCHIMP_LIST_ID}`, {
-                email_address: email,
-                status,
-                merge_fields
-            })
-            res.status(200).json(response)
-        } catch (err) {
-            res.send(err)
-        }
+    console.log(req.body)
+    try {
+        const response = await client.lists.getListMembersInfo(`${process.env.NEXT_APP_MAILCHIMP_LIST_ID}`)
+        console.log(response)
+        res.status(200).json(response)
+    } catch (err) {
+        console.log(err)
+        res.send(err)
     }
 }

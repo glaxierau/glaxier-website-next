@@ -65,6 +65,7 @@ const index = ({ personalDetailSection }) => {
             try {
                 const response = await axios.put('/api/audiences/add', content)
                 const resStatus = response.data.status
+                console.log(response.data.status)
                 if (resStatus === 'subscribed' || resStatus === 'unsubscribed') router.push('/contact/industry-of-business')
                 else throw JSON.parse(response.data.response.text).title
             } catch (err) {
