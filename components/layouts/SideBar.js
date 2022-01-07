@@ -17,7 +17,7 @@ const SideBar = ({ open, setNav }) => {
                     initial={{ opacity: 0 }}
                     animate={{ y: open ? 0 : -2, opacity: open ? 1 : 0, height: open ? '100vh' : '0vh' }}
                     transition={{ stiffness: 100, duration: 0.2, staggerChildren: 0.5, delayChildren: 0.4 }}>
-                    <img src="/assets/svg/shape.svg" />
+                    <img src="/assets/svg/shape.svg" alt="shape" />
                     <div className="w-screen bg-white-dark py-2 px-5">
                         <LanguageSection />
                         <br />

@@ -12,7 +12,7 @@ import { useRouter } from 'next/router'
 import axios from 'axios'
 import { getSpecificForm } from '../../hooks/form'
 
-function CD({ personalDetailSection }) {
+function Cd({ personalDetailSection }) {
     const type = 'Contact Detail'
     const { form } = useSelector((s) => s.contactForm)
     const index = form.findIndex((i) => i.type === type)
@@ -180,4 +180,4 @@ export const getStaticProps = async (ctx) => {
     return { props }
 }
 
-export default CD
+export default Cd
