@@ -12,7 +12,7 @@ import { useRouter } from 'next/router'
 import axios from 'axios'
 import { getSpecificForm } from '../../hooks/form'
 
-function Index({ personalDetailSection }) {
+function index({ personalDetailSection }) {
     const type = 'Contact Detail'
     const { form } = useSelector((s) => s.contactForm)
     const index = form.findIndex((i) => i.type === type)
@@ -72,13 +72,8 @@ function Index({ personalDetailSection }) {
             try {
                 const response = await axios.put('/api/audiences/add', content)
                 const resStatus = response.data.status
-<<<<<<< HEAD
                 console.log(response.data.status)
                 if (resStatus === 'subscribed' || resStatus === 'unsubscribed') router.push('/contact/industry-of-business')
-=======
-                if (resStatus === 'subscribed' || resStatus === 'unsubscribed')
-                    router.push('/contact/industry-of-business')
->>>>>>> 6f40b688d98655fffb8f773cac289abe728f236c
                 else throw JSON.parse(response.data.response.text).title
             } catch (err) {
                 alert(err)

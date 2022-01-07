@@ -16,7 +16,7 @@ export default async function handler(req, res) {
     }
     if (req.method === 'PATCH') {
         try {
-            const response = await client.lists.updateListMember(`${process.env.NEXT_APP_MAILCHIMP_LIST_ID}`,
+            const response = await client.lists.updateListMember(`${process.env.NEXT_PUBLIC_MAILCHIMP_LIST_ID}`,
                 email,
                 { status, merge_fields })
 

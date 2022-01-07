@@ -16,7 +16,7 @@ export default async function handler(req, res) {
     }
     if (req.method === 'PUT') {
         try {
-            const response = await client.lists.addListMember(`${process.env.NEXT_APP_MAILCHIMP_LIST_ID}`, {
+            const response = await client.lists.addListMember(`${process.env.NEXT_PUBLIC_MAILCHIMP_LIST_ID}`, {
                 email_address: email,
                 status,
                 merge_fields
