@@ -1,16 +1,15 @@
-import AppButton from '../../components/AppButton'
-import ContactTitle from '../../components/contact/Title'
 import Link from 'next/link'
-import SectionHead from '../../components/common/Head'
-import { getData } from '../../hooks/getData'
-import { pushDataLayerForm } from '../../helper/pushDataLayer'
-import { useSelector } from 'react-redux'
-import MailchimpSubscribe from 'react-mailchimp-subscribe'
 import CheckBox from '@mui/material/Checkbox'
+import { useSelector } from 'react-redux'
 import { useState } from 'react'
 import { useRouter } from 'next/router'
 import axios from 'axios'
+import { getData } from '../../hooks/getData'
 import { getSpecificForm } from '../../hooks/form'
+import { pushDataLayerForm } from '../../helper/pushDataLayer'
+import AppButton from '../../components/AppButton'
+import ContactTitle from '../../components/contact/Title'
+import SectionHead from '../../components/common/Head'
 
 function Cd({ personalDetailSection }) {
     const type = 'Contact Detail'
@@ -67,7 +66,6 @@ function Cd({ personalDetailSection }) {
             if (!checkbox) {
                 content.status = 'unsubscribed'
             }
-
             try {
                 const response = await axios.put('/api/audiences/add', content)
                 const resStatus = response.data.status
