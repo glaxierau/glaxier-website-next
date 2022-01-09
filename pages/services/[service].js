@@ -5,6 +5,7 @@ import BlockContent from '../../components/BlockContent/BlockContent'
 import Img from 'next/image'
 import { useSanityImage } from '../../hooks/tools'
 import { motion } from 'framer-motion'
+import { Step } from '../../components/service/Steps'
 
 function SingleService(props) {
     const { topSection, pageInfo } = props
@@ -18,7 +19,7 @@ function SingleService(props) {
                     <Img {...image} layout='fill' objectFit='cover' alt="meeting" />
                 </div>
                 <div className='lg:hidden grid absolute -bottom-1 w-screen'>
-                    <Img src="/assets/svg/shape.svg" priority alt="Shape for services" layout='responsive' width={100} height={16} />
+                    <Img src="/assets/svg/shape.svg" alt="Shape for services" layout='responsive' width={100} height={16} />
                 </div>
             </div>
             <motion.section initial={{ x: 30 }} animate={{ x: 0 }} transition={{ duration: 0.1 }} className="w-full lg:h-cscreen h-auto bg-white-dark relative flex lg:justify-center justify-start items-center flex-col">
@@ -41,19 +42,6 @@ function SingleService(props) {
 }
 
 
-const Step = ({ title, desc, icon }) => {
-    return (
-        <section className="flex items-start justify-center m-2 w-full ">
-            <div className="bg-purple rounded-full overflow-hidden flex justify-center items-center p-3">
-                <Img {...icon} width={25} height={25} placeholder="empty" className='invert' />
-            </div>
-            <div className=" w-full ml-4 flex flex-col items-left justify-start ">
-                <p className="text-purple">{title}</p>
-                <p className="font-thin text-sm text-black-light pt-1 pb-2">{desc}</p>
-            </div>
-        </section>
-    )
-}
 export default SingleService
 
 
