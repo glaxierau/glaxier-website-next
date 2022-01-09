@@ -18,7 +18,7 @@ const SectionHead = ({ title, description, children }) => {
             <meta name="description" content={description} />
             <meta property="og:title" content={title} />
             <meta property="og:description" content={description} />
-            <meta property="og:image" content="https://ahrefs.com/blog/wp-content/uploads/2019/12/fb-how-to-become-an-seo-expert.png" />
+            <meta property="og:image" content="https://glaxier.com.au/_next/image?url=%2Fassets%2Fsvg%2Flogo.svg&w=96&q=75" />
             {children}
         </Head>
     )
