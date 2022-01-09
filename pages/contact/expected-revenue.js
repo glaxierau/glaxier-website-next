@@ -12,7 +12,7 @@ import SlideIn from '../../components/animation/SlideIn'
 import { pushDataLayer } from '../../helper/pushDataLayer'
 import { useSelector, useDispatch } from 'react-redux'
 import { updateForm } from '../../hooks/form'
-import Img from 'next/image'
+import { Icon } from '../../components/contact/Icon'
 
 
 const Revenue = ({ revenueSection }) => {
@@ -105,24 +105,6 @@ const theme = createTheme({
     },
 })
 
-const Icon = ({ colorChange, value, className }) => {
-    return (
-        <div className={`flex flex-col z-0 justify-center items-center, ${className}`}>
-            <p
-                className={`${!colorChange ? 'text-red' : 'text-gray-500'
-                    } font-bold py-3`}
-            >
-                {numberWithCommas(value)}
-            </p>
-            <Img
-                src="/assets/img/contact/icons/blue_icons/expected_revenue.svg"
-                alt="revenue"
-                width={60}
-                height={60}
-            />
-        </div>
-    )
-}
 
 export const getStaticProps = async (ctx) => {
     const locale = ctx.locale
