@@ -22,7 +22,7 @@ const NavList = ({ to, label, uuid, dropDownList, onMouseEnter }) => {
 
     return (
         <div className="flex items-center justify-center h-full"
-            onMouseEnter={() => { setddTo(true), onGettingPosition(), onMouseEnter() }}
+            onMouseEnter={() => { setddTo(true), onGettingPosition() }}
             onMouseLeave={() => setddTo(false)}>
             <Link href={to} className="relative flex items-center justify-center h-full cursor-pointer">
                 <a id={uuid} style={{ fontSize: '0.9rem' }}>{label}</a>
@@ -73,7 +73,7 @@ const Nav = () => {
                 </Link>
                 {/* navigation */}
                 <div className="navlist flex w-3/5 justify-around items-center">
-                    {lists.map((list, index) => <NavList index={index} key={list.uuid} to={list.to} label={list.label} uuid={list.uuid} dropDownList={list.dropDown} onMouseEnter={() => setSearch(false)} />)}
+                    {lists.map((list, index) => <NavList index={index} key={list.uuid} to={list.to} label={list.label} uuid={list.uuid} dropDownList={list.dropDown} />)}
                     <span className="seperator border-l-2 h-5" />
                     <div className="flex w-20 justify-around items-center">
                         {/* languages */}
