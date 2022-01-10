@@ -60,7 +60,7 @@ const Nav = () => {
                     style={{ width: '60vw', borderRadius: '0 0 30px 30px' }}
                     animate={openSearch ? { display: 'flex', height: '10vh', y: -1, x: '-50%' } : { display: 'flex', height: '0vh', x: '-50%', y: -10 }}
                 >
-                    {openSearch && <SearchBox shadow={false} border onBlur={() => setSearch(false)} autoFocus={openSearch} />}
+                    {openSearch && <SearchBox shadow={false} border onClose={() => setSearch(false)} autoFocus={openSearch} />}
                 </motion.div>
 
                 {/* logo section */}
