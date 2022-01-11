@@ -93,7 +93,7 @@ const Nav = ({ nav }) => {
                 </div>
 
             </motion.nav>
-            <MobileNav />
+            <MobileNav nav={nav} />
         </>
     )
 }
