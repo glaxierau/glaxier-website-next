@@ -3,7 +3,7 @@ import SideBar from './SideBar'
 import Image from 'next/image'
 import Link from 'next/link'
 
-const MobileNav = () => {
+const MobileNav = ({ nav }) => {
     const [isOpen, setNav] = useState(false)
     const toggleNav = () => {
         setNav(!isOpen)
@@ -26,7 +26,7 @@ const MobileNav = () => {
                         </span>
                     </button>
                 </div>
-                <SideBar open={isOpen} setNav={setNav} />
+                <SideBar nav={nav} open={isOpen} setNav={setNav} />
             </nav>
         </div>
     )
