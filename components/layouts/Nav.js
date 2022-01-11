@@ -8,13 +8,13 @@ import { motion } from 'framer-motion'
 // import nav from '../../config/navList'
 import NavSVGIcon from '../icons/NavSVGIcon'
 import SearchBox from '../common/SearchBox'
+import { useSelector } from 'react-redux'
 
 
 const NavList = ({ to, label, uuid, dropDownList }) => {
     const [isddOpen, setddTo] = useState(false)
     const [ddPosition, setddPosition] = useState(0)
     let dropStatus = dropDownList?.length === 0 ? false : true
-
     const onGettingPosition = () => {
         const position = document.getElementById(`${uuid}`).offsetLeft
         setddPosition(position - 70)
@@ -48,7 +48,10 @@ const NavList = ({ to, label, uuid, dropDownList }) => {
     )
 }
 
-const Nav = ({ nav }) => {
+const Nav = () => {
+    const { state } = useSelector(s => s.state)
+    const result = state?.find(el => el?.name === 'nav')
+    const nav = result?.state
     const [openSearch, setSearch] = useState(false)
     return (
         <>

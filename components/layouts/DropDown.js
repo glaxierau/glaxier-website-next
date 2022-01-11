@@ -42,7 +42,7 @@ const DropDown = ({ open, type, onHover, onLeave, position, dropDownList, id, wi
                     onMouseEnter={onHover}
                     onMouseLeave={onLeave}
                 >
-                    {dropDownList.map(list => <DropDownCard label={list?.languages?.title} key={list._id} list={list} slug={list.slug} />)}
+                    {dropDownList.map((list, index) => <DropDownCard label={list?.languages?.title} key={index} list={list} slug={list.slug} />)}
                 </motion.div>
             }
         </>

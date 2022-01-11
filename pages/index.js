@@ -33,7 +33,7 @@ export async function getStaticProps(context) {
       aboutSection->,
       clientSection{...,clients[]-> }, 
       ctaBreakSection->,
-      pageInfo{lang->,...},
+      pageInfo{...,lang->},
       serviceSection->,
       testimonialSection{...,testimonials[]->}}`)
 
