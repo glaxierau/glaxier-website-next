@@ -9,7 +9,6 @@ import SectionHead from '../../components/common/Head'
 import AboutToggle from '../../components/about/AboutToggle'
 import { getData } from '../../hooks/getData'
 import { upperCaseText } from '../../hooks/tools'
-import SlideIn from '../../components/animation/SlideIn'
 
 const About = (props) => {
     const { pageInfo, headerSection, ctaBreakSection, teamSection } = props
@@ -48,7 +47,7 @@ export const getStaticProps = async (req, res) => {
             ...,
             aboutSection->,
             ctaBreakSection->,
-            "content": industrySection[]->{industry->,content[0],... },
+            "content": industrySection[]->{...,industry->,content[0]},
             teamSection{...,teamMembers[]->{...,content[0]}}
           }`)
 
