@@ -5,7 +5,7 @@ import { useMobileScreen } from '../../hooks/useWindowSize'
 import { useRouter } from 'next/router'
 
 
-function NavSVGIcon({ size = ['20', '20'], children, withDropDown = false, onPointerEnter, ...otherProps }) {
+function NavSVGIcon({ size = ['20', '20'], type, children, withDropDown = false, onPointerEnter, ...otherProps }) {
 
     let router = useRouter()
     let lang = router.locales
@@ -30,7 +30,7 @@ function NavSVGIcon({ size = ['20', '20'], children, withDropDown = false, onPoi
             >
                 {children}
             </motion.svg>
-            {withDropDown && <DropDown dropDownList={lang} open={open} width={20} position={position} onLeave={() => setOpen(false)} />}
+            {withDropDown && <DropDown type={type} dropDownList={lang} open={open} width={20} position={position} onLeave={() => setOpen(false)} />}
         </div>
     )
 }

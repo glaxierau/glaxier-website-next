@@ -2,19 +2,19 @@ import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { useRouter } from 'next/router'
 
-const DropDown = ({ open, onHover, onLeave, position, dropDownList, id, width = 200, ...otherProps }) => {
+const DropDown = ({ open, type, onHover, onLeave, position, dropDownList, id, width = 200, ...otherProps }) => {
     const router = useRouter()
-    const DropDownCard = ({ label, list }) => {
+    const DropDownCard = ({ label, list, slug }) => {
         return (
             <>
-                {list.to ?
-                    <Link href={list.to} passHref>
+                {type === 'nav' ?
+                    <Link href={slug} passHref>
                         <motion.div id="dropdown" className="relative hover:bg-blue-dark text-blue-dark hover:text-white py-3 px-8 " style={{ width: 200 }}
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
-                            transition={{ duration: 0.8 }}
+                            transition={{ duration: 0.3 }}
                         >
-                            <p className="text-center" style={{ fontSize: '0.8rem' }}>{label || list.split("-")[0].toUpperCase()}</p>
+                            <p className="text-center" style={{ fontSize: '0.8rem' }}>{label}</p>
                         </motion.div>
                     </Link>
                     :
@@ -24,7 +24,7 @@ const DropDown = ({ open, onHover, onLeave, position, dropDownList, id, width = 
                             animate={{ opacity: 1 }}
                             transition={{ duration: 0.8 }}
                         >
-                            <p className="text-center" style={{ fontSize: '0.8rem' }}>{label || list.split("-")[0].toUpperCase()}</p>
+                            <p className="text-center" style={{ fontSize: '0.8rem' }}>{label || list?.split("-")[0].toUpperCase()}</p>
                         </motion.div>
                     </Link>
                 }
@@ -42,7 +42,7 @@ const DropDown = ({ open, onHover, onLeave, position, dropDownList, id, width = 
                     onMouseEnter={onHover}
                     onMouseLeave={onLeave}
                 >
-                    {dropDownList.map(list => <DropDownCard label={list.label} key={list.label || list} list={list} />)}
+                    {dropDownList.map(list => <DropDownCard label={list?.languages?.title} key={list._id} list={list} slug={list.slug} />)}
                 </motion.div>
             }
         </>

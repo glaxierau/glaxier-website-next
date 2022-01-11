@@ -7,18 +7,17 @@ import { motion } from 'framer-motion'
 import { useSizeLessThan } from "../../hooks/useWindowSize";
 
 
-const Layout = ({ children }) => {
+const Layout = (props) => {
+  const { children, nav } = props
   const variants = {
     hidden: { opacity: 0, y: 0 },
     enter: { opacity: 1, y: 0 },
     exit: { opacity: 0, y: 0 },
   }
 
-
-
   return (
     <div className={style.main, "relative"}>
-      <Nav />
+      <Nav nav={nav} />
       <div className="lg:h-20 h-14 bg-purple w-full" />
       <StepsContact show={useSizeLessThan(800)} />
       <motion.main variants={variants}

@@ -44,7 +44,6 @@ const AboutToggle = ({ content }) => {
             setToShow(filteredContent)
         }
     }
-
     return (
         <>
             <div className="about_toggle">
