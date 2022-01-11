@@ -10,3 +10,7 @@ export const GET_ABOUT = 'GET_ABOUT'
 
 // 
 export const GET_CONTACT_FORM = 'GET_CONTACT_FORM'
+
+//COMMON Navigation, Footer,exc....
+export const GET_STATE = 'GET_STATE'
+

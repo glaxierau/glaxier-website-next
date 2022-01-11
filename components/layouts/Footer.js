@@ -2,9 +2,12 @@ import FooterLink from '../FooterLink'
 import Link from 'next/link'
 import NewsletterSubscribe from './NewsletterSubscribe'
 import Img from 'next/image'
+import { useSelector } from 'react-redux'
 
 const Footer = () => {
-
+    const { state } = useSelector(s => s.state)
+    const nav = state?.find(el => el.name === 'nav')
+    const servicesList = nav?.state?.find(el => el.menuName === 'Services')
     return (
         <>
             <div className="footer static w-screen bg-red rounded-t-lg lg:px-24 md:px-5 px-2">
@@ -17,6 +20,7 @@ const Footer = () => {
                         </div>
                         {/* location  */}
                         <div className="my-6 mx-4" >
+
                             <FooterLink src="/assets/img/footer/location.svg" alt="location" href="https://goo.gl/maps/CsG48GVUC6eXEDk37" width={true} content="6 Motorway road, Prawet Bangkok 10250" />
                             {/* phone  */}
                             <FooterLink src="/assets/img/footer/phone.svg" href="tel:+61424555959" alt="phone" content="+61 424 555 959" />
@@ -29,21 +33,19 @@ const Footer = () => {
                         <div className="flex flex-col w-1/3">
                             <h4 className="text-base text-white">Quick links</h4>
                             <br />
-                            <Link href="/">Home</Link>
-                            <Link href="/about">About us</Link>
-                            {/* <Link href="/blog">Blog</Link> */}
-                            <Link href="/contact">Contact us</Link>
+                            {nav?.state?.map((list, index) =>
+                                <Link key={index} href={list.slug}>{list.languages.title}</Link>
+                            )}
                         </div>
                         {/* services  */}
                         <div className="flex flex-col w-1/2">
                             <h4 className="text-base text-white">Services</h4>
                             <br />
-                            <Link href="/services/digital-advertising">Digital Advertising</Link>
-                            <Link href="/services/seo">SEO</Link>
-                            <Link href="/services/website-development">Website Development</Link>
-                            <Link href="/services/influencer-marketing">Influencer Marketing</Link>
-                            <Link href="/services/content-writing">Content Writing</Link>
-                            <Link href="/services/graphic-design">Graphic Design</Link>
+                            {
+                                servicesList?.subMenu.map((list, index) =>
+                                    <Link key={index} href={list.slug || '/'}>{list.languages.title}</Link>
+                                )
+                            }
                         </div>
                     </div>
                     <div className="w-full h-full pt-5">
