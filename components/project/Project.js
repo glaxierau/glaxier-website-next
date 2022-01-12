@@ -12,7 +12,7 @@ const Project = (props) => {
                 <Img {...useSanityImage(image.image)} layout='fill' objectFit='cover' className="bg_image" alt="bg-image" />
                 <SlideIn className="z-10 flex flex-col items-center justify-center">
                     <h3 className="lg:text-2xl text-xl text-white font-bold lg:mb-12 mb-2">Let’s talk about “OUR” project.</h3>
-                    <AppButton link={ctaButton.link} customized={true} title={ctaButton.buttonText} width={200} bgColor="bg-transparent" bgColorHover="hover:bg-white" txtColor="text-white" txtColorHover="hover:text-blue-dark" />
+                    <AppButton link={ctaButton.link} customized={true} title={ctaButton.buttonText} bgColor="bg-transparent" bgColorHover="hover:bg-white" txtColor="text-white" txtColorHover="hover:text-blue-dark" />
                 </SlideIn>
             </div>
             <style jsx>

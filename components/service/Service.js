@@ -13,15 +13,17 @@ const Service = (props) => {
 
     const { paddingBottom = false, services, defaultDescription, defaultSubtitle, defaultTitle, _id } = props
     const defaultServiceMap = { id: _id, serviceTitle: defaultTitle, serviceSubtitle: defaultSubtitle, serviceDescription: defaultDescription }
-
     // ----------------------------- Variables ------------------------------
     const [currentIndex, setIndex] = useState(defaultServiceMap)
+    const hash = currentIndex?.hash?.hash
 
     const onSelecting = (e) => {
         const innerText = e.target.innerText
         const serviceIndex = services.filter(s => s.bubbleServiceName === innerText)[0]
         setIndex(serviceIndex)
     }
+
+    console.log()
 
 
     // -------------------- Screen Responsiveness ---------------
@@ -81,7 +83,7 @@ const Service = (props) => {
                         bgColor="bg-purple"
                         bgColorHover="hover:bg-white"
                         txtColor="text-white"
-                        txtColorHover="hover:text-purple" link="/services/graphic-design"
+                        txtColorHover="hover:text-purple" link={hash ? `/services${hash}` : '/services'}
                     />
                 </motion.div>
 

@@ -132,7 +132,7 @@ function Cd({ personalDetailSection }) {
                             }}
                             onChange={(e) => setCheck(e.target.checked)}
                         />
-                        <p className="text-xss leading-3 text-gray-400">
+                        <p className="leading-relaxed text-gray-400" style={{ fontSize: 12 }}>
                             {label}
                         </p>
                     </div>
