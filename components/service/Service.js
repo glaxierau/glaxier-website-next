@@ -82,7 +82,7 @@ const Service = (props) => {
                         bgColor="bg-purple"
                         bgColorHover="hover:bg-white"
                         txtColor="text-white"
-                        txtColorHover="hover:text-purple" link={`/services/${hash}` || '/'}
+                        txtColorHover="hover:text-purple" link={hash ? `/services/${hash}` : '/services'}
                     />
                 </motion.div>
 
