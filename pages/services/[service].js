@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import SectionHead from '../../components/common/Head'
 import { getData } from '../../hooks/getData'
 import BlockContent from '../../components/BlockContent/BlockContent'
@@ -6,17 +6,20 @@ import Img from 'next/image'
 import { useSanityImage } from '../../hooks/tools'
 import { motion } from 'framer-motion'
 import { Step } from '../../components/service/Steps'
+import PageNotFound from '../404'
 
 function SingleService(props) {
-    const { topSection, pageInfo } = props
-    let image = useSanityImage(topSection.serviceImage.image)
-    let icon = useSanityImage
+    const { topSection, pageInfo, notFound } = props
+    let image = useSanityImage
+    if (notFound) {
+        return <PageNotFound />
+    }
     return (
         <div className="flex lg:flex-row flex-col ">
             <SectionHead title={pageInfo.metadata.metaTitle} description={pageInfo.metadata.mataDescription} />
             <div className="w-full relative">
-                <div className="lg:h-cscreen w-full h-44 object-cover">
-                    <Img {...image} layout='fill' objectFit='cover' alt="meeting" />
+                <div className="lg:h-cscreen w-full h-60 object-cover">
+                    <Img {...image(topSection?.serviceImage?.image)} layout='fill' objectFit='cover' alt="meeting" />
                 </div>
                 <div className='lg:hidden grid absolute -bottom-1 w-screen'>
                     <Img src="/assets/svg/shape.svg" alt="Shape for services" layout='responsive' width={100} height={16} />
@@ -32,7 +35,7 @@ function SingleService(props) {
                     </div>
                     <BlockContent blocks={topSection.paragraph1} />
                     <div className="flex flex-row flex-wrap mx-auto w-full my-10">
-                        {topSection.steps.map(step => <Step key={step.title} title={step.title} desc={step.description} icon={icon(step.icon.image)} image={step.icon.image} />)}
+                        {topSection.steps.map(step => <Step key={step.title} title={step.title} desc={step.description} icon={image(step.icon.image)} image={step.icon.image} />)}
                     </div>
                     <BlockContent blocks={topSection.paragraph2} />
                 </section>
@@ -53,6 +56,7 @@ export const getStaticPaths = async (ctx) => {
             params: { service: slug.slug }
         }
     })
+    console.log(ctx)
     return {
         paths,
         fallback: 'blocking'
@@ -65,7 +69,7 @@ export const getStaticProps = async (ctx) => {
     let props = null
     try {
         props = await getData(`*[ slug == '${query}' && pageInfo.lang->language == '${currentLanguage}' ][0]`)
-    } catch (err) { console.log(err) }
+    } catch (err) { throw err }
     return { props }
 }
 
