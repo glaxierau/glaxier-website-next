@@ -3,7 +3,7 @@ import { useRouter } from 'next/router'
 
 const AppButton = ({ title, width = 'auto', height, link = null, txtColor, txtColorHover, bgColor, bgColorHover, customized = false, disabled = false, type = "button", clicked, ...other }) => {
     const router = useRouter()
-
+    const _title = title.toUpperCase()
     const onClicked = () => {
         clicked && clicked()
         link && router.push(link)
