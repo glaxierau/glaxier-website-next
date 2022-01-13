@@ -28,6 +28,7 @@ const Goals = (props) => {
     const ontoNextPage = () => {
         pushDataLayer('Contact Us', type, form[index].value)
     }
+
     return (
         <>
             <div className="h-full">
