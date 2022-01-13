@@ -17,10 +17,13 @@ const Contact = (props) => {
 export const getStaticProps = async (req, res) => {
 
     let lang = req.locale
+    let index = 0
+    lang !== 'en-au' ? index = 0 : index = 1
+
     const props = await getData(
         `*[ _type == 'contact' && pageInfo.lang->language == '${lang}'][0]{
             ...,
-            "interactiveForm":*[ _type == 'interactiveForm'][1]
+            "interactiveForm":*[ _type == 'interactiveForm'][${index}]
             }`)
     return { props }
 }
