@@ -25,12 +25,10 @@ const Title = ({ title, onClick, id, myRef }) => {
 
 
 const AboutToggle = ({ content }) => {
-
     let defaultIndustry = "All"
     const filteredIndustries = content.map(i => i.industry.industry)
     const industries = filteredIndustries.filter((v, i) => filteredIndustries.indexOf(v) === i)
     industries.unshift(defaultIndustry)
-
     const [myRef, setMyRef] = useState('All')
     const [currentToShow, setToShow] = useState(content)
 

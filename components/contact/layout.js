@@ -16,11 +16,11 @@ const Layout = ({ metadata, children, heroSection, pageName }) => {
                 </FooterLink>
                 <br />
                 <FooterLink imgWidth={15} href={`tel:${heroSection.phone}`} content={heroSection.phone} fontSize="text-base text-sm" color={"text-gray-500"}>
-                    <EmailIcon className='text-red' fontSize='large' />
+                    <LocalPhoneIcon className='text-red' fontSize='large' />
                 </FooterLink>
                 <br />
                 <FooterLink imgWidth={20} href={`mailto:${heroSection.email}`} content={heroSection.email} fontSize="text-base text-sm" color={"text-gray-500"}>
-                    <LocalPhoneIcon className='text-red' fontSize='large' />
+                    <EmailIcon className='text-red' fontSize='large' />
                 </FooterLink>
             </SectionTitle>
             <main>{children}</main>
