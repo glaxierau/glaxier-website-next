@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useSizeLessThan } from '../../hooks/useWindowSize'
 import Img from 'next/image'
-import SVG from '../common/SVG'
+// import SVG from '../common/SVG'
 
 const GoalBox = ({ icon, name, onClick, currentSelection }) => {
     const [hover, setHover] = useState(false)
@@ -17,7 +17,8 @@ const GoalBox = ({ icon, name, onClick, currentSelection }) => {
                 onMouseOver={() => setHover(true)}
                 onMouseOut={() => setHover(false)}
             >
-                <SVG hover={hover} width={40} url={icon.src} id={name} color='#9FB0E4' hoveredColor='white' />
+                {/* <SVG hover={hover} width={40} url={icon.src} id={name} color='#9FB0E4' hoveredColor='white' /> */}
+                <Img {...icon} width={sm ? 30 : 50} height={sm ? 30 : 50} placeholder='empty' />
                 <p className={`py-2 leading-4 text-center`} style={{ fontSize: '0.8rem' }}>{name}</p>
             </div>
         </>
