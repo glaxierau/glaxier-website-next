@@ -12,16 +12,11 @@
 }
 .th-th {
     font-family: 'Kanit';
-<<<<<<< HEAD
-=======
-    /* font-size: 18px; */
->>>>>>> main
 }
 .th-th p {
     font-size: 18px;
 }
 
-<<<<<<< HEAD
 .en-au p {
     font-size: 1rem;
     font-weight: 100;
@@ -39,29 +34,6 @@ html {
     scroll-padding: 5rem;
 }
 
-=======
-body,
-html {
-    margin: 0;
-    /* font-family: "Poppins"; */
-    width: 100vw;
-    max-width: 100%;
-    box-sizing: border-box;
-    overflow-x: hidden;
-    scroll-behavior: smooth;
-    scroll-padding: 5rem;
-}
-
-.th-th p {
-    font-size: 18px;
-}
-
-p {
-    font-size: 1rem;
-    font-weight: 100;
-    line-height: 1.7rem;
-}
->>>>>>> main
 .blog p {
     line-height: 2rem;
 }
