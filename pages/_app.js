@@ -13,6 +13,7 @@ import { FetcherUI } from '../helper/fetcher';
 
 function MyApp(props,) {
   const { Component, pageProps, router } = props
+
   return (
     <>
       <Provider store={store}>

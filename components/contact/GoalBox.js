@@ -18,6 +18,7 @@ const GoalBox = ({ icon, name, onClick, currentSelection }) => {
                 onMouseLeave={() => setHovered(false)}
 
             >
+                {/* <SVG hover={hover} width={40} url={icon.src} id={name} color='#9FB0E4' hoveredColor='white' /> */}
                 <Img {...icon} width={sm ? 30 : 50} height={sm ? 30 : 50} placeholder='empty' />
                 <p className={`py-2 leading-4 text-center`} style={{ fontSize: '0.8rem' }}>{name}</p>
             </motion.div>

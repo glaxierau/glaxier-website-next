@@ -24,6 +24,8 @@ const Service = (props) => {
         setIndex(serviceIndex)
     }
 
+    console.log()
+
 
     // -------------------- Screen Responsiveness ---------------
     let sm = useMobileScreen
