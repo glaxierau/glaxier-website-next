@@ -33,7 +33,7 @@ const Footer = () => {
 
                             </FooterLink>
                             {/* email  */}
-                            <FooterLink src="/assets/img/footer/mail.svg" href="mailto:tan@glaxier.com.au" alt="mail" content="tan@glaxier.com.au">
+                            <FooterLink src="/assets/img/footer/mail.svg" href="mailto:contact@glaxier.com.au" alt="mail" content="contact@glaxier.com.au">
                                 <LocalPhoneIcon className='text-white' fontSize='large' />
                             </FooterLink>
                         </div>
