@@ -12,10 +12,11 @@ import Img from 'next/image'
 const Service = (props) => {
 
     const { paddingBottom = false, services, defaultDescription, defaultSubtitle, defaultTitle, _id } = props
-    const defaultServiceMap = { id: _id, serviceTitle: defaultTitle, serviceSubtitle: defaultSubtitle, serviceDescription: defaultDescription }
+    const defaultServiceMap = { id: _id, serviceTitle: defaultTitle, serviceSubtitle: defaultSubtitle, serviceDescription: defaultDescription, hash: {} }
 
     // ----------------------------- Variables ------------------------------
     const [currentIndex, setIndex] = useState(defaultServiceMap)
+    let hash = currentIndex?.hash?.hash
 
     const onSelecting = (e) => {
         const innerText = e.target.innerText
@@ -81,7 +82,7 @@ const Service = (props) => {
                         bgColor="bg-purple"
                         bgColorHover="hover:bg-white"
                         txtColor="text-white"
-                        txtColorHover="hover:text-purple" link="/services/graphic-design"
+                        txtColorHover="hover:text-purple" link={`/services/${hash}` || '/'}
                     />
                 </motion.div>
 
