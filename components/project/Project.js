@@ -6,7 +6,6 @@ import { useSanityImage } from '../../hooks/tools'
 
 const Project = (props) => {
     const { ctaButton, image, title } = props
-    console.log(props)
     return (
         <>
             <div id="project" className="relative flex flex-col items-center justify-center -mt-3 lg:h-96 h-60 overflow-hidden">

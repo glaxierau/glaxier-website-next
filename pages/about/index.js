@@ -12,6 +12,7 @@ import { upperCaseText } from '../../hooks/tools'
 
 const About = (props) => {
     const { pageInfo, headerSection, ctaBreakSection, teamSection } = props
+    console.log(pageInfo.metadata.mataDescription)
     return (
         <div className="">
             <SectionHead title={pageInfo.metadata.metaTitle} description={pageInfo.metadata.mataDescription} />
@@ -47,7 +48,7 @@ export const getStaticProps = async (req, res) => {
             ...,
             aboutSection->,
             ctaBreakSection->,
-            "content": industrySection[]->{...,industry->,content[0]},
+            "content": industrySection[]->{...,industry->,content[language->.language == '${lang}'][0]{..., language->}},
             teamSection{...,teamMembers[]->{...,content[0]}}
           }`)
 

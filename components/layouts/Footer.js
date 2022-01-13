@@ -29,12 +29,11 @@ const Footer = () => {
                             </FooterLink>
                             {/* phone  */}
                             <FooterLink src="/assets/img/footer/phone.svg" href="tel:+61424555959" alt="phone" content="+61 424 555 959">
-                                <EmailIcon className='text-white' fontSize='large' />
-
+                                <LocalPhoneIcon className='text-white' fontSize='large' />
                             </FooterLink>
                             {/* email  */}
                             <FooterLink src="/assets/img/footer/mail.svg" href="mailto:contact@glaxier.com.au" alt="mail" content="contact@glaxier.com.au">
-                                <LocalPhoneIcon className='text-white' fontSize='large' />
+                                <EmailIcon className='text-white' fontSize='large' />
                             </FooterLink>
                         </div>
                     </div>

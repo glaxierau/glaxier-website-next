@@ -1,159 +1,394 @@
 [
   {
-    "_id": "30b6efe2-eaaf-4db3-8caf-7f03a538b1ad",
-    "languages": {
-      "languageOption": {
-        "language": "th-th"
-      },
-      "title": "Home"
-    },
-    "slug": "/",
-    "subMenu": null
+    "_createdAt": "2021-11-23T02:28:26Z",
+    "_id": "00bf5b09-8192-4472-80c4-c313ae625122",
+    "_rev": "CJYsbWsXiiC0cTI8W0qQHb",
+    "_type": "clientIndustry",
+    "_updatedAt": "2021-12-22T00:06:51Z",
+    "industry": "Non-Profit Organisations"
   },
   {
-    "_id": "42a801d8-6017-4882-8244-3974a9b73e47",
-    "languages": {
-      "languageOption": {
-        "language": "th-th"
-      },
-      "title": "About"
-    },
-    "slug": "/about",
-    "subMenu": [
+    "_createdAt": "2021-11-23T02:28:42Z",
+    "_id": "3c052dfa-310c-4307-8a8e-b8c254e201b3",
+    "_rev": "gvpeZg37yx502nXLhyzXQx",
+    "_type": "clientIndustry",
+    "_updatedAt": "2021-12-22T00:06:42Z",
+    "industry": "Fast-Moving Consumer Goods (FMCG)"
+  },
+  {
+    "_createdAt": "2022-01-05T04:08:26Z",
+    "_id": "3c900180-3b23-4ef1-8e35-d05861d5faf7",
+    "_rev": "gvpeZg37yx502nXLi9DsLx",
+    "_type": "clientIndustry",
+    "_updatedAt": "2022-01-05T04:10:57Z",
+    "description": [
       {
-        "languages": {
-          "languageOption": {
-            "_id": "4233b41b-4e0e-459d-8dcf-1fabe4b521e4",
-            "language": "th-th"
-          },
-          "title": "Who is Glaxier?"
-        },
-        "slug": "#whoweare"
-      },
-      {
-        "languages": {
-          "languageOption": {
-            "_id": "4233b41b-4e0e-459d-8dcf-1fabe4b521e4",
-            "language": "th-th"
-          },
-          "title": "Industry Experience"
-        },
-        "slug": "#industry-experience"
-      },
-      {
-        "languages": {
-          "languageOption": {
-            "_id": "4233b41b-4e0e-459d-8dcf-1fabe4b521e4",
-            "language": "th-th"
-          },
-          "title": "Our Project"
-        },
-        "slug": "#project"
-      },
-      {
-        "languages": {
-          "languageOption": {
-            "_id": "4233b41b-4e0e-459d-8dcf-1fabe4b521e4",
-            "language": "th-th"
-          },
-          "title": "Out Team"
-        },
-        "slug": "#team"
+        "_key": "f5539f07d124",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "8db8c2778db3",
+            "_type": "span",
+            "marks": [],
+            "text": "อุตสาหกรรมการพนันเป็นตัวอย่างสุดคลาสสิกของธุรกิจB2C ที่การตัดสินใจนั้นรวดเร็วเป็นอย่างมาก และสิ่งสำคัญคือการสร้างมูลค่าสูงสุดจากกลุ่มลูกค้าที่มี ยิ่งคุณลงทุนในการตลาดมากเท่าไหร่ ผลตอบแทนก็จะมากขึ้นเท่านั้น\nกลุ่มลูกค้าที่มีมูลค่าสูงๆไม่ใช่จะได้มาง่ายๆ ดังนั้นระบบการรักษาลูกค้าที่แข็งแรงจึงจำเป็นมาก เพราะการได้กลุ่มลูกค้าใหม่ๆเป็นเรื่องที่ต้องใช้ค่าใช้จ่ายจำนวนมากในตลาดที่มีการแข่งขันสูง และด้วยความเข้มข้นของการแข่งขัน ทำให้การลงทุนในช่องทางแบบไม่เสียเงินในช่องทางอย่าง YouTube, Facebook, Instagram และ SEO จะทำให้ความน่าเชื่อถือจากการทำโฆษณาแบบเสียเงินลดลง\n"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
       }
-    ]
+    ],
+    "industry": "การพนันและการเสี่ยงโชค"
   },
   {
-    "_id": "43bdcbe4-0d9a-403a-9d96-b816d881a538",
-    "languages": {
-      "languageOption": {
-        "language": "th-th"
-      },
-      "title": "Services"
-    },
-    "slug": "/services",
-    "subMenu": [
+    "_createdAt": "2021-11-23T02:28:14Z",
+    "_id": "4bbdfbfa-9751-487f-abe0-747d44e1dd31",
+    "_rev": "YznCOxAGVi8db8FBB2ZUmT",
+    "_type": "clientIndustry",
+    "_updatedAt": "2021-12-22T00:07:06Z",
+    "industry": "Business-to-Business (B2B)"
+  },
+  {
+    "_createdAt": "2022-01-05T04:05:11Z",
+    "_id": "623e0929-db7e-42d1-b1ac-286f97ed06a1",
+    "_rev": "YznCOxAGVi8db8FBBn4S7T",
+    "_type": "clientIndustry",
+    "_updatedAt": "2022-01-05T04:08:05Z",
+    "description": [
       {
-        "languages": {
-          "languageOption": {
-            "_id": "4233b41b-4e0e-459d-8dcf-1fabe4b521e4",
-            "language": "th-th"
-          },
-          "title": "Graphic Design"
-        },
-        "slug": "/services/graphic-design"
-      },
-      {
-        "languages": {
-          "languageOption": {
-            "_id": "4233b41b-4e0e-459d-8dcf-1fabe4b521e4",
-            "language": "th-th"
-          },
-          "title": "SEO"
-        },
-        "slug": "services/seo"
-      },
-      {
-        "languages": {
-          "languageOption": {
-            "_id": "4233b41b-4e0e-459d-8dcf-1fabe4b521e4",
-            "language": "th-th"
-          },
-          "title": "Content Writing"
-        },
-        "slug": "/services/content-writing"
-      },
-      {
-        "languages": {
-          "languageOption": {
-            "_id": "4233b41b-4e0e-459d-8dcf-1fabe4b521e4",
-            "language": "th-th"
-          },
-          "title": "Digital Advertising"
-        },
-        "slug": "/services/digital-advertising"
-      },
-      {
-        "languages": {
-          "languageOption": {
-            "_id": "4233b41b-4e0e-459d-8dcf-1fabe4b521e4",
-            "language": "th-th"
-          },
-          "title": "Website Development"
-        },
-        "slug": "/services/website-development"
-      },
-      {
-        "languages": {
-          "languageOption": {
-            "_id": "4233b41b-4e0e-459d-8dcf-1fabe4b521e4",
-            "language": "th-th"
-          },
-          "title": "Influencer Marketing"
-        },
-        "slug": "/services/influencer-marketing"
+        "_key": "5384c76e3805",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "2e7804ff50b8",
+            "_type": "span",
+            "marks": [],
+            "text": "ภาพสวยๆและพรีเซนเตอร์ที่เหมาะสม จะมีอะไรมากไปกว่านี้ในวงการแฟชั่น อุตสาหกรรมเต็มไปด้วยความสนุกทั้งสำหรับเจ้าของและสำหรับ Glaxier เพราะมันมีการเปลี่ยนแปลงอย่างรวดเร็วตลอดเวลา\nเราที่เป็นคนทำงานเกี่ยวข้องกับเรื่องนี้อยู่เรื่อยๆ จึงสนุกกับการปรับตัวอยู่เสมอ"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
       }
-    ]
+    ],
+    "industry": "แฟชั่น"
   },
   {
-    "_id": "589fa6fb-8057-400f-9e8f-c0ae50f931f8",
-    "languages": {
-      "languageOption": {
-        "language": "th-th"
-      },
-      "title": "Contact"
-    },
-    "slug": "/contact",
-    "subMenu": []
+    "_createdAt": "2021-11-23T02:29:07Z",
+    "_id": "724aec51-0daf-4e4d-ab80-7aec67887bc3",
+    "_rev": "YznCOxAGVi8db8FBB2ZbPT",
+    "_type": "clientIndustry",
+    "_updatedAt": "2021-12-22T00:07:43Z",
+    "description": [
+      {
+        "_key": "56908eaec8f3",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "f54fec979936",
+            "_type": "span",
+            "marks": [],
+            "text": "For most people, making decisions on real estate is intimidating and overwhelming. People aren't sure if they are making the right decisions. \"Should I have chosen the other options?\". Lead time in the real estate industry is one of the longest of all industries, up there with tourism and education. So, it is important to collect prospects contact details and keep them engaged throughout their decision-making journey. The search market is going to be packed with all the major platforms like REA or Domain. Where there are rooms to play in search, you'll likely find more success with other channels like Facebook, Instagram, Google Display Network or Google Discovery."
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      }
+    ],
+    "industry": "Real Estate"
   },
   {
-    "_id": "drafts.30b6efe2-eaaf-4db3-8caf-7f03a538b1ad",
-    "languages": {
-      "languageOption": {
-        "language": "th-th"
+    "_createdAt": "2021-12-22T00:20:28Z",
+    "_id": "74eaa417-7978-472e-b338-f4d7011e428f",
+    "_rev": "CJYsbWsXiiC0cTI8W0rLHv",
+    "_type": "clientIndustry",
+    "_updatedAt": "2021-12-22T00:20:28Z",
+    "industry": "Education"
+  },
+  {
+    "_createdAt": "2021-11-29T12:33:02Z",
+    "_id": "78048927-3f96-40dc-bb46-23d663068ee3",
+    "_rev": "dghForAbYVZNmEsXeaKLJN",
+    "_type": "clientIndustry",
+    "_updatedAt": "2021-11-29T12:33:02Z",
+    "description": [
+      {
+        "_key": "215770ce9fd7",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "2c831267e847",
+            "_type": "span",
+            "marks": [],
+            "text": "Building brand awareness is one of the most important investments for the FMCG industry. If you're in this industry, it is likely that your customers make purchase decisions impulsively. Therefore, it is crucial to present your brand ahead of that decisive moment to cut through the competitive market. We can help you build your brand through unique content creation, search engine optimisation, social media management and other awareness-oriented advertising platforms such as Google Display, YouTube, Facebook, Tik Tok and more."
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      }
+    ],
+    "industry": "ECommerce"
+  },
+  {
+    "_createdAt": "2021-11-23T02:27:51Z",
+    "_id": "83310394-2659-44fa-90cf-1677729c79da",
+    "_rev": "gvpeZg37yx502nXLhyzYzV",
+    "_type": "clientIndustry",
+    "_updatedAt": "2021-12-22T00:07:24Z",
+    "industry": "Business-to-Consumer (B2C)"
+  },
+  {
+    "_createdAt": "2021-11-29T12:33:44Z",
+    "_id": "937f056e-ebd2-4234-911c-c6bdc1646ae7",
+    "_rev": "dghForAbYVZNmEsXeaKPFt",
+    "_type": "clientIndustry",
+    "_updatedAt": "2021-11-29T12:33:44Z",
+    "description": [
+      {
+        "_key": "f5539f07d124",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "2c8db6fd474d",
+            "_type": "span",
+            "marks": [],
+            "text": "Gambling is a classic example of a B2C business. Decisions are impulsive, it is important to maximise value from a customer and the more you invest in marketing the more return you get. High-valued customers are not so easy to come by, therefore, a strong customer retention program is necessary as it is much more expensive to acquire a new customer in such a competitive market. Moreover, because there's a lot of competition, investing in organic channels such as YouTube, Facebook, Instagram and SEO are also advantageous to lower the reliance on paid advertising.\n"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      }
+    ],
+    "industry": "Gambling"
+  },
+  {
+    "_createdAt": "2021-12-22T00:03:52Z",
+    "_id": "98c3ebe4-4c7b-4ff2-85a5-10b781bcf66f",
+    "_rev": "gvpeZg37yx502nXLhyzWtt",
+    "_type": "clientIndustry",
+    "_updatedAt": "2021-12-22T00:06:25Z",
+    "description": [
+      {
+        "_key": "358580827042",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "eee0fafc44d2",
+            "_type": "span",
+            "marks": [],
+            "text": "Photos and influencer sell. Enough said for this industry. Fashion is a fun industry for business owners and for us because it's fast-paced and changes all the time. We as an agency have to keep up with the new tricks and the latest trends."
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      }
+    ],
+    "industry": "Fashion"
+  },
+  {
+    "_createdAt": "2022-01-05T04:15:58Z",
+    "_id": "a0452dc6-529e-4115-bed2-fa76c03aca0d",
+    "_rev": "gvpeZg37yx502nXLi9E0vd",
+    "_type": "clientIndustry",
+    "_updatedAt": "2022-01-05T04:16:14Z",
+    "description": [
+      {
+        "_key": "430e0b4dcbb8",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "26ce97013889",
+            "_type": "span",
+            "marks": [],
+            "text": "การสร้างการรับรู้ของแบรนด์เป็นหนึ่งในเรื่องที่สำคัญมากๆในอุตสาหกรรมสินค้าอุปโภคบริโภค"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
       },
-      "title": "Home"
-    },
-    "slug": "/",
-    "subMenu": []
+      {
+        "_key": "55182e19200a",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "9ecb43429e050",
+            "_type": "span",
+            "marks": [],
+            "text": "แน่นอนว่าลูกค้าของคุณตัดสินใจซื้อโดยใช้เวลาเร็วมาก ดังนั้นคุณต้องใช้โอกาสในเวลาอันแสนสั้นนี้ในการนำเสนอแบรนด์ของคุณให้พวกเขาตัดสินใจซื้อให้ได้"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "aefb32b67188",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "17e5b874ffd80",
+            "_type": "span",
+            "marks": [],
+            "text": "เราสามารช่วยคุณสร้างการนำเสนอตัวตนให้โดดเด่นผ่านคอนเทนต์คุณภาพ, การทำSEO, การจัดการโซเชี่ยลมีเดีย และการทำโฆษณาเพื่อสร้างการรับรู้ในหลากหลายแพลตฟอร์ม ไม่ว่าจะเป็น Google Display, YouTube, Facebook, Tik Tok และอื่นๆ"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      }
+    ],
+    "industry": "สินค้าอุปโภคบริโภค"
+  },
+  {
+    "_createdAt": "2022-01-05T04:20:09Z",
+    "_id": "c93d174d-bcec-42dd-903d-fc1c26cd958d",
+    "_rev": "YznCOxAGVi8db8FBBn5tCT",
+    "_type": "clientIndustry",
+    "_updatedAt": "2022-01-05T04:22:01Z",
+    "description": [
+      {
+        "_key": "c50741fb4b96",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "c2146cf26dde",
+            "_type": "span",
+            "marks": [],
+            "text": "อุตสาหกรรมโรงแรมและการบริการมีการแข่งขันที่สูงมาก เนื่องจากลูกค้าเลือกสถานที่ที่จะไปจากชื่อเสียง, สถานที่ใกล้เคียง, รีวิว และปัจจัยอื่นๆมากมาย ซึ่งไม่มีวิธีการสร้างผลลัพธ์ที่ตายตัว เราต้องอาศัยคอนเทนต์ที่มีประสิทธิภาพ, การสร้างโปรไฟล์ในโซเชียลมีเดีย, รูปภาพสวยๆที่ดูดึงดูด และสิ่งที่สำคัญเหนือกว่าสิ่งอื่นใด นั่นคือ การรีวิว เราแนะนำให้สร้างคอนเทนต์ที่น่าสนใจ, ปักหมุดคุณบนแผนที่, สร้างโปรไฟล์ในแพลตฟอร์มรีวิวต่างๆ (Tripadvisor, Zomato, Wongnai) แล้วอย่าลืมให้ลูกค้าของคุณรีวิวหลังจากใช้บริการ\nในส่วนของการทำการตลาด เราแนะนำช่องทางที่จะช่วยเพิ่มความต้องการของลูกค้าอย่าง Facebook, Instagram, Tik Tok, ป้ายและวิดีโอโฆษณาออนไลน์ และช่องทางสุดมาแรงอย่างการใช้อินฟลูเอนเซอร์!"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      }
+    ],
+    "industry": "การโรงแรมและการบริการ"
+  },
+  {
+    "_createdAt": "2022-01-05T04:22:49Z",
+    "_id": "c9c8dc5e-d597-403a-a796-707b3dea60f9",
+    "_rev": "CJYsbWsXiiC0cTI8WNhsm8",
+    "_type": "clientIndustry",
+    "_updatedAt": "2022-01-05T05:34:08Z",
+    "description": [
+      {
+        "_key": "56908eaec8f3",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "c4692f07f107",
+            "_type": "span",
+            "marks": [],
+            "text": "สำหรับคนส่วนใหญ่แล้ว การตัดสินใจเรื่องอสังหาฯ ดูจะเป็นภาระใหญ่และเป็นเรื่องที่ต้องคิดหนักเป็นอย่างมาก แต่ละคนมักไม่ค่อยแน่ใจว่าจะตัดสินใจได้ถูกหรือไม่ และมักจะจะมีประโยคอย่าง “รู้งี้” หรือ “น่าจะเลือกอีกที่มากกว่า”"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "b78d145c49ab",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "c73e6444d4d30",
+            "_type": "span",
+            "marks": [],
+            "text": "ระยะเวลาการตัดสินใจซื้ออังสังหาฯจะใช้เวลานานที่สุดเมื่อเปรียบเทียบกับการตัดสินใจซื้อในอุตสาหกรรมอื่นๆ"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "d216e9829ab3",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "2f9923562aed0",
+            "_type": "span",
+            "marks": [],
+            "text": "ดังนั้นการเก็บข้อมูลของผู้มุ่งหวังและรักษาความสัมพันธ์ตลอดระยะเวลาการตัดสินใจจึงเป็นเรื่องสำคัญมาก การแสดงผลโฆษณาในรูปแบบ search campaign บน Google Ads จะมีผู้เล่นรายใหญ่จำนวนมากจับจองพื้นที่โฆษณา ไม่ว่าจะเป็นเว็บนายหน้าขายบ้าน และบริษัทอสังหาริมทรัพย์หลายๆเจ้า เราจึงสามรถเลือกที่ใช้ช่องทางอื่นเพื่อการโฆษณา ไม่ว่าจะเป็น Facebook Instagram, Google Display Network หรือ Google Discovery"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      }
+    ],
+    "industry": "อสังหาริมทรัพย์"
+  },
+  {
+    "_createdAt": "2021-11-29T12:33:02Z",
+    "_id": "drafts.78048927-3f96-40dc-bb46-23d663068ee3",
+    "_rev": "ysvh18-xkz-1p5-tjc-o2ohg0z6w",
+    "_type": "clientIndustry",
+    "_updatedAt": "2022-01-05T04:16:51Z",
+    "industry": "ECommerce"
+  },
+  {
+    "_createdAt": "2021-11-29T08:48:14Z",
+    "_id": "f92acb20-8680-430f-a0a3-1c6ce62753dd",
+    "_rev": "dghForAbYVZNmEsXeaKLtV",
+    "_type": "clientIndustry",
+    "_updatedAt": "2021-11-29T12:33:08Z",
+    "description": [
+      {
+        "_key": "c50741fb4b96",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "b5272c210aaa",
+            "_type": "span",
+            "marks": [],
+            "text": "The hospitality industry is highly competitive. Because consumers choose where to go based on reputation, proximity, reviews and many other factors, there is no one solution that fits all. We need effective content, social media profile, mouth-watering images and most important of all, reviews. We recommend creating interesting content, optimising maps and other food platforms profiles (Tripadvisor and Zomato) and making sure you ask your customers for feedback (reviews). In terms of advertising, we recommend platforms that generate demand like Facebook, Instagram, Tik Tok, Display advertising and last but not least, the mighty Influencer marketing!"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      }
+    ],
+    "industry": "Hospitality"
+  },
+  {
+    "_createdAt": "2022-01-05T04:25:06Z",
+    "_id": "fbe80e02-ff3c-4536-8de4-7b0395f101ac",
+    "_rev": "YznCOxAGVi8db8FBBn6STT",
+    "_type": "clientIndustry",
+    "_updatedAt": "2022-01-05T04:26:56Z",
+    "description": [
+      {
+        "_key": "36e7097eebb1",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "cfbb453d1ba6",
+            "_type": "span",
+            "marks": [],
+            "text": "ถึงแม้จะมีความท้าทายและข้อจำกัดหลายๆอย่างในการทำโฆษณาผ่านแพลตฟอร์มหลักๆอย่าง Google และ Facebook อุตสาหกรรมนี้ยังคงเป็นอุตสาหกรรมที่น่าตื่นเต้นเนื่องด้วยความต้องการที่เพิ่มขึ้นอย่างต่อเนื่อง\nลูกค้าหรือผู้ใช้บริการส่วนใหญ่ตัดสินใจใช้บริการด้วยความคุ้นเคย ความน่าเชื่อถือ และ ความใกล้ของสถานที่ ซึ่งความคุ้นเคยและความน่าเชื่อถือนั้นสามารถสร้างได้ผ่านการสร้างการรับรู้แบรนด์ ซึ่งเป็นเรื่องที่เราทำให้กับลูกค้าหลายรายมาตลอดหลายปี ถึงแม้เรื่องของความใกล้ของสถานที่จะเป็นเรื่องที่เหนือการควบคุมของเรา แต่ก็มั่นใจได้ว่าเราจะทำให้ธุรกิจหรือแบรนด์ของคุณเป็นที่รับรู้และมองเห็นได้อย่างถูกที่ถูกเวลาอย่างแน่นอน"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      }
+    ],
+    "industry": "สุขภาพและการรักษา"
+  },
+  {
+    "_createdAt": "2021-11-23T02:28:53Z",
+    "_id": "fd51f579-34a9-47a2-88f2-9f016e95a969",
+    "_rev": "CJYsbWsXiiC0cTI8W0qTb5",
+    "_type": "clientIndustry",
+    "_updatedAt": "2021-12-22T00:07:34Z",
+    "description": [
+      {
+        "_key": "36e7097eebb1",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "f7b9437eb233",
+            "_type": "span",
+            "marks": [],
+            "text": "While the health industry is challenging due to many restrictions on major platforms such as Google and Facebook, there are also one of the most exciting industries because of the increasing demand. Similar to the fitness industry, customers make decisions based on familiarity, credibility and proximity. Familiarity and credibility can be achieved by building awareness for your brand which is something we have been helping our clients achieve for the past years. While proximity isn't something we have control over, we can ensure that your brand is visible and is present at the right place and time."
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      }
+    ],
+    "industry": "Healthcare"
   }
 ]

@@ -8,7 +8,6 @@ import SlideIn from '../animation/SlideIn';
 
 
 const IndustrySlides = ({ contents }) => {
-    // dotsClass={style.dots}
     return (
         <SlideIn className=" lg:p-20 md:p-20 p-2 ">
             <Slider {...about_settings} className="flex items-center justify-center">
