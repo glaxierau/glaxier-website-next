@@ -3,6 +3,9 @@ import Link from 'next/link'
 import NewsletterSubscribe from './NewsletterSubscribe'
 import Img from 'next/image'
 import { useSelector } from 'react-redux'
+import LocationOnIcon from '@mui/icons-material/LocationOn';
+import EmailIcon from '@mui/icons-material/Email';
+import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
 
 const Footer = () => {
     const { state } = useSelector(s => s.state)
@@ -21,11 +24,18 @@ const Footer = () => {
                         {/* location  */}
                         <div className="my-6 mx-4" >
 
-                            <FooterLink src="/assets/img/footer/location.svg" alt="location" href="https://goo.gl/maps/CsG48GVUC6eXEDk37" width={true} content="6 Motorway road, Prawet Bangkok 10250" />
+                            <FooterLink src="/assets/img/footer/location.svg" alt="location" href="https://goo.gl/maps/CsG48GVUC6eXEDk37" width={true} content="6 Motorway road, Prawet Bangkok 10250">
+                                <LocationOnIcon className='text-white' fontSize='large' />
+                            </FooterLink>
                             {/* phone  */}
-                            <FooterLink src="/assets/img/footer/phone.svg" href="tel:+61424555959" alt="phone" content="+61 424 555 959" />
+                            <FooterLink src="/assets/img/footer/phone.svg" href="tel:+61424555959" alt="phone" content="+61 424 555 959">
+                                <EmailIcon className='text-white' fontSize='large' />
+
+                            </FooterLink>
                             {/* email  */}
-                            <FooterLink src="/assets/img/footer/mail.svg" href="mailto:tan@glaxier.com.au" alt="mail" content="tan@glaxier.com.au" />
+                            <FooterLink src="/assets/img/footer/mail.svg" href="mailto:tan@glaxier.com.au" alt="mail" content="tan@glaxier.com.au">
+                                <LocalPhoneIcon className='text-white' fontSize='large' />
+                            </FooterLink>
                         </div>
                     </div>
                     <div className="flex items-start justify-start  w-full h-full lg:py-6 md:py-6 py-9">
