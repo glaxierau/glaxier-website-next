@@ -36,7 +36,7 @@ const MobileNavList = ({ nav, navs, setNav }) => {
             {nav?.map(nav => (
                 <div key={nav._id} className="relative bg-white-dark">
                     <Link href={nav.slug} passHref>
-                        <p className={`text-${router.asPath === nav.slug ? 'red' : 'purple'}  hover:text-red cursor-pointer font-extrabold text-3xl my-5 bg-white-dark`} onClick={() => setNav(false)}>{nav.languages.title}</p>
+                        <h3 className={`text-${router.asPath === nav.slug ? 'red' : 'purple'}  hover:text-red cursor-pointer font-bold text-3xl my-5 bg-white-dark`} onClick={() => setNav(false)}>{nav.languages.title}</h3>
                     </Link>
                     <DropDown dropdown={nav.subMenu || []} />
                 </div>
