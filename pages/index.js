@@ -4,12 +4,11 @@ import Banner from "../components/Banner";
 import Client from "../components/client/Client";
 import Project from "../components/project/Project";
 import Service from "../components/service/Service";
-import Articles from "../components/articles/Articles";
 import Testimonial from "../components/testimonial/Testimonial";
 import { getData } from "../hooks/getData"
-import articles from '../config/articles'
 
 export default function Home(props) {
+
   return (
     <div className="">
       <Head title={props.pageInfo.metadata.metaTitle} description={props.pageInfo.metadata.mataDescription} />

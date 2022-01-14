@@ -3,7 +3,7 @@ import Img from 'next/image'
 import { sanitize } from '../../utils/miscellanous'
 import { useSizeLessThan } from '../../hooks/useWindowSize'
 
-const NewsletterForm = ({ status, message, onValidated }) => {
+const NewsletterForm = ({ status, message, onValidated, label }) => {
     const sm = useSizeLessThan(600)
     const [email, setEmail] = useState('')
     const [openAlert, setAlert] = useState(false)
@@ -44,7 +44,7 @@ const NewsletterForm = ({ status, message, onValidated }) => {
     return (
         <>
             <div className={`relative flex items-center justify-between w-full bg-white rounded-full p-6 h-12 mt-5 transition-opacity ${status === 'error' && !sm ? 'outline outline-yellow-400 shadow-md' : 'outline-none'}`}>
-                <input type="email" name='email' value={email} placeholder="Enter your email"
+                <input type="email" name='email' value={email} placeholder={label}
                     className="w-11/12 text-gray-500 placeholder:text-base text-base"
                     onChange={e => setEmail(e.target.value)}
                     onKeyUp={e => handleInputKeyEvent(e)}

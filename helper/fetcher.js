@@ -1,13 +1,14 @@
 import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import { navListQuery } from "../config/queries"
+import { navListQuery, generalSettings, footer } from "../config/queries"
 import { client } from "../hooks/getData"
 
 export const FetcherUI = ({ lang }) => {
     return (
         <>
             <DATAGETTER type='nav' lang={lang} query={navListQuery} />
-            <DATAGETTER type='footer' lang={lang} query={navListQuery} />
+            <DATAGETTER type='general' lang={lang} query={generalSettings} />
+            <DATAGETTER type='footer' lang={lang} query={footer} />
         </>
     )
 

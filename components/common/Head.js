@@ -18,7 +18,7 @@ const SectionHead = ({ title, description, children }) => {
             <meta name="description" content={description} />
             <meta property="og:title" content={title} />
             <meta property="og:description" content={description} />
-            <meta property="og:image" content="https://glaxier.com.au/_next/image?url=%2Fassets%2Fsvg%2Flogo.svg&w=96&q=75" />
+            <meta property="og:image" content="https://cdn.sanity.io/images/a49e7mel/production/b01a4f79a354492c65846127f017b617690660a3-505x526.svg" />
             {children}
         </Head>
     )

@@ -19,3 +19,15 @@ export const navListQuery = `*[ _type == "menu" ]{
     },
     "slug": slug.current
   }`
+
+export const generalSettings = `
+  *[_type == 'generalSetting'][1]{
+    "companyContent": companyContent[language->.language == $lang][0],
+    companyName,
+    logo{asset->},
+    favicon{asset->}
+  }`
+export const footer = `
+  *[_type == 'footer'][0]{
+        footerDetail[languageOption->.language == $lang][0]
+  }`

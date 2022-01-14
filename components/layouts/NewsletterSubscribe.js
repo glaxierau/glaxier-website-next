@@ -1,7 +1,7 @@
 import MailchimpSubscribe from 'react-mailchimp-subscribe';
 import NewsletterForm from './NewsletterForm';
 
-const NewsletterSubscribe = () => {
+const NewsletterSubscribe = ({ label }) => {
 
     const id = process.env.NEXT_PUBLIC_MAILCHIMP_LIST_ID
     const u = process.env.NEXT_PUBLIC_MAILCHIMP_U
@@ -14,11 +14,13 @@ const NewsletterSubscribe = () => {
                 const { subscribe, status, message } = props || {};
                 return (
                     <NewsletterForm
+                        label={label}
                         status={status}
                         message={message}
                         onValidated={formData => subscribe(formData)}
                     />
                 );
+
             }}
         />
     );
