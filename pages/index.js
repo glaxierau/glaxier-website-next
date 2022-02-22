@@ -8,7 +8,7 @@ import Testimonial from "../components/testimonial/Testimonial";
 import { getData } from "../hooks/getData"
 
 export default function Home(props) {
-
+  console.log(props)
   return (
     <div className="">
       <Head title={props.pageInfo.metadata.metaTitle} description={props.pageInfo.metadata.mataDescription} />
