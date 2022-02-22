@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import { useMobileScreen, useSizeLessThan } from '../../hooks/useWindowSize'
 import Circle from '../particles/Circle'
@@ -8,9 +8,10 @@ import SlideIn from '../animation/SlideIn'
 import AppButton from '../AppButton'
 import BlockContent from '../BlockContent/BlockContent'
 import Img from 'next/image'
+import { useRouter } from 'next/router'
 
 const Service = (props) => {
-
+    const router = useRouter()
     const { paddingBottom = false, services, defaultDescription, defaultSubtitle, defaultTitle, _id } = props
     const defaultServiceMap = { id: _id, serviceTitle: defaultTitle, serviceSubtitle: defaultSubtitle, serviceDescription: defaultDescription, hash: {} }
 
@@ -23,6 +24,10 @@ const Service = (props) => {
         const serviceIndex = services.filter(s => s.bubbleServiceName === innerText)[0]
         setIndex(serviceIndex)
     }
+
+    useEffect(() => {
+        setIndex(defaultServiceMap)
+    }, [props])
 
 
     // -------------------- Screen Responsiveness ---------------
