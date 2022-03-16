@@ -1,84 +1,47 @@
-import { useState } from 'react'
+const DigitalAdvertising = () => {
+    const data = [1, 2, 3, 4]
 
-export default function Page({ ...props }) {
-    const fields = [{ value: '4' }, { value: '3' }]
+    function GridResult(props) {
+        const gridConfig = {
+            colNum: 1,
+            maxRowNum: 3,
+        }
 
-    const [formState, setFormState] = useState(fields)
+        switch (data.length) {
+            case 1:
+                gridConfig.colNum = 2
+                break
+            default:
+                gridConfig.maxRowNum = data.length - 1
+                break
+        }
 
-    function setSelectedOption(value, index) {
-        const state = [...formState]
-        state[index].value = value
-        setFormState(state)
-    }
-
-    function addOption() {
-        const options = [...formState]
-        options.push({
-            value: '',
-        })
-        setFormState(options)
-    }
-
-    function removeOption(index) {
-        const options = [...formState]
-        console.log(JSON.stringify(options))
-        console.log(index)
-        options.splice(index, 1)
-        console.log(JSON.stringify(options))
-        setFormState(options)
-    }
-
-    function Select(props) {
-        const index = props.index
-        const currentValue = formState[index].value
         return (
-            <div className="flex w-screen items-center">
-                <select
-                    onChange={(e) => {
-                        setSelectedOption(e.target.value, index)
-                    }}
-                    value={currentValue}
-                    className="w-20 m-4"
-                >
-                    <option value=""></option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                </select>
-                <button
-                    className="block w-56 h-10 m-10 cursor-pointer bg-red text-white"
-                    onClick={() => {
-                        addOption()
-                    }}
-                >
-                    add
-                </button>
-                <button
-                    className="block w-56 h-10 m-10 cursor-pointer bg-red text-white"
-                    onClick={() => {
-                        removeOption(index)
-                    }}
-                >
-                    remove
-                </button>
-                <div>{JSON.stringify(formState)}</div>
+            <div className={`grid grid-cols-2 gap-3`}>
+                {data.map((item, index) => {
+                    return (
+                        <div
+                            className={`row-span-${
+                                4 - gridConfig.maxRowNum
+                            }  bg-blue-500 first:row-span-3 col-span-${
+                                gridConfig.colNum
+                            } first:bg-red-500`}
+                            key={index}
+                        >
+                            {item}
+                        </div>
+                    )
+                })}
             </div>
         )
     }
 
-    function Selects() {
-        return formState.map((select, index) => {
-            return (
-                <Select key={index} value={select.value} index={index}></Select>
-            )
-        })
-    }
-
     return (
-        <>
-            <h1>This is the digital advertising page</h1>
-            <Selects></Selects>
-        </>
+        <div>
+            <h1 className="text-2xl text-center mb-10">Digital Advertising</h1>
+            <GridResult />
+        </div>
     )
 }
+
+export default DigitalAdvertising
