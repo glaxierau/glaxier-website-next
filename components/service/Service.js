@@ -8,10 +8,8 @@ import SlideIn from '../animation/SlideIn'
 import AppButton from '../AppButton'
 import BlockContent from '../BlockContent/BlockContent'
 import Img from 'next/image'
-import { useRouter } from 'next/router'
 
 const Service = (props) => {
-    const router = useRouter()
     const { paddingBottom = false, services, defaultDescription, defaultSubtitle, defaultTitle, _id } = props
     const defaultServiceMap = { id: _id, serviceTitle: defaultTitle, serviceSubtitle: defaultSubtitle, serviceDescription: defaultDescription, hash: {} }
 

@@ -28,6 +28,9 @@ export default function Page({ ...props }) {
         setFormState(options)
     }
 
+
+    console.log(formState)
+
     function Select(props) {
         const index = props.index
         const currentValue = formState[index].value

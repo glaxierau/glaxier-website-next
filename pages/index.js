@@ -9,7 +9,7 @@ import { getData } from "../hooks/getData"
 
 export default function Home(props) {
   return (
-    <div className="">
+    <div>
       <Head title={props.pageInfo.metadata.metaTitle} description={props.pageInfo.metadata.mataDescription} />
       <Banner {...props} />
       <Service {...props.serviceSection} {...props.introductionSection} />
