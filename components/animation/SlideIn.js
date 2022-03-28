@@ -15,7 +15,6 @@ const SlideIn = ({ style, children, y = 50, delay = 0, ...otherProps }) => {
         if (!inView) {
             controls.start('hidden')
         }
-
     }, [controls, inView])
 
     const animationVariants = {
@@ -23,9 +22,15 @@ const SlideIn = ({ style, children, y = 50, delay = 0, ...otherProps }) => {
         visible: {
             opacity: 1,
             y: 0,
-            transition: { duration: 0.2, type: 'spring', stiffness: sm ? 100 : 70, staggerChildren: 0.2, delayChildren: 0.2, delay }
+            transition: {
+                duration: 0.2,
+                type: 'spring',
+                stiffness: sm ? 100 : 70,
+                staggerChildren: 0.2,
+                delayChildren: 0.2,
+                delay,
+            },
         },
-
     }
     return (
         <motion.div
