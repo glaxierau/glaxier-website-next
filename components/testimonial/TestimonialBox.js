@@ -23,9 +23,8 @@ const TestimonialBox = ({ position, name, text, image }) => {
             <br />
             <motion.div
                 animate={{ height: clicked ? 'auto' : '14rem' }}
-                className={`${
-                    clicked ? 'h-auto' : 'h-60'
-                } flex flex-col items-start justify-center cursor-text`}
+                className={`${clicked ? 'h-auto' : 'h-60'
+                    } flex flex-col items-start justify-center cursor-text`}
                 onClick={() => setClicked(!clicked)}
             >
                 <motion.p className="text-black-light text-sm">
@@ -39,7 +38,7 @@ const TestimonialBox = ({ position, name, text, image }) => {
             </motion.div>
             <div className="flex mt-5">
                 <Badge
-                    className="lg:mx-0 lg:mr-5 m-0"
+                    // className="lg:mx-0 lg:mr-5 m-0"
                     height="12"
                     width="12"
                     image={image}
