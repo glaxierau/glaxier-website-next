@@ -1,11 +1,11 @@
-import Head from "../components/common/Head";
-import About from "../components/about/About";
-import Banner from "../components/Banner";
-import Client from "../components/client/Client";
-import Project from "../components/project/Project";
-import Service from "../components/service/Service";
-import Testimonial from "../components/testimonial/Testimonial";
-import { getData } from "../hooks/getData"
+import Head from '../components/common/Head'
+import About from '../components/about/About'
+import Banner from '../components/Banner'
+import Client from '../components/client/Client'
+import Project from '../components/project/Project'
+import Service from '../components/service/Service'
+import Testimonial from '../components/testimonial/Testimonial'
+import { getData } from '../hooks/getData'
 
 export default function Home(props) {
   return (
