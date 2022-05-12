@@ -8,6 +8,7 @@ const Testimonial = ({ testimonials }) => {
     const style = {
         height: '100vh',
     }
+    console.log(testimonials)
     return (
         <>
             <div className="xl:h-cscreen lg:h-cscreen snap-center relative flex flex-col items-center justify-center lg:py-32 py-5">
@@ -19,7 +20,7 @@ const Testimonial = ({ testimonials }) => {
                 <div className="lg:mb-24 mb-10" />
                 <SlideIn className="w-full lg:px-28 md:px-20 px-10">
                     <Slider {...testimonial_settings}>
-                        {testimonials.map(({ content, logo }) => (
+                        {testimonials.map(({ content, client }) => (
                             <TestimonialBox
                                 key={content[0]._key}
                                 position={content[0].position}
@@ -27,7 +28,7 @@ const Testimonial = ({ testimonials }) => {
                                 text={
                                     content[0].testimonial[0].children[0].text
                                 }
-                                image={logo.image}
+                                image={client.logo.image}
                             />
                         ))}
                     </Slider>
