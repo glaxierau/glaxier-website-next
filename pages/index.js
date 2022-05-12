@@ -33,7 +33,8 @@ export async function getStaticProps(context) {
       ctaBreakSection->,
       pageInfo{...,lang->},
       serviceSection->,
-      testimonialSection{...,testimonials[]->}}`)
+      testimonialSection{...,testimonials[]->{...,content[language->language == '${lang}']}}
+    }`)
 
   return { props }
 }

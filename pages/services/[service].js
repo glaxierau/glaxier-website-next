@@ -56,7 +56,6 @@ export const getStaticPaths = async (ctx) => {
             params: { service: slug.slug }
         }
     })
-    console.log(ctx)
     return {
         paths,
         fallback: 'blocking'
