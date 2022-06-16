@@ -7,6 +7,7 @@ import ContactTitle from '../../components/contact/Title'
 import { pushDataLayer } from '../../helper/pushDataLayer'
 import { getData } from '../../hooks/getData'
 import { useSizeLessThan } from '../../hooks/useWindowSize'
+import { pushDataLayerForm } from '../../helper/pushDataLayer'
 import axios from 'axios'
 
 function AI({ additonalInfoSection }) {
@@ -36,6 +37,7 @@ function AI({ additonalInfoSection }) {
             const response = await axios.patch('/api/audiences/update', content)
             const resStatus = response.data.status
             if (resStatus === 'subscribed' || resStatus === 'unsubscribed') {
+                pushDataLayerForm('Contact Form Completed')
                 alert('Submitted successfully!'), router.push('/')
             } else throw JSON.parse(response.data.response.text).title
         } catch (err) {

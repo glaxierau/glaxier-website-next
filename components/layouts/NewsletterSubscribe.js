@@ -1,8 +1,7 @@
-import MailchimpSubscribe from 'react-mailchimp-subscribe';
-import NewsletterForm from './NewsletterForm';
+import MailchimpSubscribe from 'react-mailchimp-subscribe'
+import NewsletterForm from './NewsletterForm'
 
 const NewsletterSubscribe = ({ label }) => {
-
     const id = process.env.NEXT_PUBLIC_MAILCHIMP_LIST_ID
     const u = process.env.NEXT_PUBLIC_MAILCHIMP_U
     const MAILCHIMP_URL = `https://glaxier.us2.list-manage.com/subscribe/post?u=${u}&amp;id=${id}`
@@ -10,20 +9,18 @@ const NewsletterSubscribe = ({ label }) => {
     return (
         <MailchimpSubscribe
             url={MAILCHIMP_URL}
-            render={(props) => {
-                const { subscribe, status, message } = props || {};
+            render={({ subscribe, status, message }) => {
                 return (
                     <NewsletterForm
                         label={label}
                         status={status}
                         message={message}
-                        onValidated={formData => subscribe(formData)}
+                        onValidated={(formData) => subscribe(formData)}
                     />
-                );
-
+                )
             }}
         />
-    );
-};
+    )
+}
 
-export default NewsletterSubscribe;
+export default NewsletterSubscribe
