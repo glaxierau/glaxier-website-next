@@ -32,6 +32,17 @@ function Cd({ personalDetailSection }) {
         )
     }
 
+    const pushDataLayerContactSaved = () => {
+        pushDataLayerForm(
+            'Contact Added Successful',
+            type,
+            _form.firstName,
+            _form.lastName,
+            _form.email,
+            _form.phoneNumber
+        )
+    }
+
     const onGettingInput = (e) => {
         const value = e.target.value
         const name = e.target.name
@@ -70,8 +81,13 @@ function Cd({ personalDetailSection }) {
                 const response = await axios.put('/api/audiences/add', content)
                 const resStatus = response.data.status
                 console.log(response.data.status)
-                if (resStatus === 'subscribed' || resStatus === 'unsubscribed') router.push('/contact/industry-of-business')
-                else throw JSON.parse(response.data.response.text).title
+                if (
+                    resStatus === 'subscribed' ||
+                    resStatus === 'unsubscribed'
+                ) {
+                    pushDataLayerContactSaved()
+                    router.push('/contact/industry-of-business')
+                } else throw JSON.parse(response.data.response.text).title
             } catch (err) {
                 alert(err)
             }
