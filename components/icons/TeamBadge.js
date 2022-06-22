@@ -15,18 +15,18 @@ const TeamBadge = ({ name = 'Name', position = 'position', image, index }) => {
                 />
             )}
             <div
-                className="absolute h-12 bottom-0 w-full flex flex-col items-center justify-start text-white"
+                className="absolute h-14 bottom-0 w-full flex flex-col items-center justify-start text-white"
                 style={{
                     backgroundColor: 'rgba(0, 0, 0, 0.4)',
                     boxShadow: '0px 1px 9px 10px rgba(0,0,0,0.4)',
                 }}
             >
-                <h6 className="" style={{ fontSize: '0.75rem' }}>
+                <h6 className="" style={{ fontSize: '0.85rem' }}>
                     {name}
                 </h6>
                 <p
-                    className="text-xs w-24 text-center leading-tight"
-                    style={{ fontSize: '0.60rem' }}
+                    className="text-xs w-[75%] text-center leading-tight"
+                    style={{ fontSize: '0.7rem' }}
                 >
                     {position}
                 </p>
