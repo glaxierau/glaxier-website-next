@@ -10,10 +10,10 @@ export default function Flags({ inline = true }) {
     return (
         <div className={`${inline && 'flex'}`}>
             <li onClick={() => onChangingFlag('en-au')}>
-                <AU className='relative w-14' />
+                <AU className='relative lg:w-[55px] w-[30px] cursor-pointer' />
             </li>
             <li onClick={() => onChangingFlag('th-th')}>
-                <TH className={`relative w-14 ${inline && 'ml-5'}`} />
+                <TH className={`relative lg:w-[55px] w-[30px] cursor-pointer ${inline && 'ml-5'}`} />
             </li>
         </div>
     )
