@@ -74,5 +74,16 @@ module.exports = {
       animation: ["motion-safe"]
     },
   },
-  plugins: [],
+  plugins: [require('daisyui')],
+
+  daisyui: {
+    styled: true,
+    themes: true,
+    base: false,
+    utils: true,
+    logs: true,
+    rtl: false,
+    prefix: "",
+    darkTheme: "light",
+  },
 }
