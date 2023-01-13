@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
-import DropDown from '../layouts-old/DropDown'
+import DropDown from '../layouts/DropDown'
 import { useMobileScreen } from '../../hooks/useWindowSize'
 import { useRouter } from 'next/router'
 
