@@ -1,8 +1,11 @@
 import React from 'react'
-export default function BlogCard() {
+
+export default function BlogCard({ width = 250, height = 200, className }) {
     return (
-        <div className='w-[250px] h-[200px] drop-shadow-md bg-white m-auto my-10  cursor-pointer'>
-            <div className="h-[60%] bg-blue-100">
+        <div className={`${className} w-[250px] h-[200px] drop-shadow-md bg-white cursor-pointer`}
+        // style={{ width, height }}
+        >
+            <div className="h-[60%] bg-purple">
                 {/* Image */}
             </div>
             <div className="">
