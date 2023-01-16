@@ -48,7 +48,8 @@ module.exports = {
       fontSize: {
         xss: '0.6rem',
         xs: '0.9rem',
-        small: '1rem'
+        small: '1rem',
+        'es': '5px',
       },
       fill: {
         purple: '#9FB0E4',
