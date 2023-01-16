@@ -4,10 +4,10 @@ import styles from '../../../styles/Blogs.module.css'
 export default function SingleBlog() {
     return (
         <div className={`${styles.article_style} lg:w-[70vw] md:w-[95vw] w-[92vw] m-auto`}>
-            <div className='bg-gray-200 h-[350px]'>
-                <h2 className="font-bold">Title</h2>
-                <p>Info about the article</p>
-                <div className='h-[100%] bg-gray-400'>Image</div>
+            <div className='h-[350px]'>
+                <h2 className="font-bold text-xl my-2">Title</h2>
+                <p className='my-2'>Info about the article</p>
+                <div className='h-[100%] bg-gray-400'></div>
             </div>
             <div className='bg-gray-100 text-gray-400 p-5'>
                 <div>Author</div>
@@ -15,11 +15,17 @@ export default function SingleBlog() {
                 <div>Tag</div>
                 <div>Excerpt</div>
             </div>
-            <div className=' p-10'>{text}</div>
+            <div className='lg:p-10 lg:pt-20 p-5'>{text}</div>
             <div>Similar acticles
                 {Array.from(Array(4).keys()).map((index) => {
                     return (
-                        <div key={index} className={`${styles.similar_articles} bg-blue-200 my-5`}>Article {index}</div>
+                        <div
+                            key={index}
+                            className={`${styles.similar_articles} bg-white shadow-sm my-10 cursor-pointer hover:scale-[1.015] transition-all`}
+                        >
+                            <div className='h-[65%] bg-gray-300' />
+                            <div className=''></div>
+                        </div>
                     )
                 })}
             </div>

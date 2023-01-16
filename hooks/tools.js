@@ -1,7 +1,8 @@
-import React from 'react'
 import { useNextSanityImage } from 'next-sanity-image'
 import { client } from './getData'
 import { sanitize } from '../utils/miscellanous'
+import imageUrlBuilder from '@sanity/image-url'
+
 
 export function useSanityImage(image, customSize = true) {
     const value = useNextSanityImage(client, image)
@@ -10,6 +11,12 @@ export function useSanityImage(image, customSize = true) {
         delete value.height
     }
     return value
+}
+
+
+const builder = imageUrlBuilder(client)
+export function urlFor(source) {
+    return builder.image(source)
 }
 
 export const shortenText = (text, lenght = 160) => {
