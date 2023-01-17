@@ -1,8 +1,14 @@
 export const blogs =
-    `*[_type == 'articles' && __i18n_lang == $lang]| order(_createdAt asc)[0..10]{
+  `*[_type == 'articles' && __i18n_lang == $lang] | order(_createdAt desc)[$fIndex...$lIndex]{
     title,
     featuredImage,
     shortDescription,
     _createdAt, 
-    author
+    "category": articleCategory->{...category{slug}},
+    slug
   }`
+
+export const allBlogs = `*[_type == 'articles' && __i18n_lang == $lang ]{title}`
+
+
+  // && __i18n_lang == $lang
