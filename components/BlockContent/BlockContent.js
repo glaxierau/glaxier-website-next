@@ -10,6 +10,7 @@ function BlockContent(props) {
         normalColor = 'text-black-light',
         custom = [{ type: 'normal', className: 'text-white' }],
         shortenChar = false,
+        blocks,
         ...otherProps
     } = props
 
@@ -86,7 +87,7 @@ function BlockContent(props) {
 
     return (
         <div>
-            <SanityBlockContent {...otherProps} serializers={serializers} />
+            <SanityBlockContent {...otherProps} serializers={serializers} blocks={blocks} />
         </div>
     )
 }

@@ -1,5 +1,5 @@
 import { client } from '../../../hooks/getData'
-import { allBlogs, blogs } from '../../../sanity/queries'
+import { allBlogs, blogs } from '../../../sanity/blogQueries'
 export default async function blogsAPI(req, res) {
     const lang = req.query.lang
     const page = +req.query.page

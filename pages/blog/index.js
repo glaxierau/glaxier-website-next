@@ -42,7 +42,7 @@ export default function Blogs() {
             />
             <div className={`lg:w-[75vw] md:w-[95vw] w-[92vw] h-auto mx-auto ${page !== 1 && 'hidden'}`}>
                 <h1 className='text-[50px] font-extrabold text-purple mt-10'>Blogs</h1>
-                <p className='my-5 mb-14 lg:w-[60%]'>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour.</p>
+                <p className='my-5 mb-14 lg:w-[60%] md:w-[60%]'>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour.</p>
             </div>
             <div className={`${styles.blogs_grid} lg:w-[75vw] md:w-[95vw] w-[92vw] h-auto mx-auto my-4`}>
                 {blogs.length !== 0 && blogs?.map(({ title, shortDescription, featuredImage, _createdAt, category, slug }, index) => {
@@ -75,8 +75,8 @@ export default function Blogs() {
                     )
                 })}
             </div>
-            {blogs.length === 0 && <p className='w-full text-center text-purple'>No blogs to show</p>}
-            <Pagination items={Math.ceil(blogsLength / 8)} />
+            {blogs.length === 0 && <p className='w-full text-center text-purple my-10'>No blogs to show</p>}
+            {blogs.length !== 0 && <Pagination items={Math.ceil(blogsLength / 8)} />}
         </>
     )
 }
