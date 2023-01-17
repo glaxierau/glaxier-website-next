@@ -7,5 +7,6 @@ export const languageToUpperCase = (language) => {
 
 export const timeStamp = (date) => {
     const d = new Date(date)
-    return `${d.getDate()}-${d.getUTCMonth()}-${d.getFullYear()}`
+    const month = d.getMonth() < 10 ? `0${d.getMonth() + 1}` : d.getMonth() + 1
+    return `${d.getDate()}/${month}/${d.getFullYear()}`
 }
