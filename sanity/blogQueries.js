@@ -13,12 +13,13 @@ export const allBlogs = `*[_type == 'articles' && __i18n_lang == $lang ]{
   "category": articleCategory->{...category{slug}},
 }`
 
-export const singleBlog = 
-`*[_type == 'articles' 
+export const singleBlog =
+  `*[_type == 'articles' 
     && slug == $slug 
     && __i18n_lang == $lang 
     && articleCategory->.category.slug == $category][0]
         {
+        _id,
         title,
         shortDescription,
         featuredImage,
@@ -30,3 +31,16 @@ export const singleBlog =
         "category": articleCategory->{...category{slug}},
         status
         }`
+
+export const similarArticles =
+  `*[_type == 'articles'
+&& __i18n_lang == $lang 
+&& articleCategory->.category.slug == $category][0...6] | order(_createdAt desc)
+    {
+    _id,
+    title,
+    shortDescription,
+    featuredImage,
+    "category": articleCategory->{...category{slug}},
+    slug
+    }`
