@@ -36,7 +36,6 @@ export default function SingleBlog(props) {
                 <div className={`${styles.title} h-auto`}>
                     <h1 className="my-4 text-purple text-3xl font-extrabold lg:w-[60%]">{title}</h1>
                     <p className='my-2 text-gray-500 mb-5'>{shortDescription}</p>
-
                 </div>
 
                 {/* ------------ Featured Image ------------ */}

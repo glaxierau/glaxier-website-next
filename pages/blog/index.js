@@ -48,7 +48,7 @@ export default function Blogs() {
                 {blogs.length !== 0 && blogs?.map(({ title, shortDescription, featuredImage, _createdAt, category, slug }, index) => {
                     return (
                         <Link key={index} href={`/blog/${category.slug}/${slug}`} passHref>
-                            <div className="relative bg-white shadow-sm cursor-pointer hover:shadow-xl hover:scale-[1.005] transition-all">
+                            <div className="relative bg-white shadow-sm cursor-pointer hover:shadow-xl hover:scale-[1.005] transition-all rounded-lg overflow-hidden">
                                 <aside className="relative h-[65%] bg-gray-300">
                                     <Image
                                         src={urlFor(featuredImage.image).height(400).url()}
