@@ -75,7 +75,7 @@ export default function Blogs() {
                     )
                 })}
             </div>
-            {blogs.length === 0 && <p className='w-full text-center text-purple my-10'>No blogs to show</p>}
+            {blogs.length === 0 && <p className='w-full text-center text-purple my-10'>Loading...</p>}
             {blogs.length !== 0 && <Pagination items={Math.ceil(blogsLength / 8)} />}
         </>
     )

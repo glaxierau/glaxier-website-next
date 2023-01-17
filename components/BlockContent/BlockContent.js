@@ -1,7 +1,9 @@
 import SanityBlockContent from '@sanity/block-content-to-react'
-import React from 'react'
+import React, { useState } from 'react'
 import style from '../../styles/Services.module.css'
-import { shortenText } from '../../hooks/tools'
+import { urlFor } from '../../hooks/tools'
+import Image from 'next/image'
+import FsLightbox from 'fslightbox-react'
 
 
 function BlockContent(props) {
@@ -18,14 +20,6 @@ function BlockContent(props) {
         types: {
             block: (props) => {
                 const { style = "normal" } = props.node;
-                // if (/^h\d/.test(style)) {
-                //     const level = style.replace(/[^\d]/g, "");
-                //     return React.createElement(
-                //         style,
-                //         { className: `heading-${level}` },
-                //         props.children
-                //     );
-                // }
                 custom.map(c => {
                     if (style === c.type) {
                         return React.createElement(
@@ -57,7 +51,9 @@ function BlockContent(props) {
                     <pre data-language={props.node.language}>
                         <code className="leading-normal">{props.node.code}</code>
                     </pre>
-                )
+                ),
+            singleImage: SingleImage
+
         },
         list: (props) =>
             console.log("list", props) ||
@@ -80,14 +76,34 @@ function BlockContent(props) {
             link: (props) => <a className="text-base text-purple" href={props.mark.href}>{props.children}</a>,
             span: (props) => <span className="text-base text-red">{props.children}</span>,
         },
-
-        container: ({ children }) => children
-
+        container: ({ children }) => children,
     };
 
     return (
         <div>
             <SanityBlockContent {...otherProps} serializers={serializers} blocks={blocks} />
+        </div>
+    )
+}
+
+const SingleImage = ({ node: { image } }) => {
+    const [toggler, setToggler] = useState(false)
+    return (
+        <div className='relative w-full h-[350px] my-10'>
+            <Image
+                src={urlFor(image).url()}
+                className="object-cover bg-no-repeat rounded-lg cursor-pointer"
+                layout="fill"
+                format="auto"
+                fit="max"
+                alt={image.alt || ''}
+                title={image.title || ''}
+                onClick={() => setToggler(!toggler)}
+            />
+            <FsLightbox
+                toggler={toggler}
+                sources={[urlFor(image).height(800).url()]}
+            />
         </div>
     )
 }

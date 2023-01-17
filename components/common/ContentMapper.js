@@ -8,7 +8,6 @@ import { useEffect, useState } from "react"
 
 
 function ContentMapper({ content }) {
-    console.log(content)
     return content.map(({ _type, _key }) => {
         switch (_type) {
             case 'content':
