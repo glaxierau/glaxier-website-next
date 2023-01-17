@@ -7,8 +7,8 @@ import imageUrlBuilder from '@sanity/image-url'
 export function useSanityImage(image, customSize = true) {
     const value = useNextSanityImage(client, image)
     if (customSize) {
-        delete value.width
-        delete value.height
+        // delete value.width
+        // delete value.height
     }
     return value
 }
