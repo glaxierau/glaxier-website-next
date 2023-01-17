@@ -14,22 +14,6 @@ module.exports = {
                     'https://a49e7mel.api.sanity.io/v1/data/query/production?query=',
             },
             {
-                source: '/blog',
-                destination: 'https://lp.glaxier.com.au/',
-            },
-            {
-                source: '/th/blog',
-                destination: 'https://lp.glaxier.com.au/th',
-            },
-            {
-                source: '/blog/:slug',
-                destination: 'https://lp.glaxier.com.au/:slug/',
-            },
-            {
-                source: '/th/blog/:slug',
-                destination: 'https://lp.glaxier.com.au/th/:slug/',
-            },
-            {
                 source: '/privacy-policy',
                 destination: 'https://lp.glaxier.com.au/privacy-policy/',
             },

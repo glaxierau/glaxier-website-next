@@ -50,6 +50,7 @@ module.exports = {
         xs: '0.9rem',
         small: '1rem',
         'es': '14px',
+        elg: '2rem'
       },
       fill: {
         purple: '#9FB0E4',
