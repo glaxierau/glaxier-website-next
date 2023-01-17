@@ -1,37 +1,116 @@
-import React from 'react'
+import FsLightbox from 'fslightbox-react'
+import Image from 'next/image'
+import React, { useState } from 'react'
+import ContentMapper from '../../../components/common/ContentMapper'
+import SectionHead from '../../../components/common/Head'
+import { languageToUpperCase, timeStamp } from '../../../helper/functions'
+import { client, getData } from '../../../hooks/getData'
+import { urlFor } from '../../../hooks/tools'
+import { allBlogs, singleBlog } from '../../../sanity/blogQueries'
 import styles from '../../../styles/Blogs.module.css'
 
-export default function SingleBlog() {
+export default function SingleBlog(props) {
+    const {
+        author,
+        category,
+        content,
+        featuredImage,
+        metadata,
+        title,
+        shortDescription,
+        status,
+        tags,
+        _createdAt
+    } = props
+
+    const [toggler, setToggler] = useState(false)
+
     return (
-        <div className={`${styles.article_style} lg:w-[70vw] md:w-[95vw] w-[92vw] m-auto`}>
-            <div className='h-[350px]'>
-                <h2 className="font-bold text-xl my-2">Title</h2>
-                <p className='my-2'>Info about the article</p>
-                <div className='h-[100%] bg-gray-400'></div>
-            </div>
-            <div className='bg-gray-100 text-gray-400 p-5'>
-                <div>Author</div>
-                <div>Date</div>
-                <div>Tag</div>
-                <div>Excerpt</div>
-            </div>
-            <div className='lg:p-10 lg:pt-20 p-5'>{text}</div>
-            <div>Similar acticles
-                {Array.from(Array(4).keys()).map((index) => {
-                    return (
-                        <div
-                            key={index}
-                            className={`${styles.similar_articles} bg-white shadow-sm my-10 cursor-pointer hover:scale-[1.015] transition-all`}
-                        >
-                            <div className='h-[65%] bg-gray-300' />
-                            <div className=''></div>
+        <>
+            <SectionHead title={metadata.metaTitle} description={metadata.metaDescription} />
+            <div className={`${styles.article_style} lg:w-[70vw] md:w-[95vw] w-[92vw] m-auto`}>
+                <div className='h-[500px]'>
+                    <h1 className="my-4 text-purple text-3xl font-extrabold lg:w-[60%]">{title}</h1>
+                    <p className='my-2 text-gray-500 mb-5'>{shortDescription}</p>
+                    <div className='relative lg:h-[400px] h-[350px]'>
+                        <Image
+                            src={urlFor(featuredImage.image).height(600).url()}
+                            className="object-cover bg-no-repeat rounded-lg cursor-pointer"
+                            layout="fill"
+                            alt={featuredImage.image.alt}
+                            title={featuredImage.image.title}
+                            onClick={() => setToggler(!toggler)}
+                        />
+                        <FsLightbox
+                            toggler={toggler}
+                            sources={[urlFor(featuredImage.image).url()]}
+                        />
+                    </div>
+                </div>
+                <div className='text-gray-400 p-5 h-max bg-gray-50 rounded-lg lg:mt-32'>
+                    <div><b>Author:</b> {author}</div>
+                    <div><b>Created on:</b> {timeStamp(_createdAt)}</div>
+                    <div>
+                        <h2><b>Tags:</b></h2>
+                        <div className='flex flex-wrap'>
+                            {
+                                tags?.map((tag, index) => {
+                                    return (
+                                        <p className='bg-white m-1 rounded-full w-max px-2 shadow-sm' key={index}>{tag}</p>
+                                    )
+                                })
+                            }
                         </div>
-                    )
-                })}
+                    </div>
+                </div>
+                <div className='lg:pt-10 md:pt-5 lg:pr-10 leading-8'>
+                    <ContentMapper content={content} />
+                </div>
+                <div>
+                    <h2 className='font-bold text-purple text-xl'>Similar acticles</h2>
+                    {Array.from(Array(4).keys()).map((index) => {
+                        return (
+                            <div
+                                key={index}
+                                className={`${styles.similar_articles} bg-white shadow-sm my-10 cursor-pointer hover:scale-[1.015] transition-all`}
+                            >
+                                <div className='h-[65%] bg-gray-300' />
+                            </div>
+                        )
+                    })}
+                </div>
             </div>
-        </div>
+        </>
+
     )
 }
+
+
+export const getStaticPaths = async (ctx) => {
+    let lang = languageToUpperCase(ctx.defaultLocale)
+    let slugs = await client.fetch(allBlogs, { lang })
+    let paths = slugs.map(slug => {
+        return {
+            params: { blog: slug.slug, category: slug.category.slug }
+        }
+    })
+    return {
+        paths,
+        fallback: 'blocking'
+    }
+}
+
+export const getStaticProps = async (ctx) => {
+    let slug = ctx.params.blog
+    let category = ctx.params.category
+    let lang = languageToUpperCase(ctx.locale)
+    let props = null
+    try {
+        props = await client.fetch(singleBlog, { lang, slug, category })
+    } catch (err) { throw err }
+    return { props }
+}
+
 
 
 

@@ -18,6 +18,7 @@
     "axios": "^0.24.0",
     "dompurify": "^2.3.4",
     "framer-motion": "^5.3.0",
+    "fslightbox-react": "^1.6.3",
     "mailchimp": "^1.2.1",
     "next": "latest",
     "next-absolute-url": "^1.2.2",
