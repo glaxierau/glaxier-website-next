@@ -24,9 +24,9 @@ export default function SingleBlog(props) {
         _createdAt
     } = props.article
 
-    const similarArticles = props.similar_articles
-    similarArticles.filter(a => a._id !== _id)
+    const similarArticles = props.similar_articles.filter(a => a._id !== _id)
     const [toggler, setToggler] = useState(false)
+
     return (
         <>
             <SectionHead title={metadata?.metaTitle} description={metadata?.metaDescription} />
@@ -78,12 +78,12 @@ export default function SingleBlog(props) {
                 </div>
 
                 {/* -------------- Similar Articles ------------- */}
-                <div className={`${styles.sim}`}>
-                    <h2 className='font-bold text-purple text-xl mb-5'>Similar acticles</h2>
+                <div className={`${styles.sim} mt-5`}>
+                    {similarArticles.length !== 0 && <h2 className='font-bold text-purple text-xl mb-10'>Similar articles:</h2>}
                     {similarArticles?.map(({ category, featuredImage, title, shortDescription, slug }, index) => {
                         return (
                             <Link key={index} href={`/blog/${category.slug}/${slug}`} passHref>
-                                <a className={`${styles.similar_articles} bg-white shadow-sm mb-10 cursor-pointer hover:scale-[1.015] transition-all`}>
+                                <a className={`${styles.similar_articles} bg-white shadow-sm mb-10 cursor-pointer hover:scale-[1.015] transition-all rounded-lg overflow-hidden`}>
                                     <div>
                                         <aside className='relative lg:h-[120px] h-[150px]'>
                                             <Image

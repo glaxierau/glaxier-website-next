@@ -59,7 +59,7 @@ const CustomCarousel = ({ images }) => {
         toggler: false,
         slide: 1
     });
-    const all = images.map(image => urlFor(image.image).url())
+    const all = images.map(image => urlFor(image.image).height(800).url())
 
     function openLightboxOnSlide(number) {
         setLightboxController({
