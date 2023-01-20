@@ -19,7 +19,7 @@ const Footer = () => {
         .footerDetail
     return (
         <>
-            <div className="footer static w-screen bg-red rounded-t-lg lg:px-24 md:px-5 px-2">
+            <div className="footer_style static w-screen bg-red rounded-t-lg lg:px-24 md:px-5 px-2">
                 <div className="flex lg:flex-row md:flex-row flex-col justify-center w-full pt-10 pb-5 p-2">
                     <div className="w-full h-full">
                         {/* logo */}
