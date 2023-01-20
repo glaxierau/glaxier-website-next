@@ -34,7 +34,6 @@ const Revenue = ({ revenueSection }) => {
         pushDataLayer('Contact Us', 'Expected Revenue', form[index].revenue)
     }
 
-    // console.log(useWindowSize().width)
     return (
         <div>
             <SectionHead title="Contact Us | Expected Revenue" />

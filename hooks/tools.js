@@ -64,7 +64,6 @@ export const filterArray = (array, match) => {
 }
 export const booleanArray = (array, match) => {
     const newArray = array.filter(v => v === match)
-    console.log(newArray)
     return newArray
 }
 

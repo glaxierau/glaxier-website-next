@@ -8,7 +8,6 @@ import Testimonial from '../components/testimonial/Testimonial'
 import { getData } from '../hooks/getData'
 
 export default function Home(props) {
-    console.log(props)
     return (
         <div>
             <Head
