@@ -1,6 +1,7 @@
 import FsLightbox from 'fslightbox-react'
 import Image from 'next/image'
 import Link from 'next/link'
+import { useRouter } from 'next/router'
 import React, { useState } from 'react'
 import ContentMapper from '../../../components/common/ContentMapper'
 import SectionHead from '../../../components/common/Head'
@@ -26,6 +27,7 @@ export default function SingleBlog(props) {
 
     const similarArticles = props.similar_articles.filter(a => a._id !== _id)
     const [toggler, setToggler] = useState(false)
+    const router = useRouter()
 
     return (
         <>
@@ -60,11 +62,16 @@ export default function SingleBlog(props) {
                     <div><b>Created on:</b> {timeStamp(_createdAt)}</div>
                     <div>
                         <h2><b>Tags:</b></h2>
-                        <div className='flex flex-wrap'>
+                        <div className='flex flex-wrap mt-3'>
                             {
                                 tags?.map((tag, index) => {
                                     return (
-                                        <p className='bg-white mr-1 my-1 rounded-full w-max px-2 shadow-sm' key={index}>{tag}</p>
+                                        <Link key={index} passHref href={{ pathname: '/blog', query: { tags: tag } }}>
+                                            <p className='bg-white text-sm mr-1 my-1 rounded-lg w-max px-2 py-1 shadow-sm cursor-pointer
+                                        transition-all hover:bg-purple hover:text-white'>
+                                                {tag}
+                                            </p>
+                                        </Link>
                                     )
                                 })
                             }
