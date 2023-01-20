@@ -12,11 +12,11 @@ import { blogs, tagsQuery } from '../../sanity/blogQueries'
 import styles from '../../styles/Blogs.module.css'
 import { TfiArrowCircleDown } from 'react-icons/tfi'
 import { AiFillCloseCircle } from 'react-icons/ai'
+import { FiSearch } from 'react-icons/fi'
 
 export default function Blogs(props) {
     const router = useRouter()
     const [tags, setTags] = useState(props.tagsArr)
-    const [selectedTags, setSelectedTags] = useState([])
     const [tagChunk, setTagChunk] = useState(10)
     const [blogsToShow, setBlogsToShow] = useState([])
     const [blogs, setBlogs] = useState(props.blogs)
@@ -25,7 +25,6 @@ export default function Blogs(props) {
     const perChunk = 9
 
     useEffect(() => {
-
         // ----- Filter blogs by tags -----
         const filteredByTags = props.blogs.filter((blog) => {
             const tagsURL = router?.query?.tags
@@ -66,6 +65,16 @@ export default function Blogs(props) {
         setTags(backToNormalCase)
     }
 
+    const onSearchingForBlogs = (e) => {
+        const input = e.target.value.toUpperCase()
+        const filteredBLogs = blogs.filter(blog => {
+            if (blog.title.toUpperCase().includes(input)) {
+                return blog.title.toUpperCase().includes(input)
+            } else return
+        })
+        setBlogsToShow(splitArrayIntoChunks(filteredBLogs))
+    }
+
 
     // ----------  Adding a tag -----------
     const onAddingSelectedTags = (tag) => {
@@ -85,6 +94,7 @@ export default function Blogs(props) {
         else
             router.push({ pathname: router.pathname, query: { ...router.query, tags: queries } })
 
+
     }
 
     const onDeletingSelectedTag = (tag) => {
@@ -101,8 +111,6 @@ export default function Blogs(props) {
 
         }
     }
-
-
     return (
         <>
             <SectionHead
@@ -110,10 +118,23 @@ export default function Blogs(props) {
                 description="Blog"
             />
             {/* ---------- Title ------------ */}
-            <div className={`lg:w-[75vw] md:w-[95vw] w-[92vw] h-auto mx-auto mt-10 ${page !== 1 && 'hidden'}`}>
-                <h1 className='text-[50px] font-extrabold text-purple'>Blog</h1>
-                <p className='my-5 mb-5 lg:w-[60%] w-full'>Check out our blogs, you can filter the blogs using our tags. Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit</p>
+            <div className={`lg:w-[75vw] md:w-[95vw] w-[92vw] h-auto mx-auto mt-10`}>
+                <h1 className={`text-[50px] font-extrabold text-purple ${page !== 1 && 'hidden'}`}>Blog</h1>
+                <p className={`my-5 mb-5 lg:w-[60%] w-full ${page !== 1 && 'hidden'}`}>Check out our blogs, you can filter the blogs using our tags. Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit</p>
+                {/* ---- Search element for blogs ---- */}
+                <div className='lg:w-[72%] w-full'>
+                    {/* <h2 className='font-bold text-purple text-xl'>Search:</h2> */}
+                    <div className='flex justify-between items-center '>
+                        <input
+                            placeholder='Search for blogs'
+                            className={`border-[1px] py-2 px-5 placeholder:text-base text-base font-light rounded-lg focus:border-purple w-full text-purple my-2`}
+                            onChange={(e) => onSearchingForBlogs(e)}
+                        />
+                        <FiSearch className='text-[30px] text-purple ml-4' />
+                    </div>
+                </div>
             </div>
+
             <div className='grid lg:grid-cols-[3fr_1fr] grid-cols-1 lg:w-[75vw] md:w-[95vw] w-[92vw] mx-auto gap-10 my-10'>
                 <div>
 
@@ -151,10 +172,10 @@ export default function Blogs(props) {
                             )
                         })}
                     </div>
+                    {blogsToShow.length === 0 && <p className='text-red text-center w-full'>No Match Found</p>}
 
                     {/* --------- Pagination ---------- */}
-                    {blogs.length === 0 && <p className='w-full text-center text-purple my-10'>No blog found!...</p>}
-                    {blogs.length >= 9 && <Pagination items={Math.ceil(blogs.length / 8)} />}
+                    {blogsToShow.length >= 2 && <Pagination items={Math.ceil(blogs.length / 8)} />}
                 </div>
 
                 {/* ---------- Tags -------------- */}
@@ -176,23 +197,32 @@ export default function Blogs(props) {
                             onChange={(e) => onSearchingForTag(e)} />
 
                         {/* Selected tags */}
-                        <section className={`my-4 flex flex-wrap py-2 transition-all ${router.query.tags ? 'border-b-2' : 'hidden'}`}>
-                            {
-                                router?.query?.tags?.split(',')?.map((tag, index) => {
-                                    return (
-                                        <div
-                                            key={index}
-                                            className={`relative py-2 px-2 text-sm text-gray-700 w-max bg-white shadow m-1 mx-2 ml-0 cursor-pointer rounded-lg transition-all`}
-                                        >
-                                            {tag}
-                                            <AiFillCloseCircle
-                                                className='absolute -top-[4px] -right-[4px] text-[16px] text-gray-400 hover:text-red hover:scale-[1.1] transition-all opacity-30 hover:opacity-100'
-                                                onClick={() => onDeletingSelectedTag(tag)}
-                                            />
-                                        </div>
-                                    )
-                                })
-                            }
+                        <section className={`my-4 py-2 transition-all ${router.query.tags ? 'border-b-2' : 'hidden'}`}>
+                            <div className='flex flex-wrap'>
+                                {
+                                    router?.query?.tags?.split(',')?.map((tag, index) => {
+                                        return (
+                                            <div
+                                                key={index}
+                                                className={`relative py-2 px-2 text-sm text-gray-700 w-max bg-white shadow m-1 mx-2 ml-0 cursor-pointer rounded-lg transition-all`}
+                                            >
+                                                {tag}
+                                                <AiFillCloseCircle
+                                                    className='absolute -top-[4px] -right-[4px] text-[16px] text-gray-400 hover:text-red hover:scale-[1.1] transition-all opacity-30 hover:opacity-100'
+                                                    onClick={() => onDeletingSelectedTag(tag)}
+                                                />
+                                            </div>
+                                        )
+                                    })
+                                }
+                            </div>
+                            <p className={`mx-auto items-end text-red w-max px-2 rounded-full  text-[12px] cursor-pointer hover:underline transition-all`}
+                                onClick={() => {
+                                    setTagChunk(10)
+                                    router.push({ pathname: router.pathname, query: {} })
+                                }}>
+                                Remove all
+                            </p>
                         </section>
 
                         {/* List of tags */}
@@ -210,18 +240,18 @@ export default function Blogs(props) {
                         </div>
 
                         {/* ----------- Tags see more button ------------ */}
-                        <div className='flex flex-col lg:my-5 my-4 justify-center items-center'>
-                            <p className={`text-center text-purple text-sm px-2 rounded-lg cursor-pointer hover:scale-[1.02] transition-all bg-white mb-2
+                        <section className='flex justify-center items-center mx-2'>
+                            <div className='flex flex-col lg:my-5 my-2 justify-center items-center'>
+                                <p className={`text-center text-purple text-sm px-2 rounded-lg cursor-pointer underline transition-all
+                            ${tagChunk === 10 ? 'hidden' : 'flex'}`}
+                                    onClick={() => setTagChunk(tagChunk - 10)}>See Less</p>
+                            </div>
+                            <div className='flex flex-col lg:my-5 my-2 justify-center items-center'>
+                                <p className={`text-center text-purple text-sm px-2 rounded-lg cursor-pointer underline transition-all 
                             ${tagChunk > tags.length ? 'hidden' : 'flex'}`}
-                                onClick={() => setTagChunk(tagChunk + 10)}>See More</p>
-                            <p className={`text-center text-red text-sm cursor-pointer hover:underline`}
-                                onClick={() => {
-                                    setTagChunk(10)
-                                    router.push({ pathname: router.pathname, query: {} })
-                                }}>
-                                Reset
-                            </p>
-                        </div>
+                                    onClick={() => setTagChunk(tagChunk + 10)}>See More</p>
+                            </div>
+                        </section>
                     </section>
                 </div>
             </div>

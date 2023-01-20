@@ -29,7 +29,7 @@ export const overrideDoubbledArray = (arr) => {
 }
 
 
-export const splitArrayIntoChunks = (arr, perChunk) => {
+export const splitArrayIntoChunks = (arr, perChunk = 9) => {
     const splittedArrays = arr.reduce((resultArray, item, index) => {
         const chunkIndex = Math.floor(index / perChunk)
         if (!resultArray[chunkIndex]) {
