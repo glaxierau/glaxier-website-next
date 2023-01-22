@@ -6,21 +6,33 @@ import style from '../../styles/About.module.css'
 import SlideIn from '../animation/SlideIn'
 import BlockContent from '../BlockContent/BlockContent'
 import Img from 'next/image'
-import { motion } from 'framer-motion'
+import { urlFor } from '../../hooks/tools'
 
 const About = (props) => {
-    const { withButton = false } = props
+    const { withButton = false, media } = props
+    console.log(media)
     return (
         <>
             <div className="xl:h-screen lg:h-cscreen h-auto lg:flex lg:flex-row flex-col lg:px-14 px-5 lg:pt-0 pt-10 my-20">
                 <SlideIn className="lg:w-1/2 md:w-full w-full h-auto flex items-center justify-center">
-                    <Img
-                        src="/assets/img/home/tan-with-computer-cropped.jpg"
-                        priority
-                        width={550}
-                        height={550}
-                        alt="image"
-                    />
+                    {media.mediaType === 'image' ?
+                        <Img
+                            src={urlFor(media?.image?.image).url()}
+                            priority
+                            width={550}
+                            height={550}
+                            alt={media?.image?.image?.alt}
+                            title={media?.image?.image?.title}
+                        />
+                        :
+                        <iframe
+                            src={media?.videoObj?.link}
+                            title={media?.videoObj?.title}
+                            width={550}
+                            height={550}
+                        >
+                        </iframe>
+                    }
                 </SlideIn>
                 <SlideIn
                     delay={0.2}
