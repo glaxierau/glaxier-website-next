@@ -14,13 +14,10 @@ export default async function handler(req, res) {
         "PHONE": phone,
         "GOAL": goal,
     }
-    console.log(req.body)
     try {
         const response = await client.lists.getListMembersInfo(`${process.env.NEXT_PUBLIC_MAILCHIMP_LIST_ID}`)
-        console.log(response)
         res.status(200).json(response)
     } catch (err) {
-        console.log(err)
         res.send(err)
     }
 }

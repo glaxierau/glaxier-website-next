@@ -35,7 +35,6 @@ export default async function handler(req, res) {
     const contact = await getData(contactQuery)
 
     const type = req.query.type
-    console.log('type is: ', type)
     switch (type) {
         case '':
             return (

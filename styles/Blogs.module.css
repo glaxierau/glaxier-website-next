@@ -1,0 +1,141 @@
+/* Blogs main design */
+
+.blogs_grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 250px;
+    grid-gap: 25px;
+}
+
+.blogs_grid div:first-child {
+    grid-column: 1 / 3;
+    grid-row: 1 / 3;
+}
+
+.single_blog_grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 250px;
+    grid-gap: 20px;
+}
+
+@media only screen and (max-width: 900px) {
+    .blogs_grid {
+        display: grid;
+        grid-column: 1;
+        grid-template-columns: repeat(2, 1fr);
+        grid-auto-rows: 250px;
+        margin: auto;
+        margin-top: 30px;
+        grid-gap: 15px;
+        margin-bottom: 40px;
+    }
+
+    .blogs_grid div:first-child {
+        grid-column: 1;
+        grid-row: 1;
+    }
+
+    .single_blog_grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-auto-rows: 250px;
+        grid-gap: 20px;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .blogs_grid {
+        display: grid;
+        grid-column: 1;
+        grid-template-columns: repeat(1, 1fr);
+        grid-auto-rows: 250px;
+        margin: auto;
+        margin-top: 30px;
+        grid-gap: 15px;
+        margin-bottom: 40px;
+    }
+
+    .blogs_grid div:first-child {
+        grid-column: 1;
+        grid-row: 1;
+    }
+
+    .single_blog_grid {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        grid-auto-rows: 250px;
+        grid-gap: 20px;
+    }
+}
+
+/* Ends here */
+
+/* Article design */
+
+.article_style {
+    display: grid;
+    grid-template-columns: 2.5fr 1fr;
+    grid-gap: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    grid-template-areas:
+        'title blank'
+        'fImage info'
+        'text sim';
+}
+
+.title {
+    grid-area: title;
+}
+.fImage {
+    grid-area: fImage;
+}
+.info {
+    grid-area: info;
+}
+.text {
+    grid-area: text;
+}
+.sim {
+    grid-area: sim;
+}
+
+@media only screen and (max-width: 800px) {
+    .article_style {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-column: auto;
+        grid-gap: 20px;
+        grid-template-areas: none;
+    }
+    .title {
+        grid-area: unset;
+    }
+    .fImage {
+        grid-area: unset;
+    }
+    .info {
+        grid-area: unset;
+    }
+    .text {
+        grid-area: unset;
+    }
+    .sim {
+        grid-area: unset;
+    }
+}
+
+/* Similar Articles */
+
+.similar_articles {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: max-content;
+}
+
+/* Styles for blog card */
+.desc {
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
