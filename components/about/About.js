@@ -20,13 +20,13 @@ const About = (props) => {
                             priority
                             width={550}
                             height={550}
-                            alt={media?.image?.image?.alt}
-                            title={media?.image?.image?.title}
+                            alt={media?.image?.image?.alt || 'image'}
+                            title={media?.image?.image?.title || 'image'}
                         />
                         :
                         <iframe
                             src={media?.videoObj?.link}
-                            title={media?.videoObj?.title}
+                            title={media?.videoObj?.title || 'image'}
                             width={550}
                             height={550}
                         >
