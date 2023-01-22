@@ -8,7 +8,6 @@ export const client = SanityClient({
 })
 
 export const getData = async (query) => {
-
     const results = await client.fetch(query)
     return results ? results : { notFound: true }
 }

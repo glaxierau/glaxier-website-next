@@ -1,15 +1,22 @@
-import React from 'react'
 import { useNextSanityImage } from 'next-sanity-image'
 import { client } from './getData'
 import { sanitize } from '../utils/miscellanous'
+import imageUrlBuilder from '@sanity/image-url'
+
 
 export function useSanityImage(image, customSize = true) {
     const value = useNextSanityImage(client, image)
     if (customSize) {
-        delete value.width
-        delete value.height
+        // delete value.width
+        // delete value.height
     }
     return value
+}
+
+
+const builder = imageUrlBuilder(client)
+export function urlFor(source) {
+    return builder.image(source)
 }
 
 export const shortenText = (text, lenght = 160) => {
@@ -57,7 +64,6 @@ export const filterArray = (array, match) => {
 }
 export const booleanArray = (array, match) => {
     const newArray = array.filter(v => v === match)
-    console.log(newArray)
     return newArray
 }
 

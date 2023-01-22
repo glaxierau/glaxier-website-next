@@ -48,7 +48,9 @@ module.exports = {
       fontSize: {
         xss: '0.6rem',
         xs: '0.9rem',
-        small: '1rem'
+        small: '1rem',
+        'es': '14px',
+        elg: '2rem'
       },
       fill: {
         purple: '#9FB0E4',
@@ -74,5 +76,15 @@ module.exports = {
       animation: ["motion-safe"]
     },
   },
-  plugins: [],
+  plugins: [require('daisyui')],
+  daisyui: {
+    styled: true,
+    themes: false,
+    base: false,
+    utils: true,
+    logs: true,
+    rtl: false,
+    prefix: "",
+    darkTheme: "light",
+  },
 }

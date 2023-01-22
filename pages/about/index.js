@@ -12,7 +12,6 @@ import { upperCaseText } from '../../hooks/tools'
 
 const About = (props) => {
     const { pageInfo, headerSection, ctaBreakSection, teamSection } = props
-    console.log(pageInfo.metadata.mataDescription)
 
     const TeamSection = (props) => {
         return teamSection.teamMembers.map(({ _id, content, image }) => (
