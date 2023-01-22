@@ -10,7 +10,6 @@ import { urlFor } from '../../hooks/tools'
 
 const About = (props) => {
     const { withButton = false, media } = props
-    console.log(media)
     return (
         <>
             <div className="xl:h-screen lg:h-cscreen h-auto lg:flex lg:flex-row flex-col lg:px-14 px-5 lg:pt-0 pt-10 my-20">
