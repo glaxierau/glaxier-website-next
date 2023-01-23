@@ -14,7 +14,7 @@
     font-family: 'Kanit';
 }
 .th-th p {
-    /* font-size: 18px; */
+    font-size: 18px;
 }
 
 .en-au p {
@@ -72,7 +72,7 @@ a:target {
 
 .footer_style p,
 a {
-    @apply text-xs my-3 text-white font-thin;
+    @apply text-base my-3 text-white font-thin;
 }
 input,
 input::placeholder {
