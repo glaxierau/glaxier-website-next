@@ -91,9 +91,9 @@ const Nav = () => {
                     {header?.menuList?.map((list, index) =>
                         <NavList
                             key={index}
-                            to={list.slug.current}
-                            label={list.menuLabel}
-                            dropDownList={list.withSubMenu ? list.subMenuList : false}
+                            to={list?.slug.current}
+                            label={list?.menuLabel}
+                            dropDownList={list?.withSubMenu ? list.subMenuList : false}
                         />
                     )}
                     <span className="seperator border-l-2 h-5" />
