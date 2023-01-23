@@ -22,7 +22,6 @@ const Footer = () => {
     const footer = state?.filter((r) => r.name === 'footer')[0]?.state
         .footerDetail
 
-    console.log(servicesList)
     return (
         <>
             <div className="footer_style static w-screen bg-red rounded-t-lg lg:px-24 md:px-5 px-2">
