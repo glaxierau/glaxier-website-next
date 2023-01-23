@@ -42,13 +42,13 @@ const MobileNavList = ({ header, setNav }) => {
         <>
             {header?.map((nav, index) => (
                 <div key={index} className="relative bg-white-dark">
-                    <Link href={`/${nav.slug.current}`} passHref>
-                        <h3 className={`text-${router.asPath.split('/')[1] === nav.slug.current ? 'red' : 'purple'}
+                    <Link href={`/${nav?.slug?.current}`} passHref>
+                        <h3 className={`text-${router.asPath.split('/')[1] === nav?.slug?.current ? 'red' : 'purple'}
                          hover:text-red cursor-pointer font-bold text-3xl my-5 bg-white-dark`}
                             onClick={() => setNav(false)}>
-                            {nav.menuLabel}</h3>
+                            {nav?.menuLabel}</h3>
                     </Link>
-                    <DropDown to={nav.slug.current} dropdown={nav.withSubMenu ? nav.subMenuList : false} />
+                    <DropDown to={nav?.slug?.current} dropdown={nav?.withSubMenu ? nav?.subMenuList : false} />
                 </div>
             ))}
         </>
