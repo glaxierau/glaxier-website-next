@@ -9,14 +9,16 @@ import LocalPhoneIcon from '@mui/icons-material/LocalPhone'
 
 const Footer = () => {
     const { state } = useSelector((s) => s.state)
-    const nav = state?.find((el) => el.name === 'nav')
-    const servicesList = nav?.state?.find((el) => el.menuName === 'Services')
+    const headerState = state?.find((el) => el.name === 'header')
+    const header = headerState?.state?.menuList
+    const servicesList = header?.find((el) => el.menuLabel === 'Services')
     const general = state?.filter((r) => r.name === 'general')[0]?.state
         .companyContent
     const companyName = state?.filter((r) => r.name === 'general')[0]?.state
         .companyName
     const footer = state?.filter((r) => r.name === 'footer')[0]?.state
         .footerDetail
+    console.log(servicesList)
     return (
         <>
             <div className="footer_style static w-screen bg-red rounded-t-lg lg:px-24 md:px-5 px-2">
@@ -90,9 +92,9 @@ const Footer = () => {
                                 Quick links
                             </h4>
                             <br />
-                            {nav?.state?.map((list, index) => (
-                                <Link key={index} href={list.slug}>
-                                    {list.languages.title}
+                            {header?.map((list, index) => (
+                                <Link key={index} href={`/${list.slug.current}`}>
+                                    {list.menuLabel}
                                 </Link>
                             ))}
                         </div>
@@ -100,9 +102,11 @@ const Footer = () => {
                         <div className="flex flex-col w-1/2">
                             <h4 className="text-base text-white">Services</h4>
                             <br />
-                            {servicesList?.subMenu.map((list, index) => (
-                                <Link key={index} href={list.slug || '/'}>
-                                    {list.languages.title}
+                            {servicesList?.subMenuList.map((list, index) => (
+                                <Link key={index} href={`/services/${list.slug}` || '/'}>
+                                    <a>
+                                        {list.label}
+                                    </a>
                                 </Link>
                             ))}
                         </div>
