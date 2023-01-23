@@ -5,8 +5,6 @@ import { useState } from 'react'
 
 const MobileNavList = ({ header, setNav }) => {
     const router = useRouter()
-
-    console.log(router.asPath.split('/')[1])
     let DropDown = ({ to, dropdown }) => {
         const [open, setOpen] = useState(false)
         return (
