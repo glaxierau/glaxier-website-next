@@ -3,13 +3,15 @@ import { useRouter } from 'next/dist/client/router'
 import Link from 'next/link'
 import { useState } from 'react'
 
-const MobileNavList = ({ nav, navs, setNav }) => {
+const MobileNavList = ({ header, setNav }) => {
     const router = useRouter()
-    let DropDown = ({ dropdown }) => {
+
+    console.log(router.asPath.split('/')[1])
+    let DropDown = ({ to, dropdown }) => {
         const [open, setOpen] = useState(false)
         return (
             <>
-                {dropdown?.length !== 0 &&
+                {dropdown &&
                     <motion.div className="absolute top-0 right-0 h-10  w-10 grid place-items-center hover:fill-red"
                         animate={{ rotate: open ? 180 : 0 }}
                         onClick={() => setOpen(!open)}>
@@ -21,9 +23,16 @@ const MobileNavList = ({ nav, navs, setNav }) => {
                 <motion.div className="flex flex-col"
                     animate={{ height: open ? 'auto' : 0 }}
                 >
-                    {dropdown?.map(dd => open &&
-                        <Link href={dd.slug} key={dd.slug} passHref>
-                            <p className="text-purple py-4 pl-5 text text-base hover:text-red cursor-pointer" onClick={() => setOpen(false)}>{dd.languages.title}</p>
+                    {dropdown && dropdown?.map(dd => open &&
+                        <Link
+                            href={`/${to}/${dd.slug}`}
+                            key={dd.slug} passHref>
+                            <a>
+                                <p className="text-purple pl-5 text-xl hover:text-red cursor-pointer"
+                                    onClick={() => setOpen(false)}>
+                                    {dd.label}
+                                </p>
+                            </a>
                         </Link>
                     )}
                 </motion.div>
@@ -33,12 +42,15 @@ const MobileNavList = ({ nav, navs, setNav }) => {
     }
     return (
         <>
-            {nav?.map(nav => (
-                <div key={nav._id} className="relative bg-white-dark">
-                    <Link href={nav.slug} passHref>
-                        <h3 className={`text-${router.asPath === nav.slug ? 'red' : 'purple'}  hover:text-red cursor-pointer font-bold text-3xl my-5 bg-white-dark`} onClick={() => setNav(false)}>{nav.languages.title}</h3>
+            {header?.map((nav, index) => (
+                <div key={index} className="relative bg-white-dark">
+                    <Link href={`/${nav.slug.current}`} passHref>
+                        <h3 className={`text-${router.asPath.split('/')[1] === nav.slug.current ? 'red' : 'purple'}
+                         hover:text-red cursor-pointer font-bold text-3xl my-5 bg-white-dark`}
+                            onClick={() => setNav(false)}>
+                            {nav.menuLabel}</h3>
                     </Link>
-                    <DropDown dropdown={nav.subMenu || []} />
+                    <DropDown to={nav.slug.current} dropdown={nav.withSubMenu ? nav.subMenuList : false} />
                 </div>
             ))}
         </>
