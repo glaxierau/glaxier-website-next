@@ -2,11 +2,14 @@ import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { navListQuery, generalSettings, footer } from "../config/queries"
 import { client } from "../hooks/getData"
+import { header } from "../sanity/commonQueries"
+import { languageToUpperCase } from "./functions"
 
 export const FetcherUI = ({ lang }) => {
     return (
         <>
             <DATAGETTER type='nav' lang={lang} query={navListQuery} />
+            <DATAGETTER type='header' lang={languageToUpperCase(lang)} query={header} />
             <DATAGETTER type='general' lang={lang} query={generalSettings} />
             <DATAGETTER type='footer' lang={lang} query={footer} />
         </>

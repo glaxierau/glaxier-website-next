@@ -1,0 +1,1 @@
+export const header = `*[_type == 'header' && __i18n_lang == $lang][0]`

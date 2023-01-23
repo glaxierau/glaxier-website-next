@@ -3,7 +3,7 @@ import SideBar from './SideBar'
 import Image from 'next/image'
 import Link from 'next/link'
 
-const MobileNav = ({ nav }) => {
+const MobileNav = ({ nav, header }) => {
     const [isOpen, setNav] = useState(false)
     const toggleNav = () => {
         setNav(!isOpen)
@@ -11,7 +11,6 @@ const MobileNav = ({ nav }) => {
     return (
         <div>
             <nav className="fixed z-50 lg:hidden top-0 h-14 bg-white w-full flex items-center justify-between px-4">
-                {/* <Link href="/"><img src="/assets/img/header/logo.png" width="100" alt="logo" className="cursor-pointer" /></Link> */}
                 <Link href="/" passHref>
                     {/* logo here... */}
                     <div className=" w-28 h-20  flex items-center justify-center cursor-pointer">
@@ -26,7 +25,7 @@ const MobileNav = ({ nav }) => {
                         </span>
                     </button>
                 </div>
-                <SideBar nav={nav} open={isOpen} setNav={setNav} />
+                <SideBar nav={nav} header={header} open={isOpen} setNav={setNav} />
             </nav>
         </div>
     )
