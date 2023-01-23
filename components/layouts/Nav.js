@@ -37,7 +37,7 @@ const NavList = ({ to, label, uuid, dropDownList }) => {
                                     return (
                                         <li key={index}>
                                             <Link href={`/${to}/${e.slug}`}>
-                                                <a className='active:bg-purple m-0 py-4 hover:bg-purple text-purple hover:text-white'>{e.label}</a>
+                                                <a className='active:bg-purple m-0 py-4 hover:bg-purple text-purple text-base hover:text-white'>{e.label}</a>
                                             </Link>
                                         </li>
                                     )
@@ -91,9 +91,9 @@ const Nav = () => {
                     {header?.menuList?.map((list, index) =>
                         <NavList
                             key={index}
-                            to={list.slug.current}
-                            label={list.menuLabel}
-                            dropDownList={list.withSubMenu ? list.subMenuList : false}
+                            to={list?.slug?.current}
+                            label={list?.menuLabel}
+                            dropDownList={list?.withSubMenu ? list.subMenuList : false}
                         />
                     )}
                     <span className="seperator border-l-2 h-5" />
