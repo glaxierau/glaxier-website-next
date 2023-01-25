@@ -13,6 +13,7 @@ import styles from '../../styles/Blogs.module.css'
 import { TfiArrowCircleDown } from 'react-icons/tfi'
 import { AiFillCloseCircle } from 'react-icons/ai'
 import { FiSearch } from 'react-icons/fi'
+import BlogList from '../../components/blog/BlogList'
 
 export default function Blogs(props) {
     const router = useRouter()
@@ -135,47 +136,7 @@ export default function Blogs(props) {
             </div>
 
             <div className='grid lg:grid-cols-[3fr_1fr] grid-cols-1 lg:w-[75vw] md:w-[95vw] w-[92vw] mx-auto gap-10 my-10'>
-                <div>
-
-                    {/* ------------ Listing Blogs -------------- */}
-                    <div className={`${blogs.length <= 2 ? styles.single_blog_grid : styles.blogs_grid}
-                         h-auto mx-auto mb-20`} id='blogsList'>
-                        {blogsToShow.length !== 0 && blogsToShow[page - 1]?.map(({ title, shortDescription, featuredImage, _createdAt, category, slug }, index) => {
-                            return (
-                                <Link key={index} href={`/blog/${category.slug}/${slug}`} passHref>
-                                    <div className="relative bg-white shadow-sm cursor-pointer hover:shadow-xl hover:scale-[1.005] transition-all rounded-lg overflow-hidden">
-                                        <aside className="relative h-[55%] bg-gray-300">
-                                            <Image
-                                                src={urlFor(featuredImage.image).height(400).url()}
-                                                className="object-cover bg-no-repeat"
-                                                layout="fill"
-                                                alt={featuredImage.image.alt}
-                                                title={featuredImage.image.title}
-                                                priority
-                                            />
-                                            <div className='bg-white text-gray-500 absolute bottom-[10px] right-[10px] px-4 rounded-full'>
-                                                <p className='text-gray-400 ' style={{ fontSize: 10 }}>{timeStamp(_createdAt)}</p>
-                                            </div>
-                                        </aside>
-                                        <aside className={`overflow-hidden h-[45%] z-30 flex flex-col justify-center items-left
-                                            ${index === 0 ? blogs.length <= 2 ? 'p-4' : 'lg:p-10 p-4' : 'p-4'}`}>
-                                            <h2 className={`${index === 0 ? blogs.length <= 2 ? 'text-md' : 'lg:text-xl md:text-base text-md lg:mb-2' : 'text-md'} font-bold`}>
-                                                {title}
-                                            </h2>
-                                            <p className={`${styles.desc} 
-                                            ${index === 0 ? blogs.length <= 2 ? 'md:text-sm text-es' : 'lg:text-base md:md:text-sm text-es' : 'md:text-sm text-es'}`}
-                                            >{shortDescription}</p>
-                                        </aside>
-                                    </div>
-                                </Link>
-                            )
-                        })}
-                    </div>
-                    {blogsToShow.length === 0 && <p className='text-red text-center w-full'>No Match Found</p>}
-
-                    {/* --------- Pagination ---------- */}
-                    {blogsToShow.length >= 2 && <Pagination items={Math.ceil(blogs.length / 8)} />}
-                </div>
+                <BlogList blogs={blogs} blogsToShow={blogsToShow} />
 
                 {/* ---------- Tags -------------- */}
                 <div className='mx-auto py-5 px-5 rounded-lg lg:order-1 -order-1 w-full bg-gray-50 h-max'>
