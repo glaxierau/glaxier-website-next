@@ -8,7 +8,7 @@ import { languageToUpperCase } from "./functions"
 export const FetcherUI = ({ lang }) => {
     return (
         <>
-            <DATAGETTER type='nav' lang={lang} query={navListQuery} />
+            {/* <DATAGETTER type='nav' lang={lang} query={navListQuery} /> */}
             <DATAGETTER type='header' lang={languageToUpperCase(lang)} query={header} />
             <DATAGETTER type='general' lang={lang} query={generalSettings} />
             <DATAGETTER type='footer' lang={lang} query={footer} />
