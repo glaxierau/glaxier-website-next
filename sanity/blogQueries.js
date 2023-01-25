@@ -59,7 +59,7 @@ export const similarArticles =
     }`
 
 export const homeBlogs =
-  `*[_type == 'articles' && __i18n_lang == $lang][0...6] | order(_createdAt desc){
+  `*[_type == 'articles' && __i18n_lang == $lang][0...3] | order(_createdAt desc){
     title,
     featuredImage,
     shortDescription,
