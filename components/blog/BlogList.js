@@ -12,7 +12,6 @@ import { timeStamp } from '../../helper/functions'
 export default function BlogList({ blogs, blogsToShow, }) {
     const router = useRouter()
     const page = +router.query.page || 1
-    console.log(blogs)
     return (
         <div>
 
