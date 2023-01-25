@@ -1,3 +1,4 @@
+import { useRouter } from "next/router"
 
 export const languageToUpperCase = (language) => {
     const first = language.split('-')[0]
@@ -39,4 +40,10 @@ export const splitArrayIntoChunks = (arr, perChunk = 9) => {
         return resultArray
     }, [])
     return splittedArrays
+}
+
+
+export const useEng = () => {
+    const router = useRouter()
+    return router.locale === 'en-au' ? true : false
 }
