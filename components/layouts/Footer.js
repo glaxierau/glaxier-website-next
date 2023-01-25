@@ -6,17 +6,22 @@ import { useSelector } from 'react-redux'
 import LocationOnIcon from '@mui/icons-material/LocationOn'
 import EmailIcon from '@mui/icons-material/Email'
 import LocalPhoneIcon from '@mui/icons-material/LocalPhone'
+import { useRouter } from 'next/router'
 
 const Footer = () => {
+    const router = useRouter()
     const { state } = useSelector((s) => s.state)
-    const nav = state?.find((el) => el.name === 'nav')
-    const servicesList = nav?.state?.find((el) => el.menuName === 'Services')
+    const serviceInDiffLang = router.locale === 'en-au' ? 'Services' : "บริการ"
+    const headerState = state?.find((el) => el.name === 'header')
+    const header = headerState?.state?.menuList
+    const servicesList = header?.find((el) => el.menuLabel === serviceInDiffLang)
     const general = state?.filter((r) => r.name === 'general')[0]?.state
         .companyContent
     const companyName = state?.filter((r) => r.name === 'general')[0]?.state
         .companyName
     const footer = state?.filter((r) => r.name === 'footer')[0]?.state
         .footerDetail
+
     return (
         <>
             <div className="footer_style static w-screen bg-red rounded-t-lg lg:px-24 md:px-5 px-2">
@@ -86,30 +91,32 @@ const Footer = () => {
                     <div className="flex items-start justify-start  w-full h-full lg:py-6 md:py-6 py-9">
                         {/* quick links */}
                         <div className="flex flex-col w-1/3">
-                            <h4 className="text-base text-white">
-                                Quick links
+                            <h4 className="text-lg font-bold text-white">
+                                {router.locale === 'en-au' ? 'Quick links' : 'ลิงค์ด่วน'}
                             </h4>
                             <br />
-                            {nav?.state?.map((list, index) => (
-                                <Link key={index} href={list.slug}>
-                                    {list.languages.title}
+                            {header?.map((list, index) => (
+                                <Link key={index} href={`/${list?.slug?.current}`}>
+                                    {list?.menuLabel}
                                 </Link>
                             ))}
                         </div>
                         {/* services  */}
                         <div className="flex flex-col w-1/2">
-                            <h4 className="text-base text-white">Services</h4>
+                            <h4 className="text-lg font-bold text-white">{servicesList?.menuLabel}</h4>
                             <br />
-                            {servicesList?.subMenu.map((list, index) => (
-                                <Link key={index} href={list.slug || '/'}>
-                                    {list.languages.title}
+                            {servicesList?.subMenuList?.map((list, index) => (
+                                <Link key={index} href={`/services/${list.slug}` || '/'}>
+                                    <a>
+                                        {list?.label}
+                                    </a>
                                 </Link>
                             ))}
                         </div>
                     </div>
                     <div className="w-full h-full pt-5">
                         {/* follow us  */}
-                        <h4 className="text-base text-white">
+                        <h4 className="text-lg font-bold text-white">
                             {footer?.followUs}
                         </h4>
                         <p>{footer?.followUsDescription}</p>

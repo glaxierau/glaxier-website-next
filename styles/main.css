@@ -14,7 +14,7 @@
     font-family: 'Kanit';
 }
 .th-th p {
-    /* font-size: 18px; */
+    font-size: 18px;
 }
 
 .en-au p {
@@ -53,12 +53,8 @@ html {
 
 /* nav links */
 
-.navlist a {
-    color: #90acd1;
-    font-size: 13px;
-}
 .navlist a:hover {
-    color: #be4938;
+    /* color: #be4938; */
     cursor: pointer;
 }
 .seperator {
@@ -76,7 +72,7 @@ a:target {
 
 .footer_style p,
 a {
-    @apply text-xs my-3 text-white font-thin;
+    @apply text-base my-3 text-white font-thin;
 }
 input,
 input::placeholder {

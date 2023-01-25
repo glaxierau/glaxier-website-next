@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import MobileNav from './MobileNav'
+import { IoIosArrowDown } from 'react-icons/io'
 import '../../styles/navigation.module.css'
 import DropDown from './DropDown'
 import { motion } from 'framer-motion'
@@ -14,50 +15,50 @@ import Flags from '../common/Flags'
 
 
 const NavList = ({ to, label, uuid, dropDownList }) => {
-    const [isddOpen, setddTo] = useState(false)
-    const [ddPosition, setddPosition] = useState(0)
-    let dropStatus = dropDownList?.length === 0 ? false : true
-    const onGettingPosition = () => {
-        const position = document.getElementById(`${uuid}`).offsetLeft
-        setddPosition(position - 70)
-    }
+    const [openDD, setDD] = useState(false)
     return (
-        <div className="flex items-center justify-center h-full"
-            onMouseEnter={() => { setddTo(true), onGettingPosition() }}
-            onMouseLeave={() => setddTo(false)}>
-
-            <Link href={to} className="relative flex items-center justify-center h-full cursor-pointer">
-                <a id={uuid} style={{ fontSize: '0.9rem' }}>{label}</a>
-            </Link>
-
-            {dropDownList?.length !== 0 &&
-                <motion.div className=" h-10 rounded-full w-10  grid place-items-center cursor-pointer"
-                    animate={{ rotate: isddOpen ? 180 : 0 }}
-                    onClick={() => { setddTo(!isddOpen), onGettingPosition() }}
-
-                >
-                    <motion.svg xmlns="http://www.w3.org/2000/svg" width="10.24" height="5.781" viewBox="0 0 12.24 5.781">
-                        <path id="Icon_ionic-ios-arrow-down" d="M12.31,15.285l4.628-3.826a1,1,0,0,1,1.235,0,.642.642,0,0,1,0,1.024l-5.244,4.335a1.01,1.01,0,0,1-1.206.021l-5.28-4.353a.641.641,0,0,1,0-1.024,1,1,0,0,1,1.235,0Z" transform="translate(-6.188 -11.246)" fill="#90acd1" />
-                    </motion.svg>
-                </motion.div>}
-            <DropDown open={dropStatus && isddOpen}
-                onHover={() => setddTo(true)}
-                onLeave={() => setddTo(false)}
-                position={ddPosition}
-                dropDownList={dropDownList}
-                type='nav'
-            />
+        <div className="flex items-center justify-center h-full">
+            <div className="dropdown dropdown-hover">
+                <Link passHref href={`/${to}`} className="relative flex items-center justify-center h-full cursor-pointer">
+                    <a className='flex items-center justify-center text-base text-purple hover:text-red cursor-pointer'
+                        tabIndex={0}
+                        onMouseEnter={() => setDD(true)}
+                        onMouseLeave={() => setDD(false)}
+                    >
+                        <label className="m-1 cursor-pointer">{label}</label>
+                        {dropDownList && <IoIosArrowDown className={`${openDD ? 'rotate-180' : 'rotate-0'} transition-all ml-2`} />}
+                    </a>
+                </Link>
+                {dropDownList &&
+                    <div tabIndex={0} className="dropdown-content menu pt-4 w-52"
+                        onMouseEnter={() => setDD(true)}
+                        onMouseLeave={() => setDD(false)}>
+                        <ul className="bg-white shadow-sm">
+                            {
+                                dropDownList?.map((e, index) => {
+                                    return (
+                                        <li key={index}>
+                                            <Link href={`/${to}/${e.slug}`}>
+                                                <a className='active:bg-purple m-0 py-4 hover:bg-purple text-purple text-base hover:text-white'>{e.label}</a>
+                                            </Link>
+                                        </li>
+                                    )
+                                })
+                            }
+                        </ul>
+                    </div>
+                }
+            </div>
         </div>
     )
 }
 
+
 const Nav = () => {
-    const { state } = useSelector(s => s.state)
-    const result = state?.find(el => el?.name === 'nav')
-    const nav = result?.state
     const [openSearch, setSearch] = useState(false)
-
-
+    const { state } = useSelector(s => s.state)
+    const headerState = state?.find(el => el?.name === 'header')
+    const header = headerState?.state
     return (
         <>
             <motion.nav
@@ -87,7 +88,14 @@ const Nav = () => {
                 </Link>
                 {/* navigation */}
                 <div className="navlist flex w-3/5 justify-around items-center">
-                    {nav?.map((list) => <NavList key={list._id} to={list.slug} label={list.languages.title} uuid={list._id} dropDownList={list.subMenu || []} />)}
+                    {header?.menuList?.map((list, index) =>
+                        <NavList
+                            key={index}
+                            to={list?.slug?.current}
+                            label={list?.menuLabel}
+                            dropDownList={list?.withSubMenu ? list.subMenuList : false}
+                        />
+                    )}
                     <span className="seperator border-l-2 h-5" />
                     <div className="flex w-20 justify-around items-center">
                         {/* languages */}
@@ -113,7 +121,7 @@ const Nav = () => {
                 </div>
 
             </motion.nav>
-            <MobileNav nav={nav} />
+            <MobileNav header={header?.menuList} />
         </>
     )
 }
