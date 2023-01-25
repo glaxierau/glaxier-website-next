@@ -5,7 +5,7 @@ import MobileNavList from '../common/MobileNavList'
 import { motion } from 'framer-motion'
 import navigation from '../../config/navList'
 
-const SideBar = ({ nav, header, open, setNav }) => {
+const SideBar = ({ header, open, setNav }) => {
     return (
         <>
             <motion.ul className={`w-screen absolute top-14 left-0 z-0 overflow-y-scroll`}
@@ -21,7 +21,7 @@ const SideBar = ({ nav, header, open, setNav }) => {
                         <LanguageSection />
                         <br />
                         <br />
-                        <MobileNavList nav={nav} header={header} setNav={setNav} />
+                        <MobileNavList header={header} setNav={setNav} />
                         {/* <div style={{ height: '1px' }} className="my-10 mx-auto w-full bg-purple" /> */}
                         {/* <SearchBox /> */}
                     </div>

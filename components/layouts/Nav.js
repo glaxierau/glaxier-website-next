@@ -53,11 +53,9 @@ const NavList = ({ to, label, uuid, dropDownList }) => {
 
 
 const Nav = () => {
-    const { state } = useSelector(s => s.state)
-    const result = state?.find(el => el?.name === 'nav')
-    const headerState = state?.find(el => el?.name === 'header')
-    const nav = result?.state
     const [openSearch, setSearch] = useState(false)
+    const { state } = useSelector(s => s.state)
+    const headerState = state?.find(el => el?.name === 'header')
     const header = headerState?.state
     return (
         <>
@@ -111,7 +109,7 @@ const Nav = () => {
                 </div>
 
             </motion.nav>
-            <MobileNav nav={nav} header={header?.menuList} />
+            <MobileNav header={header?.menuList} />
         </>
     )
 }
