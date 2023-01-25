@@ -1,20 +1,23 @@
-import { AU, TH } from 'country-flag-icons/react/3x2'
+import { ReactCountryFlag } from 'react-country-flag'
 import { useRouter } from 'next/router'
 import React from 'react'
 
-export default function Flags({ inline = true }) {
+export default function Flags({ inline = false, size = 25 }) {
     const router = useRouter()
-    const onChangingFlag = (value) => {
-        router.push('', '', { locale: value })
-    }
+    const getLang = (lang) => lang.split('-')[1]
     return (
-        <div className={`${inline && 'flex'}`}>
-            <li onClick={() => onChangingFlag('en-au')}>
-                <AU className='relative lg:w-[55px] w-[30px] cursor-pointer' />
-            </li>
-            <li onClick={() => onChangingFlag('th-th')}>
-                <TH className={`relative lg:w-[55px] w-[30px] cursor-pointer ${inline && 'ml-5'}`} />
-            </li>
+        <div className={inline && 'flex'}>
+            {router.locales.map((lang, index) => {
+                return (
+                    <ReactCountryFlag
+                        key={index}
+                        countryCode={getLang(lang)}
+                        className='p-1 py-2 text-center cursor-pointer lg:hover:bg-purple w-full h-full'
+                        style={{ fontSize: size }}
+                        onClick={() => router.push('', '', { locale: lang })}
+                    />
+                )
+            })}
         </div>
     )
 }

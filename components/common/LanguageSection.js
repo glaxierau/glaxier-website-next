@@ -1,7 +1,6 @@
 import React from 'react'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
-import { AU } from 'country-flag-icons/react/3x2'
 import Flags from './Flags'
 
 const LanguageSection = () => {
@@ -16,12 +15,7 @@ const LanguageSection = () => {
 
     return (
         <div className="flex">
-            {/* {langs.map(language => (
-                <Link key={language} href={router.asPath} locale={language} passHref>
-                    <AU className="w-6 cursor-pointer" />
-                </Link>
-            ))} */}
-            <Flags inline={true} />
+            <Flags inline={true} size={30} />
         </div>
     )
 }

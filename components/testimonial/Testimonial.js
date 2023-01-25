@@ -8,7 +8,6 @@ const Testimonial = ({ testimonials }) => {
     const style = {
         height: '100vh',
     }
-    console.log(testimonials)
     return (
         <>
             <div className="xl:h-cscreen lg:h-cscreen snap-center relative flex flex-col items-center justify-center lg:py-32 py-5">
