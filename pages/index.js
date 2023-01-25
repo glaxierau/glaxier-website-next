@@ -26,11 +26,11 @@ export default function Home(props) {
             <Service {...home?.serviceSection} {...home?.introductionSection} />
             <About withButton={true} {...home?.aboutSection} />
             <Client {...home} />
-            <Project {...home?.ctaBreakSection} />
             <Testimonial testimonials={home?.testimonialSection.testimonials} />
+            <Project {...home?.ctaBreakSection} />
 
             {/* Blogs */}
-            <div className='grid lg:w-[80vw] md:w-[95vw] w-[92vw] mx-auto'>
+            <div className='grid lg:w-[80vw] md:w-[95vw] w-[92vw] mx-auto mt-20'>
                 <Title title={useEng() ? 'Blog' : 'บล็อก'} lineWidth={100} />
                 <br />
                 <br />
