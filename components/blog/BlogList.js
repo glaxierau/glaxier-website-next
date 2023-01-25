@@ -9,9 +9,10 @@ import { timeStamp } from '../../helper/functions'
 
 
 
-export default function BlogList({ blogs, blogsToShow }) {
+export default function BlogList({ blogs, blogsToShow, }) {
     const router = useRouter()
     const page = +router.query.page || 1
+    console.log(blogs)
     return (
         <div>
 
@@ -38,11 +39,11 @@ export default function BlogList({ blogs, blogsToShow }) {
                                 </aside>
                                 <aside className={`overflow-hidden h-[45%] z-30 flex flex-col justify-center items-left
                                             ${index === 0 ? blogs.length <= 2 ? 'p-4' : 'lg:p-10 p-4' : 'p-4'}`}>
-                                    <h2 className={`${index === 0 ? blogs.length <= 2 ? 'text-md' : 'lg:text-xl md:text-base text-md lg:mb-2' : 'text-md'} font-bold`}>
+                                    <h2 className={`${index === 0 ? blogs.length <= 2 ? 'text-md' : 'lg:text-xl md:text-base text-md lg:mb-2' : 'text-md'} font-bold text-purple`}>
                                         {title}
                                     </h2>
                                     <p className={`${styles.desc} 
-                                            ${index === 0 ? blogs.length <= 2 ? 'md:text-sm text-es' : 'lg:text-base md:md:text-sm text-es' : 'md:text-sm text-es'}`}
+                                            ${index === 0 ? blogs.length <= 2 ? 'md:text-sm text-es' : 'lg:text-base md:md:text-sm text-es' : 'md:text-sm text-es'} text-gray-600`}
                                     >{shortDescription}</p>
                                 </aside>
                             </div>

@@ -123,7 +123,6 @@ export default function Blogs(props) {
                 <p className={`my-5 mb-5 lg:w-[60%] w-full ${page !== 1 && 'hidden'}`}>Check out our blogs, you can filter the blogs using our tags. Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit</p>
                 {/* ---- Search element for blogs ---- */}
                 <div className='lg:w-[72%] w-full'>
-                    {/* <h2 className='font-bold text-purple text-xl'>Search:</h2> */}
                     <div className='flex justify-between items-center '>
                         <input
                             placeholder='Search for blogs'
@@ -136,6 +135,8 @@ export default function Blogs(props) {
             </div>
 
             <div className='grid lg:grid-cols-[3fr_1fr] grid-cols-1 lg:w-[75vw] md:w-[95vw] w-[92vw] mx-auto gap-10 my-10'>
+
+                {/* ---------- Blog List -------------- */}
                 <BlogList blogs={blogs} blogsToShow={blogsToShow} />
 
                 {/* ---------- Tags -------------- */}

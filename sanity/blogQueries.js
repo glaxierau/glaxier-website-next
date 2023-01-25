@@ -20,7 +20,6 @@ export const blogsWithTags =
     tags
   }`
 
-// && $tag in tags
 
 export const allBlogs = `*[_type == 'articles' && __i18n_lang == $lang ]{
   slug,
@@ -58,6 +57,17 @@ export const similarArticles =
     "category": articleCategory->{...category{slug}},
     slug
     }`
+
+export const homeBlogs =
+  `*[_type == 'articles' && __i18n_lang == $lang][0...6] | order(_createdAt desc){
+    title,
+    featuredImage,
+    shortDescription,
+    _createdAt, 
+    "category": articleCategory->{...category{slug}},
+    slug, 
+    tags
+  }`
 
 
 export const tagsQuery =
