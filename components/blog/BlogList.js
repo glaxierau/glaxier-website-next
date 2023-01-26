@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Pagination from '../common/Pagination'
 import styles from '../../styles/Blogs.module.css'
 import { useRouter } from 'next/router'
@@ -12,6 +12,7 @@ import { timeStamp } from '../../helper/functions'
 export default function BlogList({ blogs, blogsToShow, }) {
     const router = useRouter()
     const page = +router.query.page || 1
+
     return (
         <div>
 
