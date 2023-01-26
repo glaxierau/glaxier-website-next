@@ -9,10 +9,23 @@ import '../styles/hamburgers.css'
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { FetcherUI } from '../helper/fetcher';
+import Cookie from '../components/CookieConsent';
+import { cookieConsentValue } from '../helper/functions';
 
 
 function MyApp(props,) {
   const { Component, pageProps, router } = props
+  const tagManagerArgs = {
+    // gtmId: 'GTM-TMQD58L'
+  }
+  // const cookieConsent = cookieConsentValue()
+  // if (typeof window !== 'undefined') {
+  //   if (!cookieConsent) {
+  //     null
+  //   } else {
+  //     TagManager.initialize(tagManagerArgs)
+  //   }
+  // }
   return (
     <>
       <Provider store={store}>
@@ -22,6 +35,7 @@ function MyApp(props,) {
           <section className={router.locale}>
             <Layout>
               <Component {...pageProps} />
+              <Cookie />
             </Layout>
           </section>
         </AnimatePresence>

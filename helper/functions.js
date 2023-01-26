@@ -1,5 +1,23 @@
 import { useRouter } from "next/router"
 
+export const cookieConsentValue = () => {
+    let cookieValue = true
+    if (typeof window !== "undefined") {
+        let decodedCookie = decodeURIComponent(document.cookie);
+        let splittingList = decodedCookie.split(';')
+        let match = splittingList.find(el => el.includes('userAcceptCookieConsent'))
+        cookieValue = match?.split('=')[1]
+        if (match) {
+            cookieValue = (cookieValue === 'true')
+        }
+        else {
+            cookieValue = true
+        }
+    }
+    return cookieValue
+}
+
+
 export const languageToUpperCase = (language) => {
     const first = language.split('-')[0]
     const second = language.split('-')[1].toUpperCase()
