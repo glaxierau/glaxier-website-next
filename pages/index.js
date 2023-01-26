@@ -31,7 +31,7 @@ export default function Home(props) {
 
             {/* Blogs */}
             <div className='grid lg:w-[80vw] md:w-[95vw] w-[92vw] mx-auto mt-20'>
-                <Title title={useEng() ? 'Blog' : 'บล็อก'} lineWidth={100} />
+                <Title title={useEng() ? 'Our Blog' : 'บล็อกของเรา'} lineWidth={150} />
                 <br />
                 <br />
                 <BlogList blogs={blogsProps[0]} blogsToShow={blogsProps} />
