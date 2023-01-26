@@ -9,6 +9,11 @@ module.exports = {
     async rewrites() {
         return [
             {
+                source: '/admin',
+                destination:
+                    'https://glaxier-cms.sanity.studio/desk',
+            },
+            {
                 source: '/api/:paths*',
                 destination:
                     'https://a49e7mel.api.sanity.io/v1/data/query/production?query=',
