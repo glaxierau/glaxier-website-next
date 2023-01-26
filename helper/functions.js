@@ -47,3 +47,8 @@ export const useEng = () => {
     const router = useRouter()
     return router.locale === 'en-au' ? true : false
 }
+
+export const trimFunction = (char, limit = 150) => {
+    if (char < limit) return
+    else return `${char.substring(0, limit)}...`
+}

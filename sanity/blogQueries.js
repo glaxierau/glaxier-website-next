@@ -1,3 +1,5 @@
+import { useMobileScreen } from "../hooks/useWindowSize"
+
 export const blogs =
   `*[_type == 'articles' && __i18n_lang == $lang] | order(_createdAt desc){
     title,

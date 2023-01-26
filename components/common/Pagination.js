@@ -8,16 +8,27 @@ export default function Pagination({ items = 5 }) {
     const router = useRouter()
     const query = router.query
     const currentPage = router?.query?.page || 1
+
+    const onBackwardArrow = () => {
+        router.push({
+            pathname: router.pathname,
+            query: { ...query, page: +currentPage === 1 ? +currentPage : +currentPage - 1 }
+        })
+    }
+    const onForwardArrow = () => {
+        router.push({
+            pathname: router.pathname,
+            query: { ...query, page: +currentPage === arr.length ? +currentPage : +currentPage + 1 }
+        })
+    }
+
     return (
         <div className='grid place-items-center w-full px-auto my-10'>
             <div className='flex justify-center items-center text-purple '>
-                <Link href={{
-                    pathname: router.pathname,
-                    query: { ...query, page: +currentPage === 1 ? +currentPage : +currentPage - 1 }
-                }}
-                    passHref>
-                    <IoIosArrowBack className="text-elg text-purple cursor-pointer hover:scale-[1.1] transition-all" />
-                </Link>
+                <IoIosArrowBack
+                    className="text-elg text-purple cursor-pointer hover:scale-[1.1] transition-all"
+                    onClick={() => onBackwardArrow()}
+                />
                 {arr?.map((index) => {
                     const currentIndex = index + 1
                     return (
@@ -35,14 +46,10 @@ export default function Pagination({ items = 5 }) {
 
                     )
                 })}
-                <Link
-                    href={{
-                        pathname: router.pathname,
-                        query: { ...query, page: +currentPage === arr.length ? +currentPage : +currentPage + 1 }
-                    }}
-                    passHref>
-                    <IoIosArrowForward className="text-elg text-purple cursor-pointer hover:scale-[1.1] transition-all" />
-                </Link>
+                <IoIosArrowForward
+                    className="text-elg text-purple cursor-pointer hover:scale-[1.1] transition-all"
+                    onClick={() => onForwardArrow()}
+                />
             </div>
         </div>
     )

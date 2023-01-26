@@ -3,6 +3,7 @@ import TestimonialBox from './TestimonialBox'
 import Slider from 'react-slick'
 import { testimonial_settings } from '../../config/carousel.setting'
 import SlideIn from '../animation/SlideIn'
+import { useEng } from '../../helper/functions'
 
 const Testimonial = ({ testimonials }) => {
     const style = {
@@ -12,7 +13,7 @@ const Testimonial = ({ testimonials }) => {
         <>
             <div className="xl:h-cscreen lg:h-cscreen snap-center relative flex flex-col items-center justify-center lg:py-32 py-5">
                 <Title
-                    title="Testimonials"
+                    title={useEng() ? "Testimonials" : "ข้อความรับรอง"}
                     lineColor="#9FB0E483"
                     lineWidth={180}
                 />

@@ -4,7 +4,6 @@ import { useRouter } from 'next/router'
 import React, { useState } from 'react'
 import { useEffect } from 'react'
 import SectionHead from '../../components/common/Head'
-import Pagination from '../../components/common/Pagination'
 import { languageToUpperCase, makeFirstCharUpperCase, overrideDoubbledArray, splitArrayIntoChunks, timeStamp } from '../../helper/functions'
 import { client } from '../../hooks/getData'
 import { urlFor } from '../../hooks/tools'
@@ -111,6 +110,7 @@ export default function Blogs(props) {
                 })
         }
     }
+
     return (
         <>
             <SectionHead
@@ -190,8 +190,10 @@ export default function Blogs(props) {
                         <div className={`flex flex-wrap lg:justify-start justify-center items-center`}>
                             {tags?.sort().slice(0, tagChunk).map((tag, index) => {
                                 return (
-                                    <div key={index} className={`py-2 px-2 text-sm bg-white shadow m-1 ml-0 mr-2 hover:bg-purple hover:text-white cursor-pointer rounded-lg active:bg-purple
-                                        ${router?.query?.tags?.includes(tag) ? 'bg-purple text-white' : 'text-gray-500'}`}
+                                    <div
+                                        key={index}
+                                        className={`py-2 px-2 text-sm shadow m-1 ml-0 mr-2 hover:bg-purple hover:text-white cursor-pointer rounded-lg
+                                        ${router?.query?.tags?.includes(tag) ? 'bg-purple text-white' : 'bg-white text-gray-500'}`}
                                         onClick={() => onAddingSelectedTags(tag)}>
                                         {tag}
                                     </div>

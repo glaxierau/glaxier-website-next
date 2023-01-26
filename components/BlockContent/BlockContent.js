@@ -4,6 +4,7 @@ import style from '../../styles/Services.module.css'
 import { urlFor } from '../../hooks/tools'
 import Image from 'next/image'
 import FsLightbox from 'fslightbox-react'
+import { trimFunction } from '../../helper/functions'
 
 
 function BlockContent(props) {
@@ -30,8 +31,11 @@ function BlockContent(props) {
                     }
                 });
 
+                if (style === 'span') {
+                    return <p className={`text-base ${normalColor} leading-relaxed py-1 font-extralight`}>{shortenChar ? trimFunction(props.children[0], shortenChar) : props.children}</p>
+                }
                 if (style === 'normal') {
-                    return <p className={`text-base ${normalColor} leading-relaxed py-1 font-extralight`}>{props.children}</p>
+                    return <p className={`text-base ${normalColor} leading-relaxed py-1 font-extralight`}>{shortenChar ? trimFunction(props?.children[0], shortenChar) : props.children}</p>
                 }
                 if (style === 'h1') {
                     return <h1 className="text-3xl text-black-light leading-normal py-1 font-extralight">{props.children}</h1>

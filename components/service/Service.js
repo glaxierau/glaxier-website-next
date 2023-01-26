@@ -8,6 +8,7 @@ import SlideIn from '../animation/SlideIn'
 import AppButton from '../AppButton'
 import BlockContent from '../BlockContent/BlockContent'
 import Img from 'next/image'
+import { useEng } from '../../helper/functions'
 
 const Service = (props) => {
     const { paddingBottom = false, services, defaultDescription, defaultSubtitle, defaultTitle, _id } = props
@@ -26,6 +27,7 @@ const Service = (props) => {
     useEffect(() => {
         setIndex(defaultServiceMap)
     }, [props])
+
 
 
     // -------------------- Screen Responsiveness ---------------
@@ -76,11 +78,15 @@ const Service = (props) => {
                     </h3>
                     <br />
                     <div className="lg:w-96 w-72 font-thin leading-5 text-sm mb-4">
-                        <BlockContent blocks={currentIndex.serviceDescription} normalColor="text-white text-sm" />
+                        <BlockContent
+                            blocks={currentIndex.serviceDescription}
+                            normalColor="text-white text-sm"
+                            shortenChar={150}
+                        />
                     </div>
                     <AppButton
                         customized
-                        title="Read More"
+                        title={useEng() ? "Read More" : "อ่านเพิ่มเติม"}
                         width={100}
                         bgColor="bg-purple"
                         bgColorHover="hover:bg-white"

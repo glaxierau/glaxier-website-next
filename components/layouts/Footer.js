@@ -95,11 +95,14 @@ const Footer = () => {
                                 {router.locale === 'en-au' ? 'Quick links' : 'ลิงค์ด่วน'}
                             </h4>
                             <br />
-                            {header?.map((list, index) => (
-                                <Link key={index} href={`/${list?.slug?.current}`}>
-                                    {list?.menuLabel}
-                                </Link>
-                            ))}
+                            {header?.map((list, index) => {
+                                const to = list?.slug?.current
+                                return (
+                                    <Link key={index} href={to === '/' ? '/' : `/${to}`}>
+                                        {list?.menuLabel}
+                                    </Link>
+                                )
+                            })}
                         </div>
                         {/* services  */}
                         <div className="flex flex-col w-1/2">
