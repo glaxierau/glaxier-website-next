@@ -6,7 +6,7 @@ import CookieConsent from 'react-cookie-consent';
 function Cookie() {
     return (
         <CookieConsent
-            debug={true}
+            // debug={true}
             buttonText="Accept"
             declineButtonText="Decline"
             enableDeclineButton
