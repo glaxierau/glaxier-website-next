@@ -22,10 +22,12 @@ const Banner = (props) => {
                     objectPosition="right top"
                 />
                 <motion.div
-                    className={`absolute lg:top-40 md:top-1/2 top-1/2 left-1/2 lg:left-40 transform lg:-translate-x-0 -translate-x-2/4 flex flex-col justify-center items-center text-white text-center bg-gray-400 p-10 lg:p-10 rounded ${styles.bannerTextBackground}`}
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ stiffness: 50 }}
+                    className={`absolute lg:top-40 md:top-1/2 top-[50%] left-1/2 lg:left-40 transform 
+                    lg:-translate-x-0 -translate-x-2/4 
+                    lg:-translate-y-0 -translate-y-1/2 
+                    flex flex-col justify-center items-center text-white text-center
+                  bg-gray-400 p-10 lg:p-10 rounded ${styles.bannerTextBackground}
+                    lg:w-[500px] md:w-[400px] w-[90%] z-100 overflow-hidden`}
                 >
                     <h2 className="lg:text-3xl text-2xl font-bold">
                         {upperCaseText(preTitle)}
@@ -36,7 +38,7 @@ const Banner = (props) => {
                     >
                         {heroTitle}
                     </h1>
-                    <div className="flex">
+                    <div className="flex lg:flex-row md:flex-row flex-col items-center">
                         <AppButton
                             bgColor="bg-blue"
                             bgColorHover="hover:bg-red"

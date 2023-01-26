@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react'
 import Head from '../components/common/Head'
 import About from '../components/about/About'
 import Banner from '../components/Banner'

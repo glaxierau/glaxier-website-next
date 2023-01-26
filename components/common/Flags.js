@@ -6,7 +6,7 @@ export default function Flags({ inline = false, size = 25 }) {
     const router = useRouter()
     const getLang = (lang) => lang.split('-')[1]
     return (
-        <div className={inline && 'flex'}>
+        <div className={inline ? 'flex' : ''}>
             {router.locales.map((lang, index) => {
                 return (
                     <ReactCountryFlag
