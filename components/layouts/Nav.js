@@ -87,14 +87,17 @@ const Nav = () => {
                 </Link>
                 {/* navigation */}
                 <div className="navlist flex w-3/5 justify-around items-center">
-                    {header?.menuList?.map((list, index) =>
-                        <NavList
-                            key={index}
-                            to={list?.slug?.current}
-                            label={list?.menuLabel}
-                            dropDownList={list?.withSubMenu ? list.subMenuList : false}
-                        />
-                    )}
+                    {header?.menuList?.map((list, index) => {
+                        const to = list?.slug?.current
+                        return (
+                            <NavList
+                                key={index}
+                                to={to === '/' ? '' : to}
+                                label={list?.menuLabel}
+                                dropDownList={list?.withSubMenu ? list.subMenuList : false}
+                            />
+                        )
+                    })}
                     <span className="seperator border-l-2 h-5" />
                     <div className="flex w-20 justify-around items-center">
 
