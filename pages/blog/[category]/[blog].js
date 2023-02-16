@@ -11,6 +11,7 @@ import { urlFor } from '../../../hooks/tools'
 import { allBlogs, similarArticles, singleBlog } from '../../../sanity/blogQueries'
 import styles from '../../../styles/Blogs.module.css'
 
+
 export default function SingleBlog(props) {
     const {
         _id,
