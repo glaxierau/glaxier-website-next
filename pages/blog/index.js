@@ -13,8 +13,6 @@ import { TfiArrowCircleDown } from 'react-icons/tfi'
 import { AiFillCloseCircle } from 'react-icons/ai'
 import { FiSearch } from 'react-icons/fi'
 import BlogList from '../../components/blog/BlogList'
-import Flags from '../../components/common/Flags'
-import blog from '../../.next/static/chunks/pages/blog'
 
 
 
