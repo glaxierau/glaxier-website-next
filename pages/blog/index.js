@@ -14,6 +14,8 @@ import { AiFillCloseCircle } from 'react-icons/ai'
 import { FiSearch } from 'react-icons/fi'
 import BlogList from '../../components/blog/BlogList'
 
+
+
 export default function Blogs(props) {
     const router = useRouter()
     const [tags, setTags] = useState(props.tagsArr)
