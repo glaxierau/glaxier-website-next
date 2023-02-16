@@ -12,13 +12,9 @@ export default function Flags({ inline = false, size = 25 }) {
                 return (
                     <Link key={index} locale={lang} href={router.asPath} passHref>
                         <ReactCountryFlag
-
                             countryCode={getLang(lang)}
                             className='p-1 py-2 text-center cursor-pointer lg:hover:bg-purple w-full h-full'
                             style={{ fontSize: size }}
-                        // onClick={() => router.push('', '', {
-                        //     locale: lang,
-                        // })}
                         />
                     </Link>
                 )
