@@ -27,14 +27,14 @@ export default function Home(props) {
             <Service {...home?.serviceSection} {...home?.introductionSection} />
             <About withButton={true} {...home?.aboutSection} />
             <Client {...home} />
-            <Testimonial testimonials={home?.testimonialSection.testimonials} />
             <Project {...home?.ctaBreakSection} />
+            <Testimonial testimonials={home?.testimonialSection.testimonials} />
+            <br />
 
             {/* Blogs */}
-            <div className='grid lg:w-[80vw] md:w-[95vw] w-[92vw] mx-auto mt-20'>
+            <div className='grid lg:w-[70vw] md:w-[95vw] w-[92vw] mx-auto mt-20'>
                 <Title title={useEng() ? 'Our Blog' : 'บล็อกของเรา'} lineWidth={150} />
-                <br />
-                <br />
+                <div className='my-10' />
                 <BlogList blogs={blogsProps[0]} blogsToShow={blogsProps} />
                 <Link href='/blog' passHref>
                     <p className='text-white text-base mx-auto mb-10 bg-purple px-10 

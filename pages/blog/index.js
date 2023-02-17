@@ -13,6 +13,8 @@ import { TfiArrowCircleDown } from 'react-icons/tfi'
 import { AiFillCloseCircle } from 'react-icons/ai'
 import { FiSearch } from 'react-icons/fi'
 import BlogList from '../../components/blog/BlogList'
+import SlideIn from '../../components/animation/SlideIn'
+import { motion } from 'framer-motion'
 
 
 
@@ -112,7 +114,6 @@ export default function Blogs(props) {
                 })
         }
     }
-
     return (
         <>
             <SectionHead
@@ -121,10 +122,14 @@ export default function Blogs(props) {
             />
             {/* ---------- Title ------------ */}
             <div className={`lg:w-[75vw] md:w-[95vw] w-[92vw] h-auto mx-auto mt-10`}>
-                <h1 className={`text-[50px] font-extrabold text-purple ${page !== 1 && 'hidden'}`}>Blog</h1>
-                <p className={`my-5 mb-5 lg:w-[60%] w-full ${page !== 1 && 'hidden'}`}>Check out our blogs, you can filter the blogs using our tags. Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit</p>
+                <SlideIn delay={0.4}>
+                    <h1 className={`text-[50px] font-extrabold text-purple ${page !== 1 && 'hidden'}`}>Blog</h1>
+                </SlideIn>
+                <SlideIn delay={0.5}>
+                    <p className={`my-5 mb-5 lg:w-[60%] w-full ${page !== 1 && 'hidden'}`}>Check out our blogs, you can filter the blogs using our tags. Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit</p>
+                </SlideIn>
                 {/* ---- Search element for blogs ---- */}
-                <div className='lg:w-[72%] w-full'>
+                <SlideIn className='lg:w-[72%] w-full' delay={0.6}>
                     <div className='flex justify-between items-center '>
                         <input
                             placeholder='Search for blogs'
@@ -133,7 +138,7 @@ export default function Blogs(props) {
                         />
                         <FiSearch className='text-[30px] text-purple ml-4' />
                     </div>
-                </div>
+                </SlideIn>
             </div>
 
             <div className='grid lg:grid-cols-[3fr_1fr] grid-cols-1 lg:w-[75vw] md:w-[95vw] w-[92vw] mx-auto gap-10 my-10'>

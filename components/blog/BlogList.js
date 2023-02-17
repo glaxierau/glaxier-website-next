@@ -6,6 +6,8 @@ import styles from '../../styles/Blogs.module.css'
 import { useRouter } from 'next/router'
 import { urlFor } from '../../hooks/tools'
 import { timeStamp } from '../../helper/functions'
+import FadeIn from '../animation/FadeIn'
+import ScaleIn from '../animation/ScaleIn'
 
 
 
@@ -22,7 +24,10 @@ export default function BlogList({ blogs, blogsToShow, }) {
                 {blogsToShow.length !== 0 && blogsToShow[page - 1]?.map(({ title, shortDescription, featuredImage, _createdAt, category, slug }, index) => {
                     return (
                         <Link key={index} href={`/blog/${category.slug}/${slug}`} passHref>
-                            <div className="relative bg-white shadow-sm cursor-pointer hover:shadow-xl hover:scale-[1.005] transition-all rounded-lg overflow-hidden">
+
+                            <ScaleIn className="relative bg-white shadow-sm cursor-pointer hover:shadow-xl hover:scale-[1.005] transition-all rounded-lg overflow-hidden"
+                                delay={index / 10}
+                            >
 
                                 <aside className="relative h-[55%] bg-gray-300">
                                     <Image
@@ -46,7 +51,7 @@ export default function BlogList({ blogs, blogsToShow, }) {
                                             ${index === 0 ? blogs.length <= 2 ? 'md:text-sm text-es' : 'lg:text-base md:md:text-sm text-es' : 'md:text-sm text-es'} text-gray-600`}
                                     >{shortDescription}</p>
                                 </aside>
-                            </div>
+                            </ScaleIn>
                         </Link>
                     )
                 })}

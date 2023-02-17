@@ -7,6 +7,8 @@ import { useSanityImage } from '../../hooks/tools'
 import { motion } from 'framer-motion'
 import { Step } from '../../components/service/Steps'
 import PageNotFound from '../404'
+import SlideInRight from '../../components/animation/SlideInRight'
+import SlideIn from '../../components/animation/SlideIn'
 
 function SingleService(props) {
     const { topSection, pageInfo, notFound } = props
@@ -15,31 +17,44 @@ function SingleService(props) {
         return <PageNotFound />
     }
     return (
-        <div className="flex lg:flex-row flex-col ">
+        <div className="flex lg:flex-row flex-col bg-white ">
             <SectionHead title={pageInfo.metadata.metaTitle} description={pageInfo.metadata.mataDescription} />
-            <div className="w-full relative">
+            <SlideIn className="w-full relative">
                 <div className="lg:h-cscreen w-full h-60 object-cover">
                     <Img {...image(topSection?.serviceImage?.image)} layout='fill' objectFit='cover' alt="meeting" />
                 </div>
                 <div className='lg:hidden grid absolute -bottom-1 w-screen'>
                     <Img src="/assets/svg/shape.svg" alt="Shape for services" layout='responsive' width={100} height={16} />
                 </div>
-            </div>
-            <motion.section initial={{ x: 30 }} animate={{ x: 0 }} transition={{ duration: 0.1 }} className="w-full lg:h-cscreen h-auto bg-white-dark relative flex lg:justify-center justify-start items-center flex-col">
+            </SlideIn>
+            <SlideInRight className="w-full lg:h-cscreen h-auto bg-white-dark relative flex lg:justify-center justify-start items-center flex-col"
+                initial={{ x: 500 }}
+                animate={{ x: 0 }}
+                transition={{ duration: 0.8 }}
+            >
                 <div className="hidden lg:flex absolute h-cscreen w-[10rem] -left-[9rem] z-10">
                     <Img src="/assets/svg/services.svg" alt="Shape for services" layout='fill' objectFit='cover' />
                 </div>
                 <section className="lg:px-20 md:px-10 px-5 py-10 overflow-y-scroll">
-                    <div className="flex items-center justify-start mb-6 ">
+                    <SlideIn className="flex items-center justify-start mb-6 "
+                        delay={0.5}>
                         <h2 className="text-2xl font-bold text-red ml-0">{topSection.title}</h2>
+                    </SlideIn>
+                    <SlideIn delay={0.6}>
+                        <BlockContent blocks={topSection.paragraph1} />
+                    </SlideIn>
+                    <div className="flex flex-col  mx-auto w-full my-10">
+                        {topSection.steps.map((step, index) =>
+                            <SlideIn key={step.title} delay={index / 5}>
+                                <Step key={step.title} title={step.title} desc={step.description} icon={image(step.icon.image)} image={step.icon.image} />
+                            </SlideIn>
+                        )}
                     </div>
-                    <BlockContent blocks={topSection.paragraph1} />
-                    <div className="flex flex-row flex-wrap mx-auto w-full my-10">
-                        {topSection.steps.map(step => <Step key={step.title} title={step.title} desc={step.description} icon={image(step.icon.image)} image={step.icon.image} />)}
-                    </div>
-                    <BlockContent blocks={topSection.paragraph2} />
+                    <SlideIn delay={0.6}>
+                        <BlockContent blocks={topSection.paragraph2} />
+                    </SlideIn>
                 </section>
-            </motion.section>
+            </SlideInRight>
         </div>
     )
 }

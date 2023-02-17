@@ -10,6 +10,8 @@ import { getData } from '../../hooks/getData'
 import { pushDataLayer } from '../../helper/pushDataLayer'
 import { useDispatch, useSelector } from 'react-redux'
 import { updateForm } from '../../hooks/form'
+import SlideInRight from '../../components/animation/SlideInRight'
+import FadeIn from '../../components/animation/FadeIn'
 
 const Goals = (props) => {
     const type = 'Goal'
@@ -35,7 +37,21 @@ const Goals = (props) => {
                 {withHead && <Head title="Contact Us | Your Goals" description={question} />}
                 <ContactTitle title={question} />
                 <div className="flex justify-center flex-wrap m-auto" style={{ width: sm ? 340 : 600, flex: '1 1 160px' }}>
-                    {goals.map(list => <GoalBox key={list._key} icon={sanityImage(list.icon.image)} name={list.text} currentSelection={form[index].value} onClick={() => onChoosingaGoal(list.text)} active={form[index].value === list.text ? true : false} />)}
+                    {goals.map((list, index) =>
+                        <SlideInRight
+                            key={list._key}
+                            delay={index / 6}
+                            scale
+                        >
+                            <GoalBox key={list._key}
+                                icon={sanityImage(list.icon.image)}
+                                name={list.text}
+                                currentSelection={form[index]?.value}
+                                onClick={() => onChoosingaGoal(list.text)}
+                                active={form[index]?.value === list.text ? true : false}
+                            />
+                        </SlideInRight>
+                    )}
                 </div>
                 <div className="mx-auto w-96 flex items-center justify-center py-9">
                     <AppButton title="Continue" width={200} bgColor="bg-blue-dark" bgColorHover="hover:bg-red" txtColor="text-white" link='/contact/contact-details' clicked={() => ontoNextPage()} />

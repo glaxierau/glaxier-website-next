@@ -9,18 +9,23 @@ import SectionHead from '../../components/common/Head'
 import AboutToggle from '../../components/about/AboutToggle'
 import { getData } from '../../hooks/getData'
 import { upperCaseText } from '../../hooks/tools'
+// import SlideIn from '../../components/animation/SlideIn'
+import FadeIn from '../../components/animation/FadeIn'
+import SlideInRight from '../../components/animation/SlideInRight'
+
 
 const About = (props) => {
     const { pageInfo, headerSection, ctaBreakSection, teamSection } = props
 
     const TeamSection = (props) => {
-        return teamSection.teamMembers.map(({ _id, content, image }) => (
-            <TeamBadge
-                key={_id}
-                name={content.name}
-                position={content.position}
-                image={image}
-            />
+        return teamSection.teamMembers.map(({ _id, content, image }, index) => (
+            <SlideInRight key={_id} delay={index / 10}>
+                <TeamBadge
+                    name={content.name}
+                    position={content.position}
+                    image={image}
+                />
+            </SlideInRight>
         ))
     }
 
@@ -31,16 +36,18 @@ const About = (props) => {
                 description={pageInfo.metadata.mataDescription}
             />
             <div className="py-2 ">
-                <SectionTitle
-                    title={upperCaseText(headerSection.title)}
-                    description={headerSection.subtitle}
-                />
+                <FadeIn>
+                    <SectionTitle
+                        title={upperCaseText(headerSection.title)}
+                        description={headerSection.subtitle}
+                    />
+                </FadeIn>
             </div>
             <div className="lg:mt-0 -mt-10" id="whoweare">
                 <AboutSection {...props.aboutSection} />
             </div>
             <div
-                className="bg-white-dark py-20 h-cscreen"
+                className="bg-white-dark py-20 h-auto"
                 id="industry-experience"
             >
                 <Title

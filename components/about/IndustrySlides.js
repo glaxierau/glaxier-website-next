@@ -5,6 +5,8 @@ import Animate from '../animation/Animate'
 import CarouselCard from './CarouselCard'
 import style from '../../styles/dots.module.css'
 import SlideIn from '../animation/SlideIn'
+import { motion } from 'framer-motion'
+import SlideInRight from '../animation/SlideInRight'
 
 const IndustrySlides = ({ contents }) => {
     return (
@@ -13,8 +15,8 @@ const IndustrySlides = ({ contents }) => {
                 {...about_settings}
                 className="flex items-center justify-center"
             >
-                {contents.map((c) => (
-                    <Animate key={c._id}>
+                {contents.map((c, index) => (
+                    <SlideInRight key={c._id} delay={index / 20}>
                         <CarouselCard
                             company={c.content.company}
                             text={
@@ -23,7 +25,7 @@ const IndustrySlides = ({ contents }) => {
                             }
                             logo={c.logo.image}
                         />
-                    </Animate>
+                    </SlideInRight>
                 ))}
             </Slider>
         </SlideIn>

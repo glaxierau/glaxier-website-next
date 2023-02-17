@@ -10,9 +10,9 @@ import { useSizeLessThan } from "../../hooks/useWindowSize";
 const Layout = (props) => {
   const { children, nav } = props
   const variants = {
-    hidden: { opacity: 0, y: -10 },
-    enter: { opacity: 1, y: 0 },
-    exit: { opacity: 0, y: -10 },
+    // hidden: { opacity: 0, y: -10 },
+    // enter: { opacity: 1, y: 0 },
+    // exit: { opacity: 0, y: -10 },
   }
 
   return (

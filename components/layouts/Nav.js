@@ -11,6 +11,9 @@ import NavSVGIcon from '../icons/NavSVGIcon'
 import SearchBox from '../common/SearchBox'
 import { useSelector } from 'react-redux'
 import Flags from '../common/Flags'
+import FadeIn from '../animation/FadeIn'
+import SlideIn from '../animation/SlideIn'
+import SlideInRight from '../animation/SlideInRight'
 
 
 const NavList = ({ to, label, uuid, dropDownList }) => {
@@ -60,6 +63,11 @@ const Nav = () => {
     const header = headerState?.state
     return (
         <>
+            <motion.div className='absolute top-0 right-0 bg-white w-screen h-20 z-50 lg:flex hidden'
+                initial={{ width: '60vw' }}
+                animate={{ width: '0vw' }}
+                transition={{ delay: 0.5, duration: 0.6, ease: [0, 0.71, 0.2, 1.01] }}
+            />
             <motion.nav
                 className="fixed hidden lg:flex z-40 top-0 bg-white w-full h-20 px-28 justify-between"
             >
@@ -75,7 +83,7 @@ const Nav = () => {
 
                 {/* logo section */}
                 <Link href="/" passHref>
-                    <div className="w-40 h-20 flex items-center justify-start cursor-pointer">
+                    <SlideIn className="w-40 h-20 flex items-center justify-start cursor-pointer">
                         {/* logo here... */}
                         <Image
                             src={"/assets/svg/logo.svg"}
@@ -83,19 +91,22 @@ const Nav = () => {
                         />
                         <p className="text-gray-600 text-base ml-2"
                             style={{ fontFamily: "Cutive Mono" }}>Glaxier</p>
-                    </div>
+                    </SlideIn>
                 </Link>
                 {/* navigation */}
-                <div className="navlist flex w-3/5 justify-around items-center">
+                <motion.div className="navlist flex w-3/5 justify-around items-center"
+                >
                     {header?.menuList?.map((list, index) => {
                         const to = list?.slug?.current
                         return (
-                            <NavList
-                                key={index}
-                                to={to === '/' ? '' : to}
-                                label={list?.menuLabel}
-                                dropDownList={list?.withSubMenu ? list.subMenuList : false}
-                            />
+                            <SlideInRight key={index} delay={index / 8}>
+                                <NavList
+                                    key={index}
+                                    to={to === '/' ? '' : to}
+                                    label={list?.menuLabel}
+                                    dropDownList={list?.withSubMenu ? list.subMenuList : false}
+                                />
+                            </SlideInRight>
                         )
                     })}
                     <span className="seperator border-l-2 h-5" />
@@ -117,7 +128,7 @@ const Nav = () => {
                             <path d="M23.731,21.471H22.5l-.462-.386a10.212,10.212,0,0,0,2.385-6.557A9.962,9.962,0,1,0,14.5,24.557a10.31,10.31,0,0,0,6.538-2.391l.461.386v1.234L29.192,31.5,31.5,29.186Zm-9.231,0a6.943,6.943,0,1,1,6.923-6.943A6.9,6.9,0,0,1,14.5,21.471Z" transform="translate(-4.5 -4.5)" />
                         </NavSVGIcon>
                     </div>
-                </div>
+                </motion.div>
 
             </motion.nav>
             <MobileNav header={header?.menuList} />

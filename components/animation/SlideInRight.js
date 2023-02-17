@@ -3,7 +3,7 @@ import { motion, useAnimation } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 import { useSizeLessThan } from '../../hooks/useWindowSize'
 
-const ScaleIn = ({ style, children, y = 50, delay = 0.5, ...otherProps }) => {
+const SlideInRight = ({ style, children, y = 50, delay = 0, ...otherProps }) => {
     const controls = useAnimation()
     const sm = useSizeLessThan(600)
     const { ref, inView } = useInView({ threshold: sm ? 0.2 : 0.2 })
@@ -20,16 +20,16 @@ const ScaleIn = ({ style, children, y = 50, delay = 0.5, ...otherProps }) => {
     const animationVariants = {
         hidden: {
             opacity: 0,
-            scale: 0.95,
+            // y: sm ? 5 : y,
+            x: 20
         },
         visible: {
             opacity: 1,
-            scale: 1,
+            // y: 0,
+            x: 0,
             transition: {
-                type: 'spring',
-                stiffness: 120,
-                // damping: 5,
-                bounceDamping: 4,
+                ease: [0, 0.71, 0.2, 1.01],
+                duration: 0.8,
                 delay,
             },
         },
@@ -48,4 +48,4 @@ const ScaleIn = ({ style, children, y = 50, delay = 0.5, ...otherProps }) => {
     )
 }
 
-export default ScaleIn
+export default SlideInRight

@@ -10,6 +10,7 @@ import { pushDataLayerForm } from '../../helper/pushDataLayer'
 import AppButton from '../../components/AppButton'
 import ContactTitle from '../../components/contact/Title'
 import SectionHead from '../../components/common/Head'
+import SlideIn from '../../components/animation/SlideIn'
 
 function Cd({ personalDetailSection }) {
     const type = 'Contact Detail'
@@ -98,46 +99,54 @@ function Cd({ personalDetailSection }) {
                     className="native_input flex flex-col justify-center items-center"
                     onSubmit={(e) => onSubmittingForm(e)}
                 >
-                    <input
-                        placeholder={personalDetailSection.firstNamePlaceholder}
-                        defaultValue={form[index].firstName}
-                        type="text"
-                        name="MERGE1"
-                        id="MERGE1"
-                        className="lg:w-96 md:w-80 w-80 pl-4"
-                        onChange={(e) => onGettingInput(e)}
-                        required
-                    />
-                    <input
-                        placeholder={personalDetailSection.lastNamePlaceholder}
-                        defaultValue={form[index].lastName}
-                        type="text"
-                        name="MERGE2"
-                        id="MERGE2"
-                        className="lg:w-96 md:w-80 w-80 pl-4"
-                        onChange={(e) => onGettingInput(e)}
-                        required
-                    />
-                    <input
-                        placeholder={personalDetailSection.emailPlaceholder}
-                        defaultValue={form[index].email}
-                        type="email"
-                        name="MERGE0"
-                        id="MERGE0"
-                        className="lg:w-96 md:w-80 w-80 pl-4"
-                        onChange={(e) => onGettingInput(e)}
-                        required
-                    />
-                    <input
-                        placeholder={personalDetailSection.numberPlaceholder}
-                        defaultValue={form[index].phoneNumber}
-                        type="tel"
-                        name="MERGE4"
-                        id="MERGE4"
-                        className="lg:w-96 md:w-80 w-80 pl-4"
-                        onChange={(e) => onGettingInput(e)}
-                        required
-                    />
+                    <SlideIn>
+                        <input
+                            placeholder={personalDetailSection.firstNamePlaceholder}
+                            defaultValue={form[index].firstName}
+                            type="text"
+                            name="MERGE1"
+                            id="MERGE1"
+                            className="lg:w-96 md:w-80 w-80 pl-4"
+                            onChange={(e) => onGettingInput(e)}
+                            required
+                        />
+                    </SlideIn>
+                    <SlideIn delay={0.5}>
+                        <input
+                            placeholder={personalDetailSection.lastNamePlaceholder}
+                            defaultValue={form[index].lastName}
+                            type="text"
+                            name="MERGE2"
+                            id="MERGE2"
+                            className="lg:w-96 md:w-80 w-80 pl-4"
+                            onChange={(e) => onGettingInput(e)}
+                            required
+                        />
+                    </SlideIn>
+                    <SlideIn delay={0.6}>
+                        <input
+                            placeholder={personalDetailSection.emailPlaceholder}
+                            defaultValue={form[index].email}
+                            type="email"
+                            name="MERGE0"
+                            id="MERGE0"
+                            className="lg:w-96 md:w-80 w-80 pl-4"
+                            onChange={(e) => onGettingInput(e)}
+                            required
+                        />
+                    </SlideIn>
+                    <SlideIn delay={0.7}>
+                        <input
+                            placeholder={personalDetailSection.numberPlaceholder}
+                            defaultValue={form[index].phoneNumber}
+                            type="tel"
+                            name="MERGE4"
+                            id="MERGE4"
+                            className="lg:w-96 md:w-80 w-80 pl-4"
+                            onChange={(e) => onGettingInput(e)}
+                            required
+                        />
+                    </SlideIn>
                     <div className="flex justify-start items-center lg:w-96 md:w-80 w-80 py-2">
                         <CheckBox
                             checked={checkbox}

@@ -1,0 +1,1 @@
+export const ease = [0, 0.71, 0.2, 1.01]

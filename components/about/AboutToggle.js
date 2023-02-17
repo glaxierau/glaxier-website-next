@@ -2,6 +2,8 @@ import { motion } from 'framer-motion'
 import React, { useEffect, useState } from 'react'
 import Slider from "react-slick";
 import { about_settings_industry } from '../../config/carousel.setting';
+import { ease } from '../animation/animationEase';
+import SlideInRight from '../animation/SlideInRight';
 import IndustrySlides from './IndustrySlides';
 
 
@@ -17,7 +19,8 @@ const Title = ({ title, onClick, id, myRef }) => {
             <div className="about_toggle flex flex-col justify-center items-center " onClick={onClick} >
                 <h3 id={id} className="text-purple cursor-pointer text-center lg:text-sm text-sm leading-none">{title}</h3>
                 <motion.div className="bg-red h-1 mt-2 "
-                    animate={{ width: id === myRef ? width : 0 }} />
+                    animate={{ width: id === myRef ? width : 0 }}
+                    transition={{ ease: ease }} />
             </div>
         </>
     )
@@ -48,7 +51,11 @@ const AboutToggle = ({ content }) => {
                 <Slider {...about_settings_industry}
                     arrows
                     className="flex lg:w-3/5 md:w-3/4 w-3/4 h-auto mx-auto items-center justify-center mt-10 ">
-                    {industries.map((industry) => <Title id={industry} key={industry} myRef={myRef} title={industry} onClick={() => onToggle(industry)} />)}
+                    {industries.map((industry, index) =>
+                        <SlideInRight key={industry} delay={index / 20}>
+                            <Title id={industry} key={industry} myRef={myRef} title={industry} onClick={() => onToggle(industry)} />
+                        </SlideInRight>
+                    )}
                 </Slider>
                 <IndustrySlides contents={currentToShow} />
             </div>

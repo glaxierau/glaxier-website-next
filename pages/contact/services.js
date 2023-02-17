@@ -6,10 +6,11 @@ import SectionHead from '../../components/common/Head'
 import { getData } from '../../hooks/getData'
 import { pushDataLayer } from '../../helper/pushDataLayer'
 import { useDispatch, useSelector } from 'react-redux'
+import SlideInRight from '../../components/animation/SlideInRight'
 
 
 const Box = ({ content, onClick, activeList }) => {
-    const active = activeList.filter(list => list === content)[0]
+    const active = activeList?.filter(list => list === content)[0]
     const basicStyle = "bg-white-dark border-purple border h-10 rounded-lg m-2 flex items-center justify-center cursor-pointer transition duration-100 ease-in-out"
     const boxHover = "hover:bg-red hover:text-white hover:border-none"
     const color = active ? "bg-red text-white border-none" : "bg-white-dark text-black"
@@ -49,7 +50,18 @@ const Services = ({ serviceSection }) => {
             <ContactTitle title={serviceSection.question} />
             <div className="flex justify-center items-center  lg:flex-row md:flex-row flex-wrap flex-col mx-auto" style={{ width: sm ? 300 : 800 }}>
                 {
-                    serviceSection.services.map(service => (<Box key={service} content={service} activeList={form[index].services} onClick={() => onSelectingBox(service)} />))
+                    serviceSection.services.map((service, index) => (
+                        <SlideInRight
+                            key={service}
+                            delay={index / 5}
+                        >
+                            <Box key={service}
+                                content={service}
+                                activeList={form[index]?.services}
+                                onClick={() => onSelectingBox(service)}
+                            />
+                        </SlideInRight>
+                    ))
                 }
             </div>
             <div className="mx-auto w-56 py-10">
