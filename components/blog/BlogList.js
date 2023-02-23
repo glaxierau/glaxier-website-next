@@ -23,7 +23,7 @@ export default function BlogList({ blogs, blogsToShow, }) {
                          h-auto mx-auto mb-20`} id='blogsList'>
                 {blogsToShow.length !== 0 && blogsToShow[page - 1]?.map(({ title, shortDescription, featuredImage, _createdAt, category, slug }, index) => {
                     return (
-                        <Link key={index} href={`/blog/${category.slug}/${slug}`} passHref>
+                        <Link key={index} href={`/blog/${category?.slug}/${slug}`} passHref>
 
                             <ScaleIn className="relative bg-white shadow-sm cursor-pointer hover:shadow-xl hover:scale-[1.005] transition-all rounded-lg overflow-hidden"
                                 delay={index / 10}

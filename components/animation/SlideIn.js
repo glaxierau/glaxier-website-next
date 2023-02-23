@@ -3,7 +3,7 @@ import { motion, useAnimation } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 import { useSizeLessThan } from '../../hooks/useWindowSize'
 
-const SlideIn = ({ style, children, y = 50, delay = 0.4, ...otherProps }) => {
+const SlideIn = ({ style, children, y = 50, delay = 0.2, ...otherProps }) => {
     const controls = useAnimation()
     const sm = useSizeLessThan(600)
     const { ref, inView } = useInView({ threshold: sm ? 0.2 : 0.2 })
