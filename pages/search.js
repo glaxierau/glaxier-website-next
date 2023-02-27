@@ -43,7 +43,7 @@ export default function Search({ data, pages, services, blogs }) {
                 <p className='my-2 text-white'>{subtitle}</p>
                 <div className='relative lg:w-[80%] w-full'>
                     <input placeholder={searchPlaceholder}
-                        className='p-3 px-10 w-full text-base text-purple shadow-sm rounded-full placeholder:text-base'
+                        className='p-3 lg:px-10 px-5 lg:pr-14 pr-14 w-full text-base text-purple shadow-sm rounded-full placeholder:text-base'
                         onChange={hangleInput} />
                     <CiSearch className='absolute right-5 top-[50%] -translate-y-[50%] text-purple text-3xl' />
                 </div>

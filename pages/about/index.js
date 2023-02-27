@@ -41,7 +41,7 @@ const About = (props) => {
                 <AboutSection {...props.aboutSection} />
             </div>
             <div
-                className="bg-white-dark py-20 h-cscreen"
+                className="bg-white-dark py-20 h-auto"
                 id="industry-experience"
             >
                 <Title
