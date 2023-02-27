@@ -36,7 +36,6 @@ export default function Search({ data, pages }) {
         else setResultToShow(formattedData)
     }
 
-    console.log(changed)
     return (
         <section className='' >
             <SectionHead title="Search" description="Search for anything" />
