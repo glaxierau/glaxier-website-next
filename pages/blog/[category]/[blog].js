@@ -21,14 +21,12 @@ export default function SingleBlog(props) {
         metadata,
         title,
         shortDescription,
-        status,
         tags,
         _createdAt
     } = props.article
 
     const similarArticles = props.similar_articles.filter(a => a._id !== _id)
     const [toggler, setToggler] = useState(false)
-    const router = useRouter()
 
     return (
         <>
