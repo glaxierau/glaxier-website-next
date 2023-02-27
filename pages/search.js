@@ -35,7 +35,6 @@ export default function Search({ data, pages, services, blogs }) {
         else setResultToShow([...pagesResult, ...servicesResult, ...blogsResult])
     }
 
-    console.log(blogs)
     return (
         <section className='' >
             <SectionHead title="Search" description="Search for anything" />
@@ -75,7 +74,6 @@ export default function Search({ data, pages, services, blogs }) {
 const ResultCard = ({ title, description, slug, contain }) => {
     const router = useRouter()
     return (
-        // <Link href={`/${slug}#:~:text=${contain}`} passHref>
         <a href={`/${router.locale}/${slug}#:~:text=${contain}`}>
             <div className='h-[max-content] flex flex-col bg-white justify-start items-start p-4 rounded-lg shadow-sm hover:scale-[1.01] transition-all
                     cursor-pointer'>
@@ -84,7 +82,6 @@ const ResultCard = ({ title, description, slug, contain }) => {
                 <p className='mt-2 text-gray-400 text-sm italic'><b className='text-purple font-extrabold not-italic'>Contains:</b> {contain}</p>
             </div>
         </a>
-        // </Link>
     )
 }
 
