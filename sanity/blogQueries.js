@@ -4,7 +4,7 @@ export const blogs =
     featuredImage,
     shortDescription,
     _createdAt, 
-    "category": articleCategory->{...category{slug}},
+    "category": articleCategory->{...category{slug,title}},
     slug, 
     tags
   }`
