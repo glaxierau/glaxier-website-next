@@ -45,15 +45,28 @@ const MobileNavList = ({ header, setNav }) => {
                 return (
                     <div key={index} className="relative bg-white-dark">
                         <Link href={to === '/' ? '/' : `/${to}`} passHref>
-                            <h3 className={`text-${router.asPath.split('/')[1] === nav?.slug?.current ? 'red' : 'purple'}
+                            <a>
+                                <h3 className={`text-${router.asPath.split('/')[1] === nav?.slug?.current ? 'red' : 'purple'}
                          hover:text-red cursor-pointer font-bold text-3xl my-5 bg-white-dark`}
-                                onClick={() => setNav(false)}>
-                                {nav?.menuLabel}</h3>
+                                    onClick={() => setNav(false)}>
+                                    {nav?.menuLabel}</h3>
+                            </a>
                         </Link>
                         <DropDown to={nav?.slug?.current} dropdown={nav?.withSubMenu ? nav?.subMenuList : false} />
                     </div>
                 )
             })}
+            <Link
+                href={`/search`}
+                passHref
+                onClick={() => setNav(false)}
+            >
+                <a>
+                    <p className="hover:text-red text-purple cursor-pointer font-extrabold text-3xl my-5 bg-white-dark">
+                        Search
+                    </p>
+                </a>
+            </Link>
         </>
     )
 }

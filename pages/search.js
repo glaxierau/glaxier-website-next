@@ -1,14 +1,16 @@
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import React, { useState } from 'react'
 import { CiSearch } from 'react-icons/ci'
 import SectionHead from '../components/common/Head';
-import { languageToUpperCase } from '../helper/functions';
+import { languageToUpperCase, trimFunction } from '../helper/functions';
+import { getBlogs, getPages, getServices } from '../helper/searchFunctions';
 import { client } from '../hooks/getData';
-import { pageStore } from '../sanity/store';
+import { blogsStore, pageStore, servicesStore } from '../sanity/store';
 
 
 
-export default function Search({ data, pages }) {
+export default function Search({ data, pages, services, blogs }) {
     const { title, subtitle, searchPlaceholder, result } = data
     const [resultToShow, setResultToShow] = useState([])
     const [contain, setContain] = useState('')
@@ -18,24 +20,22 @@ export default function Search({ data, pages }) {
         const query = e.target.value
         setContain(query)
         setChanged(true)
-        //filter pages that contains specific result
-        const filteredPageWithKeyword = pages.filter((page) =>
-            page[1].toLowerCase().includes(query.toLowerCase()))
 
-        //format data to show
-        const formattedData = filteredPageWithKeyword.map(page => {
-            const data = JSON.parse(page[1])
-            const newFormat = {
-                title: data?.pageName,
-                description: data?.pageInfo?.metadata?.mataDescription,
-                slug: data?.slug,
-            }
-            return newFormat
-        })
+        //getting matching pages
+        const pagesResult = getPages(pages, query)
+
+        //getting matching services
+        const servicesResult = getServices(services, query)
+
+        //getting matching services
+        const blogsResult = getBlogs(blogs, query)
+
+
         if (!query.length) setResultToShow([])
-        else setResultToShow(formattedData)
+        else setResultToShow([...pagesResult, ...servicesResult, ...blogsResult])
     }
 
+    console.log(blogs)
     return (
         <section className='' >
             <SectionHead title="Search" description="Search for anything" />
@@ -51,7 +51,7 @@ export default function Search({ data, pages }) {
                 {!resultToShow.length && changed && <h2 className='text-left my-5 text-white text-2xl font-extrabold bg-purple'>Result Not Found!</h2>}
             </aside>
             {!!resultToShow.length && <aside className='py-5 pb-10 bg-purple lg:px-[10%] px-[5%]'>
-                <h2 className='text-left my-5 text-white text-2xl font-extrabold'>{result}:</h2>
+                <h2 className='text-left my-5 text-white text-2xl font-extrabold'>{resultToShow.length} {result} found:</h2>
                 <div className='grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-4'>
                     {
                         resultToShow.map((res, index) => {
@@ -73,17 +73,18 @@ export default function Search({ data, pages }) {
 }
 
 const ResultCard = ({ title, description, slug, contain }) => {
+    const router = useRouter()
     return (
-        <Link href={`/${slug}#:~:text=${contain}`} passHref>
-            <a>
-                <div className='h-[max-content] flex flex-col bg-white justify-start items-start p-4 rounded-lg shadow-sm hover:scale-[1.01] transition-all
+        // <Link href={`/${slug}#:~:text=${contain}`} passHref>
+        <a href={`/${router.locale}/${slug}#:~:text=${contain}`}>
+            <div className='h-[max-content] flex flex-col bg-white justify-start items-start p-4 rounded-lg shadow-sm hover:scale-[1.01] transition-all
                     cursor-pointer'>
-                    <h2 className='text-purple font-extrabold text-2xl mb-2'>{title}</h2>
-                    <p className='text-gray-500 hover:underline text-sm'>{description}</p>
-                    <p className='mt-2 text-gray-400 text-sm italic'><b className='text-purple font-extrabold not-italic'>Contains:</b> {contain}</p>
-                </div>
-            </a>
-        </Link>
+                <h2 className='text-purple font-extrabold text-2xl mb-2'>{title}</h2>
+                <p className='text-gray-500 hover:underline text-sm'>{trimFunction(description, 150)}</p>
+                <p className='mt-2 text-gray-400 text-sm italic'><b className='text-purple font-extrabold not-italic'>Contains:</b> {contain}</p>
+            </div>
+        </a>
+        // </Link>
     )
 }
 
@@ -91,10 +92,14 @@ export async function getStaticProps(ctx) {
     let lang = ctx.locale
     const searchData = await client.fetch(`*[_type == 'searchPage' && __i18n_lang == $lang][0]`, { lang: languageToUpperCase(lang) })
     const pages = await pageStore(lang)
+    const services = await servicesStore(lang)
+    const blogs = await blogsStore(lang)
     return {
         props: {
             data: searchData,
-            pages: Object.entries(pages)
+            pages: Object.entries(pages),
+            services,
+            blogs
         },
     }
 }
