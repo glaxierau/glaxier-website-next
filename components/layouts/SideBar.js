@@ -1,9 +1,7 @@
 import React from 'react'
 import LanguageSection from '../common/LanguageSection'
-import SearchBox from '../common/SearchBox'
 import MobileNavList from '../common/MobileNavList'
 import { motion } from 'framer-motion'
-import navigation from '../../config/navList'
 
 const SideBar = ({ header, open, setNav }) => {
     return (
@@ -22,8 +20,6 @@ const SideBar = ({ header, open, setNav }) => {
                         <br />
                         <br />
                         <MobileNavList header={header} setNav={setNav} />
-                        {/* <div style={{ height: '1px' }} className="my-10 mx-auto w-full bg-purple" /> */}
-                        {/* <SearchBox /> */}
                     </div>
                 </motion.li>
             </motion.ul>

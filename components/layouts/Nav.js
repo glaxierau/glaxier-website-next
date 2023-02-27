@@ -4,13 +4,11 @@ import Link from 'next/link'
 import MobileNav from './MobileNav'
 import { IoIosArrowDown } from 'react-icons/io'
 import '../../styles/navigation.module.css'
-import DropDown from './DropDown'
 import { motion } from 'framer-motion'
-// import nav from '../../config/navList'
 import NavSVGIcon from '../icons/NavSVGIcon'
-import SearchBox from '../common/SearchBox'
 import { useSelector } from 'react-redux'
 import Flags from '../common/Flags'
+import { useRouter } from 'next/router'
 
 
 const NavList = ({ to, label, uuid, dropDownList }) => {
@@ -54,10 +52,12 @@ const NavList = ({ to, label, uuid, dropDownList }) => {
 
 
 const Nav = () => {
+    const router = useRouter()
     const [openSearch, setSearch] = useState(false)
     const { state } = useSelector(s => s.state)
     const headerState = state?.find(el => el?.name === 'header')
     const header = headerState?.state
+
     return (
         <>
             <motion.nav
@@ -67,10 +67,6 @@ const Nav = () => {
                     style={{ width: '60vw', borderRadius: '0 0 30px 30px' }}
                     animate={openSearch ? { display: 'flex', height: '10vh', y: -1, x: '-50%' } : { display: 'flex', height: '0vh', x: '-50%', y: -10 }}
                 >
-                    {openSearch && <SearchBox
-                        shadow={false}
-                        border onClose={() => setSearch(false)}
-                        autoFocus={openSearch} />}
                 </motion.div>
 
                 {/* logo section */}
@@ -113,7 +109,7 @@ const Nav = () => {
                         </div>
 
                         {/* search bar */}
-                        <NavSVGIcon onClick={() => { setSearch(true) }}>
+                        <NavSVGIcon onClick={() => router.push('search')}>
                             <path d="M23.731,21.471H22.5l-.462-.386a10.212,10.212,0,0,0,2.385-6.557A9.962,9.962,0,1,0,14.5,24.557a10.31,10.31,0,0,0,6.538-2.391l.461.386v1.234L29.192,31.5,31.5,29.186Zm-9.231,0a6.943,6.943,0,1,1,6.923-6.943A6.9,6.9,0,0,1,14.5,21.471Z" transform="translate(-4.5 -4.5)" />
                         </NavSVGIcon>
                     </div>

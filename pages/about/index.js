@@ -7,8 +7,9 @@ import Title from '../../components/Title'
 import TeamBadge from '../../components/icons/TeamBadge'
 import SectionHead from '../../components/common/Head'
 import AboutToggle from '../../components/about/AboutToggle'
-import { getData } from '../../hooks/getData'
+import { client, getData } from '../../hooks/getData'
 import { upperCaseText } from '../../hooks/tools'
+import { aboutQuery } from '../../sanity/pagesQuery'
 
 const About = (props) => {
     const { pageInfo, headerSection, ctaBreakSection, teamSection } = props
@@ -73,16 +74,7 @@ const About = (props) => {
 export const getStaticProps = async (req, res) => {
     // ----------------- Data Fetching --------------------
     let lang = req.locale
-    const props = await getData(
-        `*[_type == 'about' && pageInfo.lang->language =='${lang}'][0]{
-            ...,
-            aboutSection->,
-            ctaBreakSection->,
-            "content": industrySection[]->{...,industry->,content[language->.language == '${lang}'][0]{..., language->}},
-            teamSection{...,teamMembers[]->{...,content[0]}}
-          }`
-    )
-
+    const props = await client.fetch(aboutQuery, { lang })
     return { props }
 }
 
