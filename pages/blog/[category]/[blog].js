@@ -5,7 +5,7 @@ import { useRouter } from 'next/router'
 import React, { useState } from 'react'
 import ContentMapper from '../../../components/common/ContentMapper'
 import SectionHead from '../../../components/common/Head'
-import { languageToUpperCase, timeStamp } from '../../../helper/functions'
+import { languageToUpperCase, timeStamp, trimFunction } from '../../../helper/functions'
 import { client, getData } from '../../../hooks/getData'
 import { urlFor } from '../../../hooks/tools'
 import { allBlogs, similarArticles, singleBlog } from '../../../sanity/blogQueries'
@@ -104,7 +104,7 @@ export default function SingleBlog(props) {
                                         </aside>
                                         <aside className='w-full h-max text-gray-500 p-2 py-3'>
                                             <h2 className='text-base font-bold'>{title}</h2>
-                                            <p>{shortDescription}</p>
+                                            <p>{trimFunction(shortDescription, 80)}</p>
                                         </aside>
                                     </div>
                                 </a>
