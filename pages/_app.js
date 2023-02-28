@@ -10,7 +10,6 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { FetcherUI } from '../helper/fetcher';
 import Cookie from '../components/CookieConsent';
-import { cookieConsentValue } from '../helper/functions';
 
 
 function MyApp(props,) {

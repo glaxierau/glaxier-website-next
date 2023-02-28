@@ -1,7 +1,7 @@
-import { useMobileScreen } from "../hooks/useWindowSize"
-
 export const blogs =
-  `*[_type == 'articles' && __i18n_lang == $lang] | order(_createdAt desc){
+  `*[_type == 'articles' 
+    && __i18n_lang == $lang 
+    && status == 'published'] | order(_createdAt desc){
     title,
     featuredImage,
     shortDescription,
@@ -12,7 +12,10 @@ export const blogs =
   }`
 
 export const blogsWithTags =
-  `*[_type == 'articles' && __i18n_lang == $lang && $tag in tags] | order(_createdAt desc)[$fIndex...$lIndex]{
+  `*[_type == 'articles' 
+    && __i18n_lang == $lang 
+    && $tag in tags
+    && status == 'published'] | order(_createdAt desc)[$fIndex...$lIndex]{
     title,
     featuredImage,
     shortDescription,
@@ -23,7 +26,10 @@ export const blogsWithTags =
   }`
 
 
-export const allBlogs = `*[_type == 'articles' && __i18n_lang == $lang ]{
+export const allBlogs = `
+*[_type == 'articles' 
+  && __i18n_lang == $lang 
+  && status == 'published' ]{
   slug,
   "category": articleCategory->{...category{slug}},
 }`
@@ -32,7 +38,8 @@ export const singleBlog =
   `*[_type == 'articles' 
     && slug == $slug 
     && __i18n_lang == $lang 
-    && articleCategory->.category.slug == $category][0]
+    && articleCategory->.category.slug == $category
+    && status == 'published'][0]
         {
         _id,
         title,

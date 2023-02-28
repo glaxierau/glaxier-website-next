@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import SectionHead from '../../components/common/Head'
-import { getData } from '../../hooks/getData'
+import { client, getData } from '../../hooks/getData'
 import BlockContent from '../../components/BlockContent/BlockContent'
 import Img from 'next/image'
 import { useSanityImage } from '../../hooks/tools'
@@ -49,8 +49,8 @@ export default SingleService
 
 
 export const getStaticPaths = async (ctx) => {
-    let currentLanguage = ctx.defaultLocale
-    let slugs = await getData(`*[_type == 'service' && pageInfo.lang->language == '${currentLanguage}' ]{slug}`)
+    let lang = ctx.defaultLocale
+    let slugs = await client.fetch(`*[_type == 'service' && pageInfo.lang->language == $lang ]{slug}`, { lang })
     let paths = slugs.map(slug => {
         return {
             params: { service: slug.slug }
@@ -64,10 +64,10 @@ export const getStaticPaths = async (ctx) => {
 
 export const getStaticProps = async (ctx) => {
     let query = ctx.params.service
-    let currentLanguage = ctx.locale
+    let lang = ctx.locale
     let props = null
     try {
-        props = await getData(`*[ slug == '${query}' && pageInfo.lang->language == '${currentLanguage}' ][0]`)
+        props = await client.fetch(`*[ slug == $query && pageInfo.lang->language == $lang ][0]`, { query, lang })
     } catch (err) { throw err }
     return { props }
 }

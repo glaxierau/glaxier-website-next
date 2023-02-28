@@ -14,6 +14,11 @@ module.exports = {
                     'https://glaxier-cms.sanity.studio/desk',
             },
             {
+                source: '/home',
+                destination:
+                    '/',
+            },
+            {
                 source: '/api/:paths*',
                 destination:
                     'https://a49e7mel.api.sanity.io/v1/data/query/production?query=',
