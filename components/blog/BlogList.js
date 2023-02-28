@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import Pagination from '../common/Pagination'
 import styles from '../../styles/Blogs.module.css'
 import { useRouter } from 'next/router'
@@ -34,9 +34,6 @@ export default function BlogList({ blogs, blogsToShow, }) {
                                         priority
                                     />
                                     <div className="absolute bottom-[10px] right-[10px]">
-                                        {/* <div className='bg-purple text-gray-500 px-4 rounded-full mb-1'>
-                                            <p className='text-white  ' style={{ fontSize: 10 }}>{category?.title}</p>
-                                        </div> */}
                                         <div className='bg-red-400 text-gray-500 px-4 rounded-full'>
                                             <p className='text-white  ' style={{ fontSize: 10 }}>{timeStamp(_createdAt)}</p>
                                         </div>
@@ -63,3 +60,5 @@ export default function BlogList({ blogs, blogsToShow, }) {
         </div>
     )
 }
+
+

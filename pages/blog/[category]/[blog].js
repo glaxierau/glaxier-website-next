@@ -20,6 +20,7 @@ export default function SingleBlog(props) {
         featuredImage,
         metadata,
         title,
+        status,
         shortDescription,
         tags,
         _createdAt
