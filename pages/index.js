@@ -37,8 +37,8 @@ export default function Home(props) {
                 <br />
                 <BlogList blogs={blogsProps[0]} blogsToShow={blogsProps} />
                 <Link href='/blog' passHref>
-                    <p className='text-white text-base mx-auto mb-10 bg-purple px-10 
-                    rounded-lg cursor-pointer hover:scale-[1.05] transition-all py-1'
+                    <p className='text-white text-base mx-auto mb-10 bg-purple px-10 py-4
+                    rounded-lg cursor-pointer hover:scale-[1.05] transition-all'
                     >{useEng() ? 'See More' : 'ดูเพิ่มเติม'}</p>
                 </Link>
             </div>
