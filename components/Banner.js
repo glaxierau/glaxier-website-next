@@ -10,6 +10,11 @@ import styles from './banner.module.css'
 const Banner = (props) => {
     const { data } = useSelector((state) => state.data)
     const { heroTitle, preTitle, button1, button2, image } = props.hero || data
+
+    const onClicked = () => {
+        router.push(button1.link)
+    }
+
     return (
         <>
             <div className="relative overflow-x-hidden h-cscreen">
@@ -39,23 +44,15 @@ const Banner = (props) => {
                         {heroTitle}
                     </h1>
                     <div className="flex lg:flex-row md:flex-row flex-col items-center">
-                        <AppButton
-                            bgColor="bg-blue"
-                            bgColorHover="hover:bg-red"
-                            txtColor="text-white"
-                            title={button1.buttonText}
-                            width={200}
-                            link={button1.link}
-                        />
-                        <AppButton
-                            bgColor="bg-white"
-                            bgColorHover="hover:bg-red"
-                            txtColor="text-blue"
-                            txtColorHover={'hover:text-white'}
-                            title={button2.buttonText}
-                            width={140}
-                            link={button2.link}
-                        />
+                        <motion.button
+                            whileHover={{ scale: 1.01, transition: { type: "spring" } }}
+                            type="button"
+                            className='bg-blue hover:bg-red text-white cursor-pointer rounded-full flex justify-center items-center m-2 transition duration-100 ease-in-out p-6'
+                            style={{ minWidth: 200, height: 35, fontSize: 15 }}
+                            onClick={onClicked}
+                            >
+                            {button1.buttonText}
+                        </motion.button>
                     </div>
                 </motion.div>
                 <div className="absolute bottom-0 w-screen">
