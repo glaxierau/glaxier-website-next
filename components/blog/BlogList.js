@@ -10,12 +10,7 @@ import { timeStamp } from '../../helper/functions'
 export default function BlogList({ blogs, blogsToShow }) {
     const router = useRouter()
     const page = +router.query.page || 1
-    if (
-        !blogsToShow.category ||
-        !blogsToShow.category.slug ||
-        !blugsToShow.slug
-    )
-        return <></>
+
     return (
         <div>
             {/* ------------ Listing Blogs -------------- */}
@@ -41,7 +36,7 @@ export default function BlogList({ blogs, blogsToShow }) {
                             },
                             index
                         ) => {
-                            return (
+                            return slug && category.slug && (
                                 // <a>
                                 <Link
                                     key={index}
@@ -78,7 +73,7 @@ export default function BlogList({ blogs, blogsToShow }) {
                                         </aside>
                                         <a
                                             href={`/blog/${category.slug}/${slug}`}
-                                            className={`overflow-hidden h-[45%] z-30 flex flex-col justify-center items-left
+                                            className={`z-30 flex flex-col justify-center items-left
                                             ${
                                                 index === 0
                                                     ? blogs.length <= 2
@@ -94,7 +89,7 @@ export default function BlogList({ blogs, blogsToShow }) {
                                                             ? 'text-md'
                                                             : 'lg:text-xl md:text-base text-md lg:mb-2'
                                                         : 'text-md'
-                                                } font-bold text-purple`}
+                                                } font-bold text-purple truncate`}
                                             >
                                                 {title}
                                             </h2>
