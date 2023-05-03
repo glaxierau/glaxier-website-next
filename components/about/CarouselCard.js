@@ -17,7 +17,7 @@ const CarouselCard = ({ company, text, logo }) => {
             </div>
             <p
                 className="text-black-light py-4"
-                style={{ fontSize: '0.8rem', lineHeight: '1.5' }}
+                style={{ fontSize: '1rem', lineHeight: '1.5', fontWeight: 300 }}
             >
                 {text}
             </p>
