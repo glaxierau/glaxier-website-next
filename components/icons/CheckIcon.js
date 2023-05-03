@@ -10,7 +10,7 @@ function CheckIcon({ label }) {
                     <path id="Icon_feather-check" d="M30,9,13.5,25.5,6,18" transform="translate(-3.879 -6.879)" fill="none" stroke="#fff" strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" />
                 </svg>
             </div>
-            <p className="text-purple font-thin" style={{ fontSize: '0.8rem' }}>{label}</p>
+            <p className="text-purple font-thin lg:text-[1.2rem] text-[0.8rem]">{label}</p>
         </div>
     )
 }
