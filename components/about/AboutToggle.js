@@ -14,8 +14,8 @@ const Title = ({ title, onClick, id, myRef }) => {
     }, [id])
     return (
         <>
-            <div className="about_toggle flex flex-col justify-center items-center " onClick={onClick} >
-                <h3 id={id} className="text-purple cursor-pointer text-center lg:text-sm text-sm leading-none">{title}</h3>
+            <div className="about_toggle flex flex-col justify-center items-center h-8" onClick={onClick} >
+                <h3 id={id} className="text-purple cursor-pointer text-center lg:text-[1.2rem] text-[1.2rem] leading-none">{title}</h3>
                 <motion.div className="bg-red h-1 mt-2 "
                     animate={{ width: id === myRef ? width : 0 }} />
             </div>
@@ -44,10 +44,10 @@ const AboutToggle = ({ content }) => {
     }
     return (
         <>
-            <div className="about_toggle">
+            <div className="about_toggle mt-10">
                 <Slider {...about_settings_industry}
                     arrows
-                    className="flex lg:w-3/5 md:w-3/4 w-3/4 h-auto mx-auto items-center justify-center mt-10 ">
+                    className="flex lg:w-3/5 md:w-3/4 w-3/4 h-auto mx-auto items-center justify-center">
                     {industries.map((industry) => <Title id={industry} key={industry} myRef={myRef} title={industry} onClick={() => onToggle(industry)} />)}
                 </Slider>
                 <IndustrySlides contents={currentToShow} />
