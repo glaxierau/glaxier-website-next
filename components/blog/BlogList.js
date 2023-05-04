@@ -47,12 +47,12 @@ export default function BlogList({ blogs, blogsToShow }) {
                                         key={index}
                                         className="relative bg-white shadow-sm cursor-pointer hover:shadow-xl hover:scale-[1.005] transition-all rounded-lg overflow-hidden"
                                     >
-                                        <aside className="relative h-[55%] bg-gray-300">
+                                        <aside className="relative h-[55%]">
                                             <Image
                                                 src={urlFor(featuredImage.image)
                                                     .height(400)
                                                     .url()}
-                                                className="object-cover bg-no-repeat"
+                                                className="object-contain bg-no-repeat"
                                                 layout="fill"
                                                 alt={featuredImage.image.alt}
                                                 title={
@@ -73,13 +73,13 @@ export default function BlogList({ blogs, blogsToShow }) {
                                         </aside>
                                         <a
                                             href={`/blog/${category.slug}/${slug}`}
-                                            className={`z-30 flex flex-col justify-center items-left
+                                            className={`z-30 flex flex-col justify-center items-left m-0
                                             ${
                                                 index === 0
                                                     ? blogs.length <= 2
-                                                        ? 'p-4'
-                                                        : 'lg:p-10 p-4'
-                                                    : 'p-4'
+                                                        ? 'pt-[1.65rem] px-4 pb-4'
+                                                        : 'lg:p-10 pt-[1.65rem] px-4 pb-4'
+                                                    : 'pt-[1.65rem] px-4 pb-4'
                                             }`}
                                         >
                                             <h2
