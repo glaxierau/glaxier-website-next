@@ -47,7 +47,7 @@ const About = (props) => {
                     >
                         {/* red line  */}
                         <div
-                            className={`${style.line} absolute top-[1.0rem] left-[50%] translate-x-[-50%] h-[2px] w-[17rem] sm:w-[23rem] z-[-1] bg-red-dark lg:top-[1rem] lg:w-[15rem]`}
+                            className={`${style.line} absolute top-[1.0rem] left-[50%] translate-x-[-50%] h-[2px] w-[17rem] sm:w-[23rem] z-[-1] bg-red-dark lg:top-[1rem] lg:w-[23rem] lg:top-[1.5rem]`}
                         />
                         {props.checks.map((label) => (
                             <CheckIcon key={label} label={label} />
