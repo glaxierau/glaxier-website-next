@@ -5,7 +5,7 @@ import Head from '../components/common/Head'
 import { useSelector } from 'react-redux'
 import { useSanityImage, upperCaseText } from '../hooks/tools'
 import { motion } from 'framer-motion'
-import styles from './banner.module.css'
+import styles from './banner.module.scss'
 
 const Banner = (props) => {
     const { data } = useSelector((state) => state.data)
@@ -18,14 +18,15 @@ const Banner = (props) => {
     return (
         <>
             <div className="relative overflow-x-hidden h-cscreen">
-                <Img
-                    {...useSanityImage(image.image)}
-                    quality={80}
-                    placeholder="blur"
-                    className="object-cover bg-no-repeat"
-                    layout="fill"
-                    objectPosition="right top"
-                />
+                <span className={`${styles.bannerContainer}`}>
+                    <Img
+                        {...useSanityImage(image.image)}
+                        quality={80}
+                        placeholder="blur"
+                        className={`object-cover bg-no-repeat ${styles.bannerImage}`}
+                        layout="fill"
+                    />
+                </span>
                 <motion.div
                     className={`absolute lg:top-40 md:top-1/2 top-[50%] left-1/2 lg:left-40 transform 
                     lg:-translate-x-0 -translate-x-2/4 
@@ -45,12 +46,15 @@ const Banner = (props) => {
                     </h1>
                     <div className="flex lg:flex-row md:flex-row flex-col items-center">
                         <motion.button
-                            whileHover={{ scale: 1.01, transition: { type: "spring" } }}
+                            whileHover={{
+                                scale: 1.01,
+                                transition: { type: 'spring' },
+                            }}
                             type="button"
-                            className='bg-blue hover:bg-red text-white cursor-pointer rounded-full flex justify-center items-center m-2 transition duration-100 ease-in-out p-6'
+                            className="bg-blue hover:bg-red text-white cursor-pointer rounded-full flex justify-center items-center m-2 transition duration-100 ease-in-out p-6"
                             style={{ minWidth: 200, height: 35, fontSize: 15 }}
                             onClick={onClicked}
-                            >
+                        >
                             {button1.buttonText}
                         </motion.button>
                     </div>

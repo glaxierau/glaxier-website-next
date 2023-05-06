@@ -1,0 +1,18 @@
+.bannerTextBackground {
+    background-color: rgba(90, 91, 94, 0.3);
+}
+
+.bannerContainer {
+}
+
+@media screen and (max-width: 1444px) {
+    .bannerImage {
+        object-position: 90%;
+    }
+}
+
+@media screen and (min-width: 1445px) {
+    .bannerImage {
+        object-position: top right;
+    }
+}

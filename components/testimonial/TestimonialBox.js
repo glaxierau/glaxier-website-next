@@ -23,11 +23,12 @@ const TestimonialBox = ({ position, name, text, image }) => {
             <br />
             <motion.div
                 animate={{ height: clicked ? 'auto' : '14rem' }}
-                className={`${clicked ? 'h-auto' : 'h-60'
-                    } flex flex-col items-start justify-center cursor-text`}
+                className={`${
+                    clicked ? 'h-auto' : 'h-60'
+                } flex flex-col items-start justify-center cursor-text`}
                 onClick={() => setClicked(!clicked)}
             >
-                <motion.p className="text-black-light text-sm">
+                <motion.p className="text-black-light text-sm leading-8">
                     {clicked ? text : shortenText(text)}
                     {!clicked && (
                         <span className="text-purple ml-2 cursor-pointer hover:text-red">
