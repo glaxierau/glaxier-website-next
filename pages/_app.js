@@ -11,10 +11,17 @@ import 'slick-carousel/slick/slick-theme.css'
 import { FetcherUI } from '../helper/fetcher'
 import Cookie from '../components/CookieConsent'
 import gtm from '../utils/gtm'
+import { useEffect } from 'react'
 
 function MyApp(props) {
     const { Component, pageProps, router } = props
-    gtm()
+
+    useEffect(() => {
+        if (typeof window !== 'undefined') {
+            gtm()
+        }
+    }, [router.asPath])
+
     return (
         <>
             <Provider store={store}>
