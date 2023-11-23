@@ -5,12 +5,19 @@ import { useRouter } from 'next/router'
 import React, { useState } from 'react'
 import ContentMapper from '../../../components/common/ContentMapper'
 import SectionHead from '../../../components/common/Head'
-import { languageToUpperCase, timeStamp, trimFunction } from '../../../helper/functions'
+import {
+    languageToUpperCase,
+    timeStamp,
+    trimFunction,
+} from '../../../helper/functions'
 import { client, getData } from '../../../hooks/getData'
 import { urlFor } from '../../../hooks/tools'
-import { allBlogs, similarArticles, singleBlog } from '../../../sanity/blogQueries'
+import {
+    allBlogs,
+    similarArticles,
+    singleBlog,
+} from '../../../sanity/blogQueries'
 import styles from '../../../styles/Blogs.module.css'
-
 
 export default function SingleBlog(props) {
     const {
@@ -23,28 +30,38 @@ export default function SingleBlog(props) {
         status,
         shortDescription,
         tags,
-        _createdAt
+        _createdAt,
     } = props.article
 
-    const similarArticles = props.similar_articles.filter(a => a._id !== _id)
+    const similarArticles = props.similar_articles.filter((a) => a._id !== _id)
     const [toggler, setToggler] = useState(false)
 
     return (
         <>
-            <SectionHead title={metadata?.metaTitle} description={metadata?.metaDescription} />
-            <div className={`${styles.article_style} lg:w-[70vw] md:w-[95vw] w-[92vw] m-auto`}>
-
+            <SectionHead
+                title={metadata?.metaTitle}
+                description={metadata?.metaDescription}
+            />
+            <div
+                className={`${styles.article_style} lg:w-[70vw] md:w-[95vw] w-[92vw] m-auto`}
+            >
                 {/* ------------ Title and description -------- */}
                 <div className={`${styles.title} h-auto`}>
-                    <h1 className="my-4 text-purple text-3xl font-extrabold lg:w-[60%]">{title}</h1>
-                    <p className='my-2 text-gray-500 mb-5'>{shortDescription}</p>
+                    <h1 className="my-4 text-purple text-3xl font-extrabold lg:w-[60%]">
+                        {title}
+                    </h1>
+                    <p className="my-2 text-gray-500 mb-5">
+                        {shortDescription}
+                    </p>
                 </div>
 
                 {/* ------------ Featured Image ------------ */}
-                <div className={`${styles.fImage} relative lg:h-[400px] h-[350px]`}>
+                <div
+                    className={`${styles.fImage} relative h-[400px] lg:h-[600px]`}
+                >
                     <Image
                         src={urlFor(featuredImage.image).height(600).url()}
-                        className="object-cover bg-no-repeat rounded-lg cursor-pointer"
+                        className="object-contain bg-no-repeat rounded-lg cursor-pointer"
                         layout="fill"
                         alt={featuredImage.image.alt}
                         title={featuredImage.image.title}
@@ -57,24 +74,39 @@ export default function SingleBlog(props) {
                 </div>
 
                 {/* --------------- Info ---------------*/}
-                <div className={`${styles.info} text-gray-400 p-5 h-max bg-gray-50 rounded-lg`}>
-                    <div><b>Author:</b> {author}</div>
-                    <div><b>Created on:</b> {timeStamp(_createdAt)}</div>
+                <div
+                    className={`${styles.info} text-gray-400 p-5 h-max bg-gray-50 rounded-lg`}
+                >
                     <div>
-                        <h2><b>Tags:</b></h2>
-                        <div className='flex flex-wrap mt-3'>
-                            {
-                                tags?.map((tag, index) => {
-                                    return (
-                                        <Link key={index} passHref href={{ pathname: '/blog', query: { tags: tag } }}>
-                                            <p className='bg-white text-sm mr-1 my-1 rounded-lg w-max px-2 py-1 shadow-sm cursor-pointer
-                                        transition-all hover:bg-purple hover:text-white'>
-                                                {tag}
-                                            </p>
-                                        </Link>
-                                    )
-                                })
-                            }
+                        <b>Author:</b> {author}
+                    </div>
+                    <div>
+                        <b>Created on:</b> {timeStamp(_createdAt)}
+                    </div>
+                    <div>
+                        <h2>
+                            <b>Tags:</b>
+                        </h2>
+                        <div className="flex flex-wrap mt-3">
+                            {tags?.map((tag, index) => {
+                                return (
+                                    <Link
+                                        key={index}
+                                        passHref
+                                        href={{
+                                            pathname: '/blog',
+                                            query: { tags: tag },
+                                        }}
+                                    >
+                                        <p
+                                            className="bg-white text-sm mr-1 my-1 rounded-lg w-max px-2 py-1 shadow-sm cursor-pointer
+                                        transition-all hover:bg-purple hover:text-white"
+                                        >
+                                            {tag}
+                                        </p>
+                                    </Link>
+                                )
+                            })}
                         </div>
                     </div>
                 </div>
@@ -86,49 +118,84 @@ export default function SingleBlog(props) {
 
                 {/* -------------- Similar Articles ------------- */}
                 <div className={`${styles.sim} mt-5`}>
-                    {similarArticles.length !== 0 && <h2 className='font-bold text-purple text-xl mb-10'>Similar articles:</h2>}
-                    {similarArticles?.map(({ category, featuredImage, title, shortDescription, slug }, index) => {
-                        return (
-                            <Link key={index} href={`/blog/${category.slug}/${slug}`} passHref>
-                                <a className={`${styles.similar_articles} bg-white shadow-sm mb-10 cursor-pointer hover:scale-[1.015] transition-all rounded-lg overflow-hidden`}>
-                                    <div>
-                                        <aside className='relative lg:h-[120px] h-[150px]'>
-                                            <Image
-                                                src={urlFor(featuredImage.image).height(300).url()}
-                                                className="object-cover bg-no-repeat cursor-pointer"
-                                                layout="fill"
-                                                alt={featuredImage.image.alt}
-                                                title={featuredImage.image.title}
-                                            />
-                                        </aside>
-                                        <aside className='w-full h-max text-gray-500 p-2 py-3'>
-                                            <h2 className='text-base font-bold'>{title}</h2>
-                                            <p>{trimFunction(shortDescription, 80)}</p>
-                                        </aside>
-                                    </div>
-                                </a>
-                            </Link>
-                        )
-                    })}
+                    {similarArticles.length !== 0 && (
+                        <h2 className="font-bold text-purple text-xl mb-10">
+                            Similar articles:
+                        </h2>
+                    )}
+                    {similarArticles?.map(
+                        (
+                            {
+                                category,
+                                featuredImage,
+                                title,
+                                shortDescription,
+                                slug,
+                            },
+                            index
+                        ) => {
+                            return (
+                                <Link
+                                    key={index}
+                                    href={`/blog/${category.slug}/${slug}`}
+                                    passHref
+                                >
+                                    <a
+                                        className={`${styles.similar_articles} bg-white shadow-sm mb-10 cursor-pointer hover:scale-[1.015] transition-all rounded-lg overflow-hidden`}
+                                    >
+                                        <div>
+                                            <aside className="relative lg:h-[120px] h-[150px]">
+                                                <Image
+                                                    src={urlFor(
+                                                        featuredImage.image
+                                                    )
+                                                        .height(300)
+                                                        .url()}
+                                                    className="object-cover bg-no-repeat cursor-pointer"
+                                                    layout="fill"
+                                                    alt={
+                                                        featuredImage.image.alt
+                                                    }
+                                                    title={
+                                                        featuredImage.image
+                                                            .title
+                                                    }
+                                                />
+                                            </aside>
+                                            <aside className="w-full h-max text-gray-500 p-2 py-3">
+                                                <h2 className="text-base font-bold">
+                                                    {title}
+                                                </h2>
+                                                <p>
+                                                    {trimFunction(
+                                                        shortDescription,
+                                                        80
+                                                    )}
+                                                </p>
+                                            </aside>
+                                        </div>
+                                    </a>
+                                </Link>
+                            )
+                        }
+                    )}
                 </div>
             </div>
         </>
-
     )
 }
-
 
 export const getStaticPaths = async (ctx) => {
     let lang = languageToUpperCase(ctx.defaultLocale)
     let slugs = await client.fetch(allBlogs, { lang })
-    let paths = slugs.map(slug => {
+    let paths = slugs.map((slug) => {
         return {
-            params: { blog: slug.slug, category: slug.category.slug }
+            params: { blog: slug.slug, category: slug.category.slug },
         }
     })
     return {
         paths,
-        fallback: 'blocking'
+        fallback: 'blocking',
     }
 }
 
@@ -142,9 +209,10 @@ export const getStaticProps = async (ctx) => {
     try {
         props = {
             similar_articles: sim_art,
-            article: a
+            article: a,
         }
-    } catch (err) { throw err }
+    } catch (err) {
+        throw err
+    }
     return { props }
 }
-
