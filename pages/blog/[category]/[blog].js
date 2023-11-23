@@ -144,14 +144,14 @@ export default function SingleBlog(props) {
                                         className={`${styles.similar_articles} bg-white shadow-sm mb-10 cursor-pointer hover:scale-[1.015] transition-all rounded-lg overflow-hidden`}
                                     >
                                         <div>
-                                            <aside className="relative lg:h-[120px] h-[150px]">
+                                            <aside className="relative lg:h-[200px] h-[250px]">
                                                 <Image
                                                     src={urlFor(
                                                         featuredImage.image
                                                     )
                                                         .height(300)
                                                         .url()}
-                                                    className="object-cover bg-no-repeat cursor-pointer"
+                                                    className="object-contain bg-no-repeat cursor-pointer"
                                                     layout="fill"
                                                     alt={
                                                         featuredImage.image.alt

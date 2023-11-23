@@ -52,7 +52,7 @@ const CustomImage = ({ image }) => {
         <div className="relative w-full h-[350px] my-10">
             <Image
                 src={urlFor(image).height(600).url()}
-                className="object-cover bg-no-repeat rounded-lg cursor-pointer"
+                className="object-contain bg-no-repeat rounded-lg cursor-pointer"
                 layout="fill"
                 alt={image.alt}
                 title={image.title}
@@ -97,7 +97,7 @@ const CustomCarousel = ({ images }) => {
                     >
                         <Image
                             src={urlFor(i.image).height(200).url()}
-                            className="object-cover bg-no-repeat rounded-lg cursor-pointer"
+                            className="object-contain bg-no-repeat rounded-lg cursor-pointer"
                             layout="fill"
                             alt={i.image.alt}
                             title={i.image.title}
