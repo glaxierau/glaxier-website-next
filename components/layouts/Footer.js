@@ -11,10 +11,12 @@ import { useRouter } from 'next/router'
 const Footer = () => {
     const router = useRouter()
     const { state } = useSelector((s) => s.state)
-    const serviceInDiffLang = router.locale === 'en-au' ? 'Services' : "บริการ"
+    const serviceInDiffLang = router.locale === 'en-au' ? 'Services' : 'บริการ'
     const headerState = state?.find((el) => el.name === 'header')
     const header = headerState?.state?.menuList
-    const servicesList = header?.find((el) => el.menuLabel === serviceInDiffLang)
+    const servicesList = header?.find(
+        (el) => el.menuLabel === serviceInDiffLang
+    )
     const general = state?.filter((r) => r.name === 'general')[0]?.state
         .companyContent
     const companyName = state?.filter((r) => r.name === 'general')[0]?.state
@@ -92,13 +94,18 @@ const Footer = () => {
                         {/* quick links */}
                         <div className="flex flex-col w-1/3">
                             <h4 className="text-lg font-bold text-white">
-                                {router.locale === 'en-au' ? 'Quick links' : 'ลิงค์ด่วน'}
+                                {router.locale === 'en-au'
+                                    ? 'Quick links'
+                                    : 'ลิงค์ด่วน'}
                             </h4>
                             <br />
                             {header?.map((list, index) => {
                                 const to = list?.slug?.current
                                 return (
-                                    <Link key={index} href={to === '/' ? '/' : `/${to}`}>
+                                    <Link
+                                        key={index}
+                                        href={to === '/' ? '/' : `/${to}`}
+                                    >
                                         {list?.menuLabel}
                                     </Link>
                                 )
@@ -106,13 +113,16 @@ const Footer = () => {
                         </div>
                         {/* services  */}
                         <div className="flex flex-col w-1/2">
-                            <h4 className="text-lg font-bold text-white">{servicesList?.menuLabel}</h4>
+                            <h4 className="text-lg font-bold text-white">
+                                {servicesList?.menuLabel}
+                            </h4>
                             <br />
                             {servicesList?.subMenuList?.map((list, index) => (
-                                <Link key={index} href={`/services/${list.slug}` || '/'}>
-                                    <a>
-                                        {list?.label}
-                                    </a>
+                                <Link
+                                    key={index}
+                                    href={`/services/${list.slug}` || '/'}
+                                >
+                                    <a>{list?.label}</a>
                                 </Link>
                             ))}
                         </div>
@@ -175,7 +185,8 @@ const Footer = () => {
                 {/* footer meta  */}
                 <div className="flex items-center justify-between py-8 border-t">
                     <span className="lg:text-sm md:text-sm text-xss text-white">
-                        Privacy Policy | Terms of Use
+                        <Link href="/privacypolicy">Privacy Policy</Link> |{' '}
+                        <Link href="/terms-and-conditions">Terms of Use</Link>
                     </span>
                     <span className="lg:text-sm md:text-sm text-xss text-white">
                         Copyright © All rights reserved | {companyName}

@@ -1,7 +1,7 @@
 import Head from '../components/common/Head'
 import Title from '../components/Title'
 
-export default function Home(props) {
+export default function PrivacyPolicy(props) {
     return (
         <div>
             <Head
@@ -10,9 +10,10 @@ export default function Home(props) {
             />
             <div className="grid justify-center lg:w-[80vw] md:w-[95vw] w-[92vw] mx-auto mt-20">
                 <Title title={'Privacy Policy'} lineWidth={150} />
+                <div className="h-14 w-full"></div>
                 <br />
                 <br />
-                <div className="justify-center lg:max-w-3xl ">
+                <div className="justify-center max-w-3xl mx-auto mb-10">
                     <div>
                         Privacy Policy At Glaxier Website, accessible from
                         https://glaxier.com.au, one of our main priorities is
