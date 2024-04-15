@@ -1,7 +1,6 @@
-import Link from 'next/link';
+import Link from 'next/link'
 import React from 'react'
-import CookieConsent from 'react-cookie-consent';
-
+import CookieConsent from 'react-cookie-consent'
 
 function Cookie() {
     return (
@@ -15,31 +14,33 @@ function Cookie() {
             declineButtonStyle={declineButtonStyle}
             flipButtons
             expires={365}
-            cookieName='userAcceptCookieConsent'
+            cookieName="userAcceptCookieConsent"
         >
             This website uses cookies to enhance the user experience.<br></br>
-            <Link href={'/privacy-policy'} passHref>
-                <p className="text-purple cursor-pointer">See our privacy policies</p>
+            <Link href={'/privacypolicy'} passHref>
+                <p className="text-purple cursor-pointer">
+                    See our privacy policies
+                </p>
             </Link>
-        </CookieConsent >
+        </CookieConsent>
     )
 }
 
 const buttonStyle = {
     backgroundColor: 'rgb(159 176 228)',
     color: 'white',
-    borderRadius: 5
+    borderRadius: 5,
 }
 const declineButtonStyle = {
     backgroundColor: 'grey',
     color: 'white',
     borderRadius: 5,
-    marginLeft: -10
+    marginLeft: -10,
 }
 const mainStyle = {
     backgroundColor: 'white',
     color: 'black',
-    boxShadow: '2px 2px 2px 1px rgb(159 176 228)'
+    boxShadow: '2px 2px 2px 1px rgb(159 176 228)',
 }
 
 export default Cookie

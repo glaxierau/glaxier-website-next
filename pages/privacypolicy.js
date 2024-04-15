@@ -14,7 +14,7 @@ export default function PrivacyPolicy(props) {
                 <br />
                 <br />
                 <div className="justify-center max-w-3xl mx-auto mb-10">
-                    <div>
+                    <div className="text-black">
                         Privacy Policy At Glaxier Website, accessible from
                         https://glaxier.com.au, one of our main priorities is
                         the privacy of our visitors. This Privacy Policy
@@ -152,11 +152,14 @@ export default function PrivacyPolicy(props) {
                         The application use and transfer of information received
                         from Google APIs to any other app will adhere to{' '}
                         <a
-                            target="_blank"
+                            target="__blank"
                             href="https://developers.google.com/terms/api-services-user-data-policy"
-                        ></a>
-                        Google API Services User Data Policy, including the
-                        Limited Use requirements
+                            class="text-red"
+                        >
+                            {' '}
+                            Google API Services User Data Policy
+                        </a>
+                        , including the Limited Use requirements
                         <br /> <br />
                         <h3>
                             CCPA Privacy Rights (Do Not Sell My Personal
