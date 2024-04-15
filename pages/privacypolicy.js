@@ -149,6 +149,15 @@ export default function PrivacyPolicy(props) {
                         browsers, it can be found on the browsers' respective
                         websites.
                         <br /> <br />
+                        The application use and transfer of information received
+                        from Google APIs to any other app will adhere to{' '}
+                        <a
+                            target="_blank"
+                            href="https://developers.google.com/terms/api-services-user-data-policy"
+                        ></a>
+                        Google API Services User Data Policy, including the
+                        Limited Use requirements
+                        <br /> <br />
                         <h3>
                             CCPA Privacy Rights (Do Not Sell My Personal
                             Information)
