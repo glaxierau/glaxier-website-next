@@ -32,7 +32,11 @@ const Client = (props) => {
                         className="lg:w-3/5  w-10/12 mx-auto mt-14 py-2"
                     >
                         {clientSection.clients.map((client) => (
-                            <Badge key={client._id} image={client.logo.image} />
+                            <Badge
+                                key={client._id}
+                                image={client.logo.image}
+                                link={client.link}
+                            ></Badge>
                         ))}
                     </Slider>
                 </SlideIn>
