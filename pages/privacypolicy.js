@@ -152,9 +152,10 @@ export default function PrivacyPolicy(props) {
                         The application use and transfer of information received
                         from Google APIs to any other app will adhere to{' '}
                         <a
-                            target="__blank"
+                            target="_blank"
+                            rel="noreferrer"
                             href="https://developers.google.com/terms/api-services-user-data-policy"
-                            class="text-red"
+                            className="text-red"
                         >
                             {' '}
                             Google API Services User Data Policy
