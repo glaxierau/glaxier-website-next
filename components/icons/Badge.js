@@ -10,7 +10,7 @@ const Badge = ({ size = '24', image, link = '#' }) => {
             className={`w-${size} h-${size} bg-white shadow-around rounded-full grid place-items-center cursor-pointer`}
         >
             {image && (
-                <a href={link}>
+                <a href={link} rel="noopener noreferrer">
                     <Img
                         {...sanityImage(image)}
                         width="85%"
